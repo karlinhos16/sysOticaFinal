@@ -97,3 +97,5 @@ C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica 
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.pdb
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOtica.dll
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOtica.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.exe.config
+C:\Users\daaysesantos\Desktop\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.pdb
