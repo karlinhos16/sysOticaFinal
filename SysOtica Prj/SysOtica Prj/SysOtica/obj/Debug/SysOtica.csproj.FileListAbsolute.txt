@@ -1,0 +1,12 @@
+C:\Users\Leonardo Marques\Desktop\RetaFinalDSD\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll.config
+C:\Users\Leonardo Marques\Desktop\RetaFinalDSD\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll
+C:\Users\Leonardo Marques\Desktop\RetaFinalDSD\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOtica\bin\Debug\SysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\RetaFinalDSD\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOtica\obj\Debug\SysOtica.csprojResolveAssemblyReference.cache
+C:\Users\Leonardo Marques\Desktop\RetaFinalDSD\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOtica\obj\Debug\SysOtica.dll
+C:\Users\Leonardo Marques\Desktop\RetaFinalDSD\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOtica\obj\Debug\SysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\OlhaAqui\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll.config
+C:\Users\Leonardo Marques\Desktop\OlhaAqui\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll
+C:\Users\Leonardo Marques\Desktop\OlhaAqui\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOtica\bin\Debug\SysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\OlhaAqui\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOtica\obj\Debug\SysOtica.csprojResolveAssemblyReference.cache
+C:\Users\Leonardo Marques\Desktop\OlhaAqui\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOtica\obj\Debug\SysOtica.dll
+C:\Users\Leonardo Marques\Desktop\OlhaAqui\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOtica\obj\Debug\SysOtica.pdb

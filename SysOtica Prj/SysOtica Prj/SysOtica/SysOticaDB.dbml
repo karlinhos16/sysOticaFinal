@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SysOtica" Class="SysOticaDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MRX-PC\MSSQLSERVERSYSOT;Initial Catalog=SysOtica;Persist Security Info=True;User ID=sysotica" SettingsObjectName="SysOtica.Properties.Settings" SettingsPropertyName="SysOticaConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.categoria" Member="categorias">
+    <Type Name="categoria">
+      <Column Name="ct_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ct_nome" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="categoria_produto" Member="produtos" ThisKey="ct_id" OtherKey="ct_id" Type="produto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.venda" Member="Vendas">
+    <Type Name="Venda">
+      <Column Name="vn_id" Member="CodigoVenda" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cl_id" Member="CodigoCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vn_valor" Member="Valor" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="vn_valortotal" Member="ValorPago" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="vn_desconto" Member="Desconto" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="vn_formapagamento" Member="FormaPagamento" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="venda_itensVenda" Member="itensVendas" ThisKey="CodigoVenda" OtherKey="CodigoVenda" Type="ItemVenda" />
+      <Association Name="venda_itensVenda1" Member="ItemVendas" ThisKey="CodigoVenda" OtherKey="CodigoVenda" Type="ItemVenda" />
+      <Association Name="venda_produtovenda" Member="produtovendas" ThisKey="CodigoVenda" OtherKey="vn_id" Type="produtovenda" />
+      <Association Name="cliente_venda" Member="cliente" ThisKey="CodigoCliente" OtherKey="cl_id" Type="cliente" IsForeignKey="true" />
+      <Association Name="cliente_venda1" Member="cliente1" ThisKey="CodigoCliente" OtherKey="cl_id" Type="cliente" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cliente" Member="clientes">
+    <Type Name="cliente">
+      <Column Name="cl_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cl_nome" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_datanascimento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="cl_cpf" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_rg" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cl_telefone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_celular" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_telefone2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cl_cep" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_endereco" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_numero" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_bairro" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_cidade" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_uf" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_email" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_nomepai" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_nomemae" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_profissao" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_observacoes" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="cliente_venda" Member="vendas" ThisKey="cl_id" OtherKey="CodigoCliente" Type="Venda" />
+      <Association Name="cliente_venda1" Member="Vendas1" ThisKey="cl_id" OtherKey="CodigoCliente" Type="Venda" />
+      <Association Name="cliente_receita" Member="receitas" ThisKey="cl_id" OtherKey="cl_id" Type="receita" />
+    </Type>
+  </Table>
+  <Table Name="dbo.fornecedor" Member="fornecedors">
+    <Type Name="fornecedor">
+      <Column Name="fr_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fr_razaosocial" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_inscricaoestadual" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_fantasia" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_endereco" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_cidade" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_uf" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_bairro" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_cep" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_contato" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_telefone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_fax" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_nomerepresentante" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_telefonerepresentante" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_celularrepresentante" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_observacoes" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="fr_cnpj" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="fornecedor_produtofornecedor" Member="produtofornecedors" ThisKey="fr_id" OtherKey="fr_id" Type="produtofornecedor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.itensVenda" Member="ItemVendas">
+    <Type Name="ItemVenda">
+      <Column Name="iv_quantidade" Member="Quantidade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pr_id" Member="CodigoProduto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vn_id" Member="CodigoVenda" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iv_valor" Member="Valor" Type="System.Decimal" DbType="Decimal(15,2) NOT NULL" CanBeNull="false" />
+      <Column Name="iv_id" Member="CodigoItem" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="venda_itensVenda" Member="venda" ThisKey="CodigoVenda" OtherKey="CodigoVenda" Type="Venda" IsForeignKey="true" />
+      <Association Name="venda_itensVenda1" Member="Venda1" ThisKey="CodigoVenda" OtherKey="CodigoVenda" Type="Venda" IsForeignKey="true" />
+      <Association Name="produto_itensVenda" Member="produto" ThisKey="CodigoProduto" OtherKey="pr_id" Type="produto" IsForeignKey="true" />
+      <Association Name="produto_itensVenda1" Member="produto1" ThisKey="CodigoProduto" OtherKey="pr_id" Type="produto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.produto" Member="produtos">
+    <Type Name="produto">
+      <Column Name="pr_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ct_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pr_descricao" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="pr_unidade" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="pr_grife" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="pr_valor" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="pr_estoqueminimo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pr_categoria" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="pr_qtd" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="produto_itensVenda" Member="itensVendas" ThisKey="pr_id" OtherKey="CodigoProduto" Type="ItemVenda" />
+      <Association Name="produto_itensVenda1" Member="ItemVendas" ThisKey="pr_id" OtherKey="CodigoProduto" Type="ItemVenda" />
+      <Association Name="produto_produtofornecedor" Member="produtofornecedors" ThisKey="pr_id" OtherKey="pr_id" Type="produtofornecedor" />
+      <Association Name="produto_produtovenda" Member="produtovendas" ThisKey="pr_id" OtherKey="pr_id" Type="produtovenda" />
+      <Association Name="categoria_produto" Member="categoria" ThisKey="ct_id" OtherKey="ct_id" Type="categoria" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.produtofornecedor" Member="produtofornecedors">
+    <Type Name="produtofornecedor">
+      <Column Name="pf_qtd" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pf_dtentrada" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="pr_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="fr_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="pf_tipo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="pf_observacoes" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="fornecedor_produtofornecedor" Member="fornecedor" ThisKey="fr_id" OtherKey="fr_id" Type="fornecedor" IsForeignKey="true" />
+      <Association Name="produto_produtofornecedor" Member="produto" ThisKey="pr_id" OtherKey="pr_id" Type="produto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.produtovenda" Member="produtovendas">
+    <Type Name="produtovenda">
+      <Column Name="pv_dtsaida" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="pv_qtd" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pr_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="vn_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="produto_produtovenda" Member="produto" ThisKey="pr_id" OtherKey="pr_id" Type="produto" IsForeignKey="true" />
+      <Association Name="venda_produtovenda" Member="Venda" ThisKey="vn_id" OtherKey="CodigoVenda" Type="Venda" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.receita" Member="receitas">
+    <Type Name="receita">
+      <Column Name="rc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cl_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="rc_historico" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="rc_lodesferico" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_loeesferico" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_podesferico" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_poeesferico" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_lodcilindrico" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_loecilindrico" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_podcilindrico" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_poecilindrico" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_lodeixo" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_loeeixo" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_podeixo" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_poeeixo" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_lodaltura" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_loealtura" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_podaltura" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_poealtura" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_loddnp" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_loednp" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_poddnp" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_poednp" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_adicao" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="rc_nomemedico" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="rc_observacoes" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="rc_data" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="rc_dtavencimento" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="cliente_receita" Member="cliente" ThisKey="cl_id" OtherKey="cl_id" Type="cliente" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

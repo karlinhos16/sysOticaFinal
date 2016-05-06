@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B0F43429-5DC9-4DC0-8BA1-6DD2B7363A8A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SysOtica</RootNamespace>
+    <AssemblyName>SysOtica</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Conexao\IVendaDados.cs" />
+    <Compile Include="Conexao\VendaDados.cs" />
+    <Compile Include="Conexao\IProdutoDados.cs" />
+    <Compile Include="Conexao\IProdutoFornecedor.cs" />
+    <Compile Include="Conexao\IUsuarioDados.cs" />
+    <Compile Include="Conexao\IFornecedorDados.cs" />
+    <Compile Include="Conexao\IReceitaDados.cs" />
+    <Compile Include="Conexao\IClienteDados.cs" />
+    <Compile Include="Conexao\ProdutoFornecedorDados.cs" />
+    <Compile Include="Conexao\ReceitaDados.cs" />
+    <Compile Include="Conexao\UsuarioDados.cs" />
+    <Compile Include="Conexao\ProdutoDados.cs" />
+    <Compile Include="Conexao\FornecedoresDados.cs" />
+    <Compile Include="Conexao\ClienteDados.cs" />
+    <Compile Include="Conexao\ConexaoBD.cs" />
+    <Compile Include="Conexao\IConexaoBD.cs" />
+    <Compile Include="Negocio\Classes Basicas\Categoria.cs" />
+    <Compile Include="Negocio\Classes Basicas\Cliente.cs" />
+    <Compile Include="Negocio\Classes Basicas\Fornecedor.cs" />
+    <Compile Include="Negocio\Classes Basicas\Produto.cs" />
+    <Compile Include="Negocio\Classes Basicas\ProdutoFornecedor.cs" />
+    <Compile Include="Negocio\Classes Basicas\ProdutoVenda.cs" />
+    <Compile Include="Negocio\Classes Basicas\Receita.cs" />
+    <Compile Include="Negocio\Classes Basicas\Usuario.cs" />
+    <Compile Include="Negocio\Classes Basicas\Venda.cs" />
+    <Compile Include="Negocio\Excecoes\BancoDeDadosException.cs" />
+    <Compile Include="Negocio\Excecoes\CampoVazioException.cs" />
+    <Compile Include="Negocio\Excecoes\ConexaoException.cs" />
+    <Compile Include="Negocio\Excecoes\GuidVazioException.cs" />
+    <Compile Include="Negocio\Fachada\Fachada.cs" />
+    <Compile Include="Negocio\Fachada\IFachada.cs" />
+    <Compile Include="Negocio\Regras de Negocio\VendaControlador.cs" />
+    <Compile Include="Negocio\Regras de Negocio\ProdutoControlador.cs" />
+    <Compile Include="Negocio\Regras de Negocio\ReceitaControlador.cs" />
+    <Compile Include="Negocio\Regras de Negocio\FornecedorControlador.cs" />
+    <Compile Include="Negocio\Regras de Negocio\UsuarioControlador.cs" />
+    <Compile Include="Negocio\Regras de Negocio\ClienteControlador.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SysOticaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SysOticaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SysOticaDB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SysOticaDB.dbml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SysOticaDataSet.xsc">
+      <DependentUpon>SysOticaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SysOticaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SysOticaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SysOticaDataSet.xss">
+      <DependentUpon>SysOticaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SysOticaDB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SysOticaDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SysOticaDB.dbml.layout">
+      <DependentUpon>SysOticaDB.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
