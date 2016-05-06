@@ -28,29 +28,20 @@ namespace SysOticaForm
 
         private void frmVenda_Load(object sender, EventArgs e)
         {
-           
-            this.clienteBindingSource.DataSource = fc.listarCliente();
-            this.vendaBindingSource.DataSource = fc.listarVenda();
-            this.produtoBindingSource.DataSource = fc.ListaProduto();
-
-            this.vendaBindingSource.AddNew();
+            CboCliente.DataSource = fc.listarCliente();
+            CboCliente.ValueMember = "cl_id";
+            CboCliente.DisplayMember = "cl_nome";
+          
         }
 
         private void BtnNovaVenda_Click(object sender, EventArgs e)
         {
-            this.vendaBindingSource.EndEdit();
+          
            
 
 
 
 
-            Venda v = new Venda();
-            
-            v.CodigoCliente = Convert.ToInt32(CboCliente.SelectedValue);
-            v.CodigoVenda = Convert.ToInt32(TxtVenda.Text);
-            
-            
-           // fc.inserirVenda();
             
         }
 
