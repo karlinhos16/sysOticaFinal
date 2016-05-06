@@ -64,3 +64,6 @@ C:\Users\Leonardo Marques\Desktop\OlhaAqui\[Projeto atualizado] COM O CRUD\sysOt
 C:\Users\Leonardo Marques\Desktop\OlhaAqui\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.csproj.GenerateResource.Cache
 C:\Users\Leonardo Marques\Desktop\OlhaAqui\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOticaForm\obj\Debug\RdlCompile.cache
 C:\Users\Leonardo Marques\Desktop\OlhaAqui\[Projeto atualizado] COM O CRUD\sysOtica\sysOtica\SysOtica Prj\SysOticaForm\obj\Debug\RdlCompile.compiled
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.exe.config
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.exe
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.pdb
