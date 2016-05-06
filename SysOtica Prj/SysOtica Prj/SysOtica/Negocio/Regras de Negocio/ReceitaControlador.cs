@@ -16,7 +16,7 @@ namespace SysOtica.Negocio.Regras_de_Negocio
 
         public void VerificaPreenchimento(Receita receita)
         {
-            if (receita.Rc_lodesferico.Equals("") || receita.Rc_loeesferico.Equals("") || receita.Rc_podesferico.Equals("") || receita.Rc_poeesferico.Equals(""))
+            /*if (receita.Rc_lodesferico.Equals("") || receita.Rc_loeesferico.Equals("") || receita.Rc_podesferico.Equals("") || receita.Rc_poeesferico.Equals(""))
             {
                 throw new CampoVazioException("Campos Esfericos Vazios");
             }
@@ -32,7 +32,7 @@ namespace SysOtica.Negocio.Regras_de_Negocio
             {
 
                 throw new CampoVazioException("Campos alturas Vazios");
-            }
+            }*/
 
             if (String.IsNullOrEmpty(Convert.ToDateTime(receita.Rc_data).ToString()))
             {

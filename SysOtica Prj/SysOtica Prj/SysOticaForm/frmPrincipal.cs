@@ -61,9 +61,11 @@ namespace SysOticaForm
         {
             Dispose();
         }
-
+        
         private void receitaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {   
+
+
             frmReceita receita = new frmReceita();
             receita.MdiParent = this;
             receita.Show();

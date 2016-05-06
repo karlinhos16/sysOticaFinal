@@ -1,8 +1,10 @@
 ﻿using SysOtica;
+using SysOtica.Conexao;
 using SysOtica.Negocio;
 using SysOtica.Negocio.Classes_Basicas;
 using SysOtica.Negocio.Fachada;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,9 +18,21 @@ namespace SysOticaForm
 {
     public partial class frmReceita : Form
     {
+
+       public List<Cliente> listaCli;
+       public List<Receita> listaReceita;
+       Receita selecionaReceita;
+        ReceitaDados dadosreceita = new ReceitaDados();
+    
+
         public frmReceita()
         {
             InitializeComponent();
+           
+            carregaCliente();
+
+            carregaHistorico();
+
         }
 
         
@@ -54,11 +68,15 @@ namespace SysOticaForm
 
         private void btnSalvar_Click_1(object sender, EventArgs e)
         {
+
+            
+
             try
-            {
+            {    
 
                 Receita receita = new Receita();
                 {
+
                     receita.Rc_lodesferico = Convert.ToDecimal(txtLongeODesferico.Text);
                     receita.Rc_loeesferico = Convert.ToDecimal(txtLongeOEesferico.Text);
                     receita.Rc_podesferico = Convert.ToDecimal(txtPertoODesferico.Text);
@@ -83,12 +101,21 @@ namespace SysOticaForm
                    //Receita.Rc_adicao = Convert.ToDecimal(textAdicao.Text);
                     receita.Rc_nomemedico = textNomeMedico.Text.Trim();
                     receita.Rc_observacoes = textObs.Text.Trim();
-
                     string data = dateTimePickerValidade.Value.ToShortDateString();
                     receita.Rc_dtavalidade = Convert.ToDateTime(data);
 
+                    if (listBoxDatas.SelectedIndex >= -1)
+                    {
+                        listBoxDatas.Items.Add(Convert.ToString(maskedTextData.Text));
+
+                       receita.Rc_historico = listBoxDatas.ValueMember = maskedTextData.Text;
+                    }  
+
+                    Cliente cli = new  Cliente();
+                    cli.Cl_id = Convert.ToInt32(cmbCliente.SelectedValue.ToString());
+
                     Fachada fachada = new Fachada();
-                    fachada.InserirReceita(receita);
+                    fachada.InserirReceita(receita, cli);
                     MessageBox.Show("Receita cadastra com sucesso.");
                     LimparCampos();
 
@@ -107,6 +134,108 @@ namespace SysOticaForm
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+
+
+        void carregaCliente()
+        {
+            ClienteDados dados = new ClienteDados();
+            listaCli = dados.listarCliente();
+
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("cl_id");
+            dt.Columns.Add("cl_nome");
+
+            foreach (Cliente cli in listaCli)
+            {
+
+                DataRow row = dt.NewRow();
+                row["cl_id"] = cli.Cl_id;
+                row["cl_nome"] = cli.Cl_nome;
+                dt.Rows.Add(row);
+
+            }
+
+            cmbCliente.DataSource = dt;
+            cmbCliente.DisplayMember = "cl_nome";
+            cmbCliente.ValueMember = "cl_id"; 
+
+        }
+
+
+
+        void carregaHistorico()
+        {
+           
+            List<Receita> lista;
+            lista = dadosreceita.listaReceita();
+
+            DataTable data = new DataTable();
+
+            data.Columns.Add("rc_historico");
+
+            foreach (Receita receita in lista)
+            {
+                DataRow row1 = data.NewRow();
+                row1["rc_historico"] = receita.Rc_historico;
+                data.Rows.Add(row1);
+
+            }
+
+            listBoxDatas.DataSource = data;
+            listBoxDatas.DisplayMember = "rc_historico";
+
+      
+
+        }
+
+        private void listBoxDatas_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (listBoxDatas != null)
+            {
+                if (listBoxDatas.SelectedIndex >= 0)
+                {
+                   
+                
+                    if (selecionaReceita == null)
+                    {
+
+                        maskedTextData.Text = selecionaReceita.Rc_data.ToString();
+                        txtLongeODesferico.Text = selecionaReceita.Rc_lodesferico.ToString();
+                        txtLongeOEesferico.Text = selecionaReceita.Rc_lodesferico.ToString();
+                        txtPertoODesferico.Text = selecionaReceita.Rc_podesferico.ToString();
+                        txtPertoOEesferico.Text = selecionaReceita.Rc_poeesferico.ToString();
+                        txtLongeODcilindrico.Text = selecionaReceita.Rc_lodcilindrico.ToString();
+                        txtLongeOEcilindrico.Text = selecionaReceita.Rc_loecilindrico.ToString();
+                        txtPertoODcilindrico.Text = selecionaReceita.Rc_podcilindrico.ToString();
+                        txtPertoOEcilindrico.Text = selecionaReceita.Rc_poecilindrico.ToString();
+                        txtLongeODeixo.Text = selecionaReceita.Rc_lodeixo.ToString();
+                        txtLongeOEeixo.Text = selecionaReceita.Rc_loeeixo.ToString();
+                        txtPertoODeixo.Text = selecionaReceita.Rc_podeixo.ToString();
+                        txtPertoOEeixo.Text = selecionaReceita.Rc_poeeixo.ToString();
+                        txtLongeODaltura.Text = selecionaReceita.Rc_lodaltura.ToString();
+                        txtLongeOEaltura.Text = selecionaReceita.Rc_loealtura.ToString();
+                        txtPertoODaltura.Text = selecionaReceita.Rc_podaltura.ToString();
+                        txtPertoOEaltura.Text = selecionaReceita.Rc_poealtura.ToString();
+                        txtLongeODdnp.Text = selecionaReceita.Rc_loddnp.ToString();
+                        txtLongeOEdnp.Text = selecionaReceita.Rc_loednp.ToString();
+                        txtPertoODdnp.Text = selecionaReceita.Rc_poddnp.ToString();
+                        txtPertoOEdnp.Text = selecionaReceita.Rc_poednp.ToString();
+                      //textAdicao.Text = selecionaReceita.Rc_adicao.ToString();
+                        textNomeMedico.Text = selecionaReceita.Rc_nomemedico;
+                        textObs.Text = selecionaReceita.Rc_observacoes;
+                        dateTimePickerValidade.Text = selecionaReceita.Rc_dtavalidade.ToString();
+                        //cmbCliente.Text = cliente.Cl_nome.ToString();
+
+
+                    }
+
+                    btnSalvar.Enabled = false;
+
+                }
+            }
         }
     }
 

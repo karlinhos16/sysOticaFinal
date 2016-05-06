@@ -138,10 +138,10 @@ namespace SysOtica.Negocio.Fachada
         ReceitaDados receitadao = new ReceitaDados();
         ReceitaControlador receitaColtrol = new ReceitaControlador();
 
-        public void InserirReceita(Receita receita)
+        public void InserirReceita(Receita receita, Cliente cli)
         {
             receitaColtrol.VerificaPreenchimento(receita);
-            receitadao.inserirReceita(receita);
+            receitadao.inserirReceita(receita, cli);
 
         }
 
@@ -190,6 +190,7 @@ namespace SysOtica.Negocio.Fachada
              usudao.inserirUsuario(usu);
 
         }
+
 
         public void AlterarUsuario(Usuario usu)
         {

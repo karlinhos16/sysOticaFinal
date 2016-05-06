@@ -9,7 +9,7 @@ namespace SysOtica.Negocio.Classes_Basicas
     public class Receita
     {
         private int rc_id;
-        private DateTime rc_historico;
+        private String rc_historico;
         private decimal rc_lodesferico;
         private decimal rc_loeesferico;
         private decimal rc_podesferico;
@@ -52,7 +52,7 @@ namespace SysOtica.Negocio.Classes_Basicas
             }
         }
 
-        public DateTime Rc_historico
+        public String Rc_historico
         {
             get
             {
