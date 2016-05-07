@@ -225,9 +225,9 @@ namespace SysOtica.Negocio.Fachada
         VendaDados venDados = new VendaDados();
         VendaControlador venControl = new VendaControlador();
 
-        public void inserirVenda(Venda v)
+        public void inserir(Venda v)
         {
-            venDados.inserirVenda(v);
+            venDados.inserir(v);
         }
 
         public List<Venda> listarVenda()

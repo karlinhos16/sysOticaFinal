@@ -279,7 +279,7 @@ namespace SysOtica.Conexao
                 {
                     receita = new Receita();
                     receita.Rc_id = Convert.ToInt32(retorno.GetOrdinal("rc_id"));
-                    receita.Rc_historico = retorno.GetString(retorno.GetOrdinal("rc_historico"));                                    
+                    //receita.Rc_historico = retorno.GetString(retorno.GetOrdinal("rc_historico"));                                    
                     receita.Rc_lodesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_lodesferico"));
                     receita.Rc_loeesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_loeesferico"));                                   
                     receita.Rc_podesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_podesferico"));
@@ -303,7 +303,7 @@ namespace SysOtica.Conexao
                     receita.Rc_data = retorno.GetDateTime(retorno.GetOrdinal("rc_data"));
                     receita.Rc_adicao = retorno.GetDecimal(retorno.GetOrdinal("rc_adicao"));
                     receita.Rc_nomemedico = retorno.GetString(retorno.GetOrdinal("rc_nomemedico"));
-                    receita.Rc_dtavalidade = retorno.GetDateTime(retorno.GetOrdinal("rc_dtvencimento"));
+                    //receita.Rc_dtavalidade = retorno.GetDateTime(retorno.GetOrdinal("rc_dtvencimento"));
                     receita.Rc_observacoes = retorno.GetString(retorno.GetOrdinal("rc_observacoes"));
 
 

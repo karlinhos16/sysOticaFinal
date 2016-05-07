@@ -21,7 +21,7 @@ namespace SysOtica.Conexao
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "INSERT INTO Produto (pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_categoria,  pr_qtd, pr_unidade) values ( @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_categoria, @pr_qtd, @pr_unidade)";
+                string sql = "INSERT INTO Produto (ct_id,pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_categoria,  pr_qtd, pr_unidade) values (@ct_id, @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_categoria, @pr_qtd, @pr_unidade)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
@@ -42,10 +42,6 @@ namespace SysOtica.Conexao
 
                 cmd.Parameters.Add("@pr_estoqueminimo", SqlDbType.VarChar);
                 cmd.Parameters["@pr_estoqueminimo"].Value = p.Pr_estoqueminimo;
-
-
-                cmd.Parameters.Add("@pr_categoria", SqlDbType.VarChar);
-                cmd.Parameters["@pr_categoria"].Value = p.Pr_Categoria;
 
 
                 //executando a instrucao 
@@ -92,9 +88,6 @@ namespace SysOtica.Conexao
                 cmd.Parameters.Add("@pr_estoqueminimo", SqlDbType.VarChar);
                 cmd.Parameters["@pr_estoqueminimo"].Value = p.Pr_estoqueminimo;
 
-                cmd.Parameters.Add("@pr_categoria", SqlDbType.VarChar);
-                cmd.Parameters["@pr_categoria"].Value = p.Pr_Categoria;
-
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -136,7 +129,7 @@ namespace SysOtica.Conexao
 
         public List<Produto> listarProduto()
         {
-            string sql = "SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_categoria, pr_qtd FROM Produto";
+            string sql = "SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_qtd FROM Produto";
             List<Produto> lista = new List<Produto>();
             Produto p;
         
@@ -155,7 +148,6 @@ namespace SysOtica.Conexao
                     p.Pr_grife = retorno.GetString(retorno.GetOrdinal("pr_grife"));
                     p.Pr_valor = retorno.GetDecimal(retorno.GetOrdinal("pr_valor"));
                     p.Pr_estoqueminimo= retorno.GetInt32(retorno.GetOrdinal("pr_estoqueminimo"));
-                    p.Pr_Categoria = retorno.GetString(retorno.GetOrdinal("pr_categoria"));
                     p.Pr_qtd = retorno.GetInt32(retorno.GetOrdinal("pr_qtd"));
                     
                     lista.Add(p);
@@ -199,7 +191,6 @@ namespace SysOtica.Conexao
                     p.Pr_grife = retorno.GetString(retorno.GetOrdinal("pr_grife"));
                     p.Pr_valor = retorno.GetDecimal(retorno.GetOrdinal("pr_valor"));
                     p.Pr_estoqueminimo = retorno.GetInt32(retorno.GetOrdinal("pr_estoqueminimo"));
-                    p.Pr_Categoria = retorno.GetString(retorno.GetOrdinal("pr_categoria"));
                     p.Pr_qtd = retorno.GetInt32(retorno.GetOrdinal("pr_qtd"));
 
                     lista.Add(p);

@@ -10,29 +10,27 @@ namespace SysOtica.Negocio.Classes_Basicas
     {
 
         private int pr_id;
-        private String pr_descricao;      
-        private String pr_categoria;
+        private String pr_descricao;
         private string pr_unidade;
         private String pr_grife;
         private decimal pr_valor;
         private int pr_qtd;
-        private int pr_estoqueminimo;       
-        private List<ProdutoFornecedor> items_pf;
-        private List<ProdutoVenda> pv_id;
-    
+        private int pr_estoqueminimo;
+        private List<Categoria> categoria;
+        private ProdutoFornecedor produtoFornecedor;
 
-        public Produto(int pr_id, string pr_descricao, string pr_categoria, string pr_unidade, string pr_grife, decimal pr_valor, int pr_qtd, int pr_estoqueminimo, int fr_id, List<ProdutoFornecedor> items_pf, List<ProdutoVenda> pv_id )
+
+
+        public Produto(int pr_id, string pr_descricao, string pr_unidade, string pr_grife, decimal pr_valor, int pr_qtd, int pr_estoqueminimo, int fr_id, Categoria categoria, ProdutoFornecedor produtoFornecedor)
         {
             this.Pr_id = pr_id;
-            this.Pr_descricao = pr_descricao;           
-            this.pr_categoria = pr_categoria;
+            this.Pr_descricao = pr_descricao;
             this.pr_unidade = pr_unidade;
             this.Pr_grife = pr_grife;
             this.Pr_valor = pr_valor;
             this.Pr_qtd = pr_qtd;
-            this.Pr_estoqueminimo = pr_estoqueminimo;                    
-            this.items_pf = new List<ProdutoFornecedor>();
-            this.Pv_id = new List<ProdutoVenda>();          
+            this.ProdutoFornecedor = produtoFornecedor;
+
         }
 
         public Produto()
@@ -62,20 +60,6 @@ namespace SysOtica.Negocio.Classes_Basicas
             set
             {
                 pr_descricao = value;
-            }
-        }
-     
-
-        public string Pr_Categoria
-        {
-            get
-            {
-                return pr_categoria;
-            }
-
-            set
-            {
-                pr_categoria = value;
             }
         }
 
@@ -145,31 +129,30 @@ namespace SysOtica.Negocio.Classes_Basicas
             }
         }
 
-        public List<ProdutoFornecedor> Items_pf
+        public ProdutoFornecedor ProdutoFornecedor
         {
             get
             {
-                return items_pf;
+                return produtoFornecedor;
             }
 
             set
             {
-                items_pf = value;
+                produtoFornecedor = value;
             }
         }
 
-        public List<ProdutoVenda> Pv_id
+        public List<Categoria> Categoria
         {
             get
             {
-                return pv_id;
+                return categoria;
             }
 
             set
             {
-                pv_id = value;
+                categoria = value;
             }
         }
-    
     }
 }

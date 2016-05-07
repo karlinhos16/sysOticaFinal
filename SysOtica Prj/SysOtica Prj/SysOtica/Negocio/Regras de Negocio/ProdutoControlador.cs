@@ -33,10 +33,6 @@ namespace SysOtica.Negocio.Regras_de_Negocio
                 throw new CampoVazioException("Campo unidade não selecionado!");
             }
 
-            if (p.Pr_Categoria.Equals(""))
-            {
-                throw new CampoVazioException("Campo categoria não selecionado!");
-            }
             if (p.Pr_grife.Equals(""))
             {
                 throw new CampoVazioException("Campo grife não selecionado!");

@@ -37,8 +37,8 @@ namespace SysOtica.Conexao
                     cmd.Parameters.Add("@pf_dtentrada", SqlDbType.Date);
                     cmd.Parameters["@pf_dtentrada"].Value = pf.Pf_dtentrada;
 
-                    cmd.Parameters.Add("@pr_id", SqlDbType.Int);
-                    cmd.Parameters["@pr_id"].Value = pf.P.Items_pf;
+                    //cmd.Parameters.Add("@pr_id", SqlDbType.Int);
+                    //cmd.Parameters["@pr_id"].Value = pf;
 
                     //cmd.Parameters.Add("@fr_id", SqlDbType.Int);
                     //cmd.Parameters["@fr_id"].Value = produtofornecedor.Fr_id;

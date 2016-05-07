@@ -15,7 +15,7 @@ namespace SysOtica.Conexao
     {
         ConexaoBD conn = new ConexaoBD();
 
-        public void inserirVenda(Venda v)
+        public void inserir(Venda v)
         {
 
             try
@@ -26,19 +26,54 @@ namespace SysOtica.Conexao
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
                 cmd.Parameters.Add("@cl_id", SqlDbType.Int);
-                cmd.Parameters["@cl_id"].Value = v.CodigoCliente;
+                cmd.Parameters["@cl_id"].Value = v.Cliente;
 
                 cmd.Parameters.Add("@vn_valor", SqlDbType.Decimal);
-                cmd.Parameters["@vn_valor"].Value = v.Valor;
+                cmd.Parameters["@vn_valor"].Value = v.Vn_valor;
 
                 cmd.Parameters.Add("@vn_valortotal", SqlDbType.Decimal);
-                cmd.Parameters["@vn_valortotal"].Value = v.ValorPago;
+                cmd.Parameters["@vn_valortotal"].Value = v.Vn_valortotal;
 
                 cmd.Parameters.Add("@vn_desconto", SqlDbType.Decimal);
-                cmd.Parameters["@vn_desconto"].Value = v.Desconto;
+                cmd.Parameters["@vn_desconto"].Value = v.Vn_desconto;
 
                 cmd.Parameters.Add("@vn_formapagamento", SqlDbType.VarChar);
-                cmd.Parameters["@vn_formapagamento"].Value = v.FormaPagamento;
+                cmd.Parameters["@vn_formapagamento"].Value = v.Vn_formapagamento;
+
+                foreach (Receita r in v.Listareceita)
+                {
+                    ConexaoBD conn1 = new ConexaoBD();
+                    conn1.AbrirConexao();
+
+                    string sqlreceita = "INSERT INTO Receita (cl_cpf,rc_historico, rc_lodesferico, rc_loeesferico,rc_podesferico, rc_poeesferico,rc_lodcilindrico,rc_loecilindrico, rc_podcilindrico ,rc_poecilindrico,rc_lodeixo,rc_loeeixo,rc_podeixo,rc_poeeixo,rc_lodaltura,rc_loealtura,rc_podaltura,rc_poealtura,rc_loddnp,rc_loednp, rc_poddnp,rc_poednp,rc_adicao,rc_nomemedico,rc_observacoes,rc_data,rc_dtavalidade) Values (@cl_cpf,@rc_historico, @rc_lodesferico, @rc_loeesferico, @rc_podesferico, @rc_poeesferico, @rc_lodcilindrico, @rc_loecilindrico, @rc_podcilindrico ,@rc_poecilindrico, @rc_lodeixo, @rc_loeeixo, @rc_podeixo, @rc_poeeixo, @rc_lodaltura, @rc_loealtura, @rc_podaltura, @rc_poealtura,@rc_loddnp,@rc_loednp, @rc_poddnp,@rc_poednp,@rc_adicao,@rc_nomemedico,@rc_observacoes,@rc_data,@rc_dtavalidade)";
+                    SqlCommand cmd1 = new SqlCommand(sqlreceita, conn.cone);
+
+                    cmd.Parameters.Add("@rc_dtavalidade", SqlDbType.VarChar);
+                    cmd.Parameters["@rc_dtavalidade"].Value = r.Rc_dtavalidade;
+
+                    cmd1.ExecuteNonQuery();
+                    cmd1.Dispose();
+
+                    conn1.FecharConexao();
+                }
+
+                foreach (ProdutoVenda pv in v.Listaprodutovenda)
+                {
+                    ConexaoBD conn2 = new ConexaoBD();
+                    conn2.AbrirConexao();
+
+                    string sqlprodutovenda = "INSERT INTO produtofornecedor(pv_dtsaida,pv_qtd, vn_id) Values (@pv_dtsaida,@pv_qtd, @vn_id)";
+                    SqlCommand cmd2 = new SqlCommand(sqlprodutovenda, conn.cone);
+
+                    cmd.Parameters.Add("@pv_qtd", SqlDbType.VarChar);
+                    cmd.Parameters["@pv_qtd"].Value = pv.Pv_qtd;
+
+                    cmd2.ExecuteNonQuery();
+                    cmd2.Dispose();
+
+                    conn2.FecharConexao();
+                }
+
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -173,17 +208,17 @@ namespace SysOtica.Conexao
                 while (retorno.Read())
                 {
                     v = new Venda();
-                    v.CodigoVenda = retorno.GetInt32(retorno.GetOrdinal("vn_id"));
-                    v.CodigoCliente = retorno.GetInt32(retorno.GetOrdinal("cl_id"));
-                    v.Valor = retorno.GetDecimal(retorno.GetOrdinal("vn_valor"));
-                    v.ValorPago = retorno.GetDecimal(retorno.GetOrdinal("vn_valortotal"));
-                    v.Desconto = retorno.GetDecimal(retorno.GetOrdinal("vn_desconto"));
-                    v.FormaPagamento = retorno.GetString(retorno.GetOrdinal("vn_formapagamento"));
+                    v.Vn_id = retorno.GetInt32(retorno.GetOrdinal("vn_id"));
+                    //v.Cliente = retorno.GetInt32(retorno.GetOrdinal("cl_id"));
+                    v.Vn_valor = retorno.GetDecimal(retorno.GetOrdinal("vn_valor"));
+                    v.Vn_valortotal = retorno.GetDecimal(retorno.GetOrdinal("vn_valortotal"));
+                    v.Vn_desconto = retorno.GetDecimal(retorno.GetOrdinal("vn_desconto"));
+                    v.Vn_formapagamento = retorno.GetString(retorno.GetOrdinal("vn_formapagamento"));
                     lista.Add(v);
                 }
                 conn.FecharConexao();
                 return lista;
-                
+
             }
             catch (SqlException e)
             {
@@ -241,6 +276,7 @@ namespace SysOtica.Conexao
         //        throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
         //    }
         //}
+
 
 
     }

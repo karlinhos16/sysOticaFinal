@@ -9,9 +9,10 @@ namespace SysOtica.Negocio.Classes_Basicas
     public class ProdutoVenda
     {
         private int pv_id;
-        private List<Produto> pr_id;
-        private Venda vn_id;
+        private List<Produto> listaproduto;
+        private Venda venda;
         private DateTime pv_dtsaida;
+        private Decimal pv_qtd;
 
         public ProdutoVenda()
         {
@@ -30,25 +31,6 @@ namespace SysOtica.Negocio.Classes_Basicas
             }
         }
 
-        public List<Produto> Pr_id1
-        {
-            get { return pr_id; }
-            set { pr_id = value; }
-        }
-
-        public Venda Vn_id
-        {
-            get
-            {
-                return vn_id;
-            }
-
-            set
-            {
-                vn_id = value;
-            }
-        }
-
         public DateTime Pv_dtsaida
         {
             get
@@ -61,5 +43,45 @@ namespace SysOtica.Negocio.Classes_Basicas
                 pv_dtsaida = value;
             }
         }
+
+        public List<Produto> Listaproduto
+        {
+            get
+            {
+                return listaproduto;
+            }
+
+            set
+            {
+                listaproduto = value;
+            }
+        }
+
+        public Venda Venda
+        {
+            get
+            {
+                return venda;
+            }
+
+            set
+            {
+                venda = value;
+            }
+        }
+
+        public decimal Pv_qtd
+        {
+            get
+            {
+                return pv_qtd;
+            }
+
+            set
+            {
+                pv_qtd = value;
+            }
+        }
     }
 }
+

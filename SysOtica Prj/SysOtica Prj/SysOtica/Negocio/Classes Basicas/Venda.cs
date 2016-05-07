@@ -67,8 +67,5 @@ namespace SysOtica.Negocio.Classes_Basicas
             get { return vn_formapagamento; }
             set { vn_formapagamento = value; }
         }
-
-
-
     }
-}
+    }

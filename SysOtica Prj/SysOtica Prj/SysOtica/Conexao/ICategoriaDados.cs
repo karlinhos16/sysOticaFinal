@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace SysOtica.Conexao
 {
-    interface IVendaDados
+   public interface ICategoriaDados
     {
-        void inserir(Venda v);
-        //void alterarVenda(Venda v);
-        //void excluirVenda(Venda v);
-        List<Venda> listarVenda();
+        void inserir(Categoria c);
     }
 }

@@ -10,11 +10,13 @@ namespace SysOtica.Negocio.Classes_Basicas
     {
         private int ct_id;
         private String ct_nome;
+        private Produto produto;
 
-        public Categoria(int ct_id, string ct_nome)
+        public Categoria(int ct_id, string ct_nome, Produto produto)
         {
             this.ct_id = ct_id;
             this.ct_nome = ct_nome;
+            this.produto = produto;
         }
 
         public Categoria()
@@ -48,6 +50,19 @@ namespace SysOtica.Negocio.Classes_Basicas
             set
             {
                 ct_nome = value;
+            }
+        }
+
+        public Produto Produto
+        {
+            get
+            {
+                return produto;
+            }
+
+            set
+            {
+                produto = value;
             }
         }
     }
