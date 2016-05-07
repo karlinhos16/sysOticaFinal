@@ -89,7 +89,6 @@ C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica 
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmUsuarioAlterar.resources
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmVenda.resources
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.Properties.Resources.resources
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.teste.resources
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.csproj.GenerateResource.Cache
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\RdlCompile.cache
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\RdlCompile.compiled
