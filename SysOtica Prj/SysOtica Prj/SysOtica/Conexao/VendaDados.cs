@@ -209,7 +209,6 @@ namespace SysOtica.Conexao
                 {
                     v = new Venda();
                     v.Vn_id = retorno.GetInt32(retorno.GetOrdinal("vn_id"));
-                    //v.Cliente = retorno.GetInt32(retorno.GetOrdinal("cl_id"));
                     v.Vn_valor = retorno.GetDecimal(retorno.GetOrdinal("vn_valor"));
                     v.Vn_valortotal = retorno.GetDecimal(retorno.GetOrdinal("vn_valortotal"));
                     v.Vn_desconto = retorno.GetDecimal(retorno.GetOrdinal("vn_desconto"));
