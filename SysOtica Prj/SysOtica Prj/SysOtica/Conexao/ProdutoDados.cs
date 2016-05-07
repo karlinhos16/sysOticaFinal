@@ -21,7 +21,7 @@ namespace SysOtica.Conexao
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "INSERT INTO Produto (ct_id,pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_categoria,  pr_qtd, pr_unidade) values (@ct_id, @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_categoria, @pr_qtd, @pr_unidade)";
+                string sql = "INSERT INTO Produto (ct_id,pr_descricao, pr_grife, pr_valor, pr_estoqueminimo,  pr_qtd, pr_unidade) values (@ct_id, @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_qtd, @pr_unidade)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 

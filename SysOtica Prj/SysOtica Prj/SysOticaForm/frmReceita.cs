@@ -104,12 +104,12 @@ namespace SysOticaForm
                     string data = dateTimePickerValidade.Value.ToShortDateString();
                     receita.Rc_dtavalidade = Convert.ToDateTime(data);
 
-                    if (listBoxDatas.SelectedIndex >= -1)
-                    {
-                        listBoxDatas.Items.Add(Convert.ToString(maskedTextData.Text));
+                    //if (listBoxDatas.SelectedIndex >= -1)
+                    //{
+                    //    listBoxDatas.Items.Add(Convert.ToString(maskedTextData.Text));
 
-                       receita.Rc_historico = listBoxDatas.ValueMember = maskedTextData.Text;
-                    }  
+                    //   receita.Rc_historico = listBoxDatas.ValueMember = maskedTextData.Text;
+                    //}  
 
                     Cliente cli = new  Cliente();
                     cli.Cl_id = Convert.ToInt32(cmbCliente.SelectedValue.ToString());

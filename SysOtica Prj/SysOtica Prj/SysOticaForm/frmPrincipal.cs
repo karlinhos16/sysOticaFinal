@@ -114,12 +114,6 @@ namespace SysOticaForm
             
         }
 
-        private void vendaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            teste tt = new teste();
-            tt.Show();
-        }
-
         private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formCategoria frmCategoria = new formCategoria();
@@ -134,15 +128,11 @@ namespace SysOticaForm
             frmEntrada.Show();
         }
 
-        private void vendaToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void vendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MeusForms.FormVenda == null)
-            {
-                MeusForms.FormVenda = new frmVenda();
-                MeusForms.FormVenda.MdiParent = this;
-                MeusForms.FormVenda.Show();
-                MeusForms.FormVenda.Focus();
-            }
+            frmVenda vd = new frmVenda();
+            vd.MdiParent = this;
+            vd.Show();
         }
     }
 }

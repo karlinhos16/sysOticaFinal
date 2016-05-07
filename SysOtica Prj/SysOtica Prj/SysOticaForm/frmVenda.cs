@@ -21,16 +21,15 @@ namespace SysOticaForm
             InitializeComponent();
         }
 
-        private void frmVenda_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            MeusForms.FormVenda = null;
-        }
-
         private void frmVenda_Load(object sender, EventArgs e)
         {
             CboCliente.DataSource = fc.listarCliente();
             CboCliente.ValueMember = "cl_id";
             CboCliente.DisplayMember = "cl_nome";
+
+            comboBoxProduto.DataSource = fc.ListaProduto();
+            comboBoxProduto.ValueMember = "pr_id";
+            comboBoxProduto.DisplayMember = "pr_descricao";
           
         }
 

@@ -1,4 +1,5 @@
 ﻿using SysOtica.Negocio.Classes_Basicas;
+using SysOtica.Negocio.Excecoes;
 using SysOtica.Negocio.Fachada;
 using System;
 using System.Collections.Generic;

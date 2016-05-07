@@ -49,7 +49,6 @@ namespace SysOticaForm
                 textID.Text = Convert.ToString(alteraProduto.Pr_id);
                 tbDescricao.Text = alteraProduto.Pr_descricao;
                 cmbUnidade.Text = alteraProduto.Pr_unidade;               
-                cbGrupo.Text = alteraProduto.Pr_Categoria;
                 cbGrife.Text = alteraProduto.Pr_grife;
                 tbValor.Text = Convert.ToString(alteraProduto.Pr_valor);
                 tbQuantidade.Text = Convert.ToString(alteraProduto.Pr_qtd);
@@ -83,7 +82,6 @@ namespace SysOticaForm
                     p.Pr_id = Convert.ToInt32(textID.Text);
                     p.Pr_descricao = tbDescricao.Text;
                     p.Pr_unidade = cmbUnidade.SelectedItem.ToString();
-                    p.Pr_Categoria = cbGrupo.SelectedItem.ToString();
                     p.Pr_grife = cbGrife.SelectedItem.ToString();
                     p.Pr_valor = Convert.ToDecimal(tbValor.Text);
                     p.Pr_qtd = Convert.ToInt32(tbQuantidade.Text);
@@ -100,8 +98,6 @@ namespace SysOticaForm
                 {
                     alteraProduto.Pr_id = Convert.ToInt32(textID.Text);
                     alteraProduto.Pr_descricao = tbDescricao.Text;
-                    alteraProduto.Pr_unidade = cmbUnidade.SelectedItem.ToString();
-                    alteraProduto.Pr_Categoria = cbGrupo.SelectedItem.ToString();
                     alteraProduto.Pr_grife = cbGrife.SelectedItem.ToString();
                     alteraProduto.Pr_valor = Convert.ToDecimal(tbValor.Text);
                     alteraProduto.Pr_qtd = Convert.ToInt32(tbQuantidade.Text);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SysOtica.Negocio.Excecoes
 {
-    class GuidVazioException : Exception
+   public class GuidVazioException : Exception
     {
         public string Mensagem;
         public GuidVazioException(string message) : base(message)

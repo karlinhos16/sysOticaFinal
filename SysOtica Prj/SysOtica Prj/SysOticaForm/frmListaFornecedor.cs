@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -103,9 +104,9 @@ namespace SysOticaForm
                     atualizaGrid();
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                throw new GuidVazioException("Falha na comunicação com o banco de dados do Fornecedor. \n" + ex.Message);
+                throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + ex.Message);
             }
         }
 
