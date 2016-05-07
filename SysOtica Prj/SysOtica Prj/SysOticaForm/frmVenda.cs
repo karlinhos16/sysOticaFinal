@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using SysOtica;
 using SysOtica.Conexao;
 using SysOtica.Negocio.Fachada;
+using SysOtica.Negocio.Classes_Basicas;
+using System.Data.SqlClient;
 
 namespace SysOticaForm
 {
@@ -30,23 +32,23 @@ namespace SysOticaForm
             comboBoxProduto.DataSource = fc.ListaProduto();
             comboBoxProduto.ValueMember = "pr_id";
             comboBoxProduto.DisplayMember = "pr_descricao";
-          
-        }
-
-        private void BtnNovaVenda_Click(object sender, EventArgs e)
-        {
-          
-           
-
-
-
-
             
         }
 
-        private void itemVendaBindingSource_CurrentChanged(object sender, EventArgs e)
+        private void BtnNovaVenda_Click_1(object sender, EventArgs e)
         {
 
+            GroupBox.Visible = true;
+            BtnNovaVenda.Enabled = false;
+
+        }
+
+        private void comboBoxProduto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBoxID.Text = comboBoxProduto.SelectedValue.ToString();
+
+            Produto p = (Produto)comboBoxProduto.SelectedItem;
+            textBoxValor.Text = Convert.ToString(p.Pr_qtd);
         }
     }
 }
