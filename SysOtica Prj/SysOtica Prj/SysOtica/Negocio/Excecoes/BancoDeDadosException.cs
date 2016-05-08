@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SysOtica.Negocio.Excecoes
 {
-    class BancoDeDadosException : Exception
+    public class BancoDeDadosException : Exception
     {
         public string Mensagem;
         public BancoDeDadosException(string message) : base(message)

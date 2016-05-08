@@ -47,8 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BancoDeDadosException.cs" />
-    <Compile Include="ConexaoException.cs" />
     <Compile Include="formCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
