@@ -75,7 +75,6 @@
     <Compile Include="Negocio\Excecoes\ConexaoException.cs" />
     <Compile Include="Negocio\Excecoes\GuidVazioException.cs" />
     <Compile Include="Negocio\Fachada\Fachada.cs" />
-    <Compile Include="Negocio\Fachada\IFachada.cs" />
     <Compile Include="Negocio\Regras de Negocio\VendaControlador.cs" />
     <Compile Include="Negocio\Regras de Negocio\ProdutoControlador.cs" />
     <Compile Include="Negocio\Regras de Negocio\ReceitaControlador.cs" />

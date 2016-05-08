@@ -11,15 +11,15 @@ namespace SysOtica.Negocio.Fachada
 {
 
 
- 
- 
-    public class Fachada : IFachada
+
+
+    public class Fachada 
     {
 
         # region Cliente
         ClienteDados dao = new ClienteDados();
         ClienteControlador contr = new ClienteControlador();
-        
+
         public void alterarCliente(Cliente c)
         {
             contr.ValidarCamposVazios(c);
@@ -32,7 +32,7 @@ namespace SysOtica.Negocio.Fachada
             dao.inserirCliente(c);
         }
 
-        public void  excluirCliente(Cliente c)
+        public void excluirCliente(Cliente c)
         {
             contr.ValidarCamposVazios(c);
             dao.excluirCliente(c);
@@ -52,7 +52,7 @@ namespace SysOtica.Negocio.Fachada
 
         #region Fornecedor 
 
-        
+
         FornecedoresDados frdao = new FornecedoresDados();
         FornecedorControlador fornColtrol = new FornecedorControlador();
 
@@ -85,7 +85,7 @@ namespace SysOtica.Negocio.Fachada
 
         public List<Fornecedor> ListaFornecedor()
         {
-           return frdao.listaFornecedor();
+            return frdao.listaFornecedor();
 
         }
         #endregion
@@ -186,8 +186,8 @@ namespace SysOtica.Negocio.Fachada
 
         public void InserirUsuario(Usuario usu)
         {
-             usuControl.VerificaPreenchimento(usu);
-             usudao.inserirUsuario(usu);
+            usuControl.VerificaPreenchimento(usu);
+            usudao.inserirUsuario(usu);
 
         }
 
@@ -235,8 +235,19 @@ namespace SysOtica.Negocio.Fachada
             return venDados.listarVenda();
         }
 
-       
+
         #endregion
 
+
+        #region ProdutoVenda
+
+        ProdutoVendaDados pve = new ProdutoVendaDados();
+
+        public void inserirProdutoVenda(ProdutoVenda pv)
+        {
+            pve.inserirProdutoVenda(pv);
+        }
+
+        #endregion
     }
 }
