@@ -15,7 +15,7 @@ namespace SysOtica.Conexao
         ConexaoBD conn = new ConexaoBD();
 
 
-        public void inserir(ProdutoVenda pv)
+        public void inserirProdutoVenda(ProdutoVenda pv)
         {
             try
             {

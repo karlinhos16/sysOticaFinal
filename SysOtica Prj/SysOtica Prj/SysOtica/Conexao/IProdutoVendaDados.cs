@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SysOtica.Negocio.Classes_Basicas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace SysOtica.Conexao
 {
    public interface IProdutoVendaDados
     {
+        void inserirProdutoVenda(ProdutoVenda pv);
     }
 }

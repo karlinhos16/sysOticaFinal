@@ -40,22 +40,22 @@ namespace SysOtica.Conexao
                 cmd.Parameters.Add("@vn_formapagamento", SqlDbType.VarChar);
                 cmd.Parameters["@vn_formapagamento"].Value = v.Vn_formapagamento;
 
-                foreach (Receita r in v.Listareceita)
-                {
-                    ConexaoBD conn1 = new ConexaoBD();
-                    conn1.AbrirConexao();
+                //foreach (Receita r in v.Listareceita)
+                //{
+                //    ConexaoBD conn1 = new ConexaoBD();
+                //    conn1.AbrirConexao();
 
-                    string sqlreceita = "INSERT INTO Receita (cl_cpf,rc_historico, rc_lodesferico, rc_loeesferico,rc_podesferico, rc_poeesferico,rc_lodcilindrico,rc_loecilindrico, rc_podcilindrico ,rc_poecilindrico,rc_lodeixo,rc_loeeixo,rc_podeixo,rc_poeeixo,rc_lodaltura,rc_loealtura,rc_podaltura,rc_poealtura,rc_loddnp,rc_loednp, rc_poddnp,rc_poednp,rc_adicao,rc_nomemedico,rc_observacoes,rc_data,rc_dtavalidade) Values (@cl_cpf,@rc_historico, @rc_lodesferico, @rc_loeesferico, @rc_podesferico, @rc_poeesferico, @rc_lodcilindrico, @rc_loecilindrico, @rc_podcilindrico ,@rc_poecilindrico, @rc_lodeixo, @rc_loeeixo, @rc_podeixo, @rc_poeeixo, @rc_lodaltura, @rc_loealtura, @rc_podaltura, @rc_poealtura,@rc_loddnp,@rc_loednp, @rc_poddnp,@rc_poednp,@rc_adicao,@rc_nomemedico,@rc_observacoes,@rc_data,@rc_dtavalidade)";
-                    SqlCommand cmd1 = new SqlCommand(sqlreceita, conn.cone);
+                //    string sqlreceita = "INSERT INTO Receita (cl_cpf,rc_historico, rc_lodesferico, rc_loeesferico,rc_podesferico, rc_poeesferico,rc_lodcilindrico,rc_loecilindrico, rc_podcilindrico ,rc_poecilindrico,rc_lodeixo,rc_loeeixo,rc_podeixo,rc_poeeixo,rc_lodaltura,rc_loealtura,rc_podaltura,rc_poealtura,rc_loddnp,rc_loednp, rc_poddnp,rc_poednp,rc_adicao,rc_nomemedico,rc_observacoes,rc_data,rc_dtavalidade) Values (@cl_cpf,@rc_historico, @rc_lodesferico, @rc_loeesferico, @rc_podesferico, @rc_poeesferico, @rc_lodcilindrico, @rc_loecilindrico, @rc_podcilindrico ,@rc_poecilindrico, @rc_lodeixo, @rc_loeeixo, @rc_podeixo, @rc_poeeixo, @rc_lodaltura, @rc_loealtura, @rc_podaltura, @rc_poealtura,@rc_loddnp,@rc_loednp, @rc_poddnp,@rc_poednp,@rc_adicao,@rc_nomemedico,@rc_observacoes,@rc_data,@rc_dtavalidade)";
+                //    SqlCommand cmd1 = new SqlCommand(sqlreceita, conn.cone);
 
-                    cmd.Parameters.Add("@rc_dtavalidade", SqlDbType.VarChar);
-                    cmd.Parameters["@rc_dtavalidade"].Value = r.Rc_dtavalidade;
+                //    cmd.Parameters.Add("@rc_dtavalidade", SqlDbType.VarChar);
+                //    cmd.Parameters["@rc_dtavalidade"].Value = r.Rc_dtavalidade;
 
-                    cmd1.ExecuteNonQuery();
-                    cmd1.Dispose();
+                //    cmd1.ExecuteNonQuery();
+                //    cmd1.Dispose();
 
-                    conn1.FecharConexao();
-                }
+                //    conn1.FecharConexao();
+                //}
 
                 foreach (ProdutoVenda pv in v.Listaprodutovenda)
                 {
@@ -65,8 +65,14 @@ namespace SysOtica.Conexao
                     string sqlprodutovenda = "INSERT INTO produtofornecedor(pv_dtsaida,pv_qtd, vn_id) Values (@pv_dtsaida,@pv_qtd, @vn_id)";
                     SqlCommand cmd2 = new SqlCommand(sqlprodutovenda, conn.cone);
 
-                    cmd.Parameters.Add("@pv_qtd", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@pv_dtsaida", SqlDbType.Date);
+                    cmd.Parameters["@pv_dtsaida"].Value = pv.Pv_dtsaida;
+
+                    cmd.Parameters.Add("@pv_qtd", SqlDbType.Int);
                     cmd.Parameters["@pv_qtd"].Value = pv.Pv_qtd;
+
+                    cmd.Parameters.Add("vn_id", SqlDbType.Int);
+                    cmd.Parameters["vn_id"].Value = pv.Venda.Vn_id;
 
                     cmd2.ExecuteNonQuery();
                     cmd2.Dispose();

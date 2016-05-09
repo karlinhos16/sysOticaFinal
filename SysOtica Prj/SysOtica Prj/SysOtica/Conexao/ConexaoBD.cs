@@ -11,10 +11,7 @@ namespace SysOtica.Conexao
     {
 
         public SqlConnection cone = new SqlConnection();
-        string connectionStringSqlServer = @"Data Source=MRX-PC\MSSQLSERVERSYSOT;Initial Catalog= SysOtica;UId= sysotica;Password= 123456";
-        //@"Data Source=DESKTOP-KA9UELE\SQLEXPRESS;Initial Catalog= SysOtica;UId= sysotica;Password= 123456"; Link do PC da Dayse
-        //@"Data Source=DESKTOP-KA9UELE\SQLEXPRESS;Initial Catalog= SysOtica;UId= sysotica;Password= 123456"; Link do PC de Carlão
-        //@"Data Source=MRX-PC\MSSQLSERVERSYSOT;Initial Catalog= SysOtica;UId= sysotica;Password= 123456"; Link do PC de Leonardo
+        string connectionStringSqlServer = @"Data Source=DESKTOP-G6CQ56U ;Initial Catalog= sysOtica ;UId= root ;Password= 123456";
         public void AbrirConexao()
         {
             this.cone = new SqlConnection(connectionStringSqlServer);

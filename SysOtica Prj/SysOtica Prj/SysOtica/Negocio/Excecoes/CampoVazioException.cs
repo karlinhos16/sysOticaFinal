@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SysOtica.Negocio.Excecoes
 {
-    class CampoVazioException : Exception
+    public class CampoVazioException : Exception
     {
         public string Mensagem;
         public CampoVazioException(string message) : base(message)
