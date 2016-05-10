@@ -121,7 +121,7 @@
             this.listBoxDatas.Name = "listBoxDatas";
             this.listBoxDatas.Size = new System.Drawing.Size(103, 355);
             this.listBoxDatas.TabIndex = 0;
-            this.listBoxDatas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxDatas_MouseClick);
+           
             // 
             // groupBox2
             // 

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SysOtica.Negocio.Fachada
 {
@@ -163,6 +164,11 @@ namespace SysOtica.Negocio.Fachada
         {
             return receitadao.pesquisaReceita(rc_nomemedico);
 
+        }
+
+        public void PesquisaReceitas(DataGridView grid, string cl_nome)
+        {
+            receitadao.pesquisaReceitas(grid, cl_nome);
         }
 
         public List<Receita> ListaReceita()

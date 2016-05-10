@@ -44,7 +44,7 @@ namespace SysOticaForm
         void atualizaGrid()
         {
             DataGridreceita.AutoGenerateColumns = false;
-            DataGridreceita.DataSource = null;
+            //DataGridreceita.DataSource = null;
             listarReceita = fachada.ListaReceita();
             DataGridreceita.DataSource = listarReceita;
             DataGridreceita.Update();
@@ -137,7 +137,46 @@ namespace SysOticaForm
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            DataGridreceita.DataSource = fachada.PesquisaReceita(btnPesquisar.Text);
+            //DataGridreceita.DataSource = fachada.PesquisaReceita(btnPesquisar.Text);
+
+            if (txtPesquisa.Text != "")
+            {
+
+                DataGridreceita.DataSource = null;
+                fachada.PesquisaReceitas(DataGridreceita, this.txtPesquisa.Text.Trim());
+
+
+            }
+
+
+
+        }
+
+        private void DataGridreceita_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+
+            if (DataGridreceita != null)
+            {
+
+                string coluna = DataGridreceita.Columns[e.ColumnIndex].HeaderText = "Validade";
+                // seleciona a coluna
+                 if(coluna.Equals("Validade"))
+                {
+                       
+                    if (Convert.ToDateTime(coluna) == DateTime.Now && Convert.ToDateTime(coluna) != null)
+                    {
+                        DataGridreceita.Rows[e.RowIndex].DefaultCellStyle.SelectionForeColor = Color.Red;
+                        DataGridreceita.Rows[e.RowIndex].ErrorText = "Receita na data de vencimento";
+                    }
+                
+
+                }
+
+
+            }
+
+
+
         }
 
 
@@ -145,5 +184,7 @@ namespace SysOticaForm
 
 
 }
-    
+
+
+
 

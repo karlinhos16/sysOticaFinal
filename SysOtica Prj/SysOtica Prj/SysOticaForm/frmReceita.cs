@@ -98,21 +98,43 @@ namespace SysOticaForm
                     receita.Rc_poddnp = Convert.ToDecimal(txtPertoODdnp.Text);
                     receita.Rc_poednp = Convert.ToDecimal(txtPertoOEdnp.Text);
                     receita.Rc_data = DateTime.Parse(maskedTextData.Text);
-                   //Receita.Rc_adicao = Convert.ToDecimal(textAdicao.Text);
+                   //receita.Rc_adicao = Convert.ToDecimal(textAdicao.Text);
                     receita.Rc_nomemedico = textNomeMedico.Text.Trim();
                     receita.Rc_observacoes = textObs.Text.Trim();
-                    string data = dateTimePickerValidade.Value.ToShortDateString();
-                    receita.Rc_dtavalidade = Convert.ToDateTime(data);
+                    string data_validade = dateTimePickerValidade.Value.ToShortDateString();
+                    receita.Rc_dtavalidade = Convert.ToDateTime(data_validade);
 
-                    //if (listBoxDatas.SelectedIndex >= -1)
-                    //{
-                    //    listBoxDatas.Items.Add(Convert.ToString(maskedTextData.Text));
+                    if (DateTime.Parse(maskedTextData.Text) > Convert.ToDateTime(data_validade))
+                    {
+                        MessageBox.Show("A data de entrada não pode ser maior que a da validade", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
 
-                    //   receita.Rc_historico = listBoxDatas.ValueMember = maskedTextData.Text;
-                    //}  
+                    else if (DateTime.Parse(maskedTextData.Text) == Convert.ToDateTime(data_validade))
+
+                    {
+                        MessageBox.Show("Data de entrada e validade não podem ser as mesmas", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+
+                    }
+
+                   else if (listBoxDatas.SelectedIndex >= -1)
+                    {
+                        listBoxDatas.DataSource = null;
+                        listBoxDatas.Items.Add(Convert.ToString(maskedTextData.Text));
+
+                        receita.Rc_historico = Convert.ToDateTime(listBoxDatas.ValueMember = maskedTextData.Text);
+                           
+                    }
+
+
+          
 
                     Cliente cli = new  Cliente();
                     cli.Cl_id = Convert.ToInt32(cmbCliente.SelectedValue.ToString());
+
+
+
 
                     Fachada fachada = new Fachada();
                     fachada.InserirReceita(receita, cli);
@@ -191,52 +213,7 @@ namespace SysOticaForm
 
         }
 
-        private void listBoxDatas_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (listBoxDatas != null)
-            {
-                if (listBoxDatas.SelectedIndex >= 0)
-                {
-                   
-                
-                    if (selecionaReceita == null)
-                    {
-
-                        maskedTextData.Text = selecionaReceita.Rc_data.ToString();
-                        txtLongeODesferico.Text = selecionaReceita.Rc_lodesferico.ToString();
-                        txtLongeOEesferico.Text = selecionaReceita.Rc_lodesferico.ToString();
-                        txtPertoODesferico.Text = selecionaReceita.Rc_podesferico.ToString();
-                        txtPertoOEesferico.Text = selecionaReceita.Rc_poeesferico.ToString();
-                        txtLongeODcilindrico.Text = selecionaReceita.Rc_lodcilindrico.ToString();
-                        txtLongeOEcilindrico.Text = selecionaReceita.Rc_loecilindrico.ToString();
-                        txtPertoODcilindrico.Text = selecionaReceita.Rc_podcilindrico.ToString();
-                        txtPertoOEcilindrico.Text = selecionaReceita.Rc_poecilindrico.ToString();
-                        txtLongeODeixo.Text = selecionaReceita.Rc_lodeixo.ToString();
-                        txtLongeOEeixo.Text = selecionaReceita.Rc_loeeixo.ToString();
-                        txtPertoODeixo.Text = selecionaReceita.Rc_podeixo.ToString();
-                        txtPertoOEeixo.Text = selecionaReceita.Rc_poeeixo.ToString();
-                        txtLongeODaltura.Text = selecionaReceita.Rc_lodaltura.ToString();
-                        txtLongeOEaltura.Text = selecionaReceita.Rc_loealtura.ToString();
-                        txtPertoODaltura.Text = selecionaReceita.Rc_podaltura.ToString();
-                        txtPertoOEaltura.Text = selecionaReceita.Rc_poealtura.ToString();
-                        txtLongeODdnp.Text = selecionaReceita.Rc_loddnp.ToString();
-                        txtLongeOEdnp.Text = selecionaReceita.Rc_loednp.ToString();
-                        txtPertoODdnp.Text = selecionaReceita.Rc_poddnp.ToString();
-                        txtPertoOEdnp.Text = selecionaReceita.Rc_poednp.ToString();
-                      //textAdicao.Text = selecionaReceita.Rc_adicao.ToString();
-                        textNomeMedico.Text = selecionaReceita.Rc_nomemedico;
-                        textObs.Text = selecionaReceita.Rc_observacoes;
-                        dateTimePickerValidade.Text = selecionaReceita.Rc_dtavalidade.ToString();
-                        //cmbCliente.Text = cliente.Cl_nome.ToString();
-
-
-                    }
-
-                    btnSalvar.Enabled = false;
-
-                }
-            }
-        }
+       
     }
 
 }
