@@ -126,15 +126,10 @@ namespace SysOticaForm
                         receita.Rc_historico = Convert.ToDateTime(listBoxDatas.ValueMember = maskedTextData.Text);
                            
                     }
-
-
-          
+        
 
                     Cliente cli = new  Cliente();
                     cli.Cl_id = Convert.ToInt32(cmbCliente.SelectedValue.ToString());
-
-
-
 
                     Fachada fachada = new Fachada();
                     fachada.InserirReceita(receita, cli);
