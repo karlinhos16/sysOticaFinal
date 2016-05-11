@@ -21,12 +21,16 @@ namespace SysOtica.Conexao
             try
             {
                 conn.AbrirConexao();
-                string sql = "INSERT INTO venda (cl_id, vn_valor, vn_valortotal, vn_desconto, vn_formapagamento ) VALUES ( @cl_id, @vn_valor, @vn_valortotal, @vn_desconto, @vn_formapagamento)";
+                string sql = "INSERT INTO venda (cl_id, rc_id, vn_valor, vn_valortotal, vn_desconto, vn_formapagamento, vn_dtsaida ) VALUES ( @cl_id,@rc_id, @vn_valor, @vn_valortotal, @vn_desconto, @vn_formapagamento, @vn_dtsaida)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
                 cmd.Parameters.Add("@cl_id", SqlDbType.Int);
                 cmd.Parameters["@cl_id"].Value = v.Cliente;
+
+
+                cmd.Parameters.Add("@rc_id", SqlDbType.Int);
+                cmd.Parameters["@rc_id"].Value = v.Receita;
 
                 cmd.Parameters.Add("@vn_valor", SqlDbType.Decimal);
                 cmd.Parameters["@vn_valor"].Value = v.Vn_valor;
@@ -40,24 +44,26 @@ namespace SysOtica.Conexao
                 cmd.Parameters.Add("@vn_formapagamento", SqlDbType.VarChar);
                 cmd.Parameters["@vn_formapagamento"].Value = v.Vn_formapagamento;
 
+                cmd.Parameters.Add("@vn_dtsaida", SqlDbType.Date);
+                cmd.Parameters["@vn_dtsaida"].Value = v.Vn_dtsaida;
 
-                //foreach (ProdutoVenda pv in v.)
-                //{
-                //    ConexaoBD conn2 = new ConexaoBD();
-                //    conn2.AbrirConexao();
+                foreach (ProdutoVenda pv in v.Listaprodutovenda)
+                {
+                    ConexaoBD conn2 = new ConexaoBD();
+                    conn2.AbrirConexao();
 
-                //    string sqlprodutovenda = "INSERT INTO produtofornecedor(=) Values ( =)";
-                //    SqlCommand cmd2 = new SqlCommand(sqlprodutovenda, conn.cone);
+                    string sqlprodutovenda = "INSERT INTO produtofornecedor(=) Values ( =)";
+                    SqlCommand cmd2 = new SqlCommand(sqlprodutovenda, conn.cone);
 
 
-                //    cmd.Parameters.Add("vn_id", SqlDbType.Int);
-                //    cmd.Parameters["vn_id"].Value = pv.Venda.Vn_id;
+                    cmd.Parameters.Add("vn_id", SqlDbType.Int);
+                    cmd.Parameters["vn_id"].Value = pv.Venda.Vn_id;
 
-                //    cmd2.ExecuteNonQuery();
-                //    cmd2.Dispose();
+                    cmd2.ExecuteNonQuery();
+                    cmd2.Dispose();
 
-                //    conn2.FecharConexao();
-                //}
+                    conn2.FecharConexao();
+                }
 
 
                 //executando a instrucao 
