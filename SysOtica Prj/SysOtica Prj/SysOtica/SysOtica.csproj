@@ -44,17 +44,13 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Conexao\CategoriaDados.cs" />
     <Compile Include="Conexao\ICategoriaDados.cs" />
-    <Compile Include="Conexao\IProdutoVendaDados.cs" />
     <Compile Include="Conexao\IVendaDados.cs" />
-    <Compile Include="Conexao\ProdutoVendaDados.cs" />
     <Compile Include="Conexao\VendaDados.cs" />
     <Compile Include="Conexao\IProdutoDados.cs" />
-    <Compile Include="Conexao\IProdutoFornecedor.cs" />
     <Compile Include="Conexao\IUsuarioDados.cs" />
     <Compile Include="Conexao\IFornecedorDados.cs" />
     <Compile Include="Conexao\IReceitaDados.cs" />
     <Compile Include="Conexao\IClienteDados.cs" />
-    <Compile Include="Conexao\ProdutoFornecedorDados.cs" />
     <Compile Include="Conexao\ReceitaDados.cs" />
     <Compile Include="Conexao\UsuarioDados.cs" />
     <Compile Include="Conexao\ProdutoDados.cs" />

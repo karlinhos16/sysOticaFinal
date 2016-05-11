@@ -100,18 +100,7 @@ namespace SysOticaForm
                 v.Vn_valor = Convert.ToDecimal(dataGridViewItens.Rows[i].Cells[3].Value);
                 v.Vn_valortotal = Convert.ToDecimal(textBoxValorPago.Text);
                 v.Cliente = this.cliente;
-                fc.inserir(v);
-
-                ProdutoVenda pv = new ProdutoVenda();
-
-                pv.Pv_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text); ;
-                pv.Pv_qtd = Convert.ToInt32(dataGridViewItens.Rows[i].Cells[2].Value);
-                pv.Venda = this.venda;
-                fc.inserirProdutoVenda(pv);
-
-
-
-               
+                fc.inserir(v);      
             }
         }
 

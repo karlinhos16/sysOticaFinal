@@ -10,62 +10,129 @@ namespace SysOtica.Negocio.Classes_Basicas
     {
         private int vn_id;
         private Cliente cliente;
+        private Receita receita;
+        private ProdutoVenda produtoVenda;
         private decimal vn_valor;
         private decimal vn_valortotal;
         private decimal vn_desconto;
         private String vn_formapagamento;
-        private List<Receita> listareceita;
-        private List<ProdutoVenda> listaprodutovenda;
-
-
-
-
-
-        public List<Receita> Listareceita
-        {
-            get { return listareceita; }
-            set { listareceita = value; }
-        }
-        public List<ProdutoVenda> Listaprodutovenda
-        {
-            get { return listaprodutovenda; }
-            set { listaprodutovenda = value; }
-        }
+        private DateTime vn_dtsaida;
 
         public int Vn_id
         {
-            get { return vn_id; }
-            set { vn_id = value; }
+            get
+            {
+                return vn_id;
+            }
+
+            set
+            {
+                vn_id = value;
+            }
         }
 
         public Cliente Cliente
         {
-            get { return cliente; }
-            set { cliente = value; }
+            get
+            {
+                return cliente;
+            }
+
+            set
+            {
+                cliente = value;
+            }
+        }
+
+        public Receita Receita
+        {
+            get
+            {
+                return receita;
+            }
+
+            set
+            {
+                receita = value;
+            }
         }
 
         public decimal Vn_valor
         {
-            get { return vn_valor; }
-            set { vn_valor = value; }
+            get
+            {
+                return vn_valor;
+            }
+
+            set
+            {
+                vn_valor = value;
+            }
         }
 
         public decimal Vn_valortotal
         {
-            get { return vn_valortotal; }
-            set { vn_valortotal = value; }
+            get
+            {
+                return vn_valortotal;
+            }
+
+            set
+            {
+                vn_valortotal = value;
+            }
         }
 
         public decimal Vn_desconto
         {
-            get { return vn_desconto; }
-            set { vn_desconto = value; }
+            get
+            {
+                return vn_desconto;
+            }
+
+            set
+            {
+                vn_desconto = value;
+            }
         }
 
-        public String Vn_formapagamento
+        public string Vn_formapagamento
         {
-            get { return vn_formapagamento; }
-            set { vn_formapagamento = value; }
+            get
+            {
+                return vn_formapagamento;
+            }
+
+            set
+            {
+                vn_formapagamento = value;
+            }
+        }
+
+        public DateTime Vn_dtsaida
+        {
+            get
+            {
+                return vn_dtsaida;
+            }
+
+            set
+            {
+                vn_dtsaida = value;
+            }
+        }
+
+        public ProdutoVenda ProdutoVenda
+        {
+            get
+            {
+                return produtoVenda;
+            }
+
+            set
+            {
+                produtoVenda = value;
+            }
         }
     }
     }

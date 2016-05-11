@@ -77,12 +77,6 @@
     <Compile Include="frmCliente.designer.cs">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEntradaMovimentacao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEntradaMovimentacao.Designer.cs">
-      <DependentUpon>frmEntradaMovimentacao.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,9 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCliente.resx">
       <DependentUpon>frmCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEntradaMovimentacao.resx">
-      <DependentUpon>frmEntradaMovimentacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFornecedor.resx">
       <DependentUpon>frmFornecedor.cs</DependentUpon>

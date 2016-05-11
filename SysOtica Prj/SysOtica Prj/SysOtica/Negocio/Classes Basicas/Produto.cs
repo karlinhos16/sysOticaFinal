@@ -18,20 +18,9 @@ namespace SysOtica.Negocio.Classes_Basicas
         private int pr_estoqueminimo;
         private List<Categoria> categoria;
         private ProdutoFornecedor produtoFornecedor;
+        private DateTime pr_dtentrada;
 
 
-
-        public Produto(int pr_id, string pr_descricao, string pr_unidade, string pr_grife, decimal pr_valor, int pr_qtd, int pr_estoqueminimo, int fr_id, Categoria categoria, ProdutoFornecedor produtoFornecedor)
-        {
-            this.Pr_id = pr_id;
-            this.Pr_descricao = pr_descricao;
-            this.pr_unidade = pr_unidade;
-            this.Pr_grife = pr_grife;
-            this.Pr_valor = pr_valor;
-            this.Pr_qtd = pr_qtd;
-            this.ProdutoFornecedor = produtoFornecedor;
-
-        }
 
         public Produto()
         {
@@ -152,6 +141,19 @@ namespace SysOtica.Negocio.Classes_Basicas
             set
             {
                 categoria = value;
+            }
+        }
+
+        public DateTime Pr_dtentrada
+        {
+            get
+            {
+                return pr_dtentrada;
+            }
+
+            set
+            {
+                pr_dtentrada = value;
             }
         }
     }
