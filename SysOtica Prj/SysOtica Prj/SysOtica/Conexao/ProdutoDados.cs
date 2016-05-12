@@ -21,7 +21,7 @@ namespace SysOtica.Conexao
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "INSERT INTO Produto (ct_id,pr_descricao, pr_grife, pr_valor, pr_estoqueminimo,  pr_qtd, pr_unidade) values (@ct_id, @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_qtd, @pr_unidade)";
+                string sql = "INSERT INTO Produto (ct_id,pr_descricao, pr_grife, pr_valor, pr_estoqueminimo,  pr_qtd, pr_unidade, pr_dtentrada, pr_tipo ) values (@ct_id, @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_qtd, @pr_unidade, @pr_dtentrada, @pr_tipo )";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
@@ -42,6 +42,12 @@ namespace SysOtica.Conexao
 
                 cmd.Parameters.Add("@pr_estoqueminimo", SqlDbType.VarChar);
                 cmd.Parameters["@pr_estoqueminimo"].Value = p.Pr_estoqueminimo;
+
+                cmd.Parameters.Add("@pr_dtentrada", SqlDbType.Date);
+                cmd.Parameters["@pr_dtentrada"].Value = p.Pr_dtentrada;
+
+                cmd.Parameters.Add("@pr_tipo", SqlDbType.VarChar);
+                cmd.Parameters["@pr_tipo"].Value = p.Pr_tipo;
 
 
                 //executando a instrucao 

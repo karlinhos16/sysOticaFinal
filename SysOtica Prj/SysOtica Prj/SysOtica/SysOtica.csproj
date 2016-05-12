@@ -62,8 +62,6 @@
     <Compile Include="Negocio\Classes Basicas\Cliente.cs" />
     <Compile Include="Negocio\Classes Basicas\Fornecedor.cs" />
     <Compile Include="Negocio\Classes Basicas\Produto.cs" />
-    <Compile Include="Negocio\Classes Basicas\ProdutoFornecedor.cs" />
-    <Compile Include="Negocio\Classes Basicas\ProdutoVenda.cs" />
     <Compile Include="Negocio\Classes Basicas\Receita.cs" />
     <Compile Include="Negocio\Classes Basicas\Usuario.cs" />
     <Compile Include="Negocio\Classes Basicas\Venda.cs" />

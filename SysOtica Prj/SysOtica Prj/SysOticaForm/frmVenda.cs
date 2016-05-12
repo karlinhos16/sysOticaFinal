@@ -99,6 +99,7 @@ namespace SysOticaForm
                 v.Vn_formapagamento = comboBoxFP.Text;
                 v.Vn_valor = Convert.ToDecimal(dataGridViewItens.Rows[i].Cells[3].Value);
                 v.Vn_valortotal = Convert.ToDecimal(textBoxValorPago.Text);
+                v.Vn_dtsaida = Convert.ToDateTime(dataGridViewItens.Text);
                 v.Cliente = this.cliente;
                 fc.inserir(v);      
             }

@@ -17,8 +17,9 @@ namespace SysOtica.Negocio.Classes_Basicas
         private int pr_qtd;
         private int pr_estoqueminimo;
         private List<Categoria> categoria;
-        private ProdutoFornecedor produtoFornecedor;
         private DateTime pr_dtentrada;
+        private String pr_tipo;
+        private Venda venda;
 
 
 
@@ -118,19 +119,6 @@ namespace SysOtica.Negocio.Classes_Basicas
             }
         }
 
-        public ProdutoFornecedor ProdutoFornecedor
-        {
-            get
-            {
-                return produtoFornecedor;
-            }
-
-            set
-            {
-                produtoFornecedor = value;
-            }
-        }
-
         public List<Categoria> Categoria
         {
             get
@@ -154,6 +142,32 @@ namespace SysOtica.Negocio.Classes_Basicas
             set
             {
                 pr_dtentrada = value;
+            }
+        }
+
+        public string Pr_tipo
+        {
+            get
+            {
+                return pr_tipo;
+            }
+
+            set
+            {
+                pr_tipo = value;
+            }
+        }
+
+        public Venda Venda
+        {
+            get
+            {
+                return venda;
+            }
+
+            set
+            {
+                venda = value;
             }
         }
     }
