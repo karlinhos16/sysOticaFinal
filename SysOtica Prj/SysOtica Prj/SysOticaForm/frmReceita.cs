@@ -70,7 +70,7 @@ namespace SysOticaForm
         {
 
             
-
+                               
             try
             {    
 
@@ -121,16 +121,14 @@ namespace SysOticaForm
                    else if (listBoxDatas.SelectedIndex >= -1)
                     {
                         listBoxDatas.DataSource = null;
-                        listBoxDatas.Items.Add(Convert.ToString(maskedTextData.Text));
+                        listBoxDatas.Items.Add(Convert.ToDateTime(maskedTextData.Text).ToShortDateString());
 
-                        receita.Rc_historico = Convert.ToDateTime(listBoxDatas.ValueMember = maskedTextData.Text);
-                           
+                        receita.Rc_historico = Convert.ToDateTime(listBoxDatas.ValueMember = maskedTextData.Text.Trim());
+
                     }
         
-
                     Cliente cli = new  Cliente();
                     cli.Cl_id = Convert.ToInt32(cmbCliente.SelectedValue.ToString());
-
                     Fachada fachada = new Fachada();
                     fachada.InserirReceita(receita, cli);
                     MessageBox.Show("Receita cadastra com sucesso.");
@@ -185,7 +183,7 @@ namespace SysOticaForm
 
         void carregaHistorico()
         {
-           
+
             List<Receita> lista;
             lista = dadosreceita.listaReceita();
 
@@ -196,7 +194,7 @@ namespace SysOticaForm
             foreach (Receita receita in lista)
             {
                 DataRow row1 = data.NewRow();
-                row1["rc_historico"] = receita.Rc_historico;
+                row1["rc_historico"] = receita.Rc_historico.ToShortDateString();
                 data.Rows.Add(row1);
 
             }
@@ -204,7 +202,7 @@ namespace SysOticaForm
             listBoxDatas.DataSource = data;
             listBoxDatas.DisplayMember = "rc_historico";
 
-      
+
 
         }
 

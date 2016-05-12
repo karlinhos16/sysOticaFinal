@@ -356,75 +356,82 @@ namespace SysOtica.Conexao
                 grid.DataSource = dt;
 
             }
-        } 
+        }
 
 
 
 
 
-        public List<Receita> pesquisaReceita(string rc_nomemedico)
+        public List<Receita> puxaReceita(string cl_nome)
         {
-            string sql = " SELECT rc_id, rc_historico,    rc_lodesferico, rc_loeesferico,  rc_podesferico,  rc_poeesferico,  rc_lodcilindrico,           rc_loecilindrico,  rc_podcilindrico,     rc_poecilindrico," +
-                      "           rc_lodeixo,             rc_loeeixo,     rc_podeixo,      rc_poeeixo,      rc_lodaltura,    rc_loealtura, rc_podaltura, rc_poealtura,      rc_loddnp,            rc_loednp,        rc_poddnp, " +
-                      "           rc_poednp, rc_adicao,   rc_nomemedico,  rc_observacoes,  rc_data,         rc_dtvalidade FROM Receita";
+            string sql = " SELECT r.rc_id, r.rc_historico,    r.rc_lodesferico, r.rc_loeesferico,  r.rc_podesferico,    r.rc_poeesferico,  r.rc_lodcilindrico,          r.rc_loecilindrico,  r.rc_podcilindrico,  r.rc_poecilindrico," +
+                    "             r.rc_lodeixo,             r.rc_loeeixo,     r.rc_podeixo,      r.rc_poeeixo,        r.rc_lodaltura,    r.rc_loealtura,             r.rc_podaltura,      r.rc_poealtura,      r.rc_loddnp,       r.rc_loednp,    r.rc_poddnp, " +
+                    "             r.rc_poednp, r.rc_adicao,   r.rc_nomemedico,  r.rc_observacoes,  r.rc_data,           r.rc_dtavalidade ,  c.cl_nome FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id where cl_nome LIKE @cl_nome + '%'";
 
-            if (rc_nomemedico != "")
-            {
-                sql += "WHERE rc_nomemedico LIKE @rc_nomemedico";
-            }
+
             List<Receita> lista = new List<Receita>();
-            Receita receita = new Receita();
 
-            try
+
+            if (cl_nome != "")
             {
-                conn.AbrirConexao();
-                SqlCommand cmd = new SqlCommand(sql, conn.cone);
-                if (rc_nomemedico != "")
-                {
-                    cmd.Parameters.AddWithValue("@rc_nomemedico", "%" + rc_nomemedico + "%");
-                }
-                SqlDataReader retorno = cmd.ExecuteReader();
-                while (retorno.Read())
-                {
 
-                    receita = new Receita();
-                    receita.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
-                    receita.Rc_historico = retorno.GetDateTime(retorno.GetOrdinal("rc_historico"));
-                    receita.Rc_lodesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_lodesferico"));
-                    receita.Rc_loeesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_loeesferico"));
-                    receita.Rc_podesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_podesferico"));
-                    receita.Rc_poeesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_poeesferico"));
-                    receita.Rc_lodcilindrico = retorno.GetDecimal(retorno.GetOrdinal("rc_lodcilindrico"));
-                    receita.Rc_loecilindrico = retorno.GetDecimal(retorno.GetOrdinal("rc_loecilindrico"));
-                    receita.Rc_podcilindrico = retorno.GetDecimal(retorno.GetOrdinal("rc_podcilindrico"));
-                    receita.Rc_poecilindrico = retorno.GetDecimal(retorno.GetOrdinal("rc_poecilindrico"));
-                    receita.Rc_lodeixo = retorno.GetDecimal(retorno.GetOrdinal("rc_lodeixo"));
-                    receita.Rc_loeeixo = retorno.GetDecimal(retorno.GetOrdinal("rc_loeeixo"));
-                    receita.Rc_podeixo = retorno.GetDecimal(retorno.GetOrdinal("rc_podeixo")); ;
-                    receita.Rc_poeeixo = retorno.GetDecimal(retorno.GetOrdinal("rc_poeeixo"));
-                    receita.Rc_lodaltura = retorno.GetDecimal(retorno.GetOrdinal("rc_lodaltura"));
-                    receita.Rc_loealtura = retorno.GetDecimal(retorno.GetOrdinal("rc_loealtura"));
-                    receita.Rc_podaltura = retorno.GetDecimal(retorno.GetOrdinal("rc_podaltura"));
-                    receita.Rc_poealtura = retorno.GetDecimal(retorno.GetOrdinal("rc_poealtura")); ;
-                    receita.Rc_loddnp = retorno.GetDecimal(retorno.GetOrdinal("rc_loddnp"));
-                    receita.Rc_loednp = retorno.GetDecimal(retorno.GetOrdinal("rc_loednp"));
-                    receita.Rc_poddnp = retorno.GetDecimal(retorno.GetOrdinal("rc_poddnp"));
-                    receita.Rc_poednp = retorno.GetDecimal(retorno.GetOrdinal("rc_poednp"));
-                    receita.Rc_data = retorno.GetDateTime(retorno.GetOrdinal("rc_data"));
-                    receita.Rc_adicao = retorno.GetDecimal(retorno.GetOrdinal("rc_adicao"));
-                    receita.Rc_nomemedico = retorno.GetString(retorno.GetOrdinal("rc_nomemedico"));
-                    receita.Rc_observacoes = retorno.GetString(retorno.GetOrdinal("rc_observacoes"));
+                try
+                {
+                    conn.AbrirConexao();
+                    SqlCommand cmd = new SqlCommand(sql, this.conn.cone);
+                    cmd.Parameters.Add("@cl_nome", SqlDbType.VarChar, 100).Value = cl_nome;
 
-                    lista.Add(receita);
+                    SqlDataReader retorno = cmd.ExecuteReader();
+                    while (retorno.Read())
+                    {
+                        Receita receita = new Receita();
+                        Cliente cliente = new Cliente();
+
+                        receita.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
+                        //receita.Cliente.Cl_nome = retorno.GetString(retorno.GetOrdinal("cl_nome"));
+                        cliente.Cl_nome = retorno.GetString(retorno.GetOrdinal("cl_nome"));
+                        receita.Rc_historico = retorno.GetDateTime(retorno.GetOrdinal("rc_historico"));
+                        receita.Rc_lodesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_lodesferico"));
+                        receita.Rc_loeesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_loeesferico"));
+                        receita.Rc_podesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_podesferico"));
+                        receita.Rc_poeesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_poeesferico"));
+                        receita.Rc_lodcilindrico = retorno.GetDecimal(retorno.GetOrdinal("rc_lodcilindrico"));
+                        receita.Rc_loecilindrico = retorno.GetDecimal(retorno.GetOrdinal("rc_loecilindrico"));
+                        receita.Rc_podcilindrico = retorno.GetDecimal(retorno.GetOrdinal("rc_podcilindrico"));
+                        receita.Rc_poecilindrico = retorno.GetDecimal(retorno.GetOrdinal("rc_poecilindrico"));
+                        receita.Rc_lodeixo = retorno.GetDecimal(retorno.GetOrdinal("rc_lodeixo"));
+                        receita.Rc_loeeixo = retorno.GetDecimal(retorno.GetOrdinal("rc_loeeixo"));
+                        receita.Rc_podeixo = retorno.GetDecimal(retorno.GetOrdinal("rc_podeixo"));
+                        receita.Rc_poeeixo = retorno.GetDecimal(retorno.GetOrdinal("rc_poeeixo"));
+                        receita.Rc_lodaltura = retorno.GetDecimal(retorno.GetOrdinal("rc_lodaltura"));
+                        receita.Rc_loealtura = retorno.GetDecimal(retorno.GetOrdinal("rc_loealtura"));
+                        receita.Rc_podaltura = retorno.GetDecimal(retorno.GetOrdinal("rc_podaltura"));
+                        receita.Rc_poealtura = retorno.GetDecimal(retorno.GetOrdinal("rc_poealtura"));
+                        receita.Rc_loddnp = retorno.GetDecimal(retorno.GetOrdinal("rc_loddnp"));
+                        receita.Rc_loednp = retorno.GetDecimal(retorno.GetOrdinal("rc_loednp"));
+                        receita.Rc_poddnp = retorno.GetDecimal(retorno.GetOrdinal("rc_poddnp"));
+                        receita.Rc_poednp = retorno.GetDecimal(retorno.GetOrdinal("rc_poednp"));
+                        receita.Rc_data = retorno.GetDateTime(retorno.GetOrdinal("rc_data"));
+                        receita.Rc_adicao = retorno.GetDecimal(retorno.GetOrdinal("rc_adicao"));
+                        receita.Rc_nomemedico = retorno.GetString(retorno.GetOrdinal("rc_nomemedico"));
+                        receita.Rc_dtavalidade = retorno.GetDateTime(retorno.GetOrdinal("rc_dtavalidade"));
+                        receita.Rc_observacoes = retorno.GetString(retorno.GetOrdinal("rc_observacoes"));
+
+                        lista.Add(receita);
+
+                    }
+
                 }
-                conn.FecharConexao();
-                return lista;
+                catch (SqlException ex)
+                {
+                    throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + ex.Message);
+
+                }
+
 
             }
-            catch (SqlException e)
-            {
-                throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
-            }
+            conn.FecharConexao();
+            return lista;
 
         }
 
@@ -439,5 +446,6 @@ namespace SysOtica.Conexao
 
  
 
-        }
     }
+
+}

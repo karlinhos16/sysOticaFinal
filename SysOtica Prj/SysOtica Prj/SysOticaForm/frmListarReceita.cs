@@ -42,11 +42,7 @@ namespace SysOticaForm
             atualizaGrid();
 
 
-            vencimentoReceita();
-
-
-
-
+      
         }
 
         void atualizaGrid()
@@ -55,8 +51,7 @@ namespace SysOticaForm
             DataGridreceita.DataSource = null;
             listarReceita = fachada.ListaReceita();
             DataGridreceita.DataSource = listarReceita;
-            //DataGridreceita.Update();
-
+            vencimentoReceita();
 
         }
 
@@ -99,8 +94,18 @@ namespace SysOticaForm
         {
             if (DataGridreceita.SelectedRows[0].Index >= 0)
             {
-                MessageBox.Show("Campo Selecionado!");
-                Receita receitaSelecionada = listarReceita.ElementAt(DataGridreceita.SelectedRows[0].Index);
+
+                try
+                {
+                    Receita receitaSelecionada = listarReceita.ElementAt(DataGridreceita.SelectedRows[0].Index);
+                    MessageBox.Show("Campo Selecionado!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Valor nulo \n" + ex.Message);
+
+                }
+
             }
             else
             {
@@ -182,7 +187,7 @@ namespace SysOticaForm
 
 
             string caracteres = "^[ a-zA-Z]+$";
-            if(txtPesquisa.Text.Length < 3 )
+            if (txtPesquisa.Text.Length < 3)
             {
 
                 MessageBox.Show("Por Favor, digite um nome com no mínimo 3 caracteres");
@@ -198,23 +203,22 @@ namespace SysOticaForm
             {
 
                 DataGridreceita.DataSource = null;
-                DataGridreceita.AutoGenerateColumns = false;                
-                fachada.PesquisaReceitas(DataGridreceita, this.txtPesquisa.Text.Trim());
-                //vencimentoReceita();
+                DataGridreceita.AutoGenerateColumns = false;
+                //fachada.PesquisaReceitas(DataGridreceita, this.txtPesquisa.Text.Trim());
+                DataGridreceita.DataSource = fachada.PuxaReceita(txtPesquisa.Text.Trim());
+                vencimentoReceita();
 
             }
-      
+
 
 
 
         }
 
-       
-
-
-        
-
-
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            DataGridreceita.DataSource = null;
+        }
     }
 
 

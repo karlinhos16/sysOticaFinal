@@ -160,11 +160,13 @@ namespace SysOtica.Negocio.Fachada
 
         }
 
-        public List<Receita> PesquisaReceita(string rc_nomemedico)
+        public List<Receita> PuxaReceita(string cl_nome)
         {
-            return receitadao.pesquisaReceita(rc_nomemedico);
+            return receitadao.puxaReceita(cl_nome);
 
         }
+
+
 
         public void PesquisaReceitas(DataGridView grid, string cl_nome)
         {
