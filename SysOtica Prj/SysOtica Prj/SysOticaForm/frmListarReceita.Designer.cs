@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.DataGridreceita = new System.Windows.Forms.DataGridView();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.historico = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,19 +60,10 @@
             this.loednp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poddnp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poednp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomemedico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtvalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnListar = new System.Windows.Forms.Button();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnLimpar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridreceita)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,7 +94,6 @@
             this.loednp,
             this.poddnp,
             this.poednp,
-            this.adicao,
             this.observa,
             this.nomemedico,
             this.data,
@@ -107,6 +105,82 @@
             this.DataGridreceita.Size = new System.Drawing.Size(958, 340);
             this.DataGridreceita.TabIndex = 1;
             this.DataGridreceita.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.receitaDataGridView_CellDoubleClick);
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Location = new System.Drawing.Point(206, 29);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(252, 20);
+            this.txtPesquisa.TabIndex = 2;
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Location = new System.Drawing.Point(895, 410);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.TabIndex = 3;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(814, 410);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 4;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(12, 410);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.TabIndex = 5;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(895, 27);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(75, 23);
+            this.btnListar.TabIndex = 6;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(486, 27);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btnPesquisar.TabIndex = 7;
+            this.btnPesquisar.Text = "Pesquisa";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(45, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Digite o nome do médico :";
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(733, 410);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpar.TabIndex = 9;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // id
             // 
@@ -246,12 +320,6 @@
             this.poednp.HeaderText = "Perto OE. dnp";
             this.poednp.Name = "poednp";
             // 
-            // adicao
-            // 
-            this.adicao.DataPropertyName = "rc_adicao";
-            this.adicao.HeaderText = "Adição";
-            this.adicao.Name = "adicao";
-            // 
             // observa
             // 
             this.observa.DataPropertyName = "rc_observacoes";
@@ -275,82 +343,6 @@
             this.dtvalidade.DataPropertyName = "rc_dtavalidade";
             this.dtvalidade.HeaderText = "Validade ";
             this.dtvalidade.Name = "dtvalidade";
-            // 
-            // txtPesquisa
-            // 
-            this.txtPesquisa.Location = new System.Drawing.Point(206, 29);
-            this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(252, 20);
-            this.txtPesquisa.TabIndex = 2;
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Location = new System.Drawing.Point(895, 410);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 3;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Location = new System.Drawing.Point(814, 410);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 4;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
-            // btnSair
-            // 
-            this.btnSair.Location = new System.Drawing.Point(12, 410);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 23);
-            this.btnSair.TabIndex = 5;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // btnListar
-            // 
-            this.btnListar.Location = new System.Drawing.Point(895, 27);
-            this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(75, 23);
-            this.btnListar.TabIndex = 6;
-            this.btnListar.Text = "Listar";
-            this.btnListar.UseVisualStyleBackColor = true;
-            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.Location = new System.Drawing.Point(486, 27);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 7;
-            this.btnPesquisar.Text = "Pesquisa";
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Digite o nome do médico :";
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.Location = new System.Drawing.Point(733, 410);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 9;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // frmListarReceita
             // 
@@ -385,6 +377,7 @@
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn historico;
@@ -408,11 +401,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn loednp;
         private System.Windows.Forms.DataGridViewTextBoxColumn poddnp;
         private System.Windows.Forms.DataGridViewTextBoxColumn poednp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adicao;
         private System.Windows.Forms.DataGridViewTextBoxColumn observa;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomemedico;
         private System.Windows.Forms.DataGridViewTextBoxColumn data;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtvalidade;
-        private System.Windows.Forms.Button btnLimpar;
     }
 }

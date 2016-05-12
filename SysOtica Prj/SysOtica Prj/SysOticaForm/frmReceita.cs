@@ -2,12 +2,14 @@
 using SysOtica.Conexao;
 using SysOtica.Negocio;
 using SysOtica.Negocio.Classes_Basicas;
+using SysOtica.Negocio.Excecoes;
 using SysOtica.Negocio.Fachada;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,7 @@ namespace SysOticaForm
     {
 
        public List<Cliente> listaCli;
-       public List<Receita> listaReceita;
-       Receita selecionaReceita;
-        ReceitaDados dadosreceita = new ReceitaDados();
+       ReceitaDados dadosreceita = new ReceitaDados();
     
 
         public frmReceita()
@@ -39,8 +39,9 @@ namespace SysOticaForm
 
         public void LimparCampos()
         {
+            cmbCliente.DisplayMember = null;
             txtLongeODesferico.Text = "";
-            DateTime.Parse(maskedTextData.Text).Equals("");
+            maskedTextData.Text = null;           
             txtLongeOEesferico.Text = "";
             txtPertoODesferico.Text = "";
             txtPertoOEesferico.Text = "";
@@ -59,8 +60,7 @@ namespace SysOticaForm
             txtLongeODdnp.Text = "";
             txtLongeOEdnp.Text = "";
             txtPertoODdnp.Text = "";
-            txtPertoOEdnp.Text = "";
-            textAdicao.Text = "";
+            txtPertoOEdnp.Text = "";          
             textNomeMedico.Text = "";
             textObs.Text = "";
             
@@ -97,12 +97,18 @@ namespace SysOticaForm
                     receita.Rc_loednp = Convert.ToDecimal(txtLongeOEdnp.Text);
                     receita.Rc_poddnp = Convert.ToDecimal(txtPertoODdnp.Text);
                     receita.Rc_poednp = Convert.ToDecimal(txtPertoOEdnp.Text);
-                    receita.Rc_data = DateTime.Parse(maskedTextData.Text);
-                   //receita.Rc_adicao = Convert.ToDecimal(textAdicao.Text);
+                    receita.Rc_data = DateTime.Parse(maskedTextData.Text);                 
                     receita.Rc_nomemedico = textNomeMedico.Text.Trim();
                     receita.Rc_observacoes = textObs.Text.Trim();
                     string data_validade = dateTimePickerValidade.Value.ToShortDateString();
                     receita.Rc_dtavalidade = Convert.ToDateTime(data_validade);
+
+                    if (DateTime.Parse(maskedTextData.Text) < DateTime.Today)
+                    {
+                        MessageBox.Show("A data de entrada não pode ser inferior a data atual", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+
+                    }
 
                     if (DateTime.Parse(maskedTextData.Text) > Convert.ToDateTime(data_validade))
                     {
@@ -133,14 +139,15 @@ namespace SysOticaForm
                     fachada.InserirReceita(receita, cli);
                     MessageBox.Show("Receita cadastra com sucesso.");
                     LimparCampos();
+                    carregaHistorico();
 
                 }
 
 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Erro ao conectar com o banco" + ex.Message);
+                MessageBox.Show ("Erro ao conectar com o banco " + ex.Message);
             }
 
 
@@ -206,7 +213,7 @@ namespace SysOticaForm
 
         }
 
-       
+   
     }
 
 }

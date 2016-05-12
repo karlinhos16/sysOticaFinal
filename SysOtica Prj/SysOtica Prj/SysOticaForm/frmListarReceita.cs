@@ -41,7 +41,6 @@ namespace SysOticaForm
         {
             atualizaGrid();
 
-
       
         }
 
@@ -63,7 +62,7 @@ namespace SysOticaForm
                 DataGridreceita.AutoGenerateColumns = false;
                 for (int i = 0; i < DataGridreceita.Rows.Count; i++)
                 {
-                    string coluna = DataGridreceita.Rows[i].Cells[27].Value.ToString();
+                    string coluna = DataGridreceita.Rows[i].Cells[26].Value.ToString();
 
                     if (Convert.ToString(coluna) == DateTime.Today.ToString() && Convert.ToDateTime(coluna) != null)
                     {
@@ -182,8 +181,7 @@ namespace SysOticaForm
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            //DataGridreceita.DataSource = fachada.PesquisaReceita(btnPesquisar.Text);
-
+          
 
 
             string caracteres = "^[ a-zA-Z]+$";

@@ -60,9 +60,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textNomeMedico = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnAplica = new System.Windows.Forms.Button();
-            this.textAdicao = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -160,9 +157,6 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.textNomeMedico);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.btnAplica);
-            this.groupBox2.Controls.Add(this.textAdicao);
-            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.groupBox13);
             this.groupBox2.Controls.Add(this.groupBox12);
             this.groupBox2.Controls.Add(this.groupBox11);
@@ -388,31 +382,6 @@
             this.label15.Size = new System.Drawing.Size(225, 13);
             this.label15.TabIndex = 18;
             this.label15.Text = "Nome do profissional resposável pela Receita:";
-            // 
-            // btnAplica
-            // 
-            this.btnAplica.Location = new System.Drawing.Point(186, 243);
-            this.btnAplica.Name = "btnAplica";
-            this.btnAplica.Size = new System.Drawing.Size(75, 23);
-            this.btnAplica.TabIndex = 17;
-            this.btnAplica.Text = "Aplicar";
-            this.btnAplica.UseVisualStyleBackColor = true;
-            // 
-            // textAdicao
-            // 
-            this.textAdicao.Location = new System.Drawing.Point(83, 243);
-            this.textAdicao.Name = "textAdicao";
-            this.textAdicao.Size = new System.Drawing.Size(86, 20);
-            this.textAdicao.TabIndex = 16;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(34, 248);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(43, 13);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Adição:";
             // 
             // groupBox13
             // 
@@ -725,9 +694,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textNomeMedico;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnAplica;
-        private System.Windows.Forms.TextBox textAdicao;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox12;

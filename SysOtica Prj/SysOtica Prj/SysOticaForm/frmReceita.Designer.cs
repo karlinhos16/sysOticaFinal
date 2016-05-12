@@ -31,6 +31,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listBoxDatas = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.dateTimePickerValidade = new System.Windows.Forms.DateTimePicker();
             this.maskedTextData = new System.Windows.Forms.MaskedTextBox();
             this.txtPertoOEdnp = new System.Windows.Forms.TextBox();
@@ -57,9 +59,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textNomeMedico = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnAplica = new System.Windows.Forms.Button();
-            this.textAdicao = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -87,8 +86,6 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.cmbCliente = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -121,7 +118,6 @@
             this.listBoxDatas.Name = "listBoxDatas";
             this.listBoxDatas.Size = new System.Drawing.Size(103, 355);
             this.listBoxDatas.TabIndex = 0;
-           
             // 
             // groupBox2
             // 
@@ -153,9 +149,6 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.textNomeMedico);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.btnAplica);
-            this.groupBox2.Controls.Add(this.textAdicao);
-            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.groupBox13);
             this.groupBox2.Controls.Add(this.groupBox12);
             this.groupBox2.Controls.Add(this.groupBox11);
@@ -175,6 +168,24 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados de Lançamento";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 27);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(111, 13);
+            this.label17.TabIndex = 45;
+            this.label17.Text = "Selecione  um cliente:";
+            // 
+            // cmbCliente
+            // 
+            this.cmbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCliente.FormattingEnabled = true;
+            this.cmbCliente.Location = new System.Drawing.Point(126, 24);
+            this.cmbCliente.Name = "cmbCliente";
+            this.cmbCliente.Size = new System.Drawing.Size(487, 21);
+            this.cmbCliente.TabIndex = 44;
             // 
             // dateTimePickerValidade
             // 
@@ -364,31 +375,6 @@
             this.label15.Size = new System.Drawing.Size(225, 13);
             this.label15.TabIndex = 18;
             this.label15.Text = "Nome do profissional resposável pela Receita:";
-            // 
-            // btnAplica
-            // 
-            this.btnAplica.Location = new System.Drawing.Point(186, 269);
-            this.btnAplica.Name = "btnAplica";
-            this.btnAplica.Size = new System.Drawing.Size(75, 23);
-            this.btnAplica.TabIndex = 17;
-            this.btnAplica.Text = "Aplicar";
-            this.btnAplica.UseVisualStyleBackColor = true;
-            // 
-            // textAdicao
-            // 
-            this.textAdicao.Location = new System.Drawing.Point(83, 269);
-            this.textAdicao.Name = "textAdicao";
-            this.textAdicao.Size = new System.Drawing.Size(86, 20);
-            this.textAdicao.TabIndex = 16;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(34, 274);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(43, 13);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Adição:";
             // 
             // groupBox13
             // 
@@ -657,24 +643,6 @@
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
             // 
-            // cmbCliente
-            // 
-            this.cmbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(126, 19);
-            this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(487, 21);
-            this.cmbCliente.TabIndex = 44;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 27);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(111, 13);
-            this.label17.TabIndex = 45;
-            this.label17.Text = "Selecione  um cliente:";
-            // 
             // frmReceita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -726,9 +694,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textNomeMedico;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnAplica;
-        private System.Windows.Forms.TextBox textAdicao;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox12;
