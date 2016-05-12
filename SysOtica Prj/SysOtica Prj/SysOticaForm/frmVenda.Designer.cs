@@ -32,6 +32,8 @@
             this.CboCliente = new System.Windows.Forms.ComboBox();
             this.BtnNovaVenda = new System.Windows.Forms.Button();
             this.GroupBox = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerAtual = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
             this.textBoxQtdMult = new System.Windows.Forms.TextBox();
             this.textBoxPegarProduto = new System.Windows.Forms.TextBox();
             this.textBoxProdID = new System.Windows.Forms.TextBox();
@@ -62,9 +64,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePickerAtual = new System.Windows.Forms.DateTimePicker();
             this.textBoxPegarNome = new System.Windows.Forms.TextBox();
+            this.listViewCarregarID = new System.Windows.Forms.ListView();
             this.GroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +101,7 @@
             // 
             // GroupBox
             // 
+            this.GroupBox.Controls.Add(this.listViewCarregarID);
             this.GroupBox.Controls.Add(this.dateTimePickerAtual);
             this.GroupBox.Controls.Add(this.label10);
             this.GroupBox.Controls.Add(this.textBoxQtdMult);
@@ -134,6 +136,26 @@
             this.GroupBox.TabStop = false;
             this.GroupBox.Text = "Nova Venda";
             this.GroupBox.Visible = false;
+            // 
+            // dateTimePickerAtual
+            // 
+            this.dateTimePickerAtual.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dateTimePickerAtual.Enabled = false;
+            this.dateTimePickerAtual.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerAtual.Location = new System.Drawing.Point(693, 544);
+            this.dateTimePickerAtual.Name = "dateTimePickerAtual";
+            this.dateTimePickerAtual.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dateTimePickerAtual.Size = new System.Drawing.Size(92, 20);
+            this.dateTimePickerAtual.TabIndex = 35;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(654, 550);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 13);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Data:";
             // 
             // textBoxQtdMult
             // 
@@ -398,32 +420,20 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Código da Produto:";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(654, 550);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(33, 13);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "Data:";
-            // 
-            // dateTimePickerAtual
-            // 
-            this.dateTimePickerAtual.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dateTimePickerAtual.Enabled = false;
-            this.dateTimePickerAtual.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerAtual.Location = new System.Drawing.Point(693, 544);
-            this.dateTimePickerAtual.Name = "dateTimePickerAtual";
-            this.dateTimePickerAtual.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dateTimePickerAtual.Size = new System.Drawing.Size(92, 20);
-            this.dateTimePickerAtual.TabIndex = 35;
-            // 
             // textBoxPegarNome
             // 
             this.textBoxPegarNome.Location = new System.Drawing.Point(657, 6);
             this.textBoxPegarNome.Name = "textBoxPegarNome";
             this.textBoxPegarNome.Size = new System.Drawing.Size(59, 20);
             this.textBoxPegarNome.TabIndex = 5;
+            // 
+            // listViewCarregarID
+            // 
+            this.listViewCarregarID.Location = new System.Drawing.Point(16, 543);
+            this.listViewCarregarID.Name = "listViewCarregarID";
+            this.listViewCarregarID.Size = new System.Drawing.Size(121, 142);
+            this.listViewCarregarID.TabIndex = 36;
+            this.listViewCarregarID.UseCompatibleStateImageBehavior = false;
             // 
             // frmVenda
             // 
@@ -486,5 +496,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerAtual;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxPegarNome;
+        private System.Windows.Forms.ListView listViewCarregarID;
     }
 }

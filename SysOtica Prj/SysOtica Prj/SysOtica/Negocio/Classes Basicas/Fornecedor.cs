@@ -26,7 +26,7 @@ namespace SysOtica.Negocio.Classes_Basicas
         private String fr_celularrepresentante;
         private String fr_observacoes;
         private String fr_cnpj;
-        private String fr_tipo;
+
 
 
         public Fornecedor()
@@ -264,19 +264,6 @@ namespace SysOtica.Negocio.Classes_Basicas
             set
             {
                 fr_cnpj = value;
-            }
-        }
-
-        public string Fr_tipo
-        {
-            get
-            {
-                return fr_tipo;
-            }
-
-            set
-            {
-                fr_tipo = value;
             }
         }
     }

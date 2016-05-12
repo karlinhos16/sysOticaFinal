@@ -47,38 +47,61 @@ namespace SysOtica.Conexao
                 cmd.Parameters.Add("@vn_dtsaida", SqlDbType.Date);
                 cmd.Parameters["@vn_dtsaida"].Value = v.Vn_dtsaida;
 
-                foreach (Produto p in v.Listaproduto)
+                foreach (ProdutoVenda pv in v.Listaprodutovenda)
                 {
                     ConexaoBD conn1 = new ConexaoBD();
                     conn1.AbrirConexao();
 
-                    string sqlproduto = "INSERT INTO Produto (ct_id,pr_descricao, pr_grife, pr_valor, pr_estoqueminimo,  pr_qtd, pr_unidade, pr_dtentrada, pr_tipo ) values (@ct_id, @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_qtd, @pr_unidade, @pr_dtentrada, @pr_tipo )";
+                    string sqlproduto = "INSERT INTO ProdutoVenda (vc_id, pr_id) values (@vc_id, @pr_id)";
                     SqlCommand cmd1 = new SqlCommand(sqlproduto, conn.cone);
 
 
-                    cmd.Parameters.Add("@pr_descricao", SqlDbType.VarChar);
-                    cmd.Parameters["@pr_descricao"].Value = p.Pr_descricao;
+                    cmd.Parameters.Add("@vc_id", SqlDbType.Int);
+                    cmd.Parameters["@vc_id"].Value = pv.Venda.Vn_id;
 
-                    cmd.Parameters.Add("@pr_unidade", SqlDbType.VarChar);
-                    cmd.Parameters["@pr_unidade"].Value = p.Pr_unidade;
 
-                    cmd.Parameters.Add("@pr_grife", SqlDbType.VarChar);
-                    cmd.Parameters["@pr_grife"].Value = p.Pr_grife;
+                    cmd.Parameters.Add("@pr_id", SqlDbType.Int);
+                    cmd.Parameters["@pr_id"].Value = pv.Listaproduto;
 
-                    cmd.Parameters.Add("@pr_valor", SqlDbType.VarChar);
-                    cmd.Parameters["@pr_valor"].Value = p.Pr_valor;
 
-                    cmd.Parameters.Add("@pr_qtd", SqlDbType.VarChar);
-                    cmd.Parameters["@pr_qtd"].Value = p.Pr_qtd;
+                    //foreach (Produto p in pv.Listaproduto)
+                    //{
+                    //    ConexaoBD conn2 = new ConexaoBD();
+                    //    conn2.AbrirConexao();
 
-                    cmd.Parameters.Add("@pr_estoqueminimo", SqlDbType.VarChar);
-                    cmd.Parameters["@pr_estoqueminimo"].Value = p.Pr_estoqueminimo;
+                    //    string sqlprodutov = "INSERT INTO Produto (ct_id,pr_descricao, pr_grife, pr_valor, pr_estoqueminimo,  pr_qtd, pr_unidade, pr_dtentrada, pr_tipo ) values (@ct_id, @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_qtd, @pr_unidade, @pr_dtentrada, @pr_tipo )";
+                    //    SqlCommand cmd2 = new SqlCommand(sqlprodutov, conn.cone);
 
-                    cmd.Parameters.Add("@pr_dtentrada", SqlDbType.Date);
-                    cmd.Parameters["@pr_dtentrada"].Value = p.Pr_dtentrada;
 
-                    cmd.Parameters.Add("@pr_tipo", SqlDbType.VarChar);
-                    cmd.Parameters["@pr_tipo"].Value = p.Pr_tipo;
+                    //    cmd.Parameters.Add("@pr_descricao", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_descricao"].Value = p.Pr_descricao;
+
+                    //    cmd.Parameters.Add("@pr_unidade", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_unidade"].Value = p.Pr_unidade;
+
+                    //    cmd.Parameters.Add("@pr_grife", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_grife"].Value = p.Pr_grife;
+
+                    //    cmd.Parameters.Add("@pr_valor", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_valor"].Value = p.Pr_valor;
+
+                    //    cmd.Parameters.Add("@pr_qtd", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_qtd"].Value = p.Pr_qtd;
+
+                    //    cmd.Parameters.Add("@pr_estoqueminimo", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_estoqueminimo"].Value = p.Pr_estoqueminimo;
+
+                    //    cmd.Parameters.Add("@pr_dtentrada", SqlDbType.Date);
+                    //    cmd.Parameters["@pr_dtentrada"].Value = p.Pr_dtentrada;
+
+                    //    cmd.Parameters.Add("@pr_tipo", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_tipo"].Value = p.Pr_tipo;
+
+                    //    cmd2.ExecuteNonQuery();
+                    //    cmd2.Dispose();
+
+                    //    conn2.FecharConexao();
+                    //}
 
                     cmd1.ExecuteNonQuery();
                     cmd1.Dispose();

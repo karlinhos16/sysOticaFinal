@@ -19,7 +19,6 @@ namespace SysOtica.Negocio.Classes_Basicas
         private List<Categoria> categoria;
         private DateTime pr_dtentrada;
         private String pr_tipo;
-        private Venda venda;
 
 
 
@@ -155,19 +154,6 @@ namespace SysOtica.Negocio.Classes_Basicas
             set
             {
                 pr_tipo = value;
-            }
-        }
-
-        public Venda Venda
-        {
-            get
-            {
-                return venda;
-            }
-
-            set
-            {
-                venda = value;
             }
         }
     }
