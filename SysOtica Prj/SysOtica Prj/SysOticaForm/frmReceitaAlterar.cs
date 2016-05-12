@@ -131,7 +131,7 @@ namespace SysOticaForm
                     alteraReceita.Rc_dtavalidade = Convert.ToDateTime(data);
 
                     fachada.AlterarReceita(alteraReceita);
-                    MessageBox.Show("Receita alterada com sucesso!");
+                    MessageBox.Show("Receita alterada com sucesso! ");
                     this.DialogResult = DialogResult.Yes;
                     LimparCampos();
                 }
