@@ -11,16 +11,11 @@ namespace SysOtica.Conexao
     {
 
         public SqlConnection cone = new SqlConnection();
-<<<<<<< HEAD
-        string connectionStringSqlServer = @"Data Source=MRX-PC\MSSQLSERVERSYSOT ;Initial Catalog= sysOtica ;UId= root ;Password= 123456";
-        //MRX-PC\MSSQLSERVERSYSOT Leo
-        //DESKTOP-G6CQ56U Dayse
 
-=======
         string connectionStringSqlServer = @"Data Source=DESKTOP-KA9UELE\SQLEXPRESS ;Initial Catalog=sysOtica   ;UId=sysotica ;Password=123456";
         //DESKTOP-KA9UELE\SQLEXPRESS
         //DESKTOP-G6CQ56U //Uid=root
->>>>>>> origin
+
         public void AbrirConexao()
         {
             this.cone = new SqlConnection(connectionStringSqlServer);
