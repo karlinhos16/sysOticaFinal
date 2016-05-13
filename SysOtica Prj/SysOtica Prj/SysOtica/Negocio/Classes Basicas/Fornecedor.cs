@@ -26,6 +26,7 @@ namespace SysOtica.Negocio.Classes_Basicas
         private String fr_celularrepresentante;
         private String fr_observacoes;
         private String fr_cnpj;
+        private Produto produto;
 
 
 
@@ -264,6 +265,21 @@ namespace SysOtica.Negocio.Classes_Basicas
             set
             {
                 fr_cnpj = value;
+            }
+        }
+
+     
+
+        public Produto Produto
+        {
+            get
+            {
+                return produto;
+            }
+
+            set
+            {
+                produto = value;
             }
         }
     }

@@ -97,10 +97,10 @@ namespace SysOtica.Negocio.Fachada
         ProdutoDados pdao = new ProdutoDados();
         ProdutoControlador pColtrol = new ProdutoControlador();
 
-        public void InserirProduto(Produto p)
+        public void InserirProduto(Produto p, Fornecedor fornecedor, Categoria cat)
         {
             pColtrol.verificaPreenchimento(p);
-            pdao.inserirProduto(p);
+            pdao.inserirProduto(p, fornecedor , cat);
 
         }
 

@@ -15,13 +15,13 @@ namespace SysOtica.Conexao
         ConexaoBD conn = new ConexaoBD();
 
     
-        public void inserirProduto(Produto p)
+        public void inserirProduto(Produto p, Fornecedor fornecedor, Categoria cat)
         {
             try
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "INSERT INTO Produto (ct_id,pr_descricao, pr_grife, pr_valor, pr_estoqueminimo,  pr_qtd, pr_unidade, pr_dtentrada, pr_tipo ) values (@ct_id, @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_qtd, @pr_unidade, @pr_dtentrada, @pr_tipo )";
+                string sql = "INSERT INTO Produto (pr_descricao, pr_grife, pr_valor, pr_estoqueminimo,  pr_qtd, pr_unidade, pr_dtentrada, pr_tipo,fr_id, ct_id) values ( @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_qtd, @pr_unidade, @pr_dtentrada, @pr_tipo, @ct_id, @fr_id)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
@@ -48,6 +48,13 @@ namespace SysOtica.Conexao
 
                 cmd.Parameters.Add("@pr_tipo", SqlDbType.VarChar);
                 cmd.Parameters["@pr_tipo"].Value = p.Pr_tipo;
+
+                cmd.Parameters.Add("@ct_id", SqlDbType.Int);
+                cmd.Parameters["@ct_id"].Value = cat.Ct_id;
+
+                cmd.Parameters.Add("@fr_id", SqlDbType.Int);
+                cmd.Parameters["@fr_id"].Value = fornecedor.Fr_id;
+
 
 
                 //executando a instrucao 

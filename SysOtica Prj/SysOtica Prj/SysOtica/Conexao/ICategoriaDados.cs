@@ -10,5 +10,6 @@ namespace SysOtica.Conexao
    public interface ICategoriaDados
     {
         void inserir(Categoria c);
+        List<Categoria> pesquisaCategoria();
     }
 }
