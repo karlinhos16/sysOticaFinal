@@ -32,6 +32,8 @@
             this.CboCliente = new System.Windows.Forms.ComboBox();
             this.BtnNovaVenda = new System.Windows.Forms.Button();
             this.GroupBox = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerAtual = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
             this.textBoxQtdMult = new System.Windows.Forms.TextBox();
             this.textBoxPegarProduto = new System.Windows.Forms.TextBox();
             this.textBoxProdID = new System.Windows.Forms.TextBox();
@@ -62,8 +64,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePickerAtual = new System.Windows.Forms.DateTimePicker();
             this.textBoxPegarNome = new System.Windows.Forms.TextBox();
             this.GroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).BeginInit();
@@ -135,6 +135,26 @@
             this.GroupBox.Text = "Nova Venda";
             this.GroupBox.Visible = false;
             // 
+            // dateTimePickerAtual
+            // 
+            this.dateTimePickerAtual.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dateTimePickerAtual.Enabled = false;
+            this.dateTimePickerAtual.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerAtual.Location = new System.Drawing.Point(693, 544);
+            this.dateTimePickerAtual.Name = "dateTimePickerAtual";
+            this.dateTimePickerAtual.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dateTimePickerAtual.Size = new System.Drawing.Size(92, 20);
+            this.dateTimePickerAtual.TabIndex = 35;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(654, 550);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 13);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Data:";
+            // 
             // textBoxQtdMult
             // 
             this.textBoxQtdMult.Location = new System.Drawing.Point(128, 116);
@@ -169,6 +189,7 @@
             this.comboBoxFP.Name = "comboBoxFP";
             this.comboBoxFP.Size = new System.Drawing.Size(121, 21);
             this.comboBoxFP.TabIndex = 30;
+            this.comboBoxFP.SelectedIndexChanged += new System.EventHandler(this.comboBoxFP_SelectedIndexChanged);
             // 
             // textBoxValorPago
             // 
@@ -397,26 +418,6 @@
             this.label2.Size = new System.Drawing.Size(98, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Código da Produto:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(654, 550);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(33, 13);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "Data:";
-            // 
-            // dateTimePickerAtual
-            // 
-            this.dateTimePickerAtual.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dateTimePickerAtual.Enabled = false;
-            this.dateTimePickerAtual.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerAtual.Location = new System.Drawing.Point(693, 544);
-            this.dateTimePickerAtual.Name = "dateTimePickerAtual";
-            this.dateTimePickerAtual.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dateTimePickerAtual.Size = new System.Drawing.Size(92, 20);
-            this.dateTimePickerAtual.TabIndex = 35;
             // 
             // textBoxPegarNome
             // 

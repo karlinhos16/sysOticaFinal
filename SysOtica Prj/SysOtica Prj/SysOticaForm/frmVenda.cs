@@ -120,5 +120,10 @@ namespace SysOticaForm
             Cliente c = (Cliente)CboCliente.SelectedItem;
             textBoxPegarNome.Text = CboCliente.SelectedValue.ToString();
         }
+
+        private void comboBoxFP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
