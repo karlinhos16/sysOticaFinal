@@ -141,7 +141,9 @@ namespace SysOtica.Negocio.Fachada
 
         public void InserirReceita(Receita receita, Cliente cli)
         {
+            
             receitaColtrol.VerificaPreenchimento(receita);
+            receitaColtrol.validaCampos(receita);
             receitadao.inserirReceita(receita, cli);
 
         }
@@ -150,6 +152,7 @@ namespace SysOtica.Negocio.Fachada
         {
 
             receitaColtrol.VerificaPreenchimento(receita);
+            receitaColtrol.validaCampos(receita);
             receitadao.alterarReceita(receita);
         }
 

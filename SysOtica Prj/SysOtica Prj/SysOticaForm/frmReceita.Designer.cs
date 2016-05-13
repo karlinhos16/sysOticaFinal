@@ -209,6 +209,7 @@
             this.txtPertoOEdnp.Name = "txtPertoOEdnp";
             this.txtPertoOEdnp.Size = new System.Drawing.Size(74, 20);
             this.txtPertoOEdnp.TabIndex = 41;
+            this.txtPertoOEdnp.Text = "0";
             // 
             // txtPertoODdnp
             // 
@@ -216,6 +217,7 @@
             this.txtPertoODdnp.Name = "txtPertoODdnp";
             this.txtPertoODdnp.Size = new System.Drawing.Size(74, 20);
             this.txtPertoODdnp.TabIndex = 40;
+            this.txtPertoODdnp.Text = "0";
             // 
             // txtLongeOEdnp
             // 
@@ -223,6 +225,7 @@
             this.txtLongeOEdnp.Name = "txtLongeOEdnp";
             this.txtLongeOEdnp.Size = new System.Drawing.Size(74, 20);
             this.txtLongeOEdnp.TabIndex = 39;
+            this.txtLongeOEdnp.Text = "0";
             // 
             // txtLongeODdnp
             // 
@@ -230,6 +233,7 @@
             this.txtLongeODdnp.Name = "txtLongeODdnp";
             this.txtLongeODdnp.Size = new System.Drawing.Size(74, 20);
             this.txtLongeODdnp.TabIndex = 38;
+            this.txtLongeODdnp.Text = "0";
             // 
             // txtPertoOEaltura
             // 
@@ -237,6 +241,7 @@
             this.txtPertoOEaltura.Name = "txtPertoOEaltura";
             this.txtPertoOEaltura.Size = new System.Drawing.Size(81, 20);
             this.txtPertoOEaltura.TabIndex = 37;
+            this.txtPertoOEaltura.Text = "0";
             // 
             // txtPertoODaltura
             // 
@@ -244,6 +249,7 @@
             this.txtPertoODaltura.Name = "txtPertoODaltura";
             this.txtPertoODaltura.Size = new System.Drawing.Size(81, 20);
             this.txtPertoODaltura.TabIndex = 36;
+            this.txtPertoODaltura.Text = "0";
             // 
             // txtLongeOEaltura
             // 
@@ -251,6 +257,7 @@
             this.txtLongeOEaltura.Name = "txtLongeOEaltura";
             this.txtLongeOEaltura.Size = new System.Drawing.Size(81, 20);
             this.txtLongeOEaltura.TabIndex = 35;
+            this.txtLongeOEaltura.Text = "0";
             // 
             // txtLongeODaltura
             // 
@@ -258,6 +265,7 @@
             this.txtLongeODaltura.Name = "txtLongeODaltura";
             this.txtLongeODaltura.Size = new System.Drawing.Size(84, 20);
             this.txtLongeODaltura.TabIndex = 34;
+            this.txtLongeODaltura.Text = "0";
             // 
             // txtPertoOEeixo
             // 
@@ -265,6 +273,7 @@
             this.txtPertoOEeixo.Name = "txtPertoOEeixo";
             this.txtPertoOEeixo.Size = new System.Drawing.Size(81, 20);
             this.txtPertoOEeixo.TabIndex = 33;
+            this.txtPertoOEeixo.Text = "0";
             // 
             // txtPertoODeixo
             // 
@@ -272,6 +281,7 @@
             this.txtPertoODeixo.Name = "txtPertoODeixo";
             this.txtPertoODeixo.Size = new System.Drawing.Size(81, 20);
             this.txtPertoODeixo.TabIndex = 32;
+            this.txtPertoODeixo.Text = "0";
             // 
             // txtLongeOEeixo
             // 
@@ -279,6 +289,7 @@
             this.txtLongeOEeixo.Name = "txtLongeOEeixo";
             this.txtLongeOEeixo.Size = new System.Drawing.Size(82, 20);
             this.txtLongeOEeixo.TabIndex = 31;
+            this.txtLongeOEeixo.Text = "0";
             // 
             // txtLongeODeixo
             // 
@@ -286,6 +297,7 @@
             this.txtLongeODeixo.Name = "txtLongeODeixo";
             this.txtLongeODeixo.Size = new System.Drawing.Size(83, 20);
             this.txtLongeODeixo.TabIndex = 30;
+            this.txtLongeODeixo.Text = "0";
             // 
             // txtPertoOEcilindrico
             // 
@@ -293,6 +305,7 @@
             this.txtPertoOEcilindrico.Name = "txtPertoOEcilindrico";
             this.txtPertoOEcilindrico.Size = new System.Drawing.Size(84, 20);
             this.txtPertoOEcilindrico.TabIndex = 29;
+            this.txtPertoOEcilindrico.Text = "0";
             // 
             // txtPertoODcilindrico
             // 
@@ -300,6 +313,7 @@
             this.txtPertoODcilindrico.Name = "txtPertoODcilindrico";
             this.txtPertoODcilindrico.Size = new System.Drawing.Size(83, 20);
             this.txtPertoODcilindrico.TabIndex = 28;
+            this.txtPertoODcilindrico.Text = "0";
             // 
             // txtLongeOEcilindrico
             // 
@@ -307,6 +321,7 @@
             this.txtLongeOEcilindrico.Name = "txtLongeOEcilindrico";
             this.txtLongeOEcilindrico.Size = new System.Drawing.Size(82, 20);
             this.txtLongeOEcilindrico.TabIndex = 27;
+            this.txtLongeOEcilindrico.Text = "0";
             // 
             // txtLongeODcilindrico
             // 
@@ -314,6 +329,7 @@
             this.txtLongeODcilindrico.Name = "txtLongeODcilindrico";
             this.txtLongeODcilindrico.Size = new System.Drawing.Size(83, 20);
             this.txtLongeODcilindrico.TabIndex = 26;
+            this.txtLongeODcilindrico.Text = "0";
             // 
             // txtPertoOEesferico
             // 
@@ -321,6 +337,7 @@
             this.txtPertoOEesferico.Name = "txtPertoOEesferico";
             this.txtPertoOEesferico.Size = new System.Drawing.Size(77, 20);
             this.txtPertoOEesferico.TabIndex = 25;
+            this.txtPertoOEesferico.Text = "0";
             // 
             // txtPertoODesferico
             // 
@@ -328,6 +345,7 @@
             this.txtPertoODesferico.Name = "txtPertoODesferico";
             this.txtPertoODesferico.Size = new System.Drawing.Size(77, 20);
             this.txtPertoODesferico.TabIndex = 24;
+            this.txtPertoODesferico.Text = "0";
             // 
             // txtLongeOEesferico
             // 
@@ -335,6 +353,7 @@
             this.txtLongeOEesferico.Name = "txtLongeOEesferico";
             this.txtLongeOEesferico.Size = new System.Drawing.Size(76, 20);
             this.txtLongeOEesferico.TabIndex = 23;
+            this.txtLongeOEesferico.Text = "0";
             // 
             // txtLongeODesferico
             // 
@@ -342,6 +361,7 @@
             this.txtLongeODesferico.Name = "txtLongeODesferico";
             this.txtLongeODesferico.Size = new System.Drawing.Size(76, 20);
             this.txtLongeODesferico.TabIndex = 22;
+            this.txtLongeODesferico.Text = "0";
             // 
             // textObs
             // 
