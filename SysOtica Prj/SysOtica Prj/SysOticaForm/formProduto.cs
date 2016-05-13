@@ -24,34 +24,34 @@ namespace SysOticaForm
         string[] oculosgrau = {"Pirre Cardin","Hugo Boss","Tommy Hilfiger", "D&G",
                               "Turma da Mônica","Lacoste","Adidas","Playboy","Ray-Ban","Ralph Lauren","Evoke" };
 
-        string[] lentes =     {"Transitions","Hoya","ZEISS","Varilux" };
+        string[] lentes = { "Transitions", "Hoya", "ZEISS", "Varilux" };
 
-        string[] lentesContato = {"Acuvue","Alcon","CooperVision","Solótica","ZEISS" };
-
-
-        string[] categoria = { "Oculos de Grau", "Oculos de Sol","Lente Bifocais ou Multifocais", "Lentes de Contato" };
+        string[] lentesContato = { "Acuvue", "Alcon", "CooperVision", "Solótica", "ZEISS" };
 
 
-        
-           
+
+
+
         public formProduto()
         {
             InitializeComponent();
         }
 
-        private void formProduto_Load_1(object sender, EventArgs e)
+        private void formProduto_Load(object sender, EventArgs e)
         {
-            //SysOtica.Conexão.FornecedorDados forn = new FornecedorDados();
-            //List<Fornecedor> lista = forn.listaFornecedor();
-            //cbFornecedor.DataSource = lista;
-            //cbFornecedor.DisplayMember = "fr_fantasia";
-            //cbFornecedor.ValueMember = "fr_id";
+            carregaFornecedor();
 
-            for (int i = 0; i < categoria.Count(); i++)
-            {
-                cbGrupo.Items.Add(categoria[i]);
-            }
+            carregaCategoria();
+
+
+            
+
+
         }
+
+
+
+
 
         private void cbGrupo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -92,86 +92,97 @@ namespace SysOticaForm
                 }
 
             }
-            else {
+            else
+            {
                 MessageBox.Show("Selecione o uma categoria!");
             }
         }
 
 
-
-
-
-
-        private void formProduto_KeyDown(object sender, KeyEventArgs e)
+        void carregaFornecedor()
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.Handled = true;
-                e.SuppressKeyPress = true;
-                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
-            }
-        }
+            FornecedoresDados dadosforn = new FornecedoresDados();
+            List<Fornecedor> lista;
+            lista = dadosforn.listaFornecedor();
 
-        public void LimparCampos()
-        {
-            tbDescricao.Text = "";                    
-            cbGrupo.Text = "";
-            cmbUnidade.Text = "";
-            cbGrife.Text = "";
-            tbValor.Text = "";
-            tbQuantidade.Text = "";
-            tbEstoqueMinimo.Text = "";
-        }
+            DataTable data = new DataTable();
 
-     
-          
-      
-         
-  
+            data.Columns.Add("fr_id");
+            data.Columns.Add("fr_fantasia");
 
-        /*private void CarregaForncedores()
-        {
 
-            FornecedoresDados fd = new FornecedoresDados();
-            string item;
-            Fornecedor forn = new Fornecedor();            
-            List<Fornecedor> carregaforn = fd.listaFornecedor();
-            for (int i = 0; i < carregaforn.Count(); i++)
-            {
-               
-                forn = carregaforn[i];
-                item = forn.Fr_id + "  -  " + forn.Fr_fantasia;
-                cbFornecedor.Items.Add(item);
+          foreach (Fornecedor fornecedor in lista)
+                {
+                        DataRow row = data.NewRow();
+                        row["fr_id"] = fornecedor.Fr_id;
+                        row["fr_fantasia"] = fornecedor.Fr_fantasia;
+                        data.Rows.Add(row);
+
+                }
+
+            cmbFornecedor.DataSource = data;
+            cmbFornecedor.DisplayMember = "fr_fantasia";
+            cmbFornecedor.ValueMember = "fr_id";
+
 
             }
 
-   
-        }*/
 
-        private void buttonSalvar_Click_1(object sender, EventArgs e)
+        void carregaCategoria()
         {
+            CategoriaDados dadoscat = new CategoriaDados();
+            List<Categoria> lista;
+            lista = dadoscat.pesquisaCategoria();
+
+            DataTable data = new DataTable();
+
+            data.Columns.Add("ct_id");
+            data.Columns.Add("ct_nome");
+
+
+            foreach (Categoria cat in lista)
+            {
+                DataRow row = data.NewRow();
+                row["ct_id"] = cat.Ct_id;
+                row["ct_nome"] = cat.Ct_nome;
+                data.Rows.Add(row);
+
+            }
+
+            cmbFornecedor.DataSource = data;
+            cmbFornecedor.DisplayMember = "ct_nome";
+            cmbFornecedor.ValueMember = "ct_id";
+
+        }
+
+        private void buttonSalvar_Click(object sender, EventArgs e)
+        {
+
             try
             {
                 Fachada fachada = new Fachada();
                 Fornecedor fornecedor = new Fornecedor();
                 Produto produto = new Produto();
+                Categoria cat = new Categoria();
 
                 // string forn = cbFornecedor.SelectedItem.ToString();
                 //          int fornecedorID = Convert.ToInt32(forn.Substring(0, 1));//pega somente o ID do fornecedor
 
 
                 {
-                    produto.Pr_descricao = tbDescricao.Text;                                
-                    //int Fr_id = !string.IsNullOrEmpty(cbFornecedor.Text) ? Convert.ToInt32(cbFornecedor.SelectedValue.ToString()) : 0;               
-                    //produto.Fr_id = fachada.GetFornecedor(Fr_id);
+                    fornecedor.Fr_id = Convert.ToInt32(cmbFornecedor.SelectedValue.ToString());
+                    cat.Ct_id = Convert.ToInt32(cmbCategoria.SelectedValue.ToString());
+                    produto.Pr_descricao = tbDescricao.Text;
                     produto.Pr_unidade = cmbUnidade.SelectedItem.ToString();
                     produto.Pr_grife = cbGrife.SelectedItem.ToString();
+                    string data_entrada = dataPicker.Value.ToShortDateString();
+                    produto.Pr_dtentrada = Convert.ToDateTime(data_entrada);
                     produto.Pr_valor = int.Parse(tbValor.Text);
                     produto.Pr_qtd = int.Parse(tbQuantidade.Text);
                     produto.Pr_estoqueminimo = int.Parse(tbEstoqueMinimo.Text);
 
                 }
-                fachada.InserirProduto(produto);
+                fachada.InserirProduto(produto, fornecedor, cat);
                 MessageBox.Show("Produto Cadastrado com Sucesso!");
                 LimparCampos();
             }
@@ -180,14 +191,31 @@ namespace SysOticaForm
 
                 MessageBox.Show("Erro no Cadastro" + ex.Message);
             }
+
         }
 
-        private void buttonSair_Click_1(object sender, EventArgs e)
+
+
+          public void LimparCampos()
+         {
+            tbDescricao.Text = "";
+            dataPicker.Text = null;
+            cbGrupo.Text = "";
+            cmbUnidade.Text = "";
+            cbGrife.Text = "";
+            tbValor.Text = "";
+            tbQuantidade.Text = "";
+            tbEstoqueMinimo.Text = "";
+        }
+
+        private void buttonSair_Click(object sender, EventArgs e)
         {
             Dispose();
         }
 
-        private void buttonLimpar_Click_1(object sender, EventArgs e)
+
+
+        private void buttonLimpar_Click(object sender, EventArgs e)
         {
             LimparCampos();
         }
@@ -195,16 +223,8 @@ namespace SysOticaForm
 
 
 
-
-
-
-
-        /*string escolha1;
-
-        escolha1 = cbGrife.SelectedItem.ToString();
-
-        MessageBox.Show("a opção escolhida foi:  " + escolha1)*/
-    }
+        }
 
 
 }
+    

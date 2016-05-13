@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SysOtica.Conexao
 {
@@ -14,6 +15,6 @@ namespace SysOtica.Conexao
         void excluirreceita(Receita receita);
         bool verificaduplicidade(Receita receita);
         List<Receita> listaReceita();
-        List<Receita> pesquisaReceita(string rc_nomemedico);
+        void pesquisaReceitas(DataGridView grid, string cl_nome);
     }
 }

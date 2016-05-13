@@ -30,6 +30,7 @@
         {
             this.DataGridreceita = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.historico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lodesferico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eesferico = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,8 +52,7 @@
             this.loednp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poddnp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poednp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.observa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomemedico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtvalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +63,7 @@
             this.btnListar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnLimpar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridreceita)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +72,7 @@
             this.DataGridreceita.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridreceita.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.nome,
             this.historico,
             this.lodesferico,
             this.eesferico,
@@ -92,15 +94,13 @@
             this.loednp,
             this.poddnp,
             this.poednp,
-            this.adicao,
-            this.obs,
+            this.observa,
             this.nomemedico,
             this.data,
             this.dtvalidade});
             this.DataGridreceita.Location = new System.Drawing.Point(12, 64);
             this.DataGridreceita.MultiSelect = false;
             this.DataGridreceita.Name = "DataGridreceita";
-            this.DataGridreceita.ReadOnly = true;
             this.DataGridreceita.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridreceita.Size = new System.Drawing.Size(958, 340);
             this.DataGridreceita.TabIndex = 1;
@@ -111,189 +111,162 @@
             this.id.DataPropertyName = "rc_id";
             this.id.HeaderText = "ID";
             this.id.Name = "id";
-            this.id.ReadOnly = true;
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "cl_nome";
+            this.nome.HeaderText = "Nome do Cliente";
+            this.nome.Name = "nome";
             // 
             // historico
             // 
             this.historico.DataPropertyName = "rc_historico";
             this.historico.HeaderText = "Histórico";
             this.historico.Name = "historico";
-            this.historico.ReadOnly = true;
             // 
             // lodesferico
             // 
             this.lodesferico.DataPropertyName = "rc_lodesferico";
             this.lodesferico.HeaderText = "Longe OD. Esférico";
             this.lodesferico.Name = "lodesferico";
-            this.lodesferico.ReadOnly = true;
             // 
             // eesferico
             // 
             this.eesferico.DataPropertyName = "rc_loeesferico";
             this.eesferico.HeaderText = "Longe OE. Esférico";
             this.eesferico.Name = "eesferico";
-            this.eesferico.ReadOnly = true;
             // 
             // podesferico
             // 
             this.podesferico.DataPropertyName = "rc_podesferico";
             this.podesferico.HeaderText = "Perto OD. Esférico";
             this.podesferico.Name = "podesferico";
-            this.podesferico.ReadOnly = true;
             // 
             // poeesferico
             // 
             this.poeesferico.DataPropertyName = "rc_poeesferico";
             this.poeesferico.HeaderText = "Perto OE. Esférico";
             this.poeesferico.Name = "poeesferico";
-            this.poeesferico.ReadOnly = true;
             // 
             // lodcilindrico
             // 
             this.lodcilindrico.DataPropertyName = "rc_lodcilindrico";
             this.lodcilindrico.HeaderText = "Longe OD. cilindrico";
             this.lodcilindrico.Name = "lodcilindrico";
-            this.lodcilindrico.ReadOnly = true;
             // 
             // loecilindrico
             // 
             this.loecilindrico.DataPropertyName = "rc_loecilindrico";
             this.loecilindrico.HeaderText = "Longe OE. cilíndrico";
             this.loecilindrico.Name = "loecilindrico";
-            this.loecilindrico.ReadOnly = true;
             // 
             // podcilindrico
             // 
             this.podcilindrico.DataPropertyName = "rc_podcilindrico";
             this.podcilindrico.HeaderText = "Perto OD. cilindrico";
             this.podcilindrico.Name = "podcilindrico";
-            this.podcilindrico.ReadOnly = true;
             // 
             // poecilindirco
             // 
             this.poecilindirco.DataPropertyName = "rc_poecilindrico";
             this.poecilindirco.HeaderText = "Perto OE. cilindrico";
             this.poecilindirco.Name = "poecilindirco";
-            this.poecilindirco.ReadOnly = true;
             // 
             // lodeixo
             // 
             this.lodeixo.DataPropertyName = "rc_lodeixo";
             this.lodeixo.HeaderText = "Longe OD. eixo";
             this.lodeixo.Name = "lodeixo";
-            this.lodeixo.ReadOnly = true;
             // 
             // loeeixo
             // 
             this.loeeixo.DataPropertyName = "rc_loeeixo";
             this.loeeixo.HeaderText = "Longe OE. eixo";
             this.loeeixo.Name = "loeeixo";
-            this.loeeixo.ReadOnly = true;
             // 
             // podeixo
             // 
             this.podeixo.DataPropertyName = "rc_podeixo";
             this.podeixo.HeaderText = "Perto OD. eixo";
             this.podeixo.Name = "podeixo";
-            this.podeixo.ReadOnly = true;
             // 
             // poeeixo
             // 
             this.poeeixo.DataPropertyName = "rc_poeeixo";
             this.poeeixo.HeaderText = "Perto OE. eixo";
             this.poeeixo.Name = "poeeixo";
-            this.poeeixo.ReadOnly = true;
             // 
             // lodaltura
             // 
             this.lodaltura.DataPropertyName = "rc_lodaltura";
             this.lodaltura.HeaderText = "Longe OD. altura";
             this.lodaltura.Name = "lodaltura";
-            this.lodaltura.ReadOnly = true;
             // 
             // loealtura
             // 
             this.loealtura.DataPropertyName = "rc_loealtura";
             this.loealtura.HeaderText = "Longe OE. altura";
             this.loealtura.Name = "loealtura";
-            this.loealtura.ReadOnly = true;
             // 
             // podaltura
             // 
             this.podaltura.DataPropertyName = "rc_podaltura";
             this.podaltura.HeaderText = "Perto OD. altura";
             this.podaltura.Name = "podaltura";
-            this.podaltura.ReadOnly = true;
             // 
             // poealtura
             // 
             this.poealtura.DataPropertyName = "rc_poealtura";
             this.poealtura.HeaderText = "Perto OD. altura";
             this.poealtura.Name = "poealtura";
-            this.poealtura.ReadOnly = true;
             // 
             // loddnp
             // 
             this.loddnp.DataPropertyName = "rc_loddnp";
             this.loddnp.HeaderText = "Longe OD. dnp";
             this.loddnp.Name = "loddnp";
-            this.loddnp.ReadOnly = true;
             // 
             // loednp
             // 
-            this.loednp.DataPropertyName = "rc_loednp, ";
+            this.loednp.DataPropertyName = "rc_loednp";
             this.loednp.HeaderText = "Longe OE. dnp";
             this.loednp.Name = "loednp";
-            this.loednp.ReadOnly = true;
             // 
             // poddnp
             // 
             this.poddnp.DataPropertyName = "rc_poddnp";
             this.poddnp.HeaderText = "Perto OD. dnp";
             this.poddnp.Name = "poddnp";
-            this.poddnp.ReadOnly = true;
             // 
             // poednp
             // 
             this.poednp.DataPropertyName = "rc_poednp";
             this.poednp.HeaderText = "Perto OE. dnp";
             this.poednp.Name = "poednp";
-            this.poednp.ReadOnly = true;
             // 
-            // adicao
+            // observa
             // 
-            this.adicao.DataPropertyName = "rc_adicao";
-            this.adicao.HeaderText = "Adição";
-            this.adicao.Name = "adicao";
-            this.adicao.ReadOnly = true;
-            // 
-            // obs
-            // 
-            this.obs.DataPropertyName = "rc_observacoes ";
-            this.obs.HeaderText = "Observações";
-            this.obs.Name = "obs";
-            this.obs.ReadOnly = true;
+            this.observa.DataPropertyName = "rc_observacoes";
+            this.observa.HeaderText = "Observações";
+            this.observa.Name = "observa";
             // 
             // nomemedico
             // 
             this.nomemedico.DataPropertyName = "rc_nomemedico";
             this.nomemedico.HeaderText = "Nome do médico";
             this.nomemedico.Name = "nomemedico";
-            this.nomemedico.ReadOnly = true;
             // 
             // data
             // 
             this.data.DataPropertyName = "rc_data";
             this.data.HeaderText = "Data de entrada";
             this.data.Name = "data";
-            this.data.ReadOnly = true;
             // 
             // dtvalidade
             // 
             this.dtvalidade.DataPropertyName = "rc_dtavalidade";
             this.dtvalidade.HeaderText = "Validade ";
             this.dtvalidade.Name = "dtvalidade";
-            this.dtvalidade.ReadOnly = true;
             // 
             // txtPesquisa
             // 
@@ -361,11 +334,22 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Digite o nome do médico :";
             // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(733, 410);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpar.TabIndex = 9;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
             // frmListarReceita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 458);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnListar);
@@ -374,6 +358,7 @@
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.txtPesquisa);
             this.Controls.Add(this.DataGridreceita);
+            this.MaximizeBox = false;
             this.Name = "frmListarReceita";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar/Alterar Receita";
@@ -393,7 +378,9 @@
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn historico;
         private System.Windows.Forms.DataGridViewTextBoxColumn lodesferico;
         private System.Windows.Forms.DataGridViewTextBoxColumn eesferico;
@@ -415,8 +402,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn loednp;
         private System.Windows.Forms.DataGridViewTextBoxColumn poddnp;
         private System.Windows.Forms.DataGridViewTextBoxColumn poednp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adicao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn obs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn observa;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomemedico;
         private System.Windows.Forms.DataGridViewTextBoxColumn data;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtvalidade;

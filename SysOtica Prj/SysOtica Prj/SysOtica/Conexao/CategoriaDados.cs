@@ -43,6 +43,42 @@ namespace SysOtica.Conexao
             {
                 throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
             }
+
         }
+
+
+            public List<Categoria> pesquisaCategoria()
+            {
+            List<Categoria> lista = new List<Categoria>();
+
+
+            string sql = "Select ct_id, ct_nome from Categoria";
+            try
+            {
+                conn.AbrirConexao();
+                SqlCommand cmd = new SqlCommand(sql, conn.cone);
+                SqlDataReader retorno = cmd.ExecuteReader();
+
+                while (retorno.Read())
+                {
+                    Categoria cat = new Categoria();
+                    cat.Ct_id = retorno.GetInt32(retorno.GetOrdinal("ct_id"));
+                    cat.Ct_nome = retorno.GetString(retorno.GetOrdinal("ct_nome"));
+
+
+                    lista.Add(cat);
+                }
+                conn.FecharConexao();
+                return lista;
+
+            }
+            catch (SqlException e)
+            {
+                throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
+            }
+
+
+        }
+        
     }
 }

@@ -28,9 +28,9 @@ namespace SysOtica.Negocio.Classes_Basicas
         private String cl_observacoes;
         private String cl_uf;
         private Venda venda;
-        private List<Receita> rc_id;
+        private List<Receita> listareceita;
 
-        public Cliente(int cl_id, string cl_nome, DateTime cl_datanascimento, string cl_cpf, string cl_rg, string cl_telefone, string cl_celular, string cl_telefone2, string cl_cep, string cl_endereco, string cl_numero, string cl_bairro, string cl_cidade, string cl_email, string cl_nomepai, string cl_nomemae, string cl_profissao, string cl_observacoes, string cl_uf,Venda venda, List<Receita> rc_id)
+        public Cliente(int cl_id, string cl_nome, DateTime cl_datanascimento, string cl_cpf, string cl_rg, string cl_telefone, string cl_celular, string cl_telefone2, string cl_cep, string cl_endereco, string cl_numero, string cl_bairro, string cl_cidade, string cl_email, string cl_nomepai, string cl_nomemae, string cl_profissao, string cl_observacoes, string cl_uf,Venda venda, List<Receita> listareceita)
         {
             this.cl_id = cl_id;
             this.cl_nome = cl_nome;
@@ -52,7 +52,7 @@ namespace SysOtica.Negocio.Classes_Basicas
             this.cl_observacoes = cl_observacoes;
             this.cl_uf = cl_uf;
             this.venda = venda;
-            this.rc_id = new List<Receita>();
+            this.listareceita = new List<Receita>();
         }
 
         public Cliente()
@@ -306,16 +306,16 @@ namespace SysOtica.Negocio.Classes_Basicas
             }
         }
 
-        public List<Receita> Rc_id
+        public List<Receita> Listareceita
         {
             get
             {
-                return rc_id;
+                return listareceita;
             }
 
             set
             {
-                rc_id = value;
+                listareceita = value;
             }
         }
 

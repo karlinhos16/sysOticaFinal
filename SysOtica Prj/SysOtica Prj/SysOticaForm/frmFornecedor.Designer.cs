@@ -244,7 +244,7 @@
             // 
             this.textBoxRazaosocial.Location = new System.Drawing.Point(9, 33);
             this.textBoxRazaosocial.Name = "textBoxRazaosocial";
-            this.textBoxRazaosocial.Size = new System.Drawing.Size(406, 20);
+            this.textBoxRazaosocial.Size = new System.Drawing.Size(576, 20);
             this.textBoxRazaosocial.TabIndex = 0;
             // 
             // label18

@@ -48,7 +48,7 @@ namespace SysOticaForm
             
 
             Produto p = (Produto)comboBoxProduto.SelectedItem;
-            textBoxValor.Text = Convert.ToString(p.Pr_qtd);
+            textBoxValor.Text = Convert.ToString(p.Pr_valor);
             textBoxPegarProduto.Text = Convert.ToString(p.Pr_descricao);
         }
 
@@ -91,27 +91,16 @@ namespace SysOticaForm
         {
             for (int i = 0; i < dataGridViewItens.Rows.Count - 1; i++)
             {
-
-
+               
                 Venda v = new Venda();
 
                 v.Vn_desconto = Convert.ToDecimal(textBoxDes.Text);
                 v.Vn_formapagamento = comboBoxFP.Text;
                 v.Vn_valor = Convert.ToDecimal(dataGridViewItens.Rows[i].Cells[3].Value);
                 v.Vn_valortotal = Convert.ToDecimal(textBoxValorPago.Text);
+                v.Vn_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text);
                 v.Cliente = this.cliente;
-                fc.inserir(v);
-
-                ProdutoVenda pv = new ProdutoVenda();
-
-                pv.Pv_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text); ;
-                pv.Pv_qtd = Convert.ToInt32(dataGridViewItens.Rows[i].Cells[2].Value);
-                pv.Venda = this.venda;
-                fc.inserirProdutoVenda(pv);
-
-
-
-               
+                fc.inserir(v);      
             }
         }
 

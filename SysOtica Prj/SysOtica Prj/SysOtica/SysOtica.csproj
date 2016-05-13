@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,17 +44,14 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Conexao\CategoriaDados.cs" />
     <Compile Include="Conexao\ICategoriaDados.cs" />
-    <Compile Include="Conexao\IProdutoVendaDados.cs" />
     <Compile Include="Conexao\IVendaDados.cs" />
     <Compile Include="Conexao\ProdutoVendaDados.cs" />
     <Compile Include="Conexao\VendaDados.cs" />
     <Compile Include="Conexao\IProdutoDados.cs" />
-    <Compile Include="Conexao\IProdutoFornecedor.cs" />
     <Compile Include="Conexao\IUsuarioDados.cs" />
     <Compile Include="Conexao\IFornecedorDados.cs" />
     <Compile Include="Conexao\IReceitaDados.cs" />
     <Compile Include="Conexao\IClienteDados.cs" />
-    <Compile Include="Conexao\ProdutoFornecedorDados.cs" />
     <Compile Include="Conexao\ReceitaDados.cs" />
     <Compile Include="Conexao\UsuarioDados.cs" />
     <Compile Include="Conexao\ProdutoDados.cs" />
@@ -65,7 +63,6 @@
     <Compile Include="Negocio\Classes Basicas\Cliente.cs" />
     <Compile Include="Negocio\Classes Basicas\Fornecedor.cs" />
     <Compile Include="Negocio\Classes Basicas\Produto.cs" />
-    <Compile Include="Negocio\Classes Basicas\ProdutoFornecedor.cs" />
     <Compile Include="Negocio\Classes Basicas\ProdutoVenda.cs" />
     <Compile Include="Negocio\Classes Basicas\Receita.cs" />
     <Compile Include="Negocio\Classes Basicas\Usuario.cs" />

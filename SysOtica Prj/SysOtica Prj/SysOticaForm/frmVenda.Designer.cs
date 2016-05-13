@@ -65,6 +65,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxPegarNome = new System.Windows.Forms.TextBox();
+            this.listViewCarregarID = new System.Windows.Forms.ListView();
             this.GroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +101,7 @@
             // 
             // GroupBox
             // 
+            this.GroupBox.Controls.Add(this.listViewCarregarID);
             this.GroupBox.Controls.Add(this.dateTimePickerAtual);
             this.GroupBox.Controls.Add(this.label10);
             this.GroupBox.Controls.Add(this.textBoxQtdMult);
@@ -426,6 +428,14 @@
             this.textBoxPegarNome.Size = new System.Drawing.Size(59, 20);
             this.textBoxPegarNome.TabIndex = 5;
             // 
+            // listViewCarregarID
+            // 
+            this.listViewCarregarID.Location = new System.Drawing.Point(16, 543);
+            this.listViewCarregarID.Name = "listViewCarregarID";
+            this.listViewCarregarID.Size = new System.Drawing.Size(121, 142);
+            this.listViewCarregarID.TabIndex = 36;
+            this.listViewCarregarID.UseCompatibleStateImageBehavior = false;
+            // 
             // frmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,5 +497,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerAtual;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxPegarNome;
+        private System.Windows.Forms.ListView listViewCarregarID;
     }
 }

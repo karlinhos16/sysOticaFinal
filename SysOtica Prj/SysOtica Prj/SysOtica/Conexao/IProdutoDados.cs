@@ -9,7 +9,7 @@ namespace SysOtica.Conexao
 {
     interface IProdutoDados
     {
-        void inserirProduto(Produto p);
+        void inserirProduto(Produto p, Fornecedor fornecedor, Categoria cat);
         void alterarProduto(Produto p);
         void excluirProduto(Produto p);
         List<Produto> listarProduto();

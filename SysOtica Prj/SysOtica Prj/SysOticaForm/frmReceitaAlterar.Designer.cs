@@ -32,6 +32,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textIDReceita = new System.Windows.Forms.TextBox();
             this.dateTimePickerValidade = new System.Windows.Forms.DateTimePicker();
             this.maskedTextData = new System.Windows.Forms.MaskedTextBox();
             this.txtPertoOEdnp = new System.Windows.Forms.TextBox();
@@ -58,9 +60,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textNomeMedico = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnAplica = new System.Windows.Forms.Button();
-            this.textAdicao = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -85,10 +84,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBoxHistorico = new System.Windows.Forms.ListBox();
-            this.textIDReceita = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -101,7 +96,6 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnImprimir
@@ -163,9 +157,6 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.textNomeMedico);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.btnAplica);
-            this.groupBox2.Controls.Add(this.textAdicao);
-            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.groupBox13);
             this.groupBox2.Controls.Add(this.groupBox12);
             this.groupBox2.Controls.Add(this.groupBox11);
@@ -179,12 +170,30 @@
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(125, 3);
+            this.groupBox2.Location = new System.Drawing.Point(69, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(588, 427);
+            this.groupBox2.Size = new System.Drawing.Size(644, 430);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados de Lançamento";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(13, 64);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(64, 13);
+            this.label17.TabIndex = 45;
+            this.label17.Text = "ID Receita: ";
+            // 
+            // textIDReceita
+            // 
+            this.textIDReceita.Enabled = false;
+            this.textIDReceita.ForeColor = System.Drawing.Color.Red;
+            this.textIDReceita.Location = new System.Drawing.Point(95, 57);
+            this.textIDReceita.Name = "textIDReceita";
+            this.textIDReceita.Size = new System.Drawing.Size(52, 20);
+            this.textIDReceita.TabIndex = 44;
             // 
             // dateTimePickerValidade
             // 
@@ -195,12 +204,15 @@
             // 
             // maskedTextData
             // 
+            this.maskedTextData.Enabled = false;
+            this.maskedTextData.ForeColor = System.Drawing.Color.Red;
             this.maskedTextData.Location = new System.Drawing.Point(95, 22);
             this.maskedTextData.Mask = "00/00/0000";
             this.maskedTextData.Name = "maskedTextData";
             this.maskedTextData.Size = new System.Drawing.Size(100, 20);
             this.maskedTextData.TabIndex = 42;
             this.maskedTextData.ValidatingType = typeof(System.DateTime);
+            this.maskedTextData.Click += new System.EventHandler(this.maskedTextData_Click);
             // 
             // txtPertoOEdnp
             // 
@@ -371,34 +383,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(31, 282);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(220, 13);
+            this.label15.Size = new System.Drawing.Size(225, 13);
             this.label15.TabIndex = 18;
             this.label15.Text = "Nome do profissional resposável pela Receita:";
-            // 
-            // btnAplica
-            // 
-            this.btnAplica.Location = new System.Drawing.Point(186, 243);
-            this.btnAplica.Name = "btnAplica";
-            this.btnAplica.Size = new System.Drawing.Size(75, 23);
-            this.btnAplica.TabIndex = 17;
-            this.btnAplica.Text = "Aplicar";
-            this.btnAplica.UseVisualStyleBackColor = true;
-            // 
-            // textAdicao
-            // 
-            this.textAdicao.Location = new System.Drawing.Point(83, 243);
-            this.textAdicao.Name = "textAdicao";
-            this.textAdicao.Size = new System.Drawing.Size(86, 20);
-            this.textAdicao.TabIndex = 16;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(34, 248);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(43, 13);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Adição:";
             // 
             // groupBox13
             // 
@@ -634,44 +621,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(88, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Data da Receita:";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.listBoxHistorico);
-            this.groupBox1.Location = new System.Drawing.Point(4, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(115, 427);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Histórico";
-            // 
-            // listBoxHistorico
-            // 
-            this.listBoxHistorico.FormattingEnabled = true;
-            this.listBoxHistorico.Location = new System.Drawing.Point(6, 39);
-            this.listBoxHistorico.Name = "listBoxHistorico";
-            this.listBoxHistorico.Size = new System.Drawing.Size(103, 355);
-            this.listBoxHistorico.TabIndex = 0;
-            // 
-            // textIDReceita
-            // 
-            this.textIDReceita.Enabled = false;
-            this.textIDReceita.Location = new System.Drawing.Point(95, 57);
-            this.textIDReceita.Name = "textIDReceita";
-            this.textIDReceita.Size = new System.Drawing.Size(52, 20);
-            this.textIDReceita.TabIndex = 44;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(13, 64);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(64, 13);
-            this.label17.TabIndex = 45;
-            this.label17.Text = "ID Receita: ";
             // 
             // frmReceitaAlterar
             // 
@@ -682,9 +634,11 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "frmReceitaAlterar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReceitaAlterar";
+            this.Load += new System.EventHandler(this.frmReceitaAlterar_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox13.ResumeLayout(false);
@@ -709,7 +663,6 @@
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -748,9 +701,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textNomeMedico;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnAplica;
-        private System.Windows.Forms.TextBox textAdicao;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox12;
@@ -775,7 +725,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox listBoxHistorico;
     }
 }

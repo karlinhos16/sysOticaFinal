@@ -8,25 +8,19 @@ namespace SysOtica.Negocio.Classes_Basicas
 {
     public class ProdutoVenda
     {
-        private List<Produto> listaproduto;
         private Venda venda;
-        private DateTime pv_dtsaida;
-        private Decimal pv_qtd;
+        private List<Produto> listaproduto;
 
-        public ProdutoVenda()
-        {
-        }
-
-        public DateTime Pv_dtsaida
+        public Venda Venda
         {
             get
             {
-                return pv_dtsaida;
+                return venda;
             }
 
             set
             {
-                pv_dtsaida = value;
+                venda = value;
             }
         }
 
@@ -42,32 +36,5 @@ namespace SysOtica.Negocio.Classes_Basicas
                 listaproduto = value;
             }
         }
-
-        public Venda Venda
-        {
-            get
-            {
-                return venda;
-            }
-
-            set
-            {
-                venda = value;
-            }
-        }
-
-        public decimal Pv_qtd
-        {
-            get
-            {
-                return pv_qtd;
-            }
-
-            set
-            {
-                pv_qtd = value;
-            }
-        }
     }
 }
-

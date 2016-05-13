@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -39,6 +40,8 @@ namespace SysOticaForm
         private void btnListar_Click(object sender, EventArgs e)
         {
             atualizaGrid();
+
+      
         }
 
         void atualizaGrid()
@@ -47,7 +50,38 @@ namespace SysOticaForm
             DataGridreceita.DataSource = null;
             listarReceita = fachada.ListaReceita();
             DataGridreceita.DataSource = listarReceita;
-            DataGridreceita.Update();
+            vencimentoReceita();
+
+        }
+
+
+        void vencimentoReceita()
+        {
+            if (DataGridreceita != null)
+            {
+                DataGridreceita.AutoGenerateColumns = false;
+                for (int i = 0; i < DataGridreceita.Rows.Count; i++)
+                {
+                    string coluna = DataGridreceita.Rows[i].Cells[26].Value.ToString();
+
+                    if (Convert.ToString(coluna) == DateTime.Today.ToString() && Convert.ToDateTime(coluna) != null)
+                    {
+
+                        DataGridreceita.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
+                        DataGridreceita.Rows[i].ErrorText = "Esta receita se encontra na data de vencimento";
+                    }
+
+                    else
+                    {
+                        DataGridreceita.Rows[i].DefaultCellStyle.BackColor = Color.White;
+
+
+                    }
+
+                }
+
+
+            }
 
 
         }
@@ -59,8 +93,18 @@ namespace SysOticaForm
         {
             if (DataGridreceita.SelectedRows[0].Index >= 0)
             {
-                MessageBox.Show("Campo Selecionado!");
-                Receita receitaSelecionada = listarReceita.ElementAt(DataGridreceita.SelectedRows[0].Index);
+
+                try
+                {
+                    Receita receitaSelecionada = listarReceita.ElementAt(DataGridreceita.SelectedRows[0].Index);
+                    MessageBox.Show("Campo Selecionado!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Valor nulo \n" + ex.Message);
+
+                }
+
             }
             else
             {
@@ -88,12 +132,16 @@ namespace SysOticaForm
                     receitaSelecionada = (DataGridreceita.SelectedRows[0].DataBoundItem as Receita);
 
                     frmReceitaAlterar formAR = new frmReceitaAlterar(receitaSelecionada);
+                    this.WindowState = FormWindowState.Minimized;
                     DialogResult dialog = formAR.ShowDialog();
+                   
 
                     if (dialog == DialogResult.Yes)
                     {
+                        this.WindowState = FormWindowState.Normal;
                         atualizaGrid();
                     }
+
                 }
             }
             catch (Exception ex)
@@ -137,13 +185,47 @@ namespace SysOticaForm
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            DataGridreceita.DataSource = fachada.PesquisaReceita(btnPesquisar.Text);
+          
+
+
+            string caracteres = "^[ a-zA-Z]+$";
+            if (txtPesquisa.Text.Length < 3)
+            {
+
+                MessageBox.Show("Por Favor, digite um nome com no mínimo 3 caracteres");
+                return;
+            }
+            if (!Regex.IsMatch(txtPesquisa.Text, caracteres))
+            {
+                MessageBox.Show("Este campo só aceita letras");
+                return;
+            }
+
+            if (txtPesquisa.Text != "")
+            {
+
+                DataGridreceita.DataSource = null;
+                DataGridreceita.AutoGenerateColumns = false;
+                //fachada.PesquisaReceitas(DataGridreceita, this.txtPesquisa.Text.Trim());
+                DataGridreceita.DataSource = fachada.PuxaReceita(txtPesquisa.Text.Trim());
+                vencimentoReceita();
+
+            }
+
+
+
+
         }
 
-
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            DataGridreceita.DataSource = null;
+        }
     }
 
 
 }
-    
+
+
+
 

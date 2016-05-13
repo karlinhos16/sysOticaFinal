@@ -21,12 +21,16 @@ namespace SysOtica.Conexao
             try
             {
                 conn.AbrirConexao();
-                string sql = "INSERT INTO venda (cl_id, vn_valor, vn_valortotal, vn_desconto, vn_formapagamento ) VALUES ( @cl_id, @vn_valor, @vn_valortotal, @vn_desconto, @vn_formapagamento)";
+                string sql = "INSERT INTO venda (cl_id, rc_id, vn_valor, vn_valortotal, vn_desconto, vn_formapagamento, vn_dtsaida ) VALUES ( @cl_id,@rc_id, @vn_valor, @vn_valortotal, @vn_desconto, @vn_formapagamento, @vn_dtsaida)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
                 cmd.Parameters.Add("@cl_id", SqlDbType.Int);
                 cmd.Parameters["@cl_id"].Value = v.Cliente;
+
+
+                cmd.Parameters.Add("@rc_id", SqlDbType.Int);
+                cmd.Parameters["@rc_id"].Value = v.Receita;
 
                 cmd.Parameters.Add("@vn_valor", SqlDbType.Decimal);
                 cmd.Parameters["@vn_valor"].Value = v.Vn_valor;
@@ -40,44 +44,69 @@ namespace SysOtica.Conexao
                 cmd.Parameters.Add("@vn_formapagamento", SqlDbType.VarChar);
                 cmd.Parameters["@vn_formapagamento"].Value = v.Vn_formapagamento;
 
-                //foreach (Receita r in v.Listareceita)
-                //{
-                //    ConexaoBD conn1 = new ConexaoBD();
-                //    conn1.AbrirConexao();
-
-                //    string sqlreceita = "INSERT INTO Receita (cl_cpf,rc_historico, rc_lodesferico, rc_loeesferico,rc_podesferico, rc_poeesferico,rc_lodcilindrico,rc_loecilindrico, rc_podcilindrico ,rc_poecilindrico,rc_lodeixo,rc_loeeixo,rc_podeixo,rc_poeeixo,rc_lodaltura,rc_loealtura,rc_podaltura,rc_poealtura,rc_loddnp,rc_loednp, rc_poddnp,rc_poednp,rc_adicao,rc_nomemedico,rc_observacoes,rc_data,rc_dtavalidade) Values (@cl_cpf,@rc_historico, @rc_lodesferico, @rc_loeesferico, @rc_podesferico, @rc_poeesferico, @rc_lodcilindrico, @rc_loecilindrico, @rc_podcilindrico ,@rc_poecilindrico, @rc_lodeixo, @rc_loeeixo, @rc_podeixo, @rc_poeeixo, @rc_lodaltura, @rc_loealtura, @rc_podaltura, @rc_poealtura,@rc_loddnp,@rc_loednp, @rc_poddnp,@rc_poednp,@rc_adicao,@rc_nomemedico,@rc_observacoes,@rc_data,@rc_dtavalidade)";
-                //    SqlCommand cmd1 = new SqlCommand(sqlreceita, conn.cone);
-
-                //    cmd.Parameters.Add("@rc_dtavalidade", SqlDbType.VarChar);
-                //    cmd.Parameters["@rc_dtavalidade"].Value = r.Rc_dtavalidade;
-
-                //    cmd1.ExecuteNonQuery();
-                //    cmd1.Dispose();
-
-                //    conn1.FecharConexao();
-                //}
+                cmd.Parameters.Add("@vn_dtsaida", SqlDbType.Date);
+                cmd.Parameters["@vn_dtsaida"].Value = v.Vn_dtsaida;
 
                 foreach (ProdutoVenda pv in v.Listaprodutovenda)
                 {
-                    ConexaoBD conn2 = new ConexaoBD();
-                    conn2.AbrirConexao();
+                    ConexaoBD conn1 = new ConexaoBD();
+                    conn1.AbrirConexao();
 
-                    string sqlprodutovenda = "INSERT INTO produtofornecedor(pv_dtsaida,pv_qtd, vn_id) Values (@pv_dtsaida,@pv_qtd, @vn_id)";
-                    SqlCommand cmd2 = new SqlCommand(sqlprodutovenda, conn.cone);
+                    string sqlproduto = "INSERT INTO ProdutoVenda (vc_id, pr_id) values (@vc_id, @pr_id)";
+                    SqlCommand cmd1 = new SqlCommand(sqlproduto, conn.cone);
 
-                    cmd.Parameters.Add("@pv_dtsaida", SqlDbType.Date);
-                    cmd.Parameters["@pv_dtsaida"].Value = pv.Pv_dtsaida;
 
-                    cmd.Parameters.Add("@pv_qtd", SqlDbType.Int);
-                    cmd.Parameters["@pv_qtd"].Value = pv.Pv_qtd;
+                    cmd.Parameters.Add("@vc_id", SqlDbType.Int);
+                    cmd.Parameters["@vc_id"].Value = pv.Venda.Vn_id;
 
-                    cmd.Parameters.Add("vn_id", SqlDbType.Int);
-                    cmd.Parameters["vn_id"].Value = pv.Venda.Vn_id;
 
-                    cmd2.ExecuteNonQuery();
-                    cmd2.Dispose();
+                    cmd.Parameters.Add("@pr_id", SqlDbType.Int);
+                    cmd.Parameters["@pr_id"].Value = pv.Listaproduto;
 
-                    conn2.FecharConexao();
+
+                    //foreach (Produto p in pv.Listaproduto)
+                    //{
+                    //    ConexaoBD conn2 = new ConexaoBD();
+                    //    conn2.AbrirConexao();
+
+                    //    string sqlprodutov = "INSERT INTO Produto (ct_id,pr_descricao, pr_grife, pr_valor, pr_estoqueminimo,  pr_qtd, pr_unidade, pr_dtentrada, pr_tipo ) values (@ct_id, @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_qtd, @pr_unidade, @pr_dtentrada, @pr_tipo )";
+                    //    SqlCommand cmd2 = new SqlCommand(sqlprodutov, conn.cone);
+
+
+                    //    cmd.Parameters.Add("@pr_descricao", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_descricao"].Value = p.Pr_descricao;
+
+                    //    cmd.Parameters.Add("@pr_unidade", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_unidade"].Value = p.Pr_unidade;
+
+                    //    cmd.Parameters.Add("@pr_grife", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_grife"].Value = p.Pr_grife;
+
+                    //    cmd.Parameters.Add("@pr_valor", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_valor"].Value = p.Pr_valor;
+
+                    //    cmd.Parameters.Add("@pr_qtd", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_qtd"].Value = p.Pr_qtd;
+
+                    //    cmd.Parameters.Add("@pr_estoqueminimo", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_estoqueminimo"].Value = p.Pr_estoqueminimo;
+
+                    //    cmd.Parameters.Add("@pr_dtentrada", SqlDbType.Date);
+                    //    cmd.Parameters["@pr_dtentrada"].Value = p.Pr_dtentrada;
+
+                    //    cmd.Parameters.Add("@pr_tipo", SqlDbType.VarChar);
+                    //    cmd.Parameters["@pr_tipo"].Value = p.Pr_tipo;
+
+                    //    cmd2.ExecuteNonQuery();
+                    //    cmd2.Dispose();
+
+                    //    conn2.FecharConexao();
+                    //}
+
+                    cmd1.ExecuteNonQuery();
+                    cmd1.Dispose();
+
+                    conn1.FecharConexao();
                 }
 
 

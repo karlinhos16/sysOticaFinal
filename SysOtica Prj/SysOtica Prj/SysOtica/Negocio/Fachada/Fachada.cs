@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SysOtica.Negocio.Fachada
 {
@@ -96,10 +97,10 @@ namespace SysOtica.Negocio.Fachada
         ProdutoDados pdao = new ProdutoDados();
         ProdutoControlador pColtrol = new ProdutoControlador();
 
-        public void InserirProduto(Produto p)
+        public void InserirProduto(Produto p, Fornecedor fornecedor, Categoria cat)
         {
             pColtrol.verificaPreenchimento(p);
-            pdao.inserirProduto(p);
+            pdao.inserirProduto(p, fornecedor , cat);
 
         }
 
@@ -140,7 +141,9 @@ namespace SysOtica.Negocio.Fachada
 
         public void InserirReceita(Receita receita, Cliente cli)
         {
+            
             receitaColtrol.VerificaPreenchimento(receita);
+            receitaColtrol.validaCampos(receita);
             receitadao.inserirReceita(receita, cli);
 
         }
@@ -149,6 +152,7 @@ namespace SysOtica.Negocio.Fachada
         {
 
             receitaColtrol.VerificaPreenchimento(receita);
+            receitaColtrol.validaCampos(receita);
             receitadao.alterarReceita(receita);
         }
 
@@ -159,10 +163,17 @@ namespace SysOtica.Negocio.Fachada
 
         }
 
-        public List<Receita> PesquisaReceita(string rc_nomemedico)
+        public List<Receita> PuxaReceita(string cl_nome)
         {
-            return receitadao.pesquisaReceita(rc_nomemedico);
+            return receitadao.puxaReceita(cl_nome);
 
+        }
+
+
+
+        public void PesquisaReceitas(DataGridView grid, string cl_nome)
+        {
+            receitadao.pesquisaReceitas(grid, cl_nome);
         }
 
         public List<Receita> ListaReceita()
@@ -238,14 +249,14 @@ namespace SysOtica.Negocio.Fachada
 
         #endregion
 
-
         #region ProdutoVenda
 
-        ProdutoVendaDados pve = new ProdutoVendaDados();
+        ProdutoVenda pv = new ProdutoVenda();
+        ProdutoVendaDados pvdados = new ProdutoVendaDados();
 
         public void inserirProdutoVenda(ProdutoVenda pv)
         {
-            pve.inserirProdutoVenda(pv);
+            pvdados.inserirProdutoVenda(pv);
         }
 
         #endregion
