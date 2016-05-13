@@ -189,6 +189,7 @@
             // textIDReceita
             // 
             this.textIDReceita.Enabled = false;
+            this.textIDReceita.ForeColor = System.Drawing.Color.Red;
             this.textIDReceita.Location = new System.Drawing.Point(95, 57);
             this.textIDReceita.Name = "textIDReceita";
             this.textIDReceita.Size = new System.Drawing.Size(52, 20);
@@ -203,12 +204,15 @@
             // 
             // maskedTextData
             // 
+            this.maskedTextData.Enabled = false;
+            this.maskedTextData.ForeColor = System.Drawing.Color.Red;
             this.maskedTextData.Location = new System.Drawing.Point(95, 22);
             this.maskedTextData.Mask = "00/00/0000";
             this.maskedTextData.Name = "maskedTextData";
             this.maskedTextData.Size = new System.Drawing.Size(100, 20);
             this.maskedTextData.TabIndex = 42;
             this.maskedTextData.ValidatingType = typeof(System.DateTime);
+            this.maskedTextData.Click += new System.EventHandler(this.maskedTextData_Click);
             // 
             // txtPertoOEdnp
             // 
@@ -630,8 +634,11 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox2);
+            this.MaximizeBox = false;
             this.Name = "frmReceitaAlterar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReceitaAlterar";
+            this.Load += new System.EventHandler(this.frmReceitaAlterar_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox13.ResumeLayout(false);

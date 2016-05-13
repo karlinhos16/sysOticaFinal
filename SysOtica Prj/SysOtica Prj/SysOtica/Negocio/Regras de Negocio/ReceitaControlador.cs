@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SysOtica.Negocio.Regras_de_Negocio
 {
@@ -18,19 +19,14 @@ namespace SysOtica.Negocio.Regras_de_Negocio
 
         public void VerificaPreenchimento(Receita receita)
         {
-           
-            if (String.IsNullOrEmpty(Convert.ToDateTime(receita.Rc_data).ToString()))
-            {
-                 throw new CampoVazioException("Campo data da Receita Vazio");
-                
-            }
+
             if (String.IsNullOrEmpty(receita.Rc_nomemedico))
             {
-                throw new CampoVazioException("Campo nome do médico Vazio");
+                throw new CampoVazioException("campo medico vazio");
             }
             if (String.IsNullOrEmpty(receita.Rc_observacoes))
             {
-                throw new CampoVazioException("Campo observação vazio");
+                throw new CampoVazioException("campo observacoes vazio");
             }
             
         }

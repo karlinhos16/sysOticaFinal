@@ -127,8 +127,25 @@ namespace SysOticaForm
                     alteraReceita.Rc_data = DateTime.Parse(maskedTextData.Text);                  
                     alteraReceita.Rc_nomemedico = textNomeMedico.Text.Trim();
                     alteraReceita.Rc_observacoes = textObs.Text.Trim();
-                    string data = dateTimePickerValidade.Value.ToShortDateString();
-                    alteraReceita.Rc_dtavalidade = Convert.ToDateTime(data);
+                    string data_validade = dateTimePickerValidade.Value.ToShortDateString();
+                    alteraReceita.Rc_dtavalidade = Convert.ToDateTime(data_validade);
+
+            
+
+                    if (Convert.ToDateTime(data_validade) <  DateTime.Parse(maskedTextData.Text))
+                    {
+                        MessageBox.Show("A data de validade não pode ser menor do que a data de entrada", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+
+                    else if (DateTime.Parse(maskedTextData.Text) == Convert.ToDateTime(data_validade))
+
+                    {
+                        MessageBox.Show("Data de entrada e validade não podem ser as mesmas", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+
+                    }
+
 
                     fachada.AlterarReceita(alteraReceita);
                     MessageBox.Show("Receita alterada com sucesso! ");
@@ -177,6 +194,19 @@ namespace SysOticaForm
             textObs.Text = "";
         }
 
-        
+        private void frmReceitaAlterar_Load(object sender, EventArgs e)
+        {
+            maskedTextData.GotFocus += MaskedTextData_GotFocus;
+        }
+
+        private void MaskedTextData_GotFocus(object sender, EventArgs e)
+        {
+            maskedTextData.SelectAll();
+        }
+
+        private void maskedTextData_Click(object sender, EventArgs e)
+        {
+            maskedTextData.SelectAll();
+        }
     }
 }

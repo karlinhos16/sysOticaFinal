@@ -132,12 +132,16 @@ namespace SysOticaForm
                     receitaSelecionada = (DataGridreceita.SelectedRows[0].DataBoundItem as Receita);
 
                     frmReceitaAlterar formAR = new frmReceitaAlterar(receitaSelecionada);
+                    this.WindowState = FormWindowState.Minimized;
                     DialogResult dialog = formAR.ShowDialog();
+                   
 
                     if (dialog == DialogResult.Yes)
                     {
+                        this.WindowState = FormWindowState.Normal;
                         atualizaGrid();
                     }
+
                 }
             }
             catch (Exception ex)
