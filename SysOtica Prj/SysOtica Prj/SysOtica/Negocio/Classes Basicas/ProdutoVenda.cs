@@ -9,32 +9,21 @@ namespace SysOtica.Negocio.Classes_Basicas
     public class ProdutoVenda
     {
         private Venda venda;
-        private List<Produto> listaproduto;
 
         public Venda Venda
         {
-            get
-            {
-                return venda;
-            }
-
-            set
-            {
-                venda = value;
-            }
+            get { return venda; }
+            set { venda = value; }
         }
+        private Produto produto;
 
-        public List<Produto> Listaproduto
+
+        public Produto Produto
         {
-            get
-            {
-                return listaproduto;
-            }
-
-            set
-            {
-                listaproduto = value;
-            }
+            get { return produto; }
+            set { produto = value; }
         }
+
+       
     }
 }

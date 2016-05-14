@@ -73,7 +73,6 @@ C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica 
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.formProduto.resources
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.formProdutoAlterar.resources
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmCliente.resources
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmEntradaMovimentacao.resources
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmFornecedor.resources
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmListaFornecedor.resources
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmListarCliente.resources

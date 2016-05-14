@@ -75,7 +75,7 @@ namespace SysOtica.Conexao
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "UPDATE produto SET  pr_descricao = @pr_descricao, pr_grupo = @pr_grupo,pr_grife = @pr_grife, pr_valor = @pr_valor,pr_qtd = @pr_qtd,pr_estoqueminimo = @pr_estoqueminimo, pr_unidade= @pr_unidade WHERE pr_id = @pr_id";
+                string sql = "UPDATE Produto SET  pr_descricao = @pr_descricao, pr_grupo = @pr_grupo,pr_grife = @pr_grife, pr_valor = @pr_valor,pr_qtd = @pr_qtd,pr_estoqueminimo = @pr_estoqueminimo, pr_unidade= @pr_unidade WHERE pr_id = @pr_id";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
@@ -121,7 +121,7 @@ namespace SysOtica.Conexao
          try { 
             //abrir a conexão
             conn.AbrirConexao();
-            string sql = "DELETE FROM produto WHERE pr_id = @pr_id";
+            string sql = "DELETE FROM Produto WHERE pr_id = @pr_id";
             //instrucao a ser executada
             SqlCommand cmd = new SqlCommand(sql, conn.cone);
             cmd.Parameters.Add("@pr_id", SqlDbType.Int);
@@ -138,8 +138,6 @@ namespace SysOtica.Conexao
                 throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
             }
         }
-
-
         public List<Produto> listarProduto()
         {
             string sql = "SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_qtd FROM Produto";
@@ -174,8 +172,6 @@ namespace SysOtica.Conexao
                 throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
             }
         }
-
-
         public List<Produto> pesquisarProduto(string pr_descricao)
         {
             string sql = "SELECT  SELECT  pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_categoria, pr_qtd FROM Produto";

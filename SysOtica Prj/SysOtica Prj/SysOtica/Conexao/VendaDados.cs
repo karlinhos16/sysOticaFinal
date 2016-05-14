@@ -21,16 +21,15 @@ namespace SysOtica.Conexao
             try
             {
                 conn.AbrirConexao();
-                string sql = "INSERT INTO venda (cl_id, rc_id, vn_valor, vn_valortotal, vn_desconto, vn_formapagamento, vn_dtsaida ) VALUES ( @cl_id,@rc_id, @vn_valor, @vn_valortotal, @vn_desconto, @vn_formapagamento, @vn_dtsaida)";
+                string sql = "INSERT INTO Venda (cl_id, vn_valor, vn_valortotal, vn_desconto, vn_formapagamento, vn_dtsaida ) VALUES ( @cl_id, @vn_valor, @vn_valortotal, @vn_desconto, @vn_formapagamento, @vn_dtsaida)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
                 cmd.Parameters.Add("@cl_id", SqlDbType.Int);
                 cmd.Parameters["@cl_id"].Value = v.Cliente;
 
-
-                cmd.Parameters.Add("@rc_id", SqlDbType.Int);
-                cmd.Parameters["@rc_id"].Value = v.Receita;
+                //cmd.Parameters.Add("@rc_id", SqlDbType.Int);
+                //cmd.Parameters["@rc_id"].Value = v.Receita;
 
                 cmd.Parameters.Add("@vn_valor", SqlDbType.Decimal);
                 cmd.Parameters["@vn_valor"].Value = v.Vn_valor;
@@ -61,47 +60,7 @@ namespace SysOtica.Conexao
 
 
                     cmd.Parameters.Add("@pr_id", SqlDbType.Int);
-                    cmd.Parameters["@pr_id"].Value = pv.Listaproduto;
-
-
-                    //foreach (Produto p in pv.Listaproduto)
-                    //{
-                    //    ConexaoBD conn2 = new ConexaoBD();
-                    //    conn2.AbrirConexao();
-
-                    //    string sqlprodutov = "INSERT INTO Produto (ct_id,pr_descricao, pr_grife, pr_valor, pr_estoqueminimo,  pr_qtd, pr_unidade, pr_dtentrada, pr_tipo ) values (@ct_id, @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_qtd, @pr_unidade, @pr_dtentrada, @pr_tipo )";
-                    //    SqlCommand cmd2 = new SqlCommand(sqlprodutov, conn.cone);
-
-
-                    //    cmd.Parameters.Add("@pr_descricao", SqlDbType.VarChar);
-                    //    cmd.Parameters["@pr_descricao"].Value = p.Pr_descricao;
-
-                    //    cmd.Parameters.Add("@pr_unidade", SqlDbType.VarChar);
-                    //    cmd.Parameters["@pr_unidade"].Value = p.Pr_unidade;
-
-                    //    cmd.Parameters.Add("@pr_grife", SqlDbType.VarChar);
-                    //    cmd.Parameters["@pr_grife"].Value = p.Pr_grife;
-
-                    //    cmd.Parameters.Add("@pr_valor", SqlDbType.VarChar);
-                    //    cmd.Parameters["@pr_valor"].Value = p.Pr_valor;
-
-                    //    cmd.Parameters.Add("@pr_qtd", SqlDbType.VarChar);
-                    //    cmd.Parameters["@pr_qtd"].Value = p.Pr_qtd;
-
-                    //    cmd.Parameters.Add("@pr_estoqueminimo", SqlDbType.VarChar);
-                    //    cmd.Parameters["@pr_estoqueminimo"].Value = p.Pr_estoqueminimo;
-
-                    //    cmd.Parameters.Add("@pr_dtentrada", SqlDbType.Date);
-                    //    cmd.Parameters["@pr_dtentrada"].Value = p.Pr_dtentrada;
-
-                    //    cmd.Parameters.Add("@pr_tipo", SqlDbType.VarChar);
-                    //    cmd.Parameters["@pr_tipo"].Value = p.Pr_tipo;
-
-                    //    cmd2.ExecuteNonQuery();
-                    //    cmd2.Dispose();
-
-                    //    conn2.FecharConexao();
-                    //}
+                    cmd.Parameters["@pr_id"].Value = pv.Produto;
 
                     cmd1.ExecuteNonQuery();
                     cmd1.Dispose();
@@ -231,7 +190,7 @@ namespace SysOtica.Conexao
         //}
         public List<Venda> listarVenda()
         {
-            string sql = "SELECT  vn_id , cl_id , vn_valor , vn_valortotal , vn_desconto , vn_formapagamento  FROM  venda";
+            string sql = "SELECT  vn_id , cl_id , vn_valor , vn_valortotal , vn_desconto , vn_formapagamento  FROM  Venda";
             List<Venda> lista = new List<Venda>();
             Venda v;
             try

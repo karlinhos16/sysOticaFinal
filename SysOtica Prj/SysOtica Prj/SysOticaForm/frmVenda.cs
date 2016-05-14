@@ -17,6 +17,9 @@ namespace SysOticaForm
 {
     public partial class frmVenda : Form
     {
+
+        List<ProdutoVenda> listaprodutovenda = new List<ProdutoVenda>();
+
         Venda venda;
         Cliente cliente;
         Fachada fc = new Fachada();
@@ -40,6 +43,8 @@ namespace SysOticaForm
         {
             GroupBox.Visible = true;
             BtnNovaVenda.Enabled = false;
+            
+
         }
 
         private void comboBoxProduto_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,6 +85,24 @@ namespace SysOticaForm
             comboBoxProduto.Enabled = false;
             buttonNovoItem.Enabled = false;
             textBoxQtd.Enabled = false;
+            
+            
+
+            for (int i = 0; i < dataGridViewItens.Rows.Count - 1; i++)
+            {
+
+                Produto p = new Produto();
+
+                p.Pr_id = Convert.ToInt32(dataGridViewItens.Rows[i].Cells[1].Value);
+                p.Pr_descricao = Convert.ToString(dataGridViewItens.Rows[i].Cells[2].Value);
+                p.Pr_valor = Convert.ToInt32(dataGridViewItens.Rows[i].Cells[4].Value);
+
+                
+                //v.Cliente = this.cliente;
+                //listaprodutovenda.Add();
+            }
+            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -91,7 +114,7 @@ namespace SysOticaForm
         {
             for (int i = 0; i < dataGridViewItens.Rows.Count - 1; i++)
             {
-               
+
                 Venda v = new Venda();
 
                 v.Vn_desconto = Convert.ToDecimal(textBoxDes.Text);
@@ -100,7 +123,7 @@ namespace SysOticaForm
                 v.Vn_valortotal = Convert.ToDecimal(textBoxValorPago.Text);
                 v.Vn_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text);
                 v.Cliente = this.cliente;
-                fc.inserir(v);      
+                fc.inserir(v);
             }
         }
 
