@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WcfSysOticaClient.ServiceReference1;
@@ -16,6 +17,7 @@ namespace WcfSysOticaClient
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,6 +33,17 @@ namespace WcfSysOticaClient
         private void button1_Click(object sender, EventArgs e)
         {
 
+            Thread t = new Thread(CliList);
+
+            CliList();
+            groupBox1.Visible = true;
+
+
+
+        }
+
+        public void CliList()
+        {
             List<Cliente> clienteL = new List<Cliente>();
             Cliente c = new Cliente()
             {
@@ -39,11 +52,6 @@ namespace WcfSysOticaClient
             Service1Client service = new Service1Client();
             clienteL.Add(service.GetCliente(c));
             dgvClientes.DataSource = clienteL;
-                       
-            groupBox1.Visible = true;
-
-
-
         }
     }
 }
