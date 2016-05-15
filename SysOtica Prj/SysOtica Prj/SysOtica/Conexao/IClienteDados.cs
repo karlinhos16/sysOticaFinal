@@ -13,6 +13,7 @@ namespace SysOtica.Conexao
         void alterarCliente(Cliente C);
         void excluirCliente(Cliente C);
         List<Cliente> listarCliente();
+        List<Cliente> getCliente(int cl_id);
         
     }
 }

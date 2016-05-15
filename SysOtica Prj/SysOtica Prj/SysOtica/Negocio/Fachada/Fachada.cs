@@ -48,6 +48,11 @@ namespace SysOtica.Negocio.Fachada
         {
             return dao.listarCliente();
         }
+
+        public List<Cliente> getCliente(int cl_id)
+        {
+            return dao.getCliente(cl_id);
+        }
         #endregion
 
 

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfSysOtica" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfSysOtica" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CompositeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+  <xs:complexType name="Cliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cl_bairro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_celular" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_cep" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_cidade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_cpf" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_datanascimento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="cl_email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_endereco" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_id" type="xs:int" />
+      <xs:element minOccurs="0" name="cl_nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_nomemae" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_nomepai" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_numero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_observacoes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_profissao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_rg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_telefone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_telefone2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cl_uf" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
+</xs:schema>

@@ -17,6 +17,11 @@ namespace WcfSysOtica
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
+        [OperationContract]
+        Cliente GetCliente(Cliente c);
+
+
+
         // TODO: Add your service operations here
     }
 

@@ -27,12 +27,10 @@ namespace SysOticaForm
         {
             dataGridViewCliente.DataSource = fachada.listarCliente();
         }
-
         private void buttonListar_Click(object sender, EventArgs e)
         {
             atualizaGrid();
         }
-
         public void atualizaGrid()
         {
             dataGridViewCliente.DataSource = null;
@@ -40,7 +38,6 @@ namespace SysOticaForm
             dataGridViewCliente.DataSource = listarCliente;
             dataGridViewCliente.Update();
         }
-
         private void buttonAlterar_Click(object sender, EventArgs e)
         {
             try
@@ -74,7 +71,6 @@ namespace SysOticaForm
                 throw new GuidVazioException("Falha na comunicação com o banco de dados. \n" + ex.Message);
             }
         }
-
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
             Cliente c = new Cliente();
@@ -105,7 +101,6 @@ namespace SysOticaForm
                 MessageBox.Show ("Falha na comunicação com o banco de dados. \n" + ex.Message);
             }
         }
-
         private void dataGridViewCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewCliente.SelectedRows[0].Index >= 0)
@@ -118,7 +113,6 @@ namespace SysOticaForm
                 MessageBox.Show("Campo não selecionado!");
             }
         }
-
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
             dataGridViewCliente.DataSource = fachada.pesquisarCliente(buttonPesquisar.Text);

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="00281281-8727-48fb-8983-e51f11b8dd07" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WcfSysOtica/Service1/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="8774185b-fe43-4138-be87-66cf22fa52d8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfSysOtica/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="f98029fb-ff9c-49c2-b273-9c027bd5e40b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfSysOtica/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="b7e7bbcc-1c04-422b-8850-b67f6bf35588" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfSysOtica/Service1/mex" />
+    <MetadataFile FileName="WcfSysOtica.xsd" MetadataType="Schema" ID="3914b5e6-64fd-4501-8635-842246a4f037" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfSysOtica/Service1/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

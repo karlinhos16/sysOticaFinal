@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfSysOtica", "WcfSysOtica\WcfSysOtica.csproj", "{5C4CCE13-3FFF-4283-BFFC-813AF1767752}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfSysOticaClient", "WcfSysOticaClient\WcfSysOticaClient.csproj", "{D70D9F58-87FB-4F98-A97D-61EB8209BBEC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5C4CCE13-3FFF-4283-BFFC-813AF1767752} = {5C4CCE13-3FFF-4283-BFFC-813AF1767752}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
