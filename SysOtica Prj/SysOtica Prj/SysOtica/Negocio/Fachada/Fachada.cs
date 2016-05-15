@@ -17,7 +17,28 @@ namespace SysOtica.Negocio.Fachada
     public class Fachada 
     {
 
-        # region Cliente
+        #region Categoria
+
+        CategoriaDados dadoscat = new CategoriaDados();
+        public void cadastraCat(Categoria categoria)
+        {
+
+            dadoscat.inserirCategoria(categoria);
+
+        }
+
+        public List<Categoria> pesquisaCategoria()
+        {
+
+            return dadoscat.pesquisaCategoria();
+        }
+        #endregion
+
+
+
+
+
+        #region Cliente
         ClienteDados dao = new ClienteDados();
         ClienteControlador contr = new ClienteControlador();
 
