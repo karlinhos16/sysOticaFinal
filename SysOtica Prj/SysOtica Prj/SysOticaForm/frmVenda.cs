@@ -85,23 +85,37 @@ namespace SysOticaForm
             comboBoxProduto.Enabled = false;
             buttonNovoItem.Enabled = false;
             textBoxQtd.Enabled = false;
-            
-            
 
-            for (int i = 0; i < dataGridViewItens.Rows.Count - 1; i++)
+            foreach (DataGridViewRow row in dataGridViewItens.Rows)
             {
+                ProdutoVenda item = new ProdutoVenda();
 
-                Produto p = new Produto();
+                row.Cells[0].Value = item.Produto;
+                row.Cells[1].Value = item.Produto;
+                row.Cells[3].Value = item.Produto;
 
-                p.Pr_id = Convert.ToInt32(dataGridViewItens.Rows[i].Cells[1].Value);
-                p.Pr_descricao = Convert.ToString(dataGridViewItens.Rows[i].Cells[2].Value);
-                p.Pr_valor = Convert.ToInt32(dataGridViewItens.Rows[i].Cells[4].Value);
 
-                
-                //v.Cliente = this.cliente;
-                //listaprodutovenda.Add();
+                //item.Produto.Pr_id = Convert.ToInt32(row.Cells[0].Value);
+                //item.Produto.Pr_descricao = Convert.ToString(row.Cells[1].Value);
+                //item.Produto.Pr_valor = Convert.ToDecimal(row.Cells[3].Value);
+
+                listaprodutovenda.Add(item);
             }
-            
+
+            //foreach (DataGridViewRow col in dataGridViewItens.Rows)
+            //{
+                
+            //    ProdutoVenda item = new ProdutoVenda();
+            //    Produto produto = new Produto();
+
+
+            //    item.Produto.Pr_id = Convert.ToInt32(col.Cells[0].Value);
+            //    item.Produto.Pr_descricao = Convert.ToString(col.Cells[1].Value);
+            //    item.Produto.Pr_valor = Convert.ToDecimal(col.Cells[3].Value);
+              
+            //    listaprodutovenda.Add(item);
+
+            //}
 
         }
 
@@ -112,19 +126,26 @@ namespace SysOticaForm
 
         private void button5_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridViewItens.Rows.Count - 1; i++)
+            if (listaprodutovenda.Count > 0)
             {
+                Venda entVenda = new Venda();
 
-                Venda v = new Venda();
+                foreach (ProdutoVenda pv in listaprodutovenda)
+                {
+                    entVenda.Listaitens.Add(pv);
+                }
+                entVenda.Cliente.Cl_id = Convert.ToInt32(textBoxPegarNome.Text);
+                entVenda.Vn_desconto = Convert.ToDecimal(textBoxDes.Text);
+                entVenda.Vn_valor = Convert.ToDecimal(textBoxValor.Text);
+                entVenda.Vn_valortotal = Convert.ToDecimal(textBoxValorPago.Text);
+                entVenda.Vn_formapagamento = comboBoxFP.Text;
+                entVenda.Vn_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text);
 
-                v.Vn_desconto = Convert.ToDecimal(textBoxDes.Text);
-                v.Vn_formapagamento = comboBoxFP.Text;
-                v.Vn_valor = Convert.ToDecimal(dataGridViewItens.Rows[i].Cells[3].Value);
-                v.Vn_valortotal = Convert.ToDecimal(textBoxValorPago.Text);
-                v.Vn_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text);
-                v.Cliente = this.cliente;
-                fc.inserir(v);
+                fc.inserir(entVenda);
+                MessageBox.Show("Venda realizada com sucesso!");
             }
+            else
+                MessageBox.Show("Não existe itens na venda!");
         }
 
         private void CboCliente_SelectedIndexChanged(object sender, EventArgs e)

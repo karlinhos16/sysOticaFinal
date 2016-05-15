@@ -20,7 +20,7 @@ namespace SysOtica.Negocio.Classes_Basicas
         private List<Fornecedor> fornecedor;        
         private DateTime pr_dtentrada;
         private String pr_tipo;
-
+        private List<ProdutoVenda> listaitens;
 
 
         public Produto()
@@ -170,6 +170,19 @@ namespace SysOtica.Negocio.Classes_Basicas
             set
             {
                 fornecedor = value;
+            }
+        }
+
+        public List<ProdutoVenda> Listaitens
+        {
+            get
+            {
+                return listaitens;
+            }
+
+            set
+            {
+                listaitens = value;
             }
         }
     }

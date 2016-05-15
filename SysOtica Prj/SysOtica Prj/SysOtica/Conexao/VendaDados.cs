@@ -46,29 +46,26 @@ namespace SysOtica.Conexao
                 cmd.Parameters.Add("@vn_dtsaida", SqlDbType.Date);
                 cmd.Parameters["@vn_dtsaida"].Value = v.Vn_dtsaida;
 
-                foreach (ProdutoVenda pv in v.Listaprodutovenda)
+                foreach (ProdutoVenda pv in v.Listaitens)
                 {
                     ConexaoBD conn1 = new ConexaoBD();
+
                     conn1.AbrirConexao();
 
-                    string sqlproduto = "INSERT INTO ProdutoVenda (vc_id, pr_id) values (@vc_id, @pr_id)";
-                    SqlCommand cmd1 = new SqlCommand(sqlproduto, conn.cone);
-
-
-                    cmd.Parameters.Add("@vc_id", SqlDbType.Int);
-                    cmd.Parameters["@vc_id"].Value = pv.Venda.Vn_id;
-
+                    string sqlitens = "INSERT INTO Produtovenda (pr_id, vn_id) VALUES (@pr_id, @vn_id)";
+                    SqlCommand cmd1 = new SqlCommand(sqlitens, conn.cone);
 
                     cmd.Parameters.Add("@pr_id", SqlDbType.Int);
-                    cmd.Parameters["@pr_id"].Value = pv.Produto;
+                    cmd.Parameters["@pr_id"].Value = pv.Produto.Pr_id;
+
+                    cmd.Parameters.Add("@vn_id", SqlDbType.Int);
+                    cmd.Parameters["@vn_id"].Value = pv.Venda.Vn_id;
 
                     cmd1.ExecuteNonQuery();
-                    cmd1.Dispose();
-
+                    cmd.Dispose();
                     conn1.FecharConexao();
+
                 }
-
-
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
                 //liberando a memoria 

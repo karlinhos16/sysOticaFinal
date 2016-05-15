@@ -249,16 +249,5 @@ namespace SysOtica.Negocio.Fachada
 
         #endregion
 
-        #region ProdutoVenda
-
-        ProdutoVenda pv = new ProdutoVenda();
-        ProdutoVendaDados pvdados = new ProdutoVendaDados();
-
-        public void inserirProdutoVenda(ProdutoVenda pv)
-        {
-            pvdados.inserirProdutoVenda(pv);
-        }
-
-        #endregion
     }
 }
