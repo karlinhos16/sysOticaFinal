@@ -11,12 +11,13 @@ namespace SysOtica.Negocio.Classes_Basicas
         private int vn_id;
         private Cliente cliente;
         private Receita receita;
-        private List<ProdutoVenda> listaprodutovenda;
         private decimal vn_valor;
         private decimal vn_valortotal;
         private decimal vn_desconto;
         private String vn_formapagamento;
         private DateTime vn_dtsaida;
+        private List<ProdutoVenda> listaitens;
+        public object ProdutoVenda;
 
         public int Vn_id
         {
@@ -122,16 +123,16 @@ namespace SysOtica.Negocio.Classes_Basicas
             }
         }
 
-        public List<ProdutoVenda> Listaprodutovenda
+        public List<ProdutoVenda> Listaitens
         {
             get
             {
-                return listaprodutovenda;
+                return listaitens;
             }
 
             set
             {
-                listaprodutovenda = value;
+                listaitens = value;
             }
         }
     }

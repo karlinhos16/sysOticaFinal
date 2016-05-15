@@ -45,7 +45,6 @@
     <Compile Include="Conexao\CategoriaDados.cs" />
     <Compile Include="Conexao\ICategoriaDados.cs" />
     <Compile Include="Conexao\IVendaDados.cs" />
-    <Compile Include="Conexao\ProdutoVendaDados.cs" />
     <Compile Include="Conexao\VendaDados.cs" />
     <Compile Include="Conexao\IProdutoDados.cs" />
     <Compile Include="Conexao\IUsuarioDados.cs" />

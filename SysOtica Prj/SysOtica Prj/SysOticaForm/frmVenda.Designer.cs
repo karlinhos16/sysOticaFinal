@@ -32,6 +32,7 @@
             this.CboCliente = new System.Windows.Forms.ComboBox();
             this.BtnNovaVenda = new System.Windows.Forms.Button();
             this.GroupBox = new System.Windows.Forms.GroupBox();
+            this.listViewCarregarID = new System.Windows.Forms.ListView();
             this.dateTimePickerAtual = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxQtdMult = new System.Windows.Forms.TextBox();
@@ -65,7 +66,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxPegarNome = new System.Windows.Forms.TextBox();
-            this.listViewCarregarID = new System.Windows.Forms.ListView();
             this.GroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).BeginInit();
             this.SuspendLayout();
@@ -136,6 +136,14 @@
             this.GroupBox.TabStop = false;
             this.GroupBox.Text = "Nova Venda";
             this.GroupBox.Visible = false;
+            // 
+            // listViewCarregarID
+            // 
+            this.listViewCarregarID.Location = new System.Drawing.Point(16, 543);
+            this.listViewCarregarID.Name = "listViewCarregarID";
+            this.listViewCarregarID.Size = new System.Drawing.Size(121, 142);
+            this.listViewCarregarID.TabIndex = 36;
+            this.listViewCarregarID.UseCompatibleStateImageBehavior = false;
             // 
             // dateTimePickerAtual
             // 
@@ -307,6 +315,7 @@
             this.Quantidade,
             this.Valor,
             this.ValorTotal});
+            this.dataGridViewItens.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
             this.dataGridViewItens.Location = new System.Drawing.Point(0, 146);
             this.dataGridViewItens.MultiSelect = false;
             this.dataGridViewItens.Name = "dataGridViewItens";
@@ -427,14 +436,6 @@
             this.textBoxPegarNome.Name = "textBoxPegarNome";
             this.textBoxPegarNome.Size = new System.Drawing.Size(59, 20);
             this.textBoxPegarNome.TabIndex = 5;
-            // 
-            // listViewCarregarID
-            // 
-            this.listViewCarregarID.Location = new System.Drawing.Point(16, 543);
-            this.listViewCarregarID.Name = "listViewCarregarID";
-            this.listViewCarregarID.Size = new System.Drawing.Size(121, 142);
-            this.listViewCarregarID.TabIndex = 36;
-            this.listViewCarregarID.UseCompatibleStateImageBehavior = false;
             // 
             // frmVenda
             // 
