@@ -214,3 +214,4 @@ C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysO
 C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.Properties.Resources.resources
 C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.csproj.GenerateResource.Cache
 C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.exe
+C:\Users\karli\Desktop\FinalProject\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.exe.config

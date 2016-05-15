@@ -15,21 +15,23 @@ namespace SysOtica.Conexao
         ConexaoBD conn = new ConexaoBD();
 
 
-        public void inserir(Categoria c)
+        public void inserirCategoria(Categoria c)
         {
             try
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "INSERT INTO Categoria (ct_nome, pr_id) values ( @ct_nome, pr_id)";
+                string sql = "INSERT INTO Categoria (ct_nome) values (@ct_nome)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
+
 
                 cmd.Parameters.Add("@ct_nome", SqlDbType.VarChar);
                 cmd.Parameters["@ct_nome"].Value = c.Ct_nome;
 
-                cmd.Parameters.Add("@pr_id", SqlDbType.VarChar);
-                cmd.Parameters["@pr_id"].Value = c.Produto.Pr_id;
+                //cmd.Parameters.Add("@ct_id", SqlDbType.Int);
+                //cmd.Parameters["@ct_id"].Value = c.Produto.Pr_id;
+
 
 
                 //executando a instrucao 
@@ -47,8 +49,8 @@ namespace SysOtica.Conexao
         }
 
 
-            public List<Categoria> pesquisaCategoria()
-            {
+        public List<Categoria> pesquisaCategoria()
+        {
             List<Categoria> lista = new List<Categoria>();
 
 
@@ -78,7 +80,7 @@ namespace SysOtica.Conexao
             }
 
 
-        }
+       }
         
     }
 }

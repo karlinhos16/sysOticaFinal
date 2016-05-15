@@ -21,7 +21,7 @@ namespace SysOtica.Conexao
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "INSERT INTO Produto (pr_descricao, pr_grife, pr_valor, pr_estoqueminimo,  pr_qtd, pr_unidade, pr_dtentrada, pr_tipo,fr_id, ct_id) values ( @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_qtd, @pr_unidade, @pr_dtentrada, @pr_tipo, @ct_id, @fr_id)";
+                string sql = "INSERT INTO Produto (pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_unidade, pr_dtentrada, pr_tipo,fr_id, ct_id, pr_qtd) values ( @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_unidade, @pr_dtentrada, @pr_tipo, @ct_id, @fr_id, @pr_qtd)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
@@ -34,13 +34,13 @@ namespace SysOtica.Conexao
                 cmd.Parameters.Add("@pr_grife", SqlDbType.VarChar);
                 cmd.Parameters["@pr_grife"].Value = p.Pr_grife;
 
-                cmd.Parameters.Add("@pr_valor", SqlDbType.VarChar);
+                cmd.Parameters.Add("@pr_valor", SqlDbType.Decimal);
                 cmd.Parameters["@pr_valor"].Value = p.Pr_valor;
 
-                cmd.Parameters.Add("@pr_qtd", SqlDbType.VarChar);
+                cmd.Parameters.Add("@pr_qtd", SqlDbType.Int);
                 cmd.Parameters["@pr_qtd"].Value = p.Pr_qtd;
 
-                cmd.Parameters.Add("@pr_estoqueminimo", SqlDbType.VarChar);
+                cmd.Parameters.Add("@pr_estoqueminimo", SqlDbType.Int);
                 cmd.Parameters["@pr_estoqueminimo"].Value = p.Pr_estoqueminimo;
 
                 cmd.Parameters.Add("@pr_dtentrada", SqlDbType.Date);
@@ -92,15 +92,17 @@ namespace SysOtica.Conexao
                 cmd.Parameters.Add("@pr_grife", SqlDbType.VarChar);
                 cmd.Parameters["@pr_grife"].Value = p.Pr_grife;
 
-                cmd.Parameters.Add("@pr_valor", SqlDbType.VarChar);
+                cmd.Parameters.Add("@pr_valor", SqlDbType.Decimal);
                 cmd.Parameters["@pr_valor"].Value = p.Pr_valor;
 
-                cmd.Parameters.Add("@pr_qtd", SqlDbType.VarChar);
+                cmd.Parameters.Add("@pr_qtd", SqlDbType.Int);
                 cmd.Parameters["@pr_qtd"].Value = p.Pr_qtd;
 
-                cmd.Parameters.Add("@pr_estoqueminimo", SqlDbType.VarChar);
-                cmd.Parameters["@pr_estoqueminimo"].Value = p.Pr_estoqueminimo;
+                cmd.Parameters.Add("@pr_tipo", SqlDbType.VarChar);
+                cmd.Parameters["@pr_tipo"].Value = p.Pr_tipo;
 
+                cmd.Parameters.Add("@pr_estoqueminimo", SqlDbType.Int);
+                cmd.Parameters["@pr_estoqueminimo"].Value = p.Pr_estoqueminimo;
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -140,12 +142,12 @@ namespace SysOtica.Conexao
         }
         public List<Produto> listarProduto()
         {
-            string sql = "SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_qtd FROM Produto";
+            string sql = "SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_tipo, pr_estoqueminimo, pr_qtd FROM Produto";
             List<Produto> lista = new List<Produto>();
             Produto p;
-        
-          
-        try
+
+
+            try
             {
                 conn.AbrirConexao();
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
@@ -155,17 +157,17 @@ namespace SysOtica.Conexao
                 {
                     p = new Produto();
                     p.Pr_id = retorno.GetInt32(retorno.GetOrdinal("pr_id"));
-                    p.Pr_descricao = retorno.GetString(retorno.GetOrdinal("pr_descricao"));                 
+                    p.Pr_descricao = retorno.GetString(retorno.GetOrdinal("pr_descricao"));
                     p.Pr_grife = retorno.GetString(retorno.GetOrdinal("pr_grife"));
                     p.Pr_valor = retorno.GetDecimal(retorno.GetOrdinal("pr_valor"));
-                    p.Pr_estoqueminimo= retorno.GetInt32(retorno.GetOrdinal("pr_estoqueminimo"));
+                    p.Pr_tipo = retorno.GetString(retorno.GetOrdinal("pr_tipo"));
+                    p.Pr_estoqueminimo = retorno.GetInt32(retorno.GetOrdinal("pr_estoqueminimo"));
                     p.Pr_qtd = retorno.GetInt32(retorno.GetOrdinal("pr_qtd"));
-                    
+
                     lista.Add(p);
                 }
                 conn.FecharConexao();
                 return lista;
-
             }
             catch (SqlException e)
             {
@@ -174,7 +176,7 @@ namespace SysOtica.Conexao
         }
         public List<Produto> pesquisarProduto(string pr_descricao)
         {
-            string sql = "SELECT  SELECT  pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_categoria, pr_qtd FROM Produto";
+            string sql = "SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_tipo, pr_estoqueminimo, pr_qtd FROM Produto";
             if (pr_descricao != "")
             {
                 sql += "WHERE pr_descricao ILIKE @pr_descricao";

@@ -48,9 +48,7 @@
             this.tbValor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.cbGrife = new System.Windows.Forms.ComboBox();
-            this.cbGrupo = new System.Windows.Forms.ComboBox();
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonLimpar = new System.Windows.Forms.Button();
             this.buttonSair = new System.Windows.Forms.Button();
@@ -92,10 +90,8 @@
             this.groupBox1.Controls.Add(this.tbValor);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.tbDescricao);
             this.groupBox1.Controls.Add(this.cbGrife);
-            this.groupBox1.Controls.Add(this.cbGrupo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 2);
             this.groupBox1.Name = "groupBox1";
@@ -120,6 +116,7 @@
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(391, 21);
             this.cmbCategoria.TabIndex = 43;
+            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
             // 
             // cmbFornecedor
             // 
@@ -158,17 +155,19 @@
             // 
             // cmbTipo
             // 
-            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Location = new System.Drawing.Point(317, 150);
+            this.cmbTipo.Items.AddRange(new object[] {
+            "Entrada",
+            "Devolução"});
+            this.cmbTipo.Location = new System.Drawing.Point(9, 191);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(222, 21);
+            this.cmbTipo.Size = new System.Drawing.Size(265, 21);
             this.cmbTipo.TabIndex = 38;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(314, 134);
+            this.label19.Location = new System.Drawing.Point(8, 175);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(28, 13);
             this.label19.TabIndex = 37;
@@ -246,37 +245,19 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 174);
+            this.label5.Location = new System.Drawing.Point(6, 134);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 5;
             this.label5.Text = "Grife";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 134);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Grupo";
-            // 
             // cbGrife
             // 
             this.cbGrife.FormattingEnabled = true;
-            this.cbGrife.Location = new System.Drawing.Point(9, 190);
+            this.cbGrife.Location = new System.Drawing.Point(6, 150);
             this.cbGrife.Name = "cbGrife";
-            this.cbGrife.Size = new System.Drawing.Size(268, 21);
+            this.cbGrife.Size = new System.Drawing.Size(398, 21);
             this.cbGrife.TabIndex = 8;
-            // 
-            // cbGrupo
-            // 
-            this.cbGrupo.FormattingEnabled = true;
-            this.cbGrupo.Location = new System.Drawing.Point(9, 150);
-            this.cbGrupo.Name = "cbGrupo";
-            this.cbGrupo.Size = new System.Drawing.Size(268, 21);
-            this.cbGrupo.TabIndex = 3;
-            this.cbGrupo.SelectedIndexChanged += new System.EventHandler(this.cbGrupo_SelectedIndexChanged);
             // 
             // buttonSalvar
             // 
@@ -341,9 +322,7 @@
         private System.Windows.Forms.TextBox tbValor;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbGrife;
-        private System.Windows.Forms.ComboBox cbGrupo;
         private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Button buttonLimpar;
         private System.Windows.Forms.Button buttonSair;
