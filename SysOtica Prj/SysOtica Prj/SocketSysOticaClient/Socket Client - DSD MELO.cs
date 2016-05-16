@@ -114,6 +114,20 @@ namespace SocketSysOticaClient
             {
                 do
                 {
+                    networkStream = tcpClient.GetStream();
+                    if (networkStream.CanRead)
+                    {
+                        byte[] bytes = new byte[tcpClient.ReceiveBufferSize];
+                        networkStream.Read(bytes, 0, Convert.ToInt32(tcpClient.ReceiveBufferSize));
+
+                        string returnData = Encoding.ASCII.GetString(bytes);
+                        GetMsg(returnData);
+                    }
+                    else
+                    {
+                        setMsg("## Não é possível ler os dados  . . . ");
+                        disconnect();
+                    }
                     
                 } while (tcpClient.Connected);
             }
@@ -122,6 +136,22 @@ namespace SocketSysOticaClient
                 
                 throw;
             }
+        }
+
+        private void Socket_Client___DSD_MELO_Load(object sender, EventArgs e)
+        {
+            connect();
+
+            thInteraction = new Thread(new ThreadStart(interaction));
+            thInteraction.IsBackground = true;
+            thInteraction.Priority = ThreadPriority.Highest;
+            thInteraction.Name = "thInteraction";
+            thInteraction.Start();
+        }
+
+        private void Socket_Client___DSD_MELO_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            disconnect();
         }
 
     }

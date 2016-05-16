@@ -18,10 +18,13 @@ namespace SysOticaForm
         {
             InitializeComponent();
         }
-
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            
+
             string categoria;
 
             categoria = comboCat.SelectedItem.ToString();
@@ -68,9 +71,6 @@ namespace SysOticaForm
 
 
 
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-    }
+
 }
+

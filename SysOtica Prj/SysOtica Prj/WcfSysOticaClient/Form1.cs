@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocketSysOticaClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,6 +53,12 @@ namespace WcfSysOticaClient
             Service1Client service = new Service1Client();
             clienteL.Add(service.GetCliente(c));
             dgvClientes.DataSource = clienteL;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Socket_Client___DSD_MELO skt = new Socket_Client___DSD_MELO();
+            skt.Show();
         }
     }
 }

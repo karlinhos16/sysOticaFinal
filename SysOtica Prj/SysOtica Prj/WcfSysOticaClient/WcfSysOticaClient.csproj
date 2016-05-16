@@ -118,6 +118,12 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocketSysOticaClient\SocketSysOticaClient.csproj">
+      <Project>{830cafb2-c9b1-4a99-8d40-e86c1460d758}</Project>
+      <Name>SocketSysOticaClient</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
