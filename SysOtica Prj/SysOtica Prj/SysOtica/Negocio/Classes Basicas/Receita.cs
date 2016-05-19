@@ -34,18 +34,9 @@ namespace SysOtica.Negocio.Classes_Basicas
         private String rc_nomemedico;
         private String rc_observacoes;
         private DateTime rc_data;
-        private DateTime rc_dtavalidade;
+        private DateTime rc_dtavencimento;
         private Cliente cliente;
         private Venda venda;
-
-        public Receita()
-
-        {
-
-            Cliente = Cliente;
-
-        }
-
 
         public int Rc_id
         {
@@ -385,16 +376,16 @@ namespace SysOtica.Negocio.Classes_Basicas
             }
         }
 
-        public DateTime Rc_dtavalidade
+        public DateTime Rc_dtavencimento
         {
             get
             {
-                return rc_dtavalidade;
+                return rc_dtavencimento;
             }
 
             set
             {
-                rc_dtavalidade = value;
+                rc_dtavencimento = value;
             }
         }
 
@@ -423,6 +414,5 @@ namespace SysOtica.Negocio.Classes_Basicas
                 venda = value;
             }
         }
-
     }
 }

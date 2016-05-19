@@ -150,7 +150,7 @@ namespace SysOtica.Negocio.Fachada
 
         }
 
-        public List<Produto> ListaProduto()
+        public List<Produto> listarProduto()
         {
             return pdao.listarProduto();
 
@@ -208,7 +208,10 @@ namespace SysOtica.Negocio.Fachada
 
         }
 
-
+        public List<Receita> listaReceitaReceita()
+        {
+            return receitadao.listaReceitaReceita();
+        }
 
 
 
@@ -267,10 +270,10 @@ namespace SysOtica.Negocio.Fachada
             venDados.inserir(v);
         }
 
-        public List<Venda> listarVenda()
-        {
-            return venDados.listarVenda();
-        }
+        //public List<Venda> listarVenda()
+        //{
+        //    return venDados.listarVenda();
+        //}
 
 
         #endregion

@@ -16,5 +16,6 @@ namespace SysOtica.Conexao
         bool verificaduplicidade(Receita receita);
         List<Receita> listaReceita();
         void pesquisaReceitas(DataGridView grid, string cl_nome);
+        List<Receita> listaReceitaReceita();
     }
 }

@@ -142,7 +142,7 @@ namespace SysOtica.Conexao
         }
         public List<Produto> listarProduto()
         {
-            string sql = "SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_tipo, pr_estoqueminimo, pr_qtd FROM Produto";
+            string sql = "SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_qtd FROM Produto";
             List<Produto> lista = new List<Produto>();
             Produto p;
 
@@ -160,7 +160,6 @@ namespace SysOtica.Conexao
                     p.Pr_descricao = retorno.GetString(retorno.GetOrdinal("pr_descricao"));
                     p.Pr_grife = retorno.GetString(retorno.GetOrdinal("pr_grife"));
                     p.Pr_valor = retorno.GetDecimal(retorno.GetOrdinal("pr_valor"));
-                    p.Pr_tipo = retorno.GetString(retorno.GetOrdinal("pr_tipo"));
                     p.Pr_estoqueminimo = retorno.GetInt32(retorno.GetOrdinal("pr_estoqueminimo"));
                     p.Pr_qtd = retorno.GetInt32(retorno.GetOrdinal("pr_qtd"));
 
@@ -168,6 +167,7 @@ namespace SysOtica.Conexao
                 }
                 conn.FecharConexao();
                 return lista;
+
             }
             catch (SqlException e)
             {

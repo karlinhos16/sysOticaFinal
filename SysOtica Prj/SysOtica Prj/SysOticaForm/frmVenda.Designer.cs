@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.CboCliente = new System.Windows.Forms.ComboBox();
-            this.BtnNovaVenda = new System.Windows.Forms.Button();
+            this.textBoxPegarNome = new System.Windows.Forms.TextBox();
             this.GroupBox = new System.Windows.Forms.GroupBox();
-            this.listViewCarregarID = new System.Windows.Forms.ListView();
             this.dateTimePickerAtual = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxQtdMult = new System.Windows.Forms.TextBox();
@@ -51,6 +48,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxPegarReceita = new System.Windows.Forms.TextBox();
+            this.comboBoxReceita = new System.Windows.Forms.ComboBox();
             this.dataGridViewItens = new System.Windows.Forms.DataGridView();
             this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,43 +64,23 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxPegarNome = new System.Windows.Forms.TextBox();
+            this.BtnNovaVenda = new System.Windows.Forms.Button();
+            this.CboCliente = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.GroupBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // textBoxPegarNome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(80, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cliente:";
-            // 
-            // CboCliente
-            // 
-            this.CboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboCliente.FormattingEnabled = true;
-            this.CboCliente.Location = new System.Drawing.Point(128, 6);
-            this.CboCliente.Name = "CboCliente";
-            this.CboCliente.Size = new System.Drawing.Size(408, 21);
-            this.CboCliente.TabIndex = 2;
-            this.CboCliente.SelectedIndexChanged += new System.EventHandler(this.CboCliente_SelectedIndexChanged);
-            // 
-            // BtnNovaVenda
-            // 
-            this.BtnNovaVenda.Location = new System.Drawing.Point(563, 9);
-            this.BtnNovaVenda.Name = "BtnNovaVenda";
-            this.BtnNovaVenda.Size = new System.Drawing.Size(75, 23);
-            this.BtnNovaVenda.TabIndex = 3;
-            this.BtnNovaVenda.Text = "Nova Venda";
-            this.BtnNovaVenda.UseVisualStyleBackColor = true;
-            this.BtnNovaVenda.Click += new System.EventHandler(this.BtnNovaVenda_Click_1);
+            this.textBoxPegarNome.Location = new System.Drawing.Point(658, 9);
+            this.textBoxPegarNome.Name = "textBoxPegarNome";
+            this.textBoxPegarNome.Size = new System.Drawing.Size(59, 20);
+            this.textBoxPegarNome.TabIndex = 10;
             // 
             // GroupBox
             // 
-            this.GroupBox.Controls.Add(this.listViewCarregarID);
             this.GroupBox.Controls.Add(this.dateTimePickerAtual);
             this.GroupBox.Controls.Add(this.label10);
             this.GroupBox.Controls.Add(this.textBoxQtdMult);
@@ -129,21 +108,13 @@
             this.GroupBox.Controls.Add(this.label4);
             this.GroupBox.Controls.Add(this.label3);
             this.GroupBox.Controls.Add(this.label2);
-            this.GroupBox.Location = new System.Drawing.Point(0, 38);
+            this.GroupBox.Location = new System.Drawing.Point(1, 41);
             this.GroupBox.Name = "GroupBox";
             this.GroupBox.Size = new System.Drawing.Size(906, 691);
-            this.GroupBox.TabIndex = 4;
+            this.GroupBox.TabIndex = 9;
             this.GroupBox.TabStop = false;
             this.GroupBox.Text = "Nova Venda";
             this.GroupBox.Visible = false;
-            // 
-            // listViewCarregarID
-            // 
-            this.listViewCarregarID.Location = new System.Drawing.Point(16, 543);
-            this.listViewCarregarID.Name = "listViewCarregarID";
-            this.listViewCarregarID.Size = new System.Drawing.Size(121, 142);
-            this.listViewCarregarID.TabIndex = 36;
-            this.listViewCarregarID.UseCompatibleStateImageBehavior = false;
             // 
             // dateTimePickerAtual
             // 
@@ -199,7 +170,6 @@
             this.comboBoxFP.Name = "comboBoxFP";
             this.comboBoxFP.Size = new System.Drawing.Size(121, 21);
             this.comboBoxFP.TabIndex = 30;
-            this.comboBoxFP.SelectedIndexChanged += new System.EventHandler(this.comboBoxFP_SelectedIndexChanged);
             // 
             // textBoxValorPago
             // 
@@ -299,12 +269,30 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBoxPegarReceita);
+            this.groupBox1.Controls.Add(this.comboBoxReceita);
             this.groupBox1.Location = new System.Drawing.Point(7, 428);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(890, 100);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Receita";
+            // 
+            // textBoxPegarReceita
+            // 
+            this.textBoxPegarReceita.Location = new System.Drawing.Point(446, 40);
+            this.textBoxPegarReceita.Name = "textBoxPegarReceita";
+            this.textBoxPegarReceita.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPegarReceita.TabIndex = 1;
+            // 
+            // comboBoxReceita
+            // 
+            this.comboBoxReceita.FormattingEnabled = true;
+            this.comboBoxReceita.Location = new System.Drawing.Point(38, 40);
+            this.comboBoxReceita.Name = "comboBoxReceita";
+            this.comboBoxReceita.Size = new System.Drawing.Size(365, 21);
+            this.comboBoxReceita.TabIndex = 0;
+            this.comboBoxReceita.SelectedIndexChanged += new System.EventHandler(this.comboBoxReceita_SelectedIndexChanged);
             // 
             // dataGridViewItens
             // 
@@ -430,12 +418,34 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Código da Produto:";
             // 
-            // textBoxPegarNome
+            // BtnNovaVenda
             // 
-            this.textBoxPegarNome.Location = new System.Drawing.Point(657, 6);
-            this.textBoxPegarNome.Name = "textBoxPegarNome";
-            this.textBoxPegarNome.Size = new System.Drawing.Size(59, 20);
-            this.textBoxPegarNome.TabIndex = 5;
+            this.BtnNovaVenda.Location = new System.Drawing.Point(564, 12);
+            this.BtnNovaVenda.Name = "BtnNovaVenda";
+            this.BtnNovaVenda.Size = new System.Drawing.Size(75, 23);
+            this.BtnNovaVenda.TabIndex = 8;
+            this.BtnNovaVenda.Text = "Nova Venda";
+            this.BtnNovaVenda.UseVisualStyleBackColor = true;
+            this.BtnNovaVenda.Click += new System.EventHandler(this.BtnNovaVenda_Click);
+            // 
+            // CboCliente
+            // 
+            this.CboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboCliente.FormattingEnabled = true;
+            this.CboCliente.Location = new System.Drawing.Point(129, 9);
+            this.CboCliente.Name = "CboCliente";
+            this.CboCliente.Size = new System.Drawing.Size(408, 21);
+            this.CboCliente.TabIndex = 7;
+            this.CboCliente.SelectedIndexChanged += new System.EventHandler(this.CboCliente_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(81, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Cliente:";
             // 
             // frmVenda
             // 
@@ -453,6 +463,8 @@
             this.Load += new System.EventHandler(this.frmVenda_Load);
             this.GroupBox.ResumeLayout(false);
             this.GroupBox.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -461,25 +473,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox CboCliente;
-        private System.Windows.Forms.Button BtnNovaVenda;
+        private System.Windows.Forms.TextBox textBoxPegarNome;
         private System.Windows.Forms.GroupBox GroupBox;
-        private System.Windows.Forms.Button buttonNovoItem;
-        private System.Windows.Forms.TextBox textBoxValor;
-        private System.Windows.Forms.TextBox textBoxQtd;
-        private System.Windows.Forms.ComboBox comboBoxProduto;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridViewItens;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValorTotal;
+        private System.Windows.Forms.DateTimePicker dateTimePickerAtual;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxQtdMult;
+        private System.Windows.Forms.TextBox textBoxPegarProduto;
+        private System.Windows.Forms.TextBox textBoxProdID;
         private System.Windows.Forms.ComboBox comboBoxFP;
         private System.Windows.Forms.TextBox textBoxValorPago;
         private System.Windows.Forms.TextBox textBoxDes;
@@ -492,12 +492,25 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBoxProdID;
-        private System.Windows.Forms.TextBox textBoxPegarProduto;
-        private System.Windows.Forms.TextBox textBoxQtdMult;
-        private System.Windows.Forms.DateTimePicker dateTimePickerAtual;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxPegarNome;
-        private System.Windows.Forms.ListView listViewCarregarID;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBoxPegarReceita;
+        private System.Windows.Forms.ComboBox comboBoxReceita;
+        private System.Windows.Forms.DataGridView dataGridViewItens;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorTotal;
+        private System.Windows.Forms.Button buttonNovoItem;
+        private System.Windows.Forms.TextBox textBoxValor;
+        private System.Windows.Forms.TextBox textBoxQtd;
+        private System.Windows.Forms.ComboBox comboBoxProduto;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button BtnNovaVenda;
+        private System.Windows.Forms.ComboBox CboCliente;
+        private System.Windows.Forms.Label label1;
     }
 }

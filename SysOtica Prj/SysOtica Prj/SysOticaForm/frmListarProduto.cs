@@ -41,7 +41,7 @@ namespace SysOticaForm
         {
             dataGridProduto.AutoGenerateColumns = false;
             dataGridProduto.DataSource = null;
-            listarProduto = fachada.ListaProduto();
+            listarProduto = fachada.listarProduto();
             dataGridProduto.DataSource = listarProduto;
             dataGridProduto.Update();
 

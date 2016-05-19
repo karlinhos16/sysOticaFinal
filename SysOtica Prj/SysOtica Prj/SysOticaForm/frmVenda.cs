@@ -17,12 +17,12 @@ namespace SysOticaForm
 {
     public partial class frmVenda : Form
     {
-
-        List<ProdutoVenda> listaprodutovenda = new List<ProdutoVenda>();
-
         Venda venda;
         Cliente cliente;
+        Receita receita;
+        List<ProdutoVenda> listaDeItens = new List<ProdutoVenda>();
         Fachada fc = new Fachada();
+
         public frmVenda()
         {
             InitializeComponent();
@@ -34,37 +34,51 @@ namespace SysOticaForm
             CboCliente.ValueMember = "cl_id";
             CboCliente.DisplayMember = "cl_nome";
 
-            comboBoxProduto.DataSource = fc.ListaProduto();
+            comboBoxProduto.DataSource = fc.listarProduto();
             comboBoxProduto.ValueMember = "pr_id";
             comboBoxProduto.DisplayMember = "pr_descricao";
+
+            comboBoxReceita.DataSource = fc.listaReceitaReceita();
+            comboBoxReceita.ValueMember = "rc_id";
+            comboBoxReceita.DisplayMember = "rc_dtavencimento";
         }
 
-        private void BtnNovaVenda_Click_1(object sender, EventArgs e)
+        private void BtnNovaVenda_Click(object sender, EventArgs e)
         {
             GroupBox.Visible = true;
             BtnNovaVenda.Enabled = false;
-            
-
         }
 
         private void comboBoxProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBoxProdID.Text = comboBoxProduto.SelectedValue.ToString();
-            
+
 
             Produto p = (Produto)comboBoxProduto.SelectedItem;
             textBoxValor.Text = Convert.ToString(p.Pr_valor);
             textBoxPegarProduto.Text = Convert.ToString(p.Pr_descricao);
+
         }
 
         private void buttonNovoItem_Click(object sender, EventArgs e)
         {
+
             textBoxQtdMult.Text = (Convert.ToDecimal(textBoxQtd.Text) * Convert.ToDecimal(textBoxValor.Text)).ToString();
             addItem(textBoxProdID.Text, textBoxPegarProduto.Text, textBoxQtd.Text, textBoxValor.Text, textBoxQtdMult.Text);
 
+            Produto p = new Produto();
+            p.Pr_id = Int32.Parse(textBoxProdID.Text);
+            ProdutoVenda pv = new ProdutoVenda();
+
+            pv.Produto = p;
+            pv.Pv_qtd = Convert.ToInt32(textBoxQtd.Text);
+            pv.Pv_preco = Convert.ToDecimal(textBoxValor.Text);
+
+            listaDeItens.Add(pv);
+
             decimal valorTotal = 0;
 
-            foreach(DataGridViewRow col in dataGridViewItens.Rows)
+            foreach (DataGridViewRow col in dataGridViewItens.Rows)
             {
                 valorTotal = valorTotal + Convert.ToDecimal(col.Cells[4].Value);
             }
@@ -74,8 +88,8 @@ namespace SysOticaForm
 
         private void addItem(string text1, string text2, string text3, string text4, string text5)
         {
-           
-            String[] row = { text1, text2, text3, text4, text5};
+
+            String[] row = { text1, text2, text3, text4, text5 };
 
             dataGridViewItens.Rows.Add(row);
         }
@@ -85,38 +99,6 @@ namespace SysOticaForm
             comboBoxProduto.Enabled = false;
             buttonNovoItem.Enabled = false;
             textBoxQtd.Enabled = false;
-
-            foreach (DataGridViewRow row in dataGridViewItens.Rows)
-            {
-                ProdutoVenda item = new ProdutoVenda();
-
-                row.Cells[0].Value = item.Produto;
-                row.Cells[1].Value = item.Produto;
-                row.Cells[3].Value = item.Produto;
-
-
-                //item.Produto.Pr_id = Convert.ToInt32(row.Cells[0].Value);
-                //item.Produto.Pr_descricao = Convert.ToString(row.Cells[1].Value);
-                //item.Produto.Pr_valor = Convert.ToDecimal(row.Cells[3].Value);
-
-                listaprodutovenda.Add(item);
-            }
-
-            //foreach (DataGridViewRow col in dataGridViewItens.Rows)
-            //{
-                
-            //    ProdutoVenda item = new ProdutoVenda();
-            //    Produto produto = new Produto();
-
-
-            //    item.Produto.Pr_id = Convert.ToInt32(col.Cells[0].Value);
-            //    item.Produto.Pr_descricao = Convert.ToString(col.Cells[1].Value);
-            //    item.Produto.Pr_valor = Convert.ToDecimal(col.Cells[3].Value);
-              
-            //    listaprodutovenda.Add(item);
-
-            //}
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -126,37 +108,34 @@ namespace SysOticaForm
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (listaprodutovenda.Count > 0)
-            {
-                Venda entVenda = new Venda();
+            Venda entVenda = new Venda();
+            Cliente c = new Cliente();
 
-                foreach (ProdutoVenda pv in listaprodutovenda)
-                {
-                    entVenda.Listaitens.Add(pv);
-                }
-                entVenda.Cliente.Cl_id = Convert.ToInt32(textBoxPegarNome.Text);
-                entVenda.Vn_desconto = Convert.ToDecimal(textBoxDes.Text);
-                entVenda.Vn_valor = Convert.ToDecimal(textBoxValor.Text);
-                entVenda.Vn_valortotal = Convert.ToDecimal(textBoxValorPago.Text);
-                entVenda.Vn_formapagamento = comboBoxFP.Text;
-                entVenda.Vn_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text);
+            entVenda.Vn_desconto = Convert.ToDecimal(textBoxDes.Text);
+            entVenda.Vn_valortotal = Convert.ToDecimal(textBoxValorPago.Text);
+            entVenda.Vn_formapagamento = comboBoxFP.Text;
+            entVenda.Vn_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text);
+            entVenda.Cliente = cliente;
+            entVenda.Receita = receita;
+            entVenda.Listaitens = listaDeItens;
 
-                fc.inserir(entVenda);
-                MessageBox.Show("Venda realizada com sucesso!");
-            }
-            else
-                MessageBox.Show("Não existe itens na venda!");
+            fc.inserir(entVenda);
+
+            MessageBox.Show("Venda realizada com sucesso!");
         }
 
         private void CboCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cliente c = (Cliente)CboCliente.SelectedItem;
+            cliente = c;
             textBoxPegarNome.Text = CboCliente.SelectedValue.ToString();
         }
 
-        private void comboBoxFP_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxReceita_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Receita r = (Receita)comboBoxReceita.SelectedItem;
+            receita = r;
+            textBoxPegarReceita.Text = comboBoxReceita.SelectedValue.ToString();
         }
     }
 }

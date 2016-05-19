@@ -10,8 +10,6 @@ namespace SysOtica.Conexao
     interface IVendaDados
     {
         void inserir(Venda v);
-        //void alterarVenda(Venda v);
-        //void excluirVenda(Venda v);
-        List<Venda> listarVenda();
+        //List<Venda> listarVenda();
     }
 }

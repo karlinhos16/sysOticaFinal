@@ -97,8 +97,8 @@ namespace SysOtica.Conexao
                 cmd.Parameters.Add("@rc_data", SqlDbType.Date);
                 cmd.Parameters["@rc_data"].Value = receita.Rc_data;
 
-                cmd.Parameters.Add("@rc_dtavalidade", SqlDbType.Date);
-                cmd.Parameters["@rc_dtavalidade"].Value = receita.Rc_dtavalidade;
+                cmd.Parameters.Add("@rc_dtavencimento", SqlDbType.Date);
+                cmd.Parameters["@rc_dtavencimento"].Value = receita.Rc_dtavencimento;
 
                 cmd.Parameters.Add("@cl_id", SqlDbType.Int);
                 cmd.Parameters["@cl_id"].Value = cliente.Cl_id;
@@ -138,6 +138,41 @@ namespace SysOtica.Conexao
             }
 
 
+        }
+
+
+        public List<Receita> listaReceitaReceita()
+        {
+            string sql = "SELECT rc_id,rc_nomemedico,rc_observacoes,rc_data,rc_dtavencimento FROM Receita";
+            List<Receita> lista = new List<Receita>();
+            Receita r;
+
+
+            try
+            {
+                conn.AbrirConexao();
+                SqlCommand cmd = new SqlCommand(sql, conn.cone);
+                SqlDataReader retorno = cmd.ExecuteReader();
+
+                while (retorno.Read())
+                {
+                    r = new Receita();
+                    r.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
+                    r.Rc_nomemedico = retorno.GetString(retorno.GetOrdinal("rc_nomemedico"));
+                    r.Rc_observacoes = retorno.GetString(retorno.GetOrdinal("rc_observacoes"));
+                    r.Rc_data = retorno.GetDateTime(retorno.GetOrdinal("rc_data"));
+                    r.Rc_dtavencimento = retorno.GetDateTime(retorno.GetOrdinal("rc_dtavencimento"));
+
+                    lista.Add(r);
+                }
+                conn.FecharConexao();
+                return lista;
+
+            }
+            catch (SqlException e)
+            {
+                throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
+            }
         }
 
         public void alterarReceita(Receita receita)
@@ -225,8 +260,8 @@ namespace SysOtica.Conexao
                 cmd.Parameters.Add("@rc_data", SqlDbType.Date);
                 cmd.Parameters["@rc_data"].Value = receita.Rc_data;
 
-                cmd.Parameters.Add("@rc_dtavalidade", SqlDbType.Date);
-                cmd.Parameters["@rc_dtavalidade"].Value = receita.Rc_dtavalidade;
+                cmd.Parameters.Add("@rc_dtavencimento", SqlDbType.Date);
+                cmd.Parameters["@rc_dtavencimento"].Value = receita.Rc_dtavencimento;
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -320,7 +355,7 @@ namespace SysOtica.Conexao
                     receita.Rc_poednp = retorno.GetDecimal(retorno.GetOrdinal("rc_poednp"));
                     receita.Rc_data = retorno.GetDateTime(retorno.GetOrdinal("rc_data"));
                     receita.Rc_nomemedico = retorno.GetString(retorno.GetOrdinal("rc_nomemedico"));
-                    receita.Rc_dtavalidade = retorno.GetDateTime(retorno.GetOrdinal("rc_dtavalidade"));
+                    receita.Rc_dtavencimento = retorno.GetDateTime(retorno.GetOrdinal("rc_dtavencimento"));
                     receita.Rc_observacoes = retorno.GetString(retorno.GetOrdinal("rc_observacoes"));
 
 
@@ -418,7 +453,7 @@ namespace SysOtica.Conexao
                         receita.Rc_poednp = retorno.GetDecimal(retorno.GetOrdinal("rc_poednp"));
                         receita.Rc_data = retorno.GetDateTime(retorno.GetOrdinal("rc_data"));
                         receita.Rc_nomemedico = retorno.GetString(retorno.GetOrdinal("rc_nomemedico"));
-                        receita.Rc_dtavalidade = retorno.GetDateTime(retorno.GetOrdinal("rc_dtavalidade"));
+                        receita.Rc_dtavencimento = retorno.GetDateTime(retorno.GetOrdinal("rc_dtavencimento"));
                         receita.Rc_observacoes = retorno.GetString(retorno.GetOrdinal("rc_observacoes"));
 
                         lista.Add(receita);

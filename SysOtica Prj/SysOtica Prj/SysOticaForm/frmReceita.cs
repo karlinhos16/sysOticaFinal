@@ -102,7 +102,7 @@ namespace SysOticaForm
                     receita.Rc_nomemedico = textNomeMedico.Text.Trim();
                     receita.Rc_observacoes = textObs.Text.Trim();
                     string data_validade = dateTimePickerValidade.Value.ToShortDateString();
-                    receita.Rc_dtavalidade = Convert.ToDateTime(data_validade);
+                    receita.Rc_dtavencimento = Convert.ToDateTime(data_validade);
                     receita.Rc_data = DateTime.Parse(maskedTextData.Text);
                 
 

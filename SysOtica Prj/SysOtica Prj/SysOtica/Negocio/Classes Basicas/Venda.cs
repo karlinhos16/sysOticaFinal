@@ -16,8 +16,9 @@ namespace SysOtica.Negocio.Classes_Basicas
         private decimal vn_desconto;
         private String vn_formapagamento;
         private DateTime vn_dtsaida;
+        private int vn_qtdsaida;
         private List<ProdutoVenda> listaitens;
-        public object ProdutoVenda;
+        private object produtoVenda;
 
         public int Vn_id
         {
@@ -123,6 +124,19 @@ namespace SysOtica.Negocio.Classes_Basicas
             }
         }
 
+        public int Vn_qtdsaida
+        {
+            get
+            {
+                return vn_qtdsaida;
+            }
+
+            set
+            {
+                vn_qtdsaida = value;
+            }
+        }
+
         public List<ProdutoVenda> Listaitens
         {
             get
@@ -135,5 +149,18 @@ namespace SysOtica.Negocio.Classes_Basicas
                 listaitens = value;
             }
         }
+
+        public object ProdutoVenda
+        {
+            get
+            {
+                return produtoVenda;
+            }
+
+            set
+            {
+                produtoVenda = value;
+            }
+        }
     }
-    }
+}

@@ -53,7 +53,7 @@ namespace SysOticaForm
                 txtPertoOEdnp.Text = Convert.ToString(alteraReceita.Rc_poednp);            
                 textNomeMedico.Text = alteraReceita.Rc_nomemedico;
                 textObs.Text = alteraReceita.Rc_observacoes;
-                dateTimePickerValidade.Text = Convert.ToString(alteraReceita.Rc_dtavalidade);
+                dateTimePickerValidade.Text = Convert.ToString(alteraReceita.Rc_dtavencimento);
 
             }
 
@@ -92,7 +92,7 @@ namespace SysOticaForm
                     receita.Rc_nomemedico = textNomeMedico.Text.Trim();
                     receita.Rc_observacoes = textObs.Text.Trim();
                     string data = dateTimePickerValidade.Value.ToShortDateString();
-                    receita.Rc_dtavalidade = Convert.ToDateTime(data);
+                    receita.Rc_dtavencimento = Convert.ToDateTime(data);
 
                 }
                 if (alteraReceita == null)
@@ -128,7 +128,7 @@ namespace SysOticaForm
                     alteraReceita.Rc_nomemedico = textNomeMedico.Text.Trim();
                     alteraReceita.Rc_observacoes = textObs.Text.Trim();
                     string data_validade = dateTimePickerValidade.Value.ToShortDateString();
-                    alteraReceita.Rc_dtavalidade = Convert.ToDateTime(data_validade);
+                    alteraReceita.Rc_dtavencimento = Convert.ToDateTime(data_validade);
 
             
 
