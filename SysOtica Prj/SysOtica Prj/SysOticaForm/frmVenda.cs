@@ -137,5 +137,14 @@ namespace SysOticaForm
             receita = r;
             textBoxPegarReceita.Text = comboBoxReceita.SelectedValue.ToString();
         }
+
+        private void buttonExcluir_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Deseja realmente apagar este item da venda?","Apagar Registro",MessageBoxButtons.YesNo,MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, 0, false) == DialogResult.Yes)
+            {
+                dataGridViewItens.Rows.Remove(dataGridViewItens.CurrentRow);
+            }
+          
+        }
     }
 }

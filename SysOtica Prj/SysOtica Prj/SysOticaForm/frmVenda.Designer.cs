@@ -30,6 +30,7 @@
         {
             this.textBoxPegarNome = new System.Windows.Forms.TextBox();
             this.GroupBox = new System.Windows.Forms.GroupBox();
+            this.buttonExcluir = new System.Windows.Forms.Button();
             this.dateTimePickerAtual = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxQtdMult = new System.Windows.Forms.TextBox();
@@ -81,6 +82,7 @@
             // 
             // GroupBox
             // 
+            this.GroupBox.Controls.Add(this.buttonExcluir);
             this.GroupBox.Controls.Add(this.dateTimePickerAtual);
             this.GroupBox.Controls.Add(this.label10);
             this.GroupBox.Controls.Add(this.textBoxQtdMult);
@@ -115,6 +117,16 @@
             this.GroupBox.TabStop = false;
             this.GroupBox.Text = "Nova Venda";
             this.GroupBox.Visible = false;
+            // 
+            // buttonExcluir
+            // 
+            this.buttonExcluir.Location = new System.Drawing.Point(778, 114);
+            this.buttonExcluir.Name = "buttonExcluir";
+            this.buttonExcluir.Size = new System.Drawing.Size(75, 23);
+            this.buttonExcluir.TabIndex = 36;
+            this.buttonExcluir.Text = "Excluir Item";
+            this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
             // dateTimePickerAtual
             // 
@@ -512,5 +524,6 @@
         private System.Windows.Forms.Button BtnNovaVenda;
         private System.Windows.Forms.ComboBox CboCliente;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonExcluir;
     }
 }
