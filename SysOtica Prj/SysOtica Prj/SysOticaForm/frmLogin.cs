@@ -32,8 +32,6 @@ namespace SysOticaForm
                 frmPrincipal Principal = new frmPrincipal();
                 Principal.cadastroToolStripMenuItem.Enabled = true;
                 Principal.financeiroToolStripMenuItem.Enabled = true;
-                Principal.estoqueToolStripMenuItem.Enabled = true;
-                Principal.movimentaçãoToolStripMenuItem.Enabled = true;
                 Principal.relatóriosToolStripMenuItem.Enabled = true;
                 Principal.sairToolStripMenuItem.Enabled = true;
                 Principal.Show();
@@ -45,8 +43,6 @@ namespace SysOticaForm
                 frmPrincipal Principal = new frmPrincipal();
                 Principal.cadastroToolStripMenuItem.Enabled = false;
                 Principal.financeiroToolStripMenuItem.Enabled = false;
-                Principal.estoqueToolStripMenuItem.Enabled = false;
-                Principal.movimentaçãoToolStripMenuItem.Enabled = true;
                 Principal.relatóriosToolStripMenuItem.Enabled = false;
                 Principal.sairToolStripMenuItem.Enabled = true;
                 Principal.Show();
