@@ -79,6 +79,7 @@
             this.textBoxPegarNome.Name = "textBoxPegarNome";
             this.textBoxPegarNome.Size = new System.Drawing.Size(59, 20);
             this.textBoxPegarNome.TabIndex = 10;
+            this.textBoxPegarNome.Visible = false;
             // 
             // GroupBox
             // 
@@ -154,6 +155,7 @@
             this.textBoxQtdMult.Name = "textBoxQtdMult";
             this.textBoxQtdMult.Size = new System.Drawing.Size(100, 20);
             this.textBoxQtdMult.TabIndex = 33;
+            this.textBoxQtdMult.Visible = false;
             // 
             // textBoxPegarProduto
             // 
@@ -161,6 +163,7 @@
             this.textBoxPegarProduto.Name = "textBoxPegarProduto";
             this.textBoxPegarProduto.Size = new System.Drawing.Size(288, 20);
             this.textBoxPegarProduto.TabIndex = 32;
+            this.textBoxPegarProduto.Visible = false;
             // 
             // textBoxProdID
             // 
@@ -187,6 +190,7 @@
             // 
             this.textBoxValorPago.Location = new System.Drawing.Point(434, 611);
             this.textBoxValorPago.Name = "textBoxValorPago";
+            this.textBoxValorPago.ReadOnly = true;
             this.textBoxValorPago.Size = new System.Drawing.Size(100, 20);
             this.textBoxValorPago.TabIndex = 29;
             // 
@@ -196,11 +200,13 @@
             this.textBoxDes.Name = "textBoxDes";
             this.textBoxDes.Size = new System.Drawing.Size(100, 20);
             this.textBoxDes.TabIndex = 28;
+            this.textBoxDes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDes_KeyPress);
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(434, 543);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 27;
             // 
@@ -383,6 +389,7 @@
             this.textBoxQtd.Name = "textBoxQtd";
             this.textBoxQtd.Size = new System.Drawing.Size(116, 20);
             this.textBoxQtd.TabIndex = 6;
+            this.textBoxQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxQtd_KeyPress);
             // 
             // comboBoxProduto
             // 

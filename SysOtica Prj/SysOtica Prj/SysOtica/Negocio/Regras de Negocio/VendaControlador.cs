@@ -13,13 +13,6 @@ namespace SysOtica.Negocio.Regras_de_Negocio
     public class VendaControlador
     {
 
-        public void ValidarGuid(Venda v)
-        {
-            if (v == null)
-            {
-                throw new GuidVazioException("Int vazio ou inválido");
-            }
-        }
 
     }
 }

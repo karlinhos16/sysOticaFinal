@@ -102,8 +102,9 @@ namespace SysOticaForm
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {
-            textBoxValorPago.Text = (Convert.ToDecimal(textBox4.Text) - Convert.ToDecimal(textBoxDes.Text)).ToString();
+        {  
+                textBoxValorPago.Text = (Convert.ToDecimal(textBox4.Text) - Convert.ToDecimal(textBoxDes.Text)).ToString();
+             
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -122,6 +123,21 @@ namespace SysOticaForm
             fc.inserir(entVenda);
 
             MessageBox.Show("Venda realizada com sucesso!");
+
+            //Limpando campos
+
+            dataGridViewItens.Rows.Clear();
+            dataGridViewItens.Refresh();
+            textBoxQtd.Clear();
+            textBoxDes.Clear();
+            textBoxProdID.Clear();
+            textBoxValor.Clear();
+            textBox4.Clear();
+            textBoxValorPago.Clear();
+
+            comboBoxProduto.Enabled = true;
+            buttonNovoItem.Enabled = true;
+            textBoxQtd.Enabled = true;
         }
 
         private void CboCliente_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,6 +161,26 @@ namespace SysOticaForm
                 dataGridViewItens.Rows.Remove(dataGridViewItens.CurrentRow);
             }
           
+        }
+
+        private void textBoxQtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Números [0,9], Backspace, e decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBoxDes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Números [0,9], Backspace, e decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
         }
     }
 }
