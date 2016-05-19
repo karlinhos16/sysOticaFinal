@@ -68,6 +68,7 @@
             this.BtnNovaVenda = new System.Windows.Forms.Button();
             this.CboCliente = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.GroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).BeginInit();
@@ -83,6 +84,7 @@
             // 
             // GroupBox
             // 
+            this.GroupBox.Controls.Add(this.buttonCancelar);
             this.GroupBox.Controls.Add(this.buttonExcluir);
             this.GroupBox.Controls.Add(this.dateTimePickerAtual);
             this.GroupBox.Controls.Add(this.label10);
@@ -466,6 +468,16 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Cliente:";
             // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Location = new System.Drawing.Point(831, 665);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 37;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
             // frmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,5 +544,6 @@
         private System.Windows.Forms.ComboBox CboCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonExcluir;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

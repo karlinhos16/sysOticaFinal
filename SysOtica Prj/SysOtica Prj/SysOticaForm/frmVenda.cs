@@ -142,9 +142,17 @@ namespace SysOticaForm
 
         private void CboCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Cliente c = (Cliente)CboCliente.SelectedItem;
-            cliente = c;
-            textBoxPegarNome.Text = CboCliente.SelectedValue.ToString();
+
+
+            if (CboCliente.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione um cliente!");
+            }
+            else {
+                Cliente c = (Cliente)CboCliente.SelectedItem;
+                cliente = c;
+                textBoxPegarNome.Text = CboCliente.SelectedValue.ToString();
+            }
         }
 
         private void comboBoxReceita_SelectedIndexChanged(object sender, EventArgs e)
@@ -180,6 +188,14 @@ namespace SysOticaForm
             {
                 e.Handled = true;
                 return;
+            }
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Deseja realmente cancelar a compra?", "Cancelar", MessageBoxButtons.YesNo,MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2,0,false) == DialogResult.Yes)
+            {
+                Dispose();
             }
         }
     }
