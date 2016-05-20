@@ -16,3 +16,12 @@ C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica 
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.csproj.GenerateResource.Cache
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.exe
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.pdb
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOtica\bin\Debug\SocketSysOtica.exe.config
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOtica\bin\Debug\SocketSysOtica.exe
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOtica\bin\Debug\SocketSysOtica.pdb
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.csprojResolveAssemblyReference.cache
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.Properties.Resources.resources
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.Socket_Server___DSD_MELO.resources
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.csproj.GenerateResource.Cache
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.exe
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.pdb

@@ -15,20 +15,20 @@ namespace SysOtica.Conexao
     {
         ConexaoBD conn = new ConexaoBD();
 
-        public void inserirReceita(Receita receita, Cliente cliente)
+        public void inserirReceita(Receita receita)
         {
             try
             {
                 //abrir a conexão  //
                 conn.AbrirConexao();
-                string sql = "INSERT INTO Receita (rc_historico, rc_lodesferico, rc_loeesferico, rc_podesferico, rc_poeesferico,rc_lodcilindrico,rc_loecilindrico, rc_podcilindrico ,rc_poecilindrico,rc_lodeixo,rc_loeeixo,rc_podeixo,rc_poeeixo,rc_lodaltura,rc_loealtura,rc_podaltura,rc_poealtura,rc_loddnp,rc_loednp, rc_poddnp,rc_poednp,rc_nomemedico,rc_observacoes,rc_data,rc_dtavalidade, cl_id)    Values   (@rc_historico, @rc_lodesferico, @rc_loeesferico, @rc_podesferico, @rc_poeesferico, @rc_lodcilindrico, @rc_loecilindrico, @rc_podcilindrico ,@rc_poecilindrico, @rc_lodeixo, @rc_loeeixo, @rc_podeixo, @rc_poeeixo, @rc_lodaltura, @rc_loealtura, @rc_podaltura, @rc_poealtura,@rc_loddnp,@rc_loednp, @rc_poddnp,@rc_poednp,@rc_nomemedico,@rc_observacoes,@rc_data,@rc_dtavalidade,@cl_id )";
+                string sql = "INSERT INTO Receita (rc_historico, rc_lodesferico, rc_loeesferico, rc_podesferico, rc_poeesferico,rc_lodcilindrico,rc_loecilindrico, rc_podcilindrico ,rc_poecilindrico,rc_lodeixo,rc_loeeixo,rc_podeixo,rc_poeeixo,rc_lodaltura,rc_loealtura,rc_podaltura,rc_poealtura,rc_loddnp,rc_loednp, rc_poddnp,rc_poednp,rc_nomemedico,rc_observacoes,rc_data,rc_dtavencimento, cl_id)  Values (@rc_historico, @rc_lodesferico, @rc_loeesferico, @rc_podesferico, @rc_poeesferico, @rc_lodcilindrico, @rc_loecilindrico, @rc_podcilindrico ,@rc_poecilindrico, @rc_lodeixo, @rc_loeeixo, @rc_podeixo, @rc_poeeixo, @rc_lodaltura, @rc_loealtura, @rc_podaltura, @rc_poealtura,@rc_loddnp,@rc_loednp, @rc_poddnp,@rc_poednp,@rc_nomemedico, @rc_observacoes, @rc_data, @rc_dtavencimento, @cl_id)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
                 cmd.Parameters.Add("@rc_historico", SqlDbType.Date);
                 cmd.Parameters["@rc_historico"].Value = receita.Rc_historico;
 
-                cmd.Parameters.Add("@rc_lodesferico", SqlDbType.Float);
+                cmd.Parameters.Add("@rc_lodesferico", SqlDbType.Decimal);
                 cmd.Parameters["@rc_lodesferico"].Value = receita.Rc_lodesferico;
 
                 cmd.Parameters.Add("@rc_loeesferico", SqlDbType.Decimal);
@@ -101,26 +101,31 @@ namespace SysOtica.Conexao
                 cmd.Parameters["@rc_dtavencimento"].Value = receita.Rc_dtavencimento;
 
                 cmd.Parameters.Add("@cl_id", SqlDbType.Int);
-                cmd.Parameters["@cl_id"].Value = cliente.Cl_id;
+                cmd.Parameters["@cl_id"].Value = receita.Cliente.Cl_id;
+
+                //Int32 clId = Convert.ToInt32(cmd.ExecuteScalar());
+                //executando a instrucao 
 
 
-               /* foreach (Receita r in receita.Cliente.Listareceita)
-                {
-                    ConexaoBD conn1 = new ConexaoBD();
-                    conn1.AbrirConexao();
+                /* foreach (Receita r  in c.Listareceita)
+                 {
+                     ConexaoBD conn1 = new ConexaoBD();
 
+                     conn1.AbrirConexao();
 
-                    string sqlCliente = "Insert Into Cliente (cl_id) values (@cl_id)";
-                    SqlCommand cmd1 = new SqlCommand(sqlCliente, conn.cone);
+                     string sqlitens = "INSERT INTO Receita (cl_id) VALUES (@cl_id)";
+                     SqlCommand cmd1 = new SqlCommand(sqlitens, conn.cone);
 
-                    cmd.Parameters.Add("@cl_id", SqlDbType.Int);
-                    cmd.Parameters["@cl_id"].Value = r.Cliente.Cl_id;
+                     cmd1.Parameters.Add("@cl_id", SqlDbType.Int);
+                     cmd1.Parameters["@cl_id"].Value = r.Cliente.Cl_id;
 
-                    cmd1.ExecuteNonQuery();
-                    cmd1.Dispose();
-                    conn1.FecharConexao();
+                     //int recordsInserted = cmd.ExecuteNonQuery();
+                     cmd1.ExecuteNonQuery();
+                     cmd1.Dispose();
+                     conn1.FecharConexao();
 
-                }*/
+                 }*/
+
 
 
                 //executando a instrucao 
@@ -128,7 +133,9 @@ namespace SysOtica.Conexao
                 //liberando a memoria 
                 cmd.Dispose();
                 //fechando a conexao
-                conn.FecharConexao();
+                if (conn.State == System.Data.ConnectionState.Open)
+                    //fechando a conexao
+                    conn.FecharConexao();
 
 
             }
@@ -140,40 +147,6 @@ namespace SysOtica.Conexao
 
         }
 
-
-        public List<Receita> listaReceitaReceita()
-        {
-            string sql = "SELECT rc_id,rc_nomemedico,rc_observacoes,rc_data,rc_dtavencimento FROM Receita";
-            List<Receita> lista = new List<Receita>();
-            Receita r;
-
-
-            try
-            {
-                conn.AbrirConexao();
-                SqlCommand cmd = new SqlCommand(sql, conn.cone);
-                SqlDataReader retorno = cmd.ExecuteReader();
-
-                while (retorno.Read())
-                {
-                    r = new Receita();
-                    r.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
-                    r.Rc_nomemedico = retorno.GetString(retorno.GetOrdinal("rc_nomemedico"));
-                    r.Rc_observacoes = retorno.GetString(retorno.GetOrdinal("rc_observacoes"));
-                    r.Rc_data = retorno.GetDateTime(retorno.GetOrdinal("rc_data"));
-                    r.Rc_dtavencimento = retorno.GetDateTime(retorno.GetOrdinal("rc_dtavencimento"));
-
-                    lista.Add(r);
-                }
-                conn.FecharConexao();
-                return lista;
-
-            }
-            catch (SqlException e)
-            {
-                throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
-            }
-        }
 
         public void alterarReceita(Receita receita)
         {
@@ -181,7 +154,7 @@ namespace SysOtica.Conexao
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "UPDATE Receita SET rc_historico = @rc_historico, rc_lodesferico = @rc_lodesferico, rc_loeesferico = @rc_loeesferico,rc_podesferico = @rc_podesferico, rc_poeesferico = @rc_poeesferico,rc_lodcilindrico = @rc_lodcilindrico,rc_loecilindrico = @rc_loecilindrico, rc_podcilindrico = @rc_podcilindrico ,rc_poecilindrico = @rc_poecilindrico,rc_lodeixo = @rc_lodeixo,rc_loeeixo = @rc_loeeixo,rc_podeixo = @rc_podeixo,rc_poeeixo = @rc_poeeixo,rc_lodaltura = @rc_lodaltura,rc_loealtura = @rc_loealtura,rc_podaltura = @rc_podaltura,rc_poealtura = @rc_poealtura,rc_loddnp = @rc_loddnp,rc_loednp = @rc_loednp, rc_poddnp = @rc_poddnp,rc_poednp = @rc_poednp,rc_nomemedico = @rc_nomemedico,rc_observacoes = @rc_observacoes,rc_data = @rc_data,rc_dtavalidade = @rc_dtavalidade  WHERE rc_id = @rc_id";
+                string sql = "UPDATE Receita SET rc_historico = @rc_historico, rc_lodesferico = @rc_lodesferico, rc_loeesferico = @rc_loeesferico,rc_podesferico = @rc_podesferico, rc_poeesferico = @rc_poeesferico,rc_lodcilindrico = @rc_lodcilindrico,rc_loecilindrico = @rc_loecilindrico, rc_podcilindrico = @rc_podcilindrico ,rc_poecilindrico = @rc_poecilindrico,rc_lodeixo = @rc_lodeixo,rc_loeeixo = @rc_loeeixo,rc_podeixo = @rc_podeixo,rc_poeeixo = @rc_poeeixo,rc_lodaltura = @rc_lodaltura,rc_loealtura = @rc_loealtura,rc_podaltura = @rc_podaltura,rc_poealtura = @rc_poealtura,rc_loddnp = @rc_loddnp,rc_loednp = @rc_loednp, rc_poddnp = @rc_poddnp,rc_poednp = @rc_poednp,rc_nomemedico = @rc_nomemedico,rc_observacoes = @rc_observacoes,rc_data = @rc_data,rc_dtavencimento = @rc_dtavencimento WHERE rc_id = @rc_id";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
@@ -311,7 +284,7 @@ namespace SysOtica.Conexao
         {
             string sql = " SELECT r.rc_id, r.rc_historico,    r.rc_lodesferico, r.rc_loeesferico,  r.rc_podesferico,    r.rc_poeesferico,  r.rc_lodcilindrico,          r.rc_loecilindrico,  r.rc_podcilindrico,  r.rc_poecilindrico," +
                     "             r.rc_lodeixo,               r.rc_loeeixo,     r.rc_podeixo,      r.rc_poeeixo,        r.rc_lodaltura,    r.rc_loealtura,             r.rc_podaltura,      r.rc_poealtura,      r.rc_loddnp,       r.rc_loednp,    r.rc_poddnp, " +
-                    "             r.rc_poednp,                r.rc_nomemedico,  r.rc_observacoes,  r.rc_data,           r.rc_dtavalidade,  c.cl_nome FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id";
+                    "             r.rc_poednp,                r.rc_nomemedico,  r.rc_observacoes,  r.rc_data,           r.rc_dtavencimento, c.cl_nome FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id";
 
             List<Receita> lista = new List<Receita>();
             Receita receita;
@@ -330,8 +303,7 @@ namespace SysOtica.Conexao
 
 
                     receita.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
-                    //receita.Cliente.Cl_nome = retorno.GetString(retorno.GetOrdinal("cl_nome"));
-                    cliente.Cl_nome = retorno.GetString(retorno.GetOrdinal("cl_nome"));
+                    receita.Cliente.Cl_nome = retorno.GetString(retorno.GetOrdinal("cl_nome"));
                     receita.Rc_historico = retorno.GetDateTime(retorno.GetOrdinal("rc_historico"));
                     receita.Rc_lodesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_lodesferico"));
                     receita.Rc_loeesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_loeesferico"));
@@ -376,41 +348,16 @@ namespace SysOtica.Conexao
 
         }
 
-        public void pesquisaReceitas(DataGridView grid, string cl_nome)
-        {
-            string sql = " SELECT r.rc_id, r.rc_historico,    r.rc_lodesferico, r.rc_loeesferico,  r.rc_podesferico,    r.rc_poeesferico,  r.rc_lodcilindrico,          r.rc_loecilindrico,  r.rc_podcilindrico,  r.rc_poecilindrico," +
-                    "             r.rc_lodeixo,             r.rc_loeeixo,     r.rc_podeixo,      r.rc_poeeixo,        r.rc_lodaltura,    r.rc_loealtura,             r.rc_podaltura,      r.rc_poealtura,      r.rc_loddnp,       r.rc_loednp,    r.rc_poddnp, " +
-                    "             r.rc_poednp,              r.rc_nomemedico,  r.rc_observacoes,  r.rc_data,           r.rc_dtavalidade ,  c.cl_nome FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id where cl_nome LIKE @cl_nome + '%'";
-            conn.AbrirConexao();
-            SqlCommand cmd = new SqlCommand(sql, this.conn.cone);
 
-            if (cl_nome != "")
-            {
-
-                cmd.Parameters.Add("@cl_nome", SqlDbType.VarChar, 100).Value = cl_nome;
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                // armazena os dados de forma temporararia
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                //faz a ligação do banco ao datatable
-                da.Fill(dt);
-                //retorna os dados para cada coluna carregando dataTable          
-                grid.DataSource = dt;
-
-
-
-            }
-        }
 
         public List<Receita> puxaReceita(string cl_nome)
         {
             string sql = " SELECT r.rc_id, r.rc_historico,    r.rc_lodesferico, r.rc_loeesferico,  r.rc_podesferico,    r.rc_poeesferico,  r.rc_lodcilindrico,          r.rc_loecilindrico,  r.rc_podcilindrico,  r.rc_poecilindrico," +
                     "             r.rc_lodeixo,               r.rc_loeeixo,     r.rc_podeixo,      r.rc_poeeixo,        r.rc_lodaltura,    r.rc_loealtura,             r.rc_podaltura,      r.rc_poealtura,      r.rc_loddnp,       r.rc_loednp,    r.rc_poddnp, " +
-                    "             r.rc_poednp,                r.rc_nomemedico,  r.rc_observacoes,  r.rc_data,           r.rc_dtavalidade ,  c.cl_nome FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id where cl_nome LIKE @cl_nome + '%'";
+                    "             r.rc_poednp,                r.rc_nomemedico,  r.rc_observacoes,  r.rc_data,           r.rc_dtavencimento ,  c.cl_nome FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id where cl_nome LIKE @cl_nome + '%'";
 
 
             List<Receita> lista = new List<Receita>();
-
 
             if (cl_nome != "")
             {
@@ -422,14 +369,22 @@ namespace SysOtica.Conexao
                     cmd.Parameters.Add("@cl_nome", SqlDbType.VarChar, 100).Value = cl_nome;
 
                     SqlDataReader retorno = cmd.ExecuteReader();
+
+                    if (retorno.HasRows == false)
+                    {
+
+                        throw new Exception("Cliente não cadastrado!");
+
+                    }
+
                     while (retorno.Read())
                     {
                         Receita receita = new Receita();
                         Cliente cliente = new Cliente();
 
+
                         receita.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
-                        //receita.Cliente.Cl_nome = retorno.GetString(retorno.GetOrdinal("cl_nome"));
-                        cliente.Cl_nome = retorno.GetString(retorno.GetOrdinal("cl_nome"));
+                        receita.Cliente.Cl_nome = retorno.GetString(retorno.GetOrdinal("cl_nome"));
                         receita.Rc_historico = retorno.GetDateTime(retorno.GetOrdinal("rc_historico"));
                         receita.Rc_lodesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_lodesferico"));
                         receita.Rc_loeesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_loeesferico"));
@@ -457,7 +412,6 @@ namespace SysOtica.Conexao
                         receita.Rc_observacoes = retorno.GetString(retorno.GetOrdinal("rc_observacoes"));
 
                         lista.Add(receita);
-
                     }
 
                 }
@@ -474,9 +428,46 @@ namespace SysOtica.Conexao
 
         }
 
-        public bool verificaduplicidade(Receita receita)
+        public List<Receita> vendaReceita()
         {
-            throw new NotImplementedException();
+            string sql = " SELECT r.rc_id, r.rc_nomemedico, r.rc_observacoes, r.rc_data,  r.rc_dtavencimento, r.cl_id FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id";
+
+
+            List<Receita> lista = new List<Receita>();
+
+            try
+            {
+                conn.AbrirConexao();
+                SqlCommand cmd = new SqlCommand(sql, this.conn.cone);
+                SqlDataReader retorno = cmd.ExecuteReader();
+
+                while (retorno.Read())
+                {
+                    Receita receita = new Receita();
+                    receita.Cliente.Cl_id = retorno.GetInt32(retorno.GetOrdinal("cl_id"));
+                    receita.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
+                    receita.Rc_nomemedico = retorno.GetString(retorno.GetOrdinal("rc_nomemedico"));
+                    receita.Rc_observacoes = retorno.GetString(retorno.GetOrdinal("rc_observacoes"));
+                    receita.Rc_data = retorno.GetDateTime(retorno.GetOrdinal("rc_data"));
+                    receita.Rc_dtavencimento = retorno.GetDateTime(retorno.GetOrdinal("rc_dtavencimento"));
+
+
+                    lista.Add(receita);
+
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + ex.Message);
+
+            }
+
+            conn.FecharConexao();
+            return lista;
+
+
         }
 
 

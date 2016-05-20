@@ -105,19 +105,17 @@ namespace SysOticaForm
             try
             {
                 Fachada fachada = new Fachada();
-                Fornecedor fornecedor = new Fornecedor();
                 Produto produto = new Produto();
-                Categoria cat = new Categoria();
+
 
                 // string forn = cbFornecedor.SelectedItem.ToString();
                 //          int fornecedorID = Convert.ToInt32(forn.Substring(0, 1));//pega somente o ID do fornecedor
 
-                fornecedor.Fr_id = Convert.ToInt32(cmbFornecedor.SelectedValue.ToString());
-                cat.Ct_id = Convert.ToInt32(cmbCategoria.SelectedValue.ToString());
+                produto.Fornecedor.Fr_id = Convert.ToInt32(cmbFornecedor.SelectedValue.ToString());
+                produto.Categoria.Ct_id = Convert.ToInt32(cmbCategoria.SelectedValue.ToString());
                 produto.Pr_descricao = tbDescricao.Text;
                 produto.Pr_unidade = cmbUnidade.SelectedItem.ToString();
                 produto.Pr_grife = cbGrife.SelectedItem.ToString();
-                produto.Pr_tipo = cmbTipo.SelectedItem.ToString();
                 string data_entrada = dataPicker.Value.ToShortDateString();
                 produto.Pr_dtentrada = Convert.ToDateTime(data_entrada);
                 produto.Pr_valor = Convert.ToDecimal(tbValor.Text);
@@ -131,7 +129,7 @@ namespace SysOticaForm
                 }
 
 
-                fachada.InserirProduto(produto, fornecedor, cat);
+                fachada.InserirProduto(produto);
                 MessageBox.Show("Produto Cadastrado com Sucesso!");
                 LimparCampos();
             }
@@ -146,13 +144,12 @@ namespace SysOticaForm
 
 
         public void LimparCampos()
-         {
+        {
             cmbFornecedor.Text = "";
             cmbCategoria.Text = "";
             tbDescricao.Text = "";
             dataPicker.Text = null;
             cmbUnidade.Text = "";
-            cmbTipo.Text = "";
             cbGrife.Text = "";
             tbValor.Text = "";
             tbQuantidade.Text = "";

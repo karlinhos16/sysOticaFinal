@@ -104,7 +104,7 @@ namespace SysOticaForm
                     string data_validade = dateTimePickerValidade.Value.ToShortDateString();
                     receita.Rc_dtavencimento = Convert.ToDateTime(data_validade);
                     receita.Rc_data = DateTime.Parse(maskedTextData.Text);
-                
+
 
                     if (DateTime.Parse(maskedTextData.Text) < DateTime.Today)
                     {
@@ -136,14 +136,40 @@ namespace SysOticaForm
 
                     }
 
-                    Cliente cli = new Cliente();
-                    cli.Cl_id = Convert.ToInt32(cmbCliente.SelectedValue.ToString());
-                    Fachada fachada = new Fachada();
-                    fachada.InserirReceita(receita, cli);
-                    MessageBox.Show("Receita cadastra com sucesso.");
-                    LimparCampos();
-                    carregaHistorico();
+
+                    //Cliente cli 
+                    //cli.Cl_id = Convert.ToInt32(cmbCliente.SelectedValue.ToString());
+                    //receita.Cliente = cli;
+                    //listareceita.Add(receita);
+                    //cli.Listareceita = listareceita;
+
+                    //Cliente c = (Cliente)cmbCliente.SelectedItem;
+                    //cliente = c;
+                    //c.Cl_id = Convert.ToInt32(cmbCliente.SelectedValue.ToString());
+                    //receita.Cliente = cliente;
+                    //listareceita.Add(receita);
+                    //c.Listareceita = listareceita;
+
+
+                    if (cmbCliente.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Selecione um cliente!");
+                    }
+                    else
+                    {
+                        receita.Cliente.Cl_id = Convert.ToInt32(cmbCliente.SelectedValue.ToString());
+                        Fachada fachada = new Fachada();
+                        fachada.InserirReceita(receita);
+                        MessageBox.Show("Receita cadastra com sucesso.");
+                        LimparCampos();
+                        carregaHistorico();
+
+                    }
                 }
+
+
+
+
 
 
 
@@ -157,11 +183,8 @@ namespace SysOticaForm
             {
                 MessageBox.Show("Erro. " + ex.Message);
             }
-          
-               
 
-
-        }
+    }
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {

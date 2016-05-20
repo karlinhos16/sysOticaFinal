@@ -30,6 +30,7 @@
         {
             this.textBoxPegarNome = new System.Windows.Forms.TextBox();
             this.GroupBox = new System.Windows.Forms.GroupBox();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonExcluir = new System.Windows.Forms.Button();
             this.dateTimePickerAtual = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
@@ -49,8 +50,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxPegarReceita = new System.Windows.Forms.TextBox();
-            this.comboBoxReceita = new System.Windows.Forms.ComboBox();
             this.dataGridViewItens = new System.Windows.Forms.DataGridView();
             this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,15 +67,23 @@
             this.BtnNovaVenda = new System.Windows.Forms.Button();
             this.CboCliente = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.dataGridRec = new System.Windows.Forms.DataGridView();
+            this.id_receita = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomemedico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dt_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.validade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtIdReceita = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.GroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridRec)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxPegarNome
             // 
-            this.textBoxPegarNome.Location = new System.Drawing.Point(658, 9);
+            this.textBoxPegarNome.Location = new System.Drawing.Point(635, 12);
             this.textBoxPegarNome.Name = "textBoxPegarNome";
             this.textBoxPegarNome.Size = new System.Drawing.Size(59, 20);
             this.textBoxPegarNome.TabIndex = 10;
@@ -121,6 +128,16 @@
             this.GroupBox.Text = "Nova Venda";
             this.GroupBox.Visible = false;
             // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Location = new System.Drawing.Point(616, 592);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 37;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
             // buttonExcluir
             // 
             this.buttonExcluir.Location = new System.Drawing.Point(778, 114);
@@ -136,7 +153,7 @@
             this.dateTimePickerAtual.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dateTimePickerAtual.Enabled = false;
             this.dateTimePickerAtual.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerAtual.Location = new System.Drawing.Point(693, 544);
+            this.dateTimePickerAtual.Location = new System.Drawing.Point(663, 555);
             this.dateTimePickerAtual.Name = "dateTimePickerAtual";
             this.dateTimePickerAtual.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dateTimePickerAtual.Size = new System.Drawing.Size(92, 20);
@@ -145,7 +162,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(654, 550);
+            this.label10.Location = new System.Drawing.Point(624, 561);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 13);
             this.label10.TabIndex = 34;
@@ -161,15 +178,15 @@
             // 
             // textBoxPegarProduto
             // 
-            this.textBoxPegarProduto.Location = new System.Drawing.Point(543, 36);
+            this.textBoxPegarProduto.Location = new System.Drawing.Point(595, 36);
             this.textBoxPegarProduto.Name = "textBoxPegarProduto";
-            this.textBoxPegarProduto.Size = new System.Drawing.Size(288, 20);
+            this.textBoxPegarProduto.Size = new System.Drawing.Size(240, 20);
             this.textBoxPegarProduto.TabIndex = 32;
             this.textBoxPegarProduto.Visible = false;
             // 
             // textBoxProdID
             // 
-            this.textBoxProdID.Location = new System.Drawing.Point(128, 13);
+            this.textBoxProdID.Location = new System.Drawing.Point(128, 35);
             this.textBoxProdID.Name = "textBoxProdID";
             this.textBoxProdID.ReadOnly = true;
             this.textBoxProdID.Size = new System.Drawing.Size(63, 20);
@@ -183,14 +200,14 @@
             "À Vista",
             "Débito",
             "Crédito"});
-            this.comboBoxFP.Location = new System.Drawing.Point(434, 642);
+            this.comboBoxFP.Location = new System.Drawing.Point(404, 653);
             this.comboBoxFP.Name = "comboBoxFP";
             this.comboBoxFP.Size = new System.Drawing.Size(121, 21);
             this.comboBoxFP.TabIndex = 30;
             // 
             // textBoxValorPago
             // 
-            this.textBoxValorPago.Location = new System.Drawing.Point(434, 611);
+            this.textBoxValorPago.Location = new System.Drawing.Point(404, 622);
             this.textBoxValorPago.Name = "textBoxValorPago";
             this.textBoxValorPago.ReadOnly = true;
             this.textBoxValorPago.Size = new System.Drawing.Size(100, 20);
@@ -198,15 +215,16 @@
             // 
             // textBoxDes
             // 
-            this.textBoxDes.Location = new System.Drawing.Point(434, 574);
+            this.textBoxDes.Location = new System.Drawing.Point(404, 585);
             this.textBoxDes.Name = "textBoxDes";
             this.textBoxDes.Size = new System.Drawing.Size(100, 20);
             this.textBoxDes.TabIndex = 28;
+            this.textBoxDes.Text = "0";
             this.textBoxDes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDes_KeyPress);
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(434, 543);
+            this.textBox4.Location = new System.Drawing.Point(404, 554);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(100, 20);
@@ -215,7 +233,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(320, 651);
+            this.label9.Location = new System.Drawing.Point(290, 662);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 13);
             this.label9.TabIndex = 26;
@@ -224,7 +242,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(369, 614);
+            this.label8.Location = new System.Drawing.Point(339, 625);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 13);
             this.label8.TabIndex = 25;
@@ -233,7 +251,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(369, 581);
+            this.label7.Location = new System.Drawing.Point(339, 592);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 24;
@@ -242,7 +260,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(391, 550);
+            this.label6.Location = new System.Drawing.Point(361, 561);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 23;
@@ -250,7 +268,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(657, 604);
+            this.button5.Location = new System.Drawing.Point(697, 592);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 22;
@@ -260,7 +278,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(174, 641);
+            this.button4.Location = new System.Drawing.Point(144, 652);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 23);
             this.button4.TabIndex = 21;
@@ -269,7 +287,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(174, 594);
+            this.button3.Location = new System.Drawing.Point(144, 605);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(110, 23);
             this.button3.TabIndex = 20;
@@ -279,7 +297,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(174, 550);
+            this.button2.Location = new System.Drawing.Point(144, 561);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 23);
             this.button2.TabIndex = 19;
@@ -289,30 +307,15 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBoxPegarReceita);
-            this.groupBox1.Controls.Add(this.comboBoxReceita);
-            this.groupBox1.Location = new System.Drawing.Point(7, 428);
+            this.groupBox1.Controls.Add(this.txtIdReceita);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.dataGridRec);
+            this.groupBox1.Location = new System.Drawing.Point(7, 365);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(890, 100);
+            this.groupBox1.Size = new System.Drawing.Size(890, 183);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Receita";
-            // 
-            // textBoxPegarReceita
-            // 
-            this.textBoxPegarReceita.Location = new System.Drawing.Point(446, 40);
-            this.textBoxPegarReceita.Name = "textBoxPegarReceita";
-            this.textBoxPegarReceita.Size = new System.Drawing.Size(100, 20);
-            this.textBoxPegarReceita.TabIndex = 1;
-            // 
-            // comboBoxReceita
-            // 
-            this.comboBoxReceita.FormattingEnabled = true;
-            this.comboBoxReceita.Location = new System.Drawing.Point(38, 40);
-            this.comboBoxReceita.Name = "comboBoxReceita";
-            this.comboBoxReceita.Size = new System.Drawing.Size(365, 21);
-            this.comboBoxReceita.TabIndex = 0;
-            this.comboBoxReceita.SelectedIndexChanged += new System.EventHandler(this.comboBoxReceita_SelectedIndexChanged);
             // 
             // dataGridViewItens
             // 
@@ -329,7 +332,7 @@
             this.dataGridViewItens.Name = "dataGridViewItens";
             this.dataGridViewItens.ReadOnly = true;
             this.dataGridViewItens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewItens.Size = new System.Drawing.Size(900, 265);
+            this.dataGridViewItens.Size = new System.Drawing.Size(900, 213);
             this.dataGridViewItens.TabIndex = 0;
             // 
             // Código
@@ -397,9 +400,9 @@
             // 
             this.comboBoxProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProduto.FormattingEnabled = true;
-            this.comboBoxProduto.Location = new System.Drawing.Point(128, 36);
+            this.comboBoxProduto.Location = new System.Drawing.Point(250, 35);
             this.comboBoxProduto.Name = "comboBoxProduto";
-            this.comboBoxProduto.Size = new System.Drawing.Size(408, 21);
+            this.comboBoxProduto.Size = new System.Drawing.Size(339, 21);
             this.comboBoxProduto.TabIndex = 4;
             this.comboBoxProduto.SelectedIndexChanged += new System.EventHandler(this.comboBoxProduto_SelectedIndexChanged);
             // 
@@ -424,7 +427,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 44);
+            this.label3.Location = new System.Drawing.Point(197, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 1;
@@ -433,7 +436,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 20);
+            this.label2.Location = new System.Drawing.Point(13, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 13);
             this.label2.TabIndex = 0;
@@ -441,7 +444,7 @@
             // 
             // BtnNovaVenda
             // 
-            this.BtnNovaVenda.Location = new System.Drawing.Point(564, 12);
+            this.BtnNovaVenda.Location = new System.Drawing.Point(554, 9);
             this.BtnNovaVenda.Name = "BtnNovaVenda";
             this.BtnNovaVenda.Size = new System.Drawing.Size(75, 23);
             this.BtnNovaVenda.TabIndex = 8;
@@ -468,15 +471,79 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Cliente:";
             // 
-            // buttonCancelar
+            // dataGridRec
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(831, 665);
-            this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 37;
-            this.buttonCancelar.Text = "Cancelar";
-            this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            this.dataGridRec.AllowUserToAddRows = false;
+            this.dataGridRec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridRec.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridRec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridRec.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_receita,
+            this.nomemedico,
+            this.Obs,
+            this.dt_entrada,
+            this.validade});
+            this.dataGridRec.Location = new System.Drawing.Point(9, 49);
+            this.dataGridRec.MultiSelect = false;
+            this.dataGridRec.Name = "dataGridRec";
+            this.dataGridRec.ReadOnly = true;
+            this.dataGridRec.RowHeadersVisible = false;
+            this.dataGridRec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridRec.Size = new System.Drawing.Size(875, 128);
+            this.dataGridRec.TabIndex = 0;
+            this.dataGridRec.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRec_CellClick);
+            // 
+            // id_receita
+            // 
+            this.id_receita.DataPropertyName = "rc_id";
+            this.id_receita.HeaderText = "ID Receita";
+            this.id_receita.Name = "id_receita";
+            this.id_receita.ReadOnly = true;
+            // 
+            // nomemedico
+            // 
+            this.nomemedico.DataPropertyName = "rc_nomemedico";
+            this.nomemedico.HeaderText = "Médico";
+            this.nomemedico.Name = "nomemedico";
+            this.nomemedico.ReadOnly = true;
+            // 
+            // Obs
+            // 
+            this.Obs.DataPropertyName = "rc_observacoes";
+            this.Obs.HeaderText = "Observações";
+            this.Obs.Name = "Obs";
+            this.Obs.ReadOnly = true;
+            // 
+            // dt_entrada
+            // 
+            this.dt_entrada.DataPropertyName = "rc_data";
+            this.dt_entrada.HeaderText = "Data de entrada";
+            this.dt_entrada.Name = "dt_entrada";
+            this.dt_entrada.ReadOnly = true;
+            // 
+            // validade
+            // 
+            this.validade.DataPropertyName = "rc_dtavencimento";
+            this.validade.HeaderText = "Data de Validade";
+            this.validade.Name = "validade";
+            this.validade.ReadOnly = true;
+            // 
+            // txtIdReceita
+            // 
+            this.txtIdReceita.Enabled = false;
+            this.txtIdReceita.Location = new System.Drawing.Point(121, 17);
+            this.txtIdReceita.Name = "txtIdReceita";
+            this.txtIdReceita.Size = new System.Drawing.Size(80, 20);
+            this.txtIdReceita.TabIndex = 40;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(98, 13);
+            this.label11.TabIndex = 41;
+            this.label11.Text = "Código da Receita:";
             // 
             // frmVenda
             // 
@@ -497,6 +564,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridRec)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,8 +592,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBoxPegarReceita;
-        private System.Windows.Forms.ComboBox comboBoxReceita;
         private System.Windows.Forms.DataGridView dataGridViewItens;
         private System.Windows.Forms.DataGridViewTextBoxColumn Código;
         private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
@@ -545,5 +611,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonExcluir;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.TextBox txtIdReceita;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridView dataGridRec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_receita;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomemedico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Obs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dt_entrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn validade;
     }
 }

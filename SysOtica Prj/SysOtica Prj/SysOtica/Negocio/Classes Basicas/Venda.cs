@@ -20,6 +20,14 @@ namespace SysOtica.Negocio.Classes_Basicas
         private List<ProdutoVenda> listaitens;
         private object produtoVenda;
 
+        public Venda()
+        {
+
+            Receita = new Receita();
+
+        }
+
+
         public int Vn_id
         {
             get

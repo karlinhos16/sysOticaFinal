@@ -38,6 +38,15 @@ namespace SysOtica.Negocio.Classes_Basicas
         private Cliente cliente;
         private Venda venda;
 
+
+        public Receita()
+        {
+
+            Cliente = new Cliente();
+
+        }
+
+
         public int Rc_id
         {
             get

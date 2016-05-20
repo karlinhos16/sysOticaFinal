@@ -19,8 +19,8 @@ namespace SysOticaForm
     {
         Venda venda;
         Cliente cliente;
-        Receita receita;
         List<ProdutoVenda> listaDeItens = new List<ProdutoVenda>();
+        List<Receita> receitavenda = new List<Receita>();
         Fachada fc = new Fachada();
 
         public frmVenda()
@@ -38,15 +38,54 @@ namespace SysOticaForm
             comboBoxProduto.ValueMember = "pr_id";
             comboBoxProduto.DisplayMember = "pr_descricao";
 
-            comboBoxReceita.DataSource = fc.listaReceitaReceita();
-            comboBoxReceita.ValueMember = "rc_id";
-            comboBoxReceita.DisplayMember = "rc_dtavencimento";
+            
         }
 
         private void BtnNovaVenda_Click(object sender, EventArgs e)
         {
             GroupBox.Visible = true;
             BtnNovaVenda.Enabled = false;
+
+            if (CboCliente.SelectedItem.ToString() != null)
+            {
+                receitavenda = fc.vendaReceita();
+                dataGridRec.DataSource = null;
+                dataGridRec.AutoGenerateColumns = false;
+
+                foreach (var receitas in receitavenda)
+                {
+
+                    if (receitas.Rc_id.ToString() != null && receitas.Cliente.Cl_id.ToString() == (textBoxPegarNome.Text.Trim().ToString()))
+                    {
+
+                        if (dataGridRec.RowCount >= -1)
+                        {
+
+
+                            dataGridRec.Rows.Add((receitas.Rc_id).ToString(),
+                            receitas.Rc_nomemedico.ToString(),
+                            receitas.Rc_observacoes.ToString(),
+                            receitas.Rc_data.ToShortDateString(),
+                            receitas.Rc_dtavencimento.ToShortDateString());
+
+                        }
+                        else
+                        {
+                            dataGridRec.Rows.Clear();
+
+                        }
+
+                        CboCliente.Enabled = false;
+                    }
+
+                }
+                vencimentoReceita();
+            }
+
+
+
+
+
         }
 
         private void comboBoxProduto_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,7 +156,7 @@ namespace SysOticaForm
             entVenda.Vn_formapagamento = comboBoxFP.Text;
             entVenda.Vn_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text);
             entVenda.Cliente = cliente;
-            entVenda.Receita = receita;
+            entVenda.Receita.Rc_id = Convert.ToInt32(txtIdReceita.Text);
             entVenda.Listaitens = listaDeItens;
 
             fc.inserir(entVenda);
@@ -153,13 +192,6 @@ namespace SysOticaForm
                 cliente = c;
                 textBoxPegarNome.Text = CboCliente.SelectedValue.ToString();
             }
-        }
-
-        private void comboBoxReceita_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Receita r = (Receita)comboBoxReceita.SelectedItem;
-            receita = r;
-            textBoxPegarReceita.Text = comboBoxReceita.SelectedValue.ToString();
         }
 
         private void buttonExcluir_Click(object sender, EventArgs e)
@@ -198,5 +230,75 @@ namespace SysOticaForm
                 Dispose();
             }
         }
+
+        private void dataGridRec_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+                DataGridViewRow linhaAtual = dataGridRec.CurrentRow;
+                if (linhaAtual.Index >= -1)
+                {
+                    if (linhaAtual != null)
+                    {
+
+                        string coluna = dataGridRec.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+                        if (Convert.ToDateTime(coluna) > DateTime.Today)
+                        {
+
+                            MessageBox.Show("Esta receita não se encontra na data de validade", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+
+                        }
+                        else if (dataGridRec.CurrentCell.RowIndex >= -1)
+                        {
+
+                            txtIdReceita.Text = dataGridRec.Rows[e.RowIndex].Cells[0].Value.ToString();
+                            MessageBox.Show("Receita selecionada com sucesso!");
+
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+
+            {
+                throw new Exception("Erro ao selecionar receita" + ex.Message);
+
+            }
+        }
+        void vencimentoReceita()
+        {
+            if (dataGridRec != null)
+            {
+                //dataGridRec.AutoGenerateColumns = false;
+                for (int i = 0; i < dataGridRec.Rows.Count; i++)
+                {
+                    string coluna1 = dataGridRec.Rows[i].Cells[4].Value.ToString();
+
+                    if (Convert.ToDateTime(coluna1) > DateTime.Today && Convert.ToDateTime(coluna1) != null)
+                    {
+
+                        dataGridRec.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
+
+                    }
+
+                    else
+                    {
+                        dataGridRec.Rows[i].DefaultCellStyle.BackColor = Color.White;
+
+
+                    }
+
+                }
+
+            }
+
+        }
+
+
     }
 }

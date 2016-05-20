@@ -14,14 +14,14 @@ namespace SysOtica.Conexao
     {      
         ConexaoBD conn = new ConexaoBD();
 
-    
-        public void inserirProduto(Produto p, Fornecedor fornecedor, Categoria cat)
+
+        public void inserirProduto(Produto p)
         {
             try
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "INSERT INTO Produto (pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_unidade, pr_dtentrada, pr_tipo,fr_id, ct_id, pr_qtd) values ( @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_unidade, @pr_dtentrada, @pr_tipo, @ct_id, @fr_id, @pr_qtd)";
+                string sql = "INSERT INTO Produto (pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_unidade, pr_dtentrada, fr_id, ct_id, pr_qtd) values ( @pr_descricao, @pr_grife, @pr_valor, @pr_estoqueminimo, @pr_unidade, @pr_dtentrada, @ct_id, @fr_id, @pr_qtd)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
@@ -46,14 +46,11 @@ namespace SysOtica.Conexao
                 cmd.Parameters.Add("@pr_dtentrada", SqlDbType.Date);
                 cmd.Parameters["@pr_dtentrada"].Value = p.Pr_dtentrada;
 
-                cmd.Parameters.Add("@pr_tipo", SqlDbType.VarChar);
-                cmd.Parameters["@pr_tipo"].Value = p.Pr_tipo;
-
                 cmd.Parameters.Add("@ct_id", SqlDbType.Int);
-                cmd.Parameters["@ct_id"].Value = cat.Ct_id;
+                cmd.Parameters["@ct_id"].Value = p.Categoria.Ct_id;
 
                 cmd.Parameters.Add("@fr_id", SqlDbType.Int);
-                cmd.Parameters["@fr_id"].Value = fornecedor.Fr_id;
+                cmd.Parameters["@fr_id"].Value = p.Fornecedor.Fr_id;
 
 
 
@@ -98,8 +95,6 @@ namespace SysOtica.Conexao
                 cmd.Parameters.Add("@pr_qtd", SqlDbType.Int);
                 cmd.Parameters["@pr_qtd"].Value = p.Pr_qtd;
 
-                cmd.Parameters.Add("@pr_tipo", SqlDbType.VarChar);
-                cmd.Parameters["@pr_tipo"].Value = p.Pr_tipo;
 
                 cmd.Parameters.Add("@pr_estoqueminimo", SqlDbType.Int);
                 cmd.Parameters["@pr_estoqueminimo"].Value = p.Pr_estoqueminimo;
@@ -120,21 +115,22 @@ namespace SysOtica.Conexao
         public void excluirProduto(Produto p)
         {
 
-         try { 
-            //abrir a conexão
-            conn.AbrirConexao();
-            string sql = "DELETE FROM Produto WHERE pr_id = @pr_id";
-            //instrucao a ser executada
-            SqlCommand cmd = new SqlCommand(sql, conn.cone);
-            cmd.Parameters.Add("@pr_id", SqlDbType.Int);
-            cmd.Parameters["@pr_id"].Value = p.Pr_id;
-            //executando a instrucao 
-            cmd.ExecuteNonQuery();
-            //liberando a memoria 
-            cmd.Dispose();
-            //fechando a conexao
-            conn.FecharConexao();
-        }
+            try
+            {
+                //abrir a conexão
+                conn.AbrirConexao();
+                string sql = "DELETE FROM Produto WHERE pr_id = @pr_id";
+                //instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, conn.cone);
+                cmd.Parameters.Add("@pr_id", SqlDbType.Int);
+                cmd.Parameters["@pr_id"].Value = p.Pr_id;
+                //executando a instrucao 
+                cmd.ExecuteNonQuery();
+                //liberando a memoria 
+                cmd.Dispose();
+                //fechando a conexao
+                conn.FecharConexao();
+            }
             catch (SqlException e)
             {
                 throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
@@ -176,11 +172,12 @@ namespace SysOtica.Conexao
         }
         public List<Produto> pesquisarProduto(string pr_descricao)
         {
-            string sql = "SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_tipo, pr_estoqueminimo, pr_qtd FROM Produto";
-            if (pr_descricao != "")
-            {
-                sql += "WHERE pr_descricao ILIKE @pr_descricao";
-            }
+            string sql = "SELECT p.pr_id, p.pr_descricao, p.pr_grife, p.pr_valor, p.pr_estoqueminimo, p.pr_qtd, f.fr_fantasia, cat.cl_nome " +
+                          "FROM Produto as p Inner Join Fornecedor as f on p.fr_id = f.fr_id Inner join Categoria as cat on p.ct_id = cat.ct_id" + 
+                          "where p.pr_descricao LIKE @pr_descricao + '%'";
+
+      
+         
             List<Produto> lista = new List<Produto>();
             Produto p = new Produto();
 
@@ -193,6 +190,13 @@ namespace SysOtica.Conexao
                     cmd.Parameters.AddWithValue("@pr_descricao", "%" + pr_descricao + "%");
                 }
                 SqlDataReader retorno = cmd.ExecuteReader();
+                if (retorno.HasRows == false)
+                {
+
+                    throw new Exception("Produto não cadastrado!");
+
+                }
+
                 while (retorno.Read())
                 {
 
@@ -215,5 +219,7 @@ namespace SysOtica.Conexao
                 throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
             }
         }
+        
+
     }
 }

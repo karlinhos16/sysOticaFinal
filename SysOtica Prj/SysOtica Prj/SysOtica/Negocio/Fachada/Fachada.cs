@@ -123,10 +123,10 @@ namespace SysOtica.Negocio.Fachada
         ProdutoDados pdao = new ProdutoDados();
         ProdutoControlador pColtrol = new ProdutoControlador();
 
-        public void InserirProduto(Produto p, Fornecedor fornecedor, Categoria cat)
+        public void InserirProduto(Produto p)
         {
             pColtrol.verificaPreenchimento(p);
-            pdao.inserirProduto(p, fornecedor , cat);
+            pdao.inserirProduto(p);
 
         }
 
@@ -165,12 +165,12 @@ namespace SysOtica.Negocio.Fachada
         ReceitaDados receitadao = new ReceitaDados();
         ReceitaControlador receitaColtrol = new ReceitaControlador();
 
-        public void InserirReceita(Receita receita, Cliente cli)
+        public void InserirReceita(Receita receita)
         {
             
             receitaColtrol.VerificaPreenchimento(receita);
             receitaColtrol.validaCampos(receita);
-            receitadao.inserirReceita(receita, cli);
+            receitadao.inserirReceita(receita);
 
         }
 
@@ -196,21 +196,15 @@ namespace SysOtica.Negocio.Fachada
         }
 
 
-
-        public void PesquisaReceitas(DataGridView grid, string cl_nome)
-        {
-            receitadao.pesquisaReceitas(grid, cl_nome);
-        }
-
         public List<Receita> ListaReceita()
         {
             return receitadao.listaReceita();
 
         }
 
-        public List<Receita> listaReceitaReceita()
+        public List<Receita> vendaReceita()
         {
-            return receitadao.listaReceitaReceita();
+            return receitadao.vendaReceita();
         }
 
 

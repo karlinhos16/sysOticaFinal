@@ -16,8 +16,8 @@ namespace SysOtica.Negocio.Classes_Basicas
         private decimal pr_valor;
         private int pr_qtd;
         private int pr_estoqueminimo;
-        private List<Categoria> categoria;
-        private List<Fornecedor> fornecedor;        
+        private Categoria categoria;
+        private Fornecedor fornecedor;       
         private DateTime pr_dtentrada;
         private String pr_tipo;
         private List<ProdutoVenda> listaitens;
@@ -25,6 +25,10 @@ namespace SysOtica.Negocio.Classes_Basicas
 
         public Produto()
         {
+            Categoria = new Categoria();
+            Fornecedor = new Fornecedor();
+           
+
         }
 
         public int Pr_id
@@ -119,19 +123,6 @@ namespace SysOtica.Negocio.Classes_Basicas
             }
         }
 
-        public List<Categoria> Categoria
-        {
-            get
-            {
-                return categoria;
-            }
-
-            set
-            {
-                categoria = value;
-            }
-        }
-
         public DateTime Pr_dtentrada
         {
             get
@@ -158,21 +149,7 @@ namespace SysOtica.Negocio.Classes_Basicas
             }
         }
 
-       
-
-        public List<Fornecedor> Fornecedor
-        {
-            get
-            {
-                return fornecedor;
-            }
-
-            set
-            {
-                fornecedor = value;
-            }
-        }
-
+  
         public List<ProdutoVenda> Listaitens
         {
             get
@@ -183,6 +160,32 @@ namespace SysOtica.Negocio.Classes_Basicas
             set
             {
                 listaitens = value;
+            }
+        }
+
+        public Categoria Categoria
+        {
+            get
+            {
+                return categoria;
+            }
+
+            set
+            {
+                categoria = value;
+            }
+        }
+
+        public Fornecedor Fornecedor
+        {
+            get
+            {
+                return fornecedor;
+            }
+
+            set
+            {
+                fornecedor = value;
             }
         }
     }

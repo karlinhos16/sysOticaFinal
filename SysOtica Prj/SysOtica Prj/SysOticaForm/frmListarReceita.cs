@@ -62,7 +62,7 @@ namespace SysOticaForm
                 DataGridreceita.AutoGenerateColumns = false;
                 for (int i = 0; i < DataGridreceita.Rows.Count; i++)
                 {
-                    string coluna = DataGridreceita.Rows[i].Cells[26].Value.ToString();
+                    string coluna = DataGridreceita.Rows[i].Cells[25].Value.ToString();
 
                     if (Convert.ToString(coluna) == DateTime.Today.ToString() && Convert.ToDateTime(coluna) != null)
                     {
@@ -185,33 +185,39 @@ namespace SysOticaForm
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-          
 
 
-            string caracteres = "^[ a-zA-Z]+$";
-            if (txtPesquisa.Text.Length < 3)
+            try
             {
+                string caracteres = "^[ a-zA-Z]+$";
+                if (txtPesquisa.Text.Length < 3)
+                {
 
-                MessageBox.Show("Por Favor, digite um nome com no mínimo 3 caracteres");
-                return;
+                    MessageBox.Show("Por Favor, digite um nome com no mínimo 3 caracteres");
+                    return;
+                }
+                if (!Regex.IsMatch(txtPesquisa.Text, caracteres))
+                {
+                    MessageBox.Show("Este campo só aceita letras");
+                    return;
+                }
+
+                if (txtPesquisa.Text != "")
+                {
+
+                    DataGridreceita.DataSource = null;
+                    DataGridreceita.AutoGenerateColumns = false;
+                 
+                    DataGridreceita.DataSource = fachada.PuxaReceita(txtPesquisa.Text.Trim());
+                    vencimentoReceita();
+
+                }
             }
-            if (!Regex.IsMatch(txtPesquisa.Text, caracteres))
+            catch (Exception ex)
             {
-                MessageBox.Show("Este campo só aceita letras");
-                return;
-            }
-
-            if (txtPesquisa.Text != "")
-            {
-
-                DataGridreceita.DataSource = null;
-                DataGridreceita.AutoGenerateColumns = false;
-                //fachada.PesquisaReceitas(DataGridreceita, this.txtPesquisa.Text.Trim());
-                DataGridreceita.DataSource = fachada.PuxaReceita(txtPesquisa.Text.Trim());
-                vencimentoReceita();
+                MessageBox.Show("" + ex.Message);
 
             }
-
 
 
 

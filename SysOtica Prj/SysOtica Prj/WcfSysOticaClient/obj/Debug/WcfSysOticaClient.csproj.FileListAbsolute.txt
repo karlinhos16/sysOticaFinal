@@ -9,3 +9,14 @@ C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica 
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.csproj.GenerateResource.Cache
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.exe
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.pdb
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOticaClient.exe.config
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOticaClient.exe
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOticaClient.pdb
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SocketSysOticaClient.exe
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SocketSysOticaClient.pdb
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.csprojResolveAssemblyReference.cache
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.Form1.resources
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.Properties.Resources.resources
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.csproj.GenerateResource.Cache
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.exe
+C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.pdb
