@@ -38,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.historico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lodesferico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eesferico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.podesferico = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +70,6 @@
             this.DataGridreceita.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridreceita.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.historico,
             this.lodesferico,
             this.eesferico,
             this.podesferico,
@@ -185,12 +183,6 @@
             this.id.DataPropertyName = "rc_id";
             this.id.HeaderText = "ID";
             this.id.Name = "id";
-            // 
-            // historico
-            // 
-            this.historico.DataPropertyName = "rc_historico";
-            this.historico.HeaderText = "Histórico";
-            this.historico.Name = "historico";
             // 
             // lodesferico
             // 
@@ -332,7 +324,7 @@
             // 
             // dtvalidade
             // 
-            this.dtvalidade.DataPropertyName = "rc_dtavalidade";
+            this.dtvalidade.DataPropertyName = "rc_dtavencimento";
             this.dtvalidade.HeaderText = "Validade ";
             this.dtvalidade.Name = "dtvalidade";
             // 
@@ -372,7 +364,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn historico;
         private System.Windows.Forms.DataGridViewTextBoxColumn lodesferico;
         private System.Windows.Forms.DataGridViewTextBoxColumn eesferico;
         private System.Windows.Forms.DataGridViewTextBoxColumn podesferico;

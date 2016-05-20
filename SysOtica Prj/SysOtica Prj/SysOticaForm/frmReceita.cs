@@ -31,8 +31,6 @@ namespace SysOticaForm
            
             carregaCliente();
 
-            carregaHistorico();
-
         }
 
         
@@ -127,14 +125,6 @@ namespace SysOticaForm
 
                     }
 
-                    else if (listBoxDatas.SelectedIndex >= -1)
-                    {
-                        listBoxDatas.DataSource = null;
-                        listBoxDatas.Items.Add(Convert.ToDateTime(maskedTextData.Text).ToShortDateString());
-
-                        receita.Rc_historico = Convert.ToDateTime(listBoxDatas.ValueMember = maskedTextData.Text.Trim());
-
-                    }
 
 
                     //Cliente cli 
@@ -162,7 +152,6 @@ namespace SysOticaForm
                         fachada.InserirReceita(receita);
                         MessageBox.Show("Receita cadastra com sucesso.");
                         LimparCampos();
-                        carregaHistorico();
 
                     }
                 }
@@ -220,31 +209,6 @@ namespace SysOticaForm
         }
 
 
-
-        void carregaHistorico()
-        {
-
-            List<Receita> lista;
-            lista = dadosreceita.listaReceita();
-
-            DataTable data = new DataTable();
-
-            data.Columns.Add("rc_historico");
-
-            foreach (Receita receita in lista)
-            {
-                DataRow row1 = data.NewRow();
-                row1["rc_historico"] = receita.Rc_historico.ToShortDateString();
-                data.Rows.Add(row1);
-
-            }
-
-            listBoxDatas.DataSource = data;
-            listBoxDatas.DisplayMember = "rc_historico";
-
-
-
-        }
 
      
         private void frmReceita_Load(object sender, EventArgs e)
