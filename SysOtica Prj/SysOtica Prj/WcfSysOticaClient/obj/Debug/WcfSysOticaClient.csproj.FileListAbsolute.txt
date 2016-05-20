@@ -20,3 +20,14 @@ C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfS
 C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.csproj.GenerateResource.Cache
 C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.exe
 C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOticaClient.exe.config
+C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOticaClient.exe
+C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOticaClient.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SocketSysOticaClient.exe
+C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SocketSysOticaClient.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.csprojResolveAssemblyReference.cache
+C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.Form1.resources
+C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.Properties.Resources.resources
+C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.csproj.GenerateResource.Cache
+C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.exe
+C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.pdb

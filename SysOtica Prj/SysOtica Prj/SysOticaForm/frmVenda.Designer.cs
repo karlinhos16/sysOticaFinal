@@ -46,10 +46,17 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIdReceita = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dataGridRec = new System.Windows.Forms.DataGridView();
+            this.id_receita = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomemedico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dt_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.validade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewItens = new System.Windows.Forms.DataGridView();
             this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,18 +74,10 @@
             this.BtnNovaVenda = new System.Windows.Forms.Button();
             this.CboCliente = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridRec = new System.Windows.Forms.DataGridView();
-            this.id_receita = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomemedico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dt_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.validade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtIdReceita = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.GroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRec)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxPegarNome
@@ -107,7 +106,6 @@
             this.GroupBox.Controls.Add(this.label7);
             this.GroupBox.Controls.Add(this.label6);
             this.GroupBox.Controls.Add(this.button5);
-            this.GroupBox.Controls.Add(this.button4);
             this.GroupBox.Controls.Add(this.button3);
             this.GroupBox.Controls.Add(this.button2);
             this.GroupBox.Controls.Add(this.groupBox1);
@@ -276,15 +274,6 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(144, 652);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(110, 23);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Imprimir";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(144, 605);
@@ -317,8 +306,84 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Receita";
             // 
+            // txtIdReceita
+            // 
+            this.txtIdReceita.Enabled = false;
+            this.txtIdReceita.Location = new System.Drawing.Point(121, 17);
+            this.txtIdReceita.Name = "txtIdReceita";
+            this.txtIdReceita.Size = new System.Drawing.Size(80, 20);
+            this.txtIdReceita.TabIndex = 40;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(98, 13);
+            this.label11.TabIndex = 41;
+            this.label11.Text = "Código da Receita:";
+            // 
+            // dataGridRec
+            // 
+            this.dataGridRec.AllowUserToAddRows = false;
+            this.dataGridRec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridRec.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridRec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridRec.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_receita,
+            this.nomemedico,
+            this.Obs,
+            this.dt_entrada,
+            this.validade});
+            this.dataGridRec.Location = new System.Drawing.Point(9, 49);
+            this.dataGridRec.MultiSelect = false;
+            this.dataGridRec.Name = "dataGridRec";
+            this.dataGridRec.ReadOnly = true;
+            this.dataGridRec.RowHeadersVisible = false;
+            this.dataGridRec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridRec.Size = new System.Drawing.Size(875, 128);
+            this.dataGridRec.TabIndex = 0;
+            this.dataGridRec.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRec_CellClick);
+            // 
+            // id_receita
+            // 
+            this.id_receita.DataPropertyName = "rc_id";
+            this.id_receita.HeaderText = "ID Receita";
+            this.id_receita.Name = "id_receita";
+            this.id_receita.ReadOnly = true;
+            // 
+            // nomemedico
+            // 
+            this.nomemedico.DataPropertyName = "rc_nomemedico";
+            this.nomemedico.HeaderText = "Médico";
+            this.nomemedico.Name = "nomemedico";
+            this.nomemedico.ReadOnly = true;
+            // 
+            // Obs
+            // 
+            this.Obs.DataPropertyName = "rc_observacoes";
+            this.Obs.HeaderText = "Observações";
+            this.Obs.Name = "Obs";
+            this.Obs.ReadOnly = true;
+            // 
+            // dt_entrada
+            // 
+            this.dt_entrada.DataPropertyName = "rc_data";
+            this.dt_entrada.HeaderText = "Data de entrada";
+            this.dt_entrada.Name = "dt_entrada";
+            this.dt_entrada.ReadOnly = true;
+            // 
+            // validade
+            // 
+            this.validade.DataPropertyName = "rc_dtavencimento";
+            this.validade.HeaderText = "Data de Validade";
+            this.validade.Name = "validade";
+            this.validade.ReadOnly = true;
+            // 
             // dataGridViewItens
             // 
+            this.dataGridViewItens.AllowUserToAddRows = false;
+            this.dataGridViewItens.AllowUserToDeleteRows = false;
             this.dataGridViewItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewItens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Código,
@@ -394,6 +459,7 @@
             this.textBoxQtd.Name = "textBoxQtd";
             this.textBoxQtd.Size = new System.Drawing.Size(116, 20);
             this.textBoxQtd.TabIndex = 6;
+            this.textBoxQtd.Text = "1";
             this.textBoxQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxQtd_KeyPress);
             // 
             // comboBoxProduto
@@ -471,80 +537,6 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Cliente:";
             // 
-            // dataGridRec
-            // 
-            this.dataGridRec.AllowUserToAddRows = false;
-            this.dataGridRec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridRec.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridRec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridRec.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_receita,
-            this.nomemedico,
-            this.Obs,
-            this.dt_entrada,
-            this.validade});
-            this.dataGridRec.Location = new System.Drawing.Point(9, 49);
-            this.dataGridRec.MultiSelect = false;
-            this.dataGridRec.Name = "dataGridRec";
-            this.dataGridRec.ReadOnly = true;
-            this.dataGridRec.RowHeadersVisible = false;
-            this.dataGridRec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridRec.Size = new System.Drawing.Size(875, 128);
-            this.dataGridRec.TabIndex = 0;
-            this.dataGridRec.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRec_CellClick);
-            // 
-            // id_receita
-            // 
-            this.id_receita.DataPropertyName = "rc_id";
-            this.id_receita.HeaderText = "ID Receita";
-            this.id_receita.Name = "id_receita";
-            this.id_receita.ReadOnly = true;
-            // 
-            // nomemedico
-            // 
-            this.nomemedico.DataPropertyName = "rc_nomemedico";
-            this.nomemedico.HeaderText = "Médico";
-            this.nomemedico.Name = "nomemedico";
-            this.nomemedico.ReadOnly = true;
-            // 
-            // Obs
-            // 
-            this.Obs.DataPropertyName = "rc_observacoes";
-            this.Obs.HeaderText = "Observações";
-            this.Obs.Name = "Obs";
-            this.Obs.ReadOnly = true;
-            // 
-            // dt_entrada
-            // 
-            this.dt_entrada.DataPropertyName = "rc_data";
-            this.dt_entrada.HeaderText = "Data de entrada";
-            this.dt_entrada.Name = "dt_entrada";
-            this.dt_entrada.ReadOnly = true;
-            // 
-            // validade
-            // 
-            this.validade.DataPropertyName = "rc_dtavencimento";
-            this.validade.HeaderText = "Data de Validade";
-            this.validade.Name = "validade";
-            this.validade.ReadOnly = true;
-            // 
-            // txtIdReceita
-            // 
-            this.txtIdReceita.Enabled = false;
-            this.txtIdReceita.Location = new System.Drawing.Point(121, 17);
-            this.txtIdReceita.Name = "txtIdReceita";
-            this.txtIdReceita.Size = new System.Drawing.Size(80, 20);
-            this.txtIdReceita.TabIndex = 40;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 20);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(98, 13);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "Código da Receita:";
-            // 
             // frmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -563,8 +555,8 @@
             this.GroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRec)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -588,7 +580,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;

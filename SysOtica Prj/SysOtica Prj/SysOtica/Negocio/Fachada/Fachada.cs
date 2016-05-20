@@ -261,8 +261,11 @@ namespace SysOtica.Negocio.Fachada
 
         public void inserir(Venda v)
         {
+            venControl.ValorDivergente(v);
             venDados.inserir(v);
         }
+
+
 
         //public List<Venda> listarVenda()
         //{
