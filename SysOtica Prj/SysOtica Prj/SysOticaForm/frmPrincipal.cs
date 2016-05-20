@@ -1,4 +1,5 @@
 ﻿using SocketSysOtica;
+using SocketSysOticaClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -132,9 +133,9 @@ namespace SysOticaForm
 
         private void iniciarChatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Socket_Server___DSD_MELO socket = new Socket_Server___DSD_MELO();
-            socket.MdiParent = this;
-            socket.Show();
+            Socket_Client___DSD_MELO socketCliente = new Socket_Client___DSD_MELO();
+            socketCliente.MdiParent = this;
+            socketCliente.Show();
 
         }
 
@@ -143,6 +144,30 @@ namespace SysOticaForm
             Form1 wcf = new Form1();
             wcf.MdiParent = this;
             wcf.Show();
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            Socket_Server___DSD_MELO socketserver = new Socket_Server___DSD_MELO();
+            socketserver.MdiParent = this;
+            socketserver.Show();
+
+            WcfSysOtica.CompositeType wcfServer = new WcfSysOtica.CompositeType();
+            
+            
+
+        }
+
+        private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

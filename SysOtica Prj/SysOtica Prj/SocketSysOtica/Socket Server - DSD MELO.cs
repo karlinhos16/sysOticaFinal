@@ -35,28 +35,36 @@ namespace SocketSysOtica
                 tcpListener.Start();
                 retorno = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message);
             }
             return retorno;
         }
 
         private void disconnect()
         {
-            if (thInteraction != null)
+
+            try
             {
-                if (thInteraction.ThreadState == ThreadState.Running)
+                if (thInteraction != null)
                 {
-                    thInteraction.Abort();
+                    if (thInteraction.ThreadState == ThreadState.Running)
+                    {
+                        thInteraction.Abort();
+                    }
+                    if (tcpCliente != null)
+                        tcpCliente.Client.Disconnect(true);
+
+                    tcpListener.Stop();
+
+                    setMsg("## Conexões perdidas: ...", true);
                 }
-                if (tcpCliente != null)
-                    tcpCliente.Client.Disconnect(true);
-
-                tcpListener.Stop();
-
-                setMsg("## Conexões perdidas: ...", true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -75,16 +83,27 @@ namespace SocketSysOtica
 
         private void enviarMsg(string mensagem)
         {
-            if (podeEscrever())
+
+            try
             {
-                byte[] sendBytes = Encoding.ASCII.GetBytes(mensagem);
-                networkStream.Write(sendBytes, 0, sendBytes.Length);
+                if (podeEscrever())
+                {
+                    byte[] sendBytes = Encoding.ASCII.GetBytes(mensagem);
+                    networkStream.Write(sendBytes, 0, sendBytes.Length);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
 
         private bool podeEscrever()
         {
+
+
+
             if (networkStream == null)
             {
                 return false;
@@ -104,47 +123,73 @@ namespace SocketSysOtica
         delegate void delSetMsg(string mensagem, bool burlar);
         private void setMsg(string mensagem, bool burlar)
         {
-            if (this.InvokeRequired)
+
+            try
             {
-                this.BeginInvoke(new delSetMsg(setMsg), mensagem, burlar);
-            }
-            else
-            {
-                if (burlar == true || podeEscrever() == true)
+                if (this.InvokeRequired)
                 {
-                    rtbConversa.Text += "Eu: " + mensagem + "\n";
+                    this.BeginInvoke(new delSetMsg(setMsg), mensagem, burlar);
                 }
+                else
+                {
+                    if (burlar == true || podeEscrever() == true)
+                    {
+                        rtbConversa.Text += "Eu: " + mensagem + "\n";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         delegate void delGetMsg(string mensagem);
         private void getMsg(string mensagem)
         {
-            if (this.InvokeRequired)
+
+
+            try
             {
-                this.BeginInvoke(new delGetMsg(getMsg), mensagem);
-            }
-            else
-            {
-                if (podeEscrever() == true)
+                if (this.InvokeRequired)
                 {
-                    rtbConversa.Text += "Cliente: " + mensagem + " \n";
+                    this.BeginInvoke(new delGetMsg(getMsg), mensagem);
                 }
+                else
+                {
+                    if (podeEscrever() == true)
+                    {
+                        rtbConversa.Text += "Cliente: " + mensagem + " \n";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void start()
         {
-            if (connect())
-            {
-                setMsg("## Aguardando uma conexão...", true);
-            }
 
-            thInteraction = new Thread(new ThreadStart(interaction));
-            thInteraction.IsBackground = true;
-            thInteraction.Priority = ThreadPriority.Highest;
-            thInteraction.Name = "thInteration";
-            thInteraction.Start();
+
+            try
+            {
+                if (connect())
+                {
+                    setMsg("## Aguardando uma conexão...", true);
+                }
+
+                thInteraction = new Thread(new ThreadStart(interaction));
+                thInteraction.IsBackground = true;
+                thInteraction.Priority = ThreadPriority.Highest;
+                thInteraction.Name = "thInteration";
+                thInteraction.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -181,39 +226,73 @@ namespace SocketSysOtica
                 disconnect();
                 start();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void Socket_Server___DSD_MELO_Load(object sender, EventArgs e)
         {
-            start();
+
+            try
+            {
+                start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void Socket_Server___DSD_MELO_FormClosing(object sender, FormClosingEventArgs e)
         {
-            setMsg("## Encerrando conexão com o servidor", true);
-            disconnect();
+            try
+            {
+                setMsg("## Encerrando conexão com o servidor", true);
+                disconnect();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void rtbMensagem_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+
+
+            try
             {
-                string mensagem = rtbMensagem.Text;
-                enviarMsg(mensagem);
-                setMsg(mensagem, false);
+                if (e.KeyCode == Keys.Enter)
+                {
+                    string mensagem = rtbMensagem.Text;
+                    enviarMsg(mensagem);
+                    setMsg(mensagem, false);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void rtbMensagem_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+
+
+            try
             {
-                rtbMensagem.Clear();
+                if (e.KeyCode == Keys.Enter)
+                {
+                    rtbMensagem.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

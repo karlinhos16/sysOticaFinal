@@ -27,30 +27,56 @@ namespace SocketSysOticaClient
 
         private void connect()
         {
-            tcpClient = new TcpClient();
-            setMsg("## Estabelecendo Conexão...");
-            tcpClient.Connect("127.0.0.1", 8000);
+
+            try
+            {
+                tcpClient = new TcpClient();
+                setMsg("## Estabelecendo Conexão...");
+                tcpClient.Connect("127.0.0.1", 8000);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
         private void disconnect()
         {
-            if (thInteraction != null)
+            try
             {
-                if (thInteraction.ThreadState == ThreadState.Running)
-                    thInteraction.Abort();
-            }
+                if (thInteraction != null)
+                {
+                    if (thInteraction.ThreadState == ThreadState.Running)
+                        thInteraction.Abort();
+                }
 
-            tcpClient.Close();
+                tcpClient.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
         private void enviarMsg(string mensagem)
         {
-            if (networkStream.CanWrite)
+            try
             {
-                byte[] sendBytes = Encoding.ASCII.GetBytes(mensagem);
-                networkStream.Write(sendBytes, 0, sendBytes.Length);
+                if (networkStream.CanWrite)
+                {
+                    byte[] sendBytes = Encoding.ASCII.GetBytes(mensagem);
+                    networkStream.Write(sendBytes, 0, sendBytes.Length);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -58,52 +84,84 @@ namespace SocketSysOticaClient
         delegate void delSetMsg(string mensagem);
         private void setMsg(string mensagem)
         {
-            if (this.InvokeRequired)
+            try
             {
-                this.BeginInvoke(new delSetMsg(setMsg), mensagem);
+                if (this.InvokeRequired)
+                {
+                    this.BeginInvoke(new delSetMsg(setMsg), mensagem);
+                }
+                else
+                {
+                    rtbConversa.Text = "Eu: " + mensagem + "\n";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                rtbConversa.Text = "Eu: " + mensagem + "\n";
+                MessageBox.Show(ex.Message);
             }
         }
 
         delegate void delGetMsg(string mensagem);
         private void GetMsg(string mensagem)
         {
-            if (this.InvokeRequired)
+
+            try
             {
-                this.BeginInvoke(new delGetMsg(GetMsg), mensagem);
+                if (this.InvokeRequired)
+                {
+                    this.BeginInvoke(new delGetMsg(GetMsg), mensagem);
+                }
+                else
+                {
+                    rtbConversa.Text = "Server: " + mensagem + "\n";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                rtbConversa.Text = "Server: " + mensagem + "\n";
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void rtbMensagem_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+
+
+            try
             {
-                if (networkStream.CanWrite)
+                if (e.KeyCode == Keys.Enter)
                 {
-                    string mensagem = rtbMensagem.Text;
-                    enviarMsg(mensagem);
-                    setMsg(mensagem);
+                    if (networkStream.CanWrite)
+                    {
+                        string mensagem = rtbMensagem.Text;
+                        enviarMsg(mensagem);
+                        setMsg(mensagem);
+                    }
+                    else
+                    {
+                        setMsg("## Não é possível enviar dados ao servidor...");
+                        disconnect();
+                    }
                 }
-                else
-                {
-                    setMsg("## Não é possível enviar dados ao servidor...");
-                    disconnect();
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void rtbMensagem_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+
+            try
             {
-                rtbMensagem.Clear();
+                if (e.KeyCode == Keys.Enter)
+                {
+                    rtbMensagem.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -128,30 +186,46 @@ namespace SocketSysOticaClient
                         setMsg("## Não é possível ler os dados  . . . ");
                         disconnect();
                     }
-                    
+
                 } while (tcpClient.Connected);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void Socket_Client___DSD_MELO_Load(object sender, EventArgs e)
         {
-            connect();
+            try
+            {
+                connect();
 
-            thInteraction = new Thread(new ThreadStart(interaction));
-            thInteraction.IsBackground = true;
-            thInteraction.Priority = ThreadPriority.Highest;
-            thInteraction.Name = "thInteraction";
-            thInteraction.Start();
+                thInteraction = new Thread(new ThreadStart(interaction));
+                thInteraction.IsBackground = true;
+                thInteraction.Priority = ThreadPriority.Highest;
+                thInteraction.Name = "thInteraction";
+                thInteraction.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Socket_Client___DSD_MELO_FormClosing(object sender, FormClosingEventArgs e)
         {
-            disconnect();
+            try
+            {
+                disconnect();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
     }

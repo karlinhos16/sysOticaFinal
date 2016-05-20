@@ -58,6 +58,7 @@
             this.Controls.Add(this.rtbMensagem);
             this.Controls.Add(this.rtbConversa);
             this.Name = "Socket_Server___DSD_MELO";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Socket_Server___DSD_MELO";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Socket_Server___DSD_MELO_FormClosing);
             this.Load += new System.EventHandler(this.Socket_Server___DSD_MELO_Load);

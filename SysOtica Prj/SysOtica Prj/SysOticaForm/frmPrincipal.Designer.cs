@@ -210,14 +210,14 @@
             // iniciarChatToolStripMenuItem
             // 
             this.iniciarChatToolStripMenuItem.Name = "iniciarChatToolStripMenuItem";
-            this.iniciarChatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.iniciarChatToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.iniciarChatToolStripMenuItem.Text = "Chat";
             this.iniciarChatToolStripMenuItem.Click += new System.EventHandler(this.iniciarChatToolStripMenuItem_Click);
             // 
             // iniciarWebServiceToolStripMenuItem
             // 
             this.iniciarWebServiceToolStripMenuItem.Name = "iniciarWebServiceToolStripMenuItem";
-            this.iniciarWebServiceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.iniciarWebServiceToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.iniciarWebServiceToolStripMenuItem.Text = "WebService";
             this.iniciarWebServiceToolStripMenuItem.Click += new System.EventHandler(this.iniciarWebServiceToolStripMenuItem_Click);
             // 
@@ -233,6 +233,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SysOtica";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
