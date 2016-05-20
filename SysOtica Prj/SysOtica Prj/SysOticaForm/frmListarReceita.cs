@@ -60,7 +60,7 @@ namespace SysOticaForm
                 DataGridreceita.AutoGenerateColumns = false;
                 for (int i = 0; i < DataGridreceita.Rows.Count; i++)
                 {
-                    string coluna = DataGridreceita.Rows[i].Cells[25].Value.ToString();
+                    string coluna = DataGridreceita.Rows[i].Cells[24].Value.ToString();
 
                     if (Convert.ToString(coluna) == DateTime.Today.ToString() && Convert.ToDateTime(coluna) != null)
                     {

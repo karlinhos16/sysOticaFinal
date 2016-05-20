@@ -21,12 +21,10 @@ namespace SysOtica.Conexao
             {
                 //abrir a conexão  //
                 conn.AbrirConexao();
-                string sql = "INSERT INTO Receita (rc_historico, rc_lodesferico, rc_loeesferico, rc_podesferico, rc_poeesferico,rc_lodcilindrico,rc_loecilindrico, rc_podcilindrico ,rc_poecilindrico,rc_lodeixo,rc_loeeixo,rc_podeixo,rc_poeeixo,rc_lodaltura,rc_loealtura,rc_podaltura,rc_poealtura,rc_loddnp,rc_loednp, rc_poddnp,rc_poednp,rc_nomemedico,rc_observacoes,rc_data,rc_dtavencimento, cl_id)  Values (@rc_historico, @rc_lodesferico, @rc_loeesferico, @rc_podesferico, @rc_poeesferico, @rc_lodcilindrico, @rc_loecilindrico, @rc_podcilindrico ,@rc_poecilindrico, @rc_lodeixo, @rc_loeeixo, @rc_podeixo, @rc_poeeixo, @rc_lodaltura, @rc_loealtura, @rc_podaltura, @rc_poealtura,@rc_loddnp,@rc_loednp, @rc_poddnp,@rc_poednp,@rc_nomemedico, @rc_observacoes, @rc_data, @rc_dtavencimento, @cl_id)";
+                string sql = "INSERT INTO Receita (rc_lodesferico, rc_loeesferico, rc_podesferico, rc_poeesferico,rc_lodcilindrico,rc_loecilindrico, rc_podcilindrico ,rc_poecilindrico,rc_lodeixo,rc_loeeixo,rc_podeixo,rc_poeeixo,rc_lodaltura,rc_loealtura,rc_podaltura,rc_poealtura,rc_loddnp,rc_loednp, rc_poddnp,rc_poednp,rc_nomemedico,rc_observacoes,rc_data,rc_dtavencimento, cl_id)  Values (@rc_lodesferico, @rc_loeesferico, @rc_podesferico, @rc_poeesferico, @rc_lodcilindrico, @rc_loecilindrico, @rc_podcilindrico ,@rc_poecilindrico, @rc_lodeixo, @rc_loeeixo, @rc_podeixo, @rc_poeeixo, @rc_lodaltura, @rc_loealtura, @rc_podaltura, @rc_poealtura,@rc_loddnp,@rc_loednp, @rc_poddnp,@rc_poednp,@rc_nomemedico, @rc_observacoes, @rc_data, @rc_dtavencimento, @cl_id)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
-                cmd.Parameters.Add("@rc_historico", SqlDbType.Date);
-                cmd.Parameters["@rc_historico"].Value = receita.Rc_historico;
 
                 cmd.Parameters.Add("@rc_lodesferico", SqlDbType.Decimal);
                 cmd.Parameters["@rc_lodesferico"].Value = receita.Rc_lodesferico;
@@ -154,15 +152,12 @@ namespace SysOtica.Conexao
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "UPDATE Receita SET rc_historico = @rc_historico, rc_lodesferico = @rc_lodesferico, rc_loeesferico = @rc_loeesferico,rc_podesferico = @rc_podesferico, rc_poeesferico = @rc_poeesferico,rc_lodcilindrico = @rc_lodcilindrico,rc_loecilindrico = @rc_loecilindrico, rc_podcilindrico = @rc_podcilindrico ,rc_poecilindrico = @rc_poecilindrico,rc_lodeixo = @rc_lodeixo,rc_loeeixo = @rc_loeeixo,rc_podeixo = @rc_podeixo,rc_poeeixo = @rc_poeeixo,rc_lodaltura = @rc_lodaltura,rc_loealtura = @rc_loealtura,rc_podaltura = @rc_podaltura,rc_poealtura = @rc_poealtura,rc_loddnp = @rc_loddnp,rc_loednp = @rc_loednp, rc_poddnp = @rc_poddnp,rc_poednp = @rc_poednp,rc_nomemedico = @rc_nomemedico,rc_observacoes = @rc_observacoes,rc_data = @rc_data,rc_dtavencimento = @rc_dtavencimento WHERE rc_id = @rc_id";
+                string sql = "UPDATE Receita SET  rc_lodesferico = @rc_lodesferico, rc_loeesferico = @rc_loeesferico,rc_podesferico = @rc_podesferico, rc_poeesferico = @rc_poeesferico,rc_lodcilindrico = @rc_lodcilindrico,rc_loecilindrico = @rc_loecilindrico, rc_podcilindrico = @rc_podcilindrico ,rc_poecilindrico = @rc_poecilindrico,rc_lodeixo = @rc_lodeixo,rc_loeeixo = @rc_loeeixo,rc_podeixo = @rc_podeixo,rc_poeeixo = @rc_poeeixo,rc_lodaltura = @rc_lodaltura,rc_loealtura = @rc_loealtura,rc_podaltura = @rc_podaltura,rc_poealtura = @rc_poealtura,rc_loddnp = @rc_loddnp,rc_loednp = @rc_loednp, rc_poddnp = @rc_poddnp,rc_poednp = @rc_poednp,rc_nomemedico = @rc_nomemedico,rc_observacoes = @rc_observacoes,rc_data = @rc_data,rc_dtavencimento = @rc_dtavencimento WHERE rc_id = @rc_id";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
                 cmd.Parameters.Add("@rc_id", SqlDbType.Int);
                 cmd.Parameters["@rc_id"].Value = receita.Rc_id;
-
-                cmd.Parameters.Add("@rc_historico", SqlDbType.Date);
-                cmd.Parameters["@rc_historico"].Value = receita.Rc_historico;
 
                 cmd.Parameters.Add("@rc_lodesferico", SqlDbType.Decimal);
                 cmd.Parameters["@rc_lodesferico"].Value = receita.Rc_lodesferico;
@@ -282,9 +277,9 @@ namespace SysOtica.Conexao
 
         public List<Receita> listaReceita()
         {
-            string sql = " SELECT r.rc_id, r.rc_historico,    r.rc_lodesferico, r.rc_loeesferico,  r.rc_podesferico,    r.rc_poeesferico,  r.rc_lodcilindrico,          r.rc_loecilindrico,  r.rc_podcilindrico,  r.rc_poecilindrico," +
+            string sql = " SELECT r.rc_id,    r.rc_lodesferico, r.rc_loeesferico,  r.rc_podesferico,    r.rc_poeesferico,  r.rc_lodcilindrico,          r.rc_loecilindrico,  r.rc_podcilindrico,  r.rc_poecilindrico," +
                     "             r.rc_lodeixo,               r.rc_loeeixo,     r.rc_podeixo,      r.rc_poeeixo,        r.rc_lodaltura,    r.rc_loealtura,             r.rc_podaltura,      r.rc_poealtura,      r.rc_loddnp,       r.rc_loednp,    r.rc_poddnp, " +
-                    "             r.rc_poednp,                r.rc_nomemedico,  r.rc_observacoes,  r.rc_data,           r.rc_dtavencimento, c.cl_nome FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id";
+                    "             r.rc_poednp,                r.rc_nomemedico,  r.rc_observacoes,  r.rc_data,           r.rc_dtavencimento,  FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id";
 
             List<Receita> lista = new List<Receita>();
             Receita receita;
@@ -303,8 +298,6 @@ namespace SysOtica.Conexao
 
 
                     receita.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
-                    receita.Cliente.Cl_nome = retorno.GetString(retorno.GetOrdinal("cl_nome"));
-                    receita.Rc_historico = retorno.GetDateTime(retorno.GetOrdinal("rc_historico"));
                     receita.Rc_lodesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_lodesferico"));
                     receita.Rc_loeesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_loeesferico"));
                     receita.Rc_podesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_podesferico"));
@@ -352,9 +345,9 @@ namespace SysOtica.Conexao
 
         public List<Receita> puxaReceita(string cl_nome)
         {
-            string sql = " SELECT r.rc_id, r.rc_historico,    r.rc_lodesferico, r.rc_loeesferico,  r.rc_podesferico,    r.rc_poeesferico,  r.rc_lodcilindrico,          r.rc_loecilindrico,  r.rc_podcilindrico,  r.rc_poecilindrico," +
+            string sql = " SELECT r.rc_id,    r.rc_lodesferico, r.rc_loeesferico,  r.rc_podesferico,    r.rc_poeesferico,  r.rc_lodcilindrico,          r.rc_loecilindrico,  r.rc_podcilindrico,  r.rc_poecilindrico," +
                     "             r.rc_lodeixo,               r.rc_loeeixo,     r.rc_podeixo,      r.rc_poeeixo,        r.rc_lodaltura,    r.rc_loealtura,             r.rc_podaltura,      r.rc_poealtura,      r.rc_loddnp,       r.rc_loednp,    r.rc_poddnp, " +
-                    "             r.rc_poednp,                r.rc_nomemedico,  r.rc_observacoes,  r.rc_data,           r.rc_dtavencimento ,  c.cl_nome FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id where cl_nome LIKE @cl_nome + '%'";
+                    "             r.rc_poednp,                r.rc_nomemedico,  r.rc_observacoes,  r.rc_data,           r.rc_dtavencimento  FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id where cl_nome LIKE @cl_nome + '%'";
 
 
             List<Receita> lista = new List<Receita>();
@@ -383,10 +376,8 @@ namespace SysOtica.Conexao
                         Cliente cliente = new Cliente();
 
 
-                        receita.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
-                        receita.Cliente.Cl_nome = retorno.GetString(retorno.GetOrdinal("cl_nome"));
-                        receita.Rc_historico = retorno.GetDateTime(retorno.GetOrdinal("rc_historico"));
-                        receita.Rc_lodesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_lodesferico"));
+                       receita.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
+                       receita.Rc_lodesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_lodesferico"));
                         receita.Rc_loeesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_loeesferico"));
                         receita.Rc_podesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_podesferico"));
                         receita.Rc_poeesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_poeesferico"));

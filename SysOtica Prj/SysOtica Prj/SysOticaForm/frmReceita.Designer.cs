@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBoxDatas = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
@@ -86,7 +84,6 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -100,24 +97,6 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.listBoxDatas);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(115, 452);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Histórico";
-            // 
-            // listBoxDatas
-            // 
-            this.listBoxDatas.FormattingEnabled = true;
-            this.listBoxDatas.Location = new System.Drawing.Point(6, 39);
-            this.listBoxDatas.Name = "listBoxDatas";
-            this.listBoxDatas.Size = new System.Drawing.Size(103, 355);
-            this.listBoxDatas.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -162,7 +141,7 @@
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(135, 13);
+            this.groupBox2.Location = new System.Drawing.Point(95, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(631, 452);
             this.groupBox2.TabIndex = 1;
@@ -200,7 +179,7 @@
             this.maskedTextData.Mask = "00/00/0000";
             this.maskedTextData.Name = "maskedTextData";
             this.maskedTextData.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextData.TabIndex = 2;          
+            this.maskedTextData.TabIndex = 2;
             this.maskedTextData.Click += new System.EventHandler(this.maskedTextData_Click);
             // 
             // txtPertoOEdnp
@@ -209,7 +188,7 @@
             this.txtPertoOEdnp.Name = "txtPertoOEdnp";
             this.txtPertoOEdnp.Size = new System.Drawing.Size(74, 20);
             this.txtPertoOEdnp.TabIndex = 23;
-            this.txtPertoOEdnp.Text = "0";
+            this.txtPertoOEdnp.Text = "0.00";
             // 
             // txtPertoODdnp
             // 
@@ -217,7 +196,7 @@
             this.txtPertoODdnp.Name = "txtPertoODdnp";
             this.txtPertoODdnp.Size = new System.Drawing.Size(74, 20);
             this.txtPertoODdnp.TabIndex = 22;
-            this.txtPertoODdnp.Text = "0";
+            this.txtPertoODdnp.Text = "0.00";
             // 
             // txtLongeOEdnp
             // 
@@ -225,7 +204,7 @@
             this.txtLongeOEdnp.Name = "txtLongeOEdnp";
             this.txtLongeOEdnp.Size = new System.Drawing.Size(74, 20);
             this.txtLongeOEdnp.TabIndex = 21;
-            this.txtLongeOEdnp.Text = "0";
+            this.txtLongeOEdnp.Text = "0.00";
             // 
             // txtLongeODdnp
             // 
@@ -233,7 +212,7 @@
             this.txtLongeODdnp.Name = "txtLongeODdnp";
             this.txtLongeODdnp.Size = new System.Drawing.Size(74, 20);
             this.txtLongeODdnp.TabIndex = 20;
-            this.txtLongeODdnp.Text = "0";
+            this.txtLongeODdnp.Text = "0.00";
             // 
             // txtPertoOEaltura
             // 
@@ -241,7 +220,7 @@
             this.txtPertoOEaltura.Name = "txtPertoOEaltura";
             this.txtPertoOEaltura.Size = new System.Drawing.Size(81, 20);
             this.txtPertoOEaltura.TabIndex = 19;
-            this.txtPertoOEaltura.Text = "0";
+            this.txtPertoOEaltura.Text = "0.00";
             // 
             // txtPertoODaltura
             // 
@@ -249,7 +228,7 @@
             this.txtPertoODaltura.Name = "txtPertoODaltura";
             this.txtPertoODaltura.Size = new System.Drawing.Size(81, 20);
             this.txtPertoODaltura.TabIndex = 18;
-            this.txtPertoODaltura.Text = "0";
+            this.txtPertoODaltura.Text = "0.00";
             // 
             // txtLongeOEaltura
             // 
@@ -257,7 +236,7 @@
             this.txtLongeOEaltura.Name = "txtLongeOEaltura";
             this.txtLongeOEaltura.Size = new System.Drawing.Size(81, 20);
             this.txtLongeOEaltura.TabIndex = 17;
-            this.txtLongeOEaltura.Text = "0";
+            this.txtLongeOEaltura.Text = "0.00";
             // 
             // txtLongeODaltura
             // 
@@ -265,7 +244,7 @@
             this.txtLongeODaltura.Name = "txtLongeODaltura";
             this.txtLongeODaltura.Size = new System.Drawing.Size(84, 20);
             this.txtLongeODaltura.TabIndex = 16;
-            this.txtLongeODaltura.Text = "0";
+            this.txtLongeODaltura.Text = "0.00";
             // 
             // txtPertoOEeixo
             // 
@@ -273,7 +252,7 @@
             this.txtPertoOEeixo.Name = "txtPertoOEeixo";
             this.txtPertoOEeixo.Size = new System.Drawing.Size(81, 20);
             this.txtPertoOEeixo.TabIndex = 15;
-            this.txtPertoOEeixo.Text = "0";
+            this.txtPertoOEeixo.Text = "0.00";
             // 
             // txtPertoODeixo
             // 
@@ -281,7 +260,7 @@
             this.txtPertoODeixo.Name = "txtPertoODeixo";
             this.txtPertoODeixo.Size = new System.Drawing.Size(81, 20);
             this.txtPertoODeixo.TabIndex = 14;
-            this.txtPertoODeixo.Text = "0";
+            this.txtPertoODeixo.Text = "0.00";
             // 
             // txtLongeOEeixo
             // 
@@ -289,7 +268,7 @@
             this.txtLongeOEeixo.Name = "txtLongeOEeixo";
             this.txtLongeOEeixo.Size = new System.Drawing.Size(82, 20);
             this.txtLongeOEeixo.TabIndex = 13;
-            this.txtLongeOEeixo.Text = "0";
+            this.txtLongeOEeixo.Text = "0.00";
             // 
             // txtLongeODeixo
             // 
@@ -297,7 +276,7 @@
             this.txtLongeODeixo.Name = "txtLongeODeixo";
             this.txtLongeODeixo.Size = new System.Drawing.Size(83, 20);
             this.txtLongeODeixo.TabIndex = 12;
-            this.txtLongeODeixo.Text = "0";
+            this.txtLongeODeixo.Text = "0.00";
             // 
             // txtPertoOEcilindrico
             // 
@@ -305,7 +284,7 @@
             this.txtPertoOEcilindrico.Name = "txtPertoOEcilindrico";
             this.txtPertoOEcilindrico.Size = new System.Drawing.Size(84, 20);
             this.txtPertoOEcilindrico.TabIndex = 11;
-            this.txtPertoOEcilindrico.Text = "0";
+            this.txtPertoOEcilindrico.Text = "0.00";
             // 
             // txtPertoODcilindrico
             // 
@@ -313,7 +292,7 @@
             this.txtPertoODcilindrico.Name = "txtPertoODcilindrico";
             this.txtPertoODcilindrico.Size = new System.Drawing.Size(83, 20);
             this.txtPertoODcilindrico.TabIndex = 10;
-            this.txtPertoODcilindrico.Text = "0";
+            this.txtPertoODcilindrico.Text = "0.00";
             // 
             // txtLongeOEcilindrico
             // 
@@ -321,7 +300,7 @@
             this.txtLongeOEcilindrico.Name = "txtLongeOEcilindrico";
             this.txtLongeOEcilindrico.Size = new System.Drawing.Size(82, 20);
             this.txtLongeOEcilindrico.TabIndex = 9;
-            this.txtLongeOEcilindrico.Text = "0";
+            this.txtLongeOEcilindrico.Text = "0.00";
             // 
             // txtLongeODcilindrico
             // 
@@ -329,7 +308,7 @@
             this.txtLongeODcilindrico.Name = "txtLongeODcilindrico";
             this.txtLongeODcilindrico.Size = new System.Drawing.Size(83, 20);
             this.txtLongeODcilindrico.TabIndex = 8;
-            this.txtLongeODcilindrico.Text = "0";
+            this.txtLongeODcilindrico.Text = "0.00";
             // 
             // txtPertoOEesferico
             // 
@@ -337,7 +316,7 @@
             this.txtPertoOEesferico.Name = "txtPertoOEesferico";
             this.txtPertoOEesferico.Size = new System.Drawing.Size(77, 20);
             this.txtPertoOEesferico.TabIndex = 7;
-            this.txtPertoOEesferico.Text = "0";
+            this.txtPertoOEesferico.Text = "0.00";
             // 
             // txtPertoODesferico
             // 
@@ -345,7 +324,7 @@
             this.txtPertoODesferico.Name = "txtPertoODesferico";
             this.txtPertoODesferico.Size = new System.Drawing.Size(77, 20);
             this.txtPertoODesferico.TabIndex = 6;
-            this.txtPertoODesferico.Text = "0";
+            this.txtPertoODesferico.Text = "0.00";
             // 
             // txtLongeOEesferico
             // 
@@ -353,7 +332,7 @@
             this.txtLongeOEesferico.Name = "txtLongeOEesferico";
             this.txtLongeOEesferico.Size = new System.Drawing.Size(76, 20);
             this.txtLongeOEesferico.TabIndex = 5;
-            this.txtLongeOEesferico.Text = "0";
+            this.txtLongeOEesferico.Text = "0.00";
             // 
             // txtLongeODesferico
             // 
@@ -361,7 +340,7 @@
             this.txtLongeODesferico.Name = "txtLongeODesferico";
             this.txtLongeODesferico.Size = new System.Drawing.Size(76, 20);
             this.txtLongeODesferico.TabIndex = 4;
-            this.txtLongeODesferico.Text = "0";
+            this.txtLongeODesferico.Text = "0.00";
             // 
             // textObs
             // 
@@ -672,13 +651,11 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "frmReceita";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReceita";
             this.Load += new System.EventHandler(this.frmReceita_Load);
-            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox13.ResumeLayout(false);
@@ -708,8 +685,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textObs;
         private System.Windows.Forms.Label label16;
@@ -742,7 +717,6 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.ListBox listBoxDatas;
         private System.Windows.Forms.TextBox txtPertoOEdnp;
         private System.Windows.Forms.TextBox txtPertoODdnp;
         private System.Windows.Forms.TextBox txtLongeOEdnp;
