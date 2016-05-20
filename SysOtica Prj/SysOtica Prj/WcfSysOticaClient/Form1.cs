@@ -33,32 +33,58 @@ namespace WcfSysOticaClient
 
         private void button1_Click(object sender, EventArgs e)
         {
+                       
 
-            Thread t = new Thread(CliList);
+            try
+            {
+                Thread t = new Thread(CliList);
 
-            CliList();
-            groupBox1.Visible = true;
+                CliList();
+                groupBox1.Visible = true;
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.Message);
+            }
 
 
         }
 
         public void CliList()
         {
-            List<Cliente> clienteL = new List<Cliente>();
-            Cliente c = new Cliente()
+            try
             {
-                cl_id = Convert.ToInt32(txtID.Text)
-            };
-            Service1Client service = new Service1Client();
-            clienteL.Add(service.GetCliente(c));
-            dgvClientes.DataSource = clienteL;
+                List<Cliente> clienteL = new List<Cliente>();
+                Cliente c = new Cliente()
+                {
+                    cl_id = Convert.ToInt32(txtID.Text)
+                };
+                Service1Client service = new Service1Client();
+                clienteL.Add(service.GetCliente(c));
+                dgvClientes.DataSource = clienteL;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Socket_Client___DSD_MELO skt = new Socket_Client___DSD_MELO();
-            skt.Show();
+            try
+            {
+                Socket_Client___DSD_MELO skt = new Socket_Client___DSD_MELO();
+                skt.Show();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -256,9 +256,25 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SocketSysOticaClient\SocketSysOticaClient.csproj">
+      <Project>{830cafb2-c9b1-4a99-8d40-e86c1460d758}</Project>
+      <Name>SocketSysOticaClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocketSysOtica\SocketSysOtica.csproj">
+      <Project>{7bb9a7fa-37f1-4905-8b05-c84733fa9d50}</Project>
+      <Name>SocketSysOtica</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SysOtica\SysOtica.csproj">
       <Project>{b0f43429-5dc9-4dc0-8ba1-6dd2b7363a8a}</Project>
       <Name>SysOtica</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfSysOticaClient\WcfSysOticaClient.csproj">
+      <Project>{d70d9f58-87fb-4f98-a97d-61eb8209bbec}</Project>
+      <Name>WcfSysOticaClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfSysOtica\WcfSysOtica.csproj">
+      <Project>{5c4cce13-3fff-4283-bffc-813af1767752}</Project>
+      <Name>WcfSysOtica</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

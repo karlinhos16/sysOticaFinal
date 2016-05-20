@@ -1,11 +1,3 @@
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\WcfSysOtica.dll.config
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\WcfSysOtica.dll
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\WcfSysOtica.pdb
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\SysOtica.dll
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\SysOtica.pdb
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.csprojResolveAssemblyReference.cache
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.dll
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.pdb
 C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\WcfSysOtica.dll.config
 C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\WcfSysOtica.dll
 C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\WcfSysOtica.pdb
@@ -14,3 +6,11 @@ C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\W
 C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.csprojResolveAssemblyReference.cache
 C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.dll
 C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\WcfSysOtica.dll.config
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\WcfSysOtica.dll
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\WcfSysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\SysOtica.dll
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\SysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.csprojResolveAssemblyReference.cache
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.dll
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.pdb

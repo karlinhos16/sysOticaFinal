@@ -2,8 +2,7 @@ C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica 
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOticaClient\bin\Debug\SocketSysOticaClient.exe
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOticaClient\bin\Debug\SocketSysOticaClient.pdb
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOticaClient\obj\Debug\SocketSysOticaClient.Properties.Resources.resources
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOticaClient\obj\Debug\SocketSysOticaClient.Socket_Client___DSD_MELO.resources
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOticaClient\obj\Debug\SocketSysOticaClient.csproj.GenerateResource.Cache
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOticaClient\obj\Debug\SocketSysOticaClient.exe
 C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOticaClient\obj\Debug\SocketSysOticaClient.pdb
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOticaClient\obj\Debug\SocketSysOticaClient.Socket_Client___DSD_MELO.resources
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SocketSysOticaClient\obj\Debug\SocketSysOticaClient.csprojResolveAssemblyReference.cache

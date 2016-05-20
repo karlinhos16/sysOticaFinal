@@ -22,11 +22,6 @@ C:\Users\daaysesantos\Desktop\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\b
 C:\Users\daaysesantos\Desktop\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.csprojResolveAssemblyReference.cache
 C:\Users\daaysesantos\Desktop\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.dll
 C:\Users\daaysesantos\Desktop\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.pdb
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll.config
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.pdb
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.dll
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.pdb
 C:\Users\karli\Desktop\NovoProjeto\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll.config
 C:\Users\karli\Desktop\NovoProjeto\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll
 C:\Users\karli\Desktop\NovoProjeto\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.pdb
@@ -39,10 +34,15 @@ C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysO
 C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.csprojResolveAssemblyReference.cache
 C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.dll
 C:\Users\karli\Desktop\ProjetoOtica\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.pdb
-C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.csprojResolveAssemblyReference.cache
 C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll.config
 C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll
 C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.pdb
 C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.csprojResolveAssemblyReference.cache
 C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.dll
 C:\Users\daaysesantos\Desktop\sysOticaFinalFinamente\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll.config
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.csprojResolveAssemblyReference.cache
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.dll
+C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.pdb

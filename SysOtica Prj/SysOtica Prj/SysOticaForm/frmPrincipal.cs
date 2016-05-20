@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocketSysOtica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WcfSysOticaClient;
 
 namespace SysOticaForm
 {
@@ -126,6 +128,21 @@ namespace SysOticaForm
             frmVenda vd = new frmVenda();
             vd.MdiParent = this;
             vd.Show();
+        }
+
+        private void iniciarChatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Socket_Server___DSD_MELO socket = new Socket_Server___DSD_MELO();
+            socket.MdiParent = this;
+            socket.Show();
+
+        }
+
+        private void iniciarWebServiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 wcf = new Form1();
+            wcf.MdiParent = this;
+            wcf.Show();
         }
     }
 }
