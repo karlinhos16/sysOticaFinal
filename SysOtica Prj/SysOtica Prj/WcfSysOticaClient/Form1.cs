@@ -10,11 +10,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WcfSysOticaClient.ServiceReference1;
+using SysOtica.Negocio.Fachada;
+using SysOtica.Conexao;
 
 namespace WcfSysOticaClient
 {
     public partial class Form1 : Form
     {
+        Fachada fachada = new Fachada();
         public Form1()
         {
             InitializeComponent();
@@ -33,8 +36,9 @@ namespace WcfSysOticaClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-                       
 
+            
+            
             try
             {
                 Thread t = new Thread(CliList);
@@ -53,8 +57,12 @@ namespace WcfSysOticaClient
 
         public void CliList()
         {
+            
+            
             try
             {
+               
+                
                 List<Cliente> clienteL = new List<Cliente>();
                 Cliente c = new Cliente()
                 {

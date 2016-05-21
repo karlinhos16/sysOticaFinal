@@ -42,3 +42,9 @@ C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysO
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.csproj.GenerateResource.Cache
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.exe
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.pdb
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SocketSysOtica.exe
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SysOtica.dll
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOtica.dll
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SocketSysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOtica.pdb

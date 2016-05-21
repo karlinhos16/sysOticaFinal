@@ -46,7 +46,7 @@ namespace SysOtica.Conexao
 
                 Int32 vnId = Convert.ToInt32(cmd.ExecuteScalar());
                 //executando a instrucao 
-                cmd.ExecuteNonQuery();
+                //cmd.ExecuteNonQuery();
 
                 //int vnId = (int) cmd.ExecuteScalar();
 

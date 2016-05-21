@@ -18,7 +18,7 @@ namespace SysOtica.Negocio.Regras_de_Negocio
 
             if (v.Vn_desconto == v.Vn_valor)
             {
-                throw new CampoVazioException("Desconto não pode ser 100%!");
+                //throw new CampoVazioException("Desconto não pode ser 100%!");
             }
 
 

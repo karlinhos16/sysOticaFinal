@@ -1,9 +1,11 @@
-﻿using System;
+﻿using SysOtica.Negocio.Fachada;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using SysOtica.Conexao;
 
 namespace WcfSysOtica
 {
@@ -17,8 +19,12 @@ namespace WcfSysOtica
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
+
         [OperationContract]
         Cliente GetCliente(Cliente c);
+
+        
+        
 
 
 

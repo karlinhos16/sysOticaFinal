@@ -91,10 +91,11 @@ namespace SysOticaForm
 
         private void comboBoxProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBoxProdID.Text = comboBoxProduto.SelectedValue.ToString();
+           
 
 
             Produto p = (Produto)comboBoxProduto.SelectedItem;
+            textBoxProdID.Text = p.Pr_id.ToString();
             textBoxValor.Text = Convert.ToString(p.Pr_valor);
             textBoxPegarProduto.Text = Convert.ToString(p.Pr_descricao);
 
@@ -239,7 +240,7 @@ namespace SysOticaForm
 
             doc.SelectSingleNode("/VendaNFe").AppendChild(linha);
 
-            doc.Save(@"C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\VendasNFe.xml");
+            doc.Save(@"C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\VendasNFe.xml");
             //Caminho Leo : C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\VendasNFe.xml
             MessageBox.Show("XML gerado com sucesso!");
 
@@ -366,8 +367,8 @@ namespace SysOticaForm
             catch (Exception ex)
 
             {
-                throw new Exception("Erro ao selecionar receita" + ex.Message);
-
+                //throw new Exception();
+                MessageBox.Show("Erro ao selecionar receita" + ex.Message);
             }
         }
         void vencimentoReceita()

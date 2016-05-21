@@ -279,7 +279,7 @@ namespace SysOtica.Conexao
         {
             string sql = " SELECT r.rc_id,    r.rc_lodesferico, r.rc_loeesferico,  r.rc_podesferico,    r.rc_poeesferico,  r.rc_lodcilindrico,          r.rc_loecilindrico,  r.rc_podcilindrico,  r.rc_poecilindrico," +
                     "             r.rc_lodeixo,               r.rc_loeeixo,     r.rc_podeixo,      r.rc_poeeixo,        r.rc_lodaltura,    r.rc_loealtura,             r.rc_podaltura,      r.rc_poealtura,      r.rc_loddnp,       r.rc_loednp,    r.rc_poddnp, " +
-                    "             r.rc_poednp,                r.rc_nomemedico,  r.rc_observacoes,  r.rc_data,           r.rc_dtavencimento,  FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id";
+                    "             r.rc_poednp,                r.rc_nomemedico,  r.rc_observacoes,  r.rc_data,           r.rc_dtavencimento  FROM Receita as r Inner Join Cliente as c on r.cl_id = c.cl_id";
 
             List<Receita> lista = new List<Receita>();
             Receita receita;

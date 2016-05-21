@@ -1,10 +1,12 @@
-﻿using System;
+﻿using SysOtica.Negocio.Fachada;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using SysOtica.Conexao;
 
 namespace WcfSysOtica
 {
@@ -106,6 +108,9 @@ namespace WcfSysOtica
                 }
             }
         }
+
+        
+
 
 
 
