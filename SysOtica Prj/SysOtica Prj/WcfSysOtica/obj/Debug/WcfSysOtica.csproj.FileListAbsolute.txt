@@ -38,3 +38,11 @@ C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysO
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.csprojResolveAssemblyReference.cache
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.dll
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\WcfSysOtica.dll.config
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\WcfSysOtica.dll
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\WcfSysOtica.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\SysOtica.dll
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOtica\bin\Debug\SysOtica.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.csprojResolveAssemblyReference.cache
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.dll
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOtica\obj\Debug\WcfSysOtica.pdb

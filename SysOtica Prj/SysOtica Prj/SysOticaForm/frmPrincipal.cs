@@ -126,7 +126,7 @@ namespace SysOticaForm
 
         private void vendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmVenda vd = new frmVenda();
+            frmVendas vd = new frmVendas();
             vd.MdiParent = this;
             vd.Show();
         }
