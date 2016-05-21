@@ -125,6 +125,7 @@
             this.GroupBox.TabStop = false;
             this.GroupBox.Text = "Nova Venda";
             this.GroupBox.Visible = false;
+            this.GroupBox.Enter += new System.EventHandler(this.GroupBox_Enter);
             // 
             // buttonCancelar
             // 
@@ -202,6 +203,7 @@
             this.comboBoxFP.Name = "comboBoxFP";
             this.comboBoxFP.Size = new System.Drawing.Size(121, 21);
             this.comboBoxFP.TabIndex = 30;
+            this.comboBoxFP.SelectedIndexChanged += new System.EventHandler(this.comboBoxFP_SelectedIndexChanged);
             // 
             // textBoxValorPago
             // 
@@ -210,6 +212,7 @@
             this.textBoxValorPago.ReadOnly = true;
             this.textBoxValorPago.Size = new System.Drawing.Size(100, 20);
             this.textBoxValorPago.TabIndex = 29;
+            this.textBoxValorPago.TextChanged += new System.EventHandler(this.textBoxValorPago_TextChanged);
             // 
             // textBoxDes
             // 
@@ -218,6 +221,7 @@
             this.textBoxDes.Size = new System.Drawing.Size(100, 20);
             this.textBoxDes.TabIndex = 28;
             this.textBoxDes.Text = "0";
+            this.textBoxDes.TextChanged += new System.EventHandler(this.textBoxDes_TextChanged);
             this.textBoxDes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDes_KeyPress);
             // 
             // textBox4
@@ -227,6 +231,7 @@
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 27;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label9
             // 
@@ -236,6 +241,7 @@
             this.label9.Size = new System.Drawing.Size(111, 13);
             this.label9.TabIndex = 26;
             this.label9.Text = "Forma de Pagamento:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label8
             // 
@@ -245,6 +251,7 @@
             this.label8.Size = new System.Drawing.Size(62, 13);
             this.label8.TabIndex = 25;
             this.label8.Text = "Valor Pago:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -254,6 +261,7 @@
             this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 24;
             this.label7.Text = "Desconto:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -263,6 +271,7 @@
             this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 23;
             this.label6.Text = "Valor:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // button5
             // 
