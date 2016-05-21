@@ -74,6 +74,11 @@ namespace SysOtica.Negocio.Fachada
         {
             return dao.getCliente(cl_id);
         }
+
+        public List<Cliente> obterCliente(string cl_cpf)
+        {
+            return dao.obterCliente(cl_cpf);
+        }
         #endregion
 
 

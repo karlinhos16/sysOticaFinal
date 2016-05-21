@@ -48,3 +48,20 @@ C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysO
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SocketSysOtica.pdb
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SysOtica.pdb
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOtica.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOticaClient.exe.config
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOticaClient.exe
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOticaClient.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SocketSysOtica.exe
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SocketSysOticaClient.exe
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SysOtica.dll
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOtica.dll
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SocketSysOticaClient.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SocketSysOtica.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\SysOtica.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\bin\Debug\WcfSysOtica.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.csprojResolveAssemblyReference.cache
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.Form1.resources
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.Properties.Resources.resources
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.csproj.GenerateResource.Cache
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.exe
+C:\Users\daaysesantos\Desktop\sysOticaFinalMelo\SysOtica Prj\SysOtica Prj\WcfSysOticaClient\obj\Debug\WcfSysOticaClient.pdb

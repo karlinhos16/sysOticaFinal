@@ -346,7 +346,55 @@ namespace SysOtica.Conexao
                 throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
             }
         }
+        public List<Cliente> obterCliente(string cl_cpf)
+        {
+            string sql = "select cl_cpf FROM cliente where cl_cpf LIKE @cl_cpf + '%'";
 
+
+            List<Cliente> lista = new List<Cliente>();
+
+            if (cl_cpf != "")
+            {
+
+                try
+                {
+                    conn.AbrirConexao();
+                    SqlCommand cmd = new SqlCommand(sql, this.conn.cone);
+                    cmd.Parameters.Add("@cl_cpf", SqlDbType.VarChar, 100).Value = cl_cpf;
+
+                    SqlDataReader retorno = cmd.ExecuteReader();
+
+                    if (retorno.HasRows == false)
+                    {
+
+                        throw new Exception("Cliente não cadastrado!");
+
+                    }
+
+                    while (retorno.Read())
+                    {
+               
+                        Cliente cliente = new Cliente();
+
+                        cliente.Cl_id = retorno.GetInt32(retorno.GetOrdinal("cl_id"));
+                        cliente.Cl_cpf = retorno.GetString(retorno.GetOrdinal("cl_cpf"));
+                      
+                        lista.Add(cliente);
+                    }
+
+                }
+                catch (SqlException ex)
+                {
+                    throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + ex.Message);
+
+                }
+
+
+            }
+            conn.FecharConexao();
+            return lista;
+
+        }
 
     }
 }
