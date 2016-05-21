@@ -56,6 +56,11 @@ namespace SysOticaForm.ServiceReference1 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Receita))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Produto[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Cliente[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Venda[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Fornecedor[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Categoria[]))]
         void inserir(SysOtica.Negocio.Classes_Basicas.Venda v);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/inserir", ReplyAction="http://tempuri.org/IService1/inserirResponse")]
@@ -71,6 +76,11 @@ namespace SysOticaForm.ServiceReference1 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Receita))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Produto[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Cliente[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Venda[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Fornecedor[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Categoria[]))]
         void alterarCliente(SysOtica.Negocio.Classes_Basicas.Cliente c);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/alterarCliente", ReplyAction="http://tempuri.org/IService1/alterarClienteResponse")]
@@ -86,6 +96,11 @@ namespace SysOticaForm.ServiceReference1 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Receita))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Produto[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Cliente[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Venda[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Fornecedor[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Categoria[]))]
         void inserirCliente(SysOtica.Negocio.Classes_Basicas.Cliente c);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/inserirCliente", ReplyAction="http://tempuri.org/IService1/inserirClienteResponse")]
@@ -101,6 +116,11 @@ namespace SysOticaForm.ServiceReference1 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Receita))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Produto[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Cliente[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Venda[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Fornecedor[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Categoria[]))]
         void excluirCliente(SysOtica.Negocio.Classes_Basicas.Cliente c);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/excluirCliente", ReplyAction="http://tempuri.org/IService1/excluirClienteResponse")]
@@ -134,6 +154,11 @@ namespace SysOticaForm.ServiceReference1 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Receita[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Produto[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Cliente[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Venda[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Fornecedor[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Categoria[]))]
         void InserirReceita(SysOtica.Negocio.Classes_Basicas.Receita receita);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InserirReceita", ReplyAction="http://tempuri.org/IService1/InserirReceitaResponse")]
@@ -149,6 +174,11 @@ namespace SysOticaForm.ServiceReference1 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Receita[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Produto[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Cliente[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Venda[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Fornecedor[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Categoria[]))]
         void AlterarReceita(SysOtica.Negocio.Classes_Basicas.Receita receita);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AlterarReceita", ReplyAction="http://tempuri.org/IService1/AlterarReceitaResponse")]
@@ -164,6 +194,11 @@ namespace SysOticaForm.ServiceReference1 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Receita[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Produto[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Cliente[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Venda[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Usuario[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Fornecedor[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SysOtica.Negocio.Classes_Basicas.Categoria[]))]
         void ExcluirReceita(SysOtica.Negocio.Classes_Basicas.Receita receita);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExcluirReceita", ReplyAction="http://tempuri.org/IService1/ExcluirReceitaResponse")]
@@ -186,6 +221,78 @@ namespace SysOticaForm.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/vendaReceita", ReplyAction="http://tempuri.org/IService1/vendaReceitaResponse")]
         System.Threading.Tasks.Task<SysOtica.Negocio.Classes_Basicas.Receita[]> vendaReceitaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InserirUsuario", ReplyAction="http://tempuri.org/IService1/InserirUsuarioResponse")]
+        void InserirUsuario(SysOtica.Negocio.Classes_Basicas.Usuario usu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InserirUsuario", ReplyAction="http://tempuri.org/IService1/InserirUsuarioResponse")]
+        System.Threading.Tasks.Task InserirUsuarioAsync(SysOtica.Negocio.Classes_Basicas.Usuario usu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AlterarUsuario", ReplyAction="http://tempuri.org/IService1/AlterarUsuarioResponse")]
+        void AlterarUsuario(SysOtica.Negocio.Classes_Basicas.Usuario usu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AlterarUsuario", ReplyAction="http://tempuri.org/IService1/AlterarUsuarioResponse")]
+        System.Threading.Tasks.Task AlterarUsuarioAsync(SysOtica.Negocio.Classes_Basicas.Usuario usu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExcluirUsuario", ReplyAction="http://tempuri.org/IService1/ExcluirUsuarioResponse")]
+        void ExcluirUsuario(SysOtica.Negocio.Classes_Basicas.Usuario usu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExcluirUsuario", ReplyAction="http://tempuri.org/IService1/ExcluirUsuarioResponse")]
+        System.Threading.Tasks.Task ExcluirUsuarioAsync(SysOtica.Negocio.Classes_Basicas.Usuario usu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/PesquisaUsuario", ReplyAction="http://tempuri.org/IService1/PesquisaUsuarioResponse")]
+        SysOtica.Negocio.Classes_Basicas.Usuario[] PesquisaUsuario(string us_nome);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/PesquisaUsuario", ReplyAction="http://tempuri.org/IService1/PesquisaUsuarioResponse")]
+        System.Threading.Tasks.Task<SysOtica.Negocio.Classes_Basicas.Usuario[]> PesquisaUsuarioAsync(string us_nome);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaUsuario", ReplyAction="http://tempuri.org/IService1/ListaUsuarioResponse")]
+        SysOtica.Negocio.Classes_Basicas.Usuario[] ListaUsuario();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaUsuario", ReplyAction="http://tempuri.org/IService1/ListaUsuarioResponse")]
+        System.Threading.Tasks.Task<SysOtica.Negocio.Classes_Basicas.Usuario[]> ListaUsuarioAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InserirFornecedor", ReplyAction="http://tempuri.org/IService1/InserirFornecedorResponse")]
+        void InserirFornecedor(SysOtica.Negocio.Classes_Basicas.Fornecedor fr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InserirFornecedor", ReplyAction="http://tempuri.org/IService1/InserirFornecedorResponse")]
+        System.Threading.Tasks.Task InserirFornecedorAsync(SysOtica.Negocio.Classes_Basicas.Fornecedor fr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AlterarFornecedor", ReplyAction="http://tempuri.org/IService1/AlterarFornecedorResponse")]
+        void AlterarFornecedor(SysOtica.Negocio.Classes_Basicas.Fornecedor fr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AlterarFornecedor", ReplyAction="http://tempuri.org/IService1/AlterarFornecedorResponse")]
+        System.Threading.Tasks.Task AlterarFornecedorAsync(SysOtica.Negocio.Classes_Basicas.Fornecedor fr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/excluirFornecedor", ReplyAction="http://tempuri.org/IService1/excluirFornecedorResponse")]
+        void excluirFornecedor(SysOtica.Negocio.Classes_Basicas.Fornecedor fr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/excluirFornecedor", ReplyAction="http://tempuri.org/IService1/excluirFornecedorResponse")]
+        System.Threading.Tasks.Task excluirFornecedorAsync(SysOtica.Negocio.Classes_Basicas.Fornecedor fr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/pesquisaFornecedor", ReplyAction="http://tempuri.org/IService1/pesquisaFornecedorResponse")]
+        SysOtica.Negocio.Classes_Basicas.Fornecedor[] pesquisaFornecedor(string fr_razaosocial);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/pesquisaFornecedor", ReplyAction="http://tempuri.org/IService1/pesquisaFornecedorResponse")]
+        System.Threading.Tasks.Task<SysOtica.Negocio.Classes_Basicas.Fornecedor[]> pesquisaFornecedorAsync(string fr_razaosocial);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaFornecedor", ReplyAction="http://tempuri.org/IService1/ListaFornecedorResponse")]
+        SysOtica.Negocio.Classes_Basicas.Fornecedor[] ListaFornecedor();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaFornecedor", ReplyAction="http://tempuri.org/IService1/ListaFornecedorResponse")]
+        System.Threading.Tasks.Task<SysOtica.Negocio.Classes_Basicas.Fornecedor[]> ListaFornecedorAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/cadastraCat", ReplyAction="http://tempuri.org/IService1/cadastraCatResponse")]
+        void cadastraCat(SysOtica.Negocio.Classes_Basicas.Categoria categoria);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/cadastraCat", ReplyAction="http://tempuri.org/IService1/cadastraCatResponse")]
+        System.Threading.Tasks.Task cadastraCatAsync(SysOtica.Negocio.Classes_Basicas.Categoria categoria);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/pesquisaCategoria", ReplyAction="http://tempuri.org/IService1/pesquisaCategoriaResponse")]
+        SysOtica.Negocio.Classes_Basicas.Categoria[] pesquisaCategoria();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/pesquisaCategoria", ReplyAction="http://tempuri.org/IService1/pesquisaCategoriaResponse")]
+        System.Threading.Tasks.Task<SysOtica.Negocio.Classes_Basicas.Categoria[]> pesquisaCategoriaAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -357,6 +464,102 @@ namespace SysOticaForm.ServiceReference1 {
         
         public System.Threading.Tasks.Task<SysOtica.Negocio.Classes_Basicas.Receita[]> vendaReceitaAsync() {
             return base.Channel.vendaReceitaAsync();
+        }
+        
+        public void InserirUsuario(SysOtica.Negocio.Classes_Basicas.Usuario usu) {
+            base.Channel.InserirUsuario(usu);
+        }
+        
+        public System.Threading.Tasks.Task InserirUsuarioAsync(SysOtica.Negocio.Classes_Basicas.Usuario usu) {
+            return base.Channel.InserirUsuarioAsync(usu);
+        }
+        
+        public void AlterarUsuario(SysOtica.Negocio.Classes_Basicas.Usuario usu) {
+            base.Channel.AlterarUsuario(usu);
+        }
+        
+        public System.Threading.Tasks.Task AlterarUsuarioAsync(SysOtica.Negocio.Classes_Basicas.Usuario usu) {
+            return base.Channel.AlterarUsuarioAsync(usu);
+        }
+        
+        public void ExcluirUsuario(SysOtica.Negocio.Classes_Basicas.Usuario usu) {
+            base.Channel.ExcluirUsuario(usu);
+        }
+        
+        public System.Threading.Tasks.Task ExcluirUsuarioAsync(SysOtica.Negocio.Classes_Basicas.Usuario usu) {
+            return base.Channel.ExcluirUsuarioAsync(usu);
+        }
+        
+        public SysOtica.Negocio.Classes_Basicas.Usuario[] PesquisaUsuario(string us_nome) {
+            return base.Channel.PesquisaUsuario(us_nome);
+        }
+        
+        public System.Threading.Tasks.Task<SysOtica.Negocio.Classes_Basicas.Usuario[]> PesquisaUsuarioAsync(string us_nome) {
+            return base.Channel.PesquisaUsuarioAsync(us_nome);
+        }
+        
+        public SysOtica.Negocio.Classes_Basicas.Usuario[] ListaUsuario() {
+            return base.Channel.ListaUsuario();
+        }
+        
+        public System.Threading.Tasks.Task<SysOtica.Negocio.Classes_Basicas.Usuario[]> ListaUsuarioAsync() {
+            return base.Channel.ListaUsuarioAsync();
+        }
+        
+        public void InserirFornecedor(SysOtica.Negocio.Classes_Basicas.Fornecedor fr) {
+            base.Channel.InserirFornecedor(fr);
+        }
+        
+        public System.Threading.Tasks.Task InserirFornecedorAsync(SysOtica.Negocio.Classes_Basicas.Fornecedor fr) {
+            return base.Channel.InserirFornecedorAsync(fr);
+        }
+        
+        public void AlterarFornecedor(SysOtica.Negocio.Classes_Basicas.Fornecedor fr) {
+            base.Channel.AlterarFornecedor(fr);
+        }
+        
+        public System.Threading.Tasks.Task AlterarFornecedorAsync(SysOtica.Negocio.Classes_Basicas.Fornecedor fr) {
+            return base.Channel.AlterarFornecedorAsync(fr);
+        }
+        
+        public void excluirFornecedor(SysOtica.Negocio.Classes_Basicas.Fornecedor fr) {
+            base.Channel.excluirFornecedor(fr);
+        }
+        
+        public System.Threading.Tasks.Task excluirFornecedorAsync(SysOtica.Negocio.Classes_Basicas.Fornecedor fr) {
+            return base.Channel.excluirFornecedorAsync(fr);
+        }
+        
+        public SysOtica.Negocio.Classes_Basicas.Fornecedor[] pesquisaFornecedor(string fr_razaosocial) {
+            return base.Channel.pesquisaFornecedor(fr_razaosocial);
+        }
+        
+        public System.Threading.Tasks.Task<SysOtica.Negocio.Classes_Basicas.Fornecedor[]> pesquisaFornecedorAsync(string fr_razaosocial) {
+            return base.Channel.pesquisaFornecedorAsync(fr_razaosocial);
+        }
+        
+        public SysOtica.Negocio.Classes_Basicas.Fornecedor[] ListaFornecedor() {
+            return base.Channel.ListaFornecedor();
+        }
+        
+        public System.Threading.Tasks.Task<SysOtica.Negocio.Classes_Basicas.Fornecedor[]> ListaFornecedorAsync() {
+            return base.Channel.ListaFornecedorAsync();
+        }
+        
+        public void cadastraCat(SysOtica.Negocio.Classes_Basicas.Categoria categoria) {
+            base.Channel.cadastraCat(categoria);
+        }
+        
+        public System.Threading.Tasks.Task cadastraCatAsync(SysOtica.Negocio.Classes_Basicas.Categoria categoria) {
+            return base.Channel.cadastraCatAsync(categoria);
+        }
+        
+        public SysOtica.Negocio.Classes_Basicas.Categoria[] pesquisaCategoria() {
+            return base.Channel.pesquisaCategoria();
+        }
+        
+        public System.Threading.Tasks.Task<SysOtica.Negocio.Classes_Basicas.Categoria[]> pesquisaCategoriaAsync() {
+            return base.Channel.pesquisaCategoriaAsync();
         }
     }
 }

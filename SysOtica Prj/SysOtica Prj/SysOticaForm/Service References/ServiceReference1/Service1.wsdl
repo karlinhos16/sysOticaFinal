@@ -115,6 +115,78 @@
   <wsdl:message name="IService1_vendaReceita_OutputMessage">
     <wsdl:part name="parameters" element="tns:vendaReceitaResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_InserirUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PesquisaUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:PesquisaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PesquisaUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PesquisaUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListaUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListaUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirFornecedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirFornecedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirFornecedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarFornecedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarFornecedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarFornecedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_excluirFornecedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:excluirFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_excluirFornecedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:excluirFornecedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_pesquisaFornecedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:pesquisaFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_pesquisaFornecedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:pesquisaFornecedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListaFornecedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListaFornecedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaFornecedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_cadastraCat_InputMessage">
+    <wsdl:part name="parameters" element="tns:cadastraCat" />
+  </wsdl:message>
+  <wsdl:message name="IService1_cadastraCat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:cadastraCatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_pesquisaCategoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:pesquisaCategoria" />
+  </wsdl:message>
+  <wsdl:message name="IService1_pesquisaCategoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:pesquisaCategoriaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="InserirProduto">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirProduto" message="tns:IService1_InserirProduto_InputMessage" />
@@ -187,6 +259,54 @@
     <wsdl:operation name="vendaReceita">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/vendaReceita" message="tns:IService1_vendaReceita_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/vendaReceitaResponse" message="tns:IService1_vendaReceita_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirUsuario" message="tns:IService1_InserirUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirUsuarioResponse" message="tns:IService1_InserirUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarUsuario" message="tns:IService1_AlterarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarUsuarioResponse" message="tns:IService1_AlterarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExcluirUsuario" message="tns:IService1_ExcluirUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExcluirUsuarioResponse" message="tns:IService1_ExcluirUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PesquisaUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PesquisaUsuario" message="tns:IService1_PesquisaUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PesquisaUsuarioResponse" message="tns:IService1_PesquisaUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListaUsuario" message="tns:IService1_ListaUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListaUsuarioResponse" message="tns:IService1_ListaUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirFornecedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirFornecedor" message="tns:IService1_InserirFornecedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirFornecedorResponse" message="tns:IService1_InserirFornecedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarFornecedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarFornecedor" message="tns:IService1_AlterarFornecedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarFornecedorResponse" message="tns:IService1_AlterarFornecedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="excluirFornecedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/excluirFornecedor" message="tns:IService1_excluirFornecedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/excluirFornecedorResponse" message="tns:IService1_excluirFornecedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisaFornecedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/pesquisaFornecedor" message="tns:IService1_pesquisaFornecedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/pesquisaFornecedorResponse" message="tns:IService1_pesquisaFornecedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaFornecedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListaFornecedor" message="tns:IService1_ListaFornecedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListaFornecedorResponse" message="tns:IService1_ListaFornecedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="cadastraCat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/cadastraCat" message="tns:IService1_cadastraCat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/cadastraCatResponse" message="tns:IService1_cadastraCat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisaCategoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/pesquisaCategoria" message="tns:IService1_pesquisaCategoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/pesquisaCategoriaResponse" message="tns:IService1_pesquisaCategoria_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -346,6 +466,114 @@
     </wsdl:operation>
     <wsdl:operation name="vendaReceita">
       <soap:operation soapAction="http://tempuri.org/IService1/vendaReceita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/ExcluirUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PesquisaUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/PesquisaUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListaUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirFornecedor">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirFornecedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarFornecedor">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarFornecedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluirFornecedor">
+      <soap:operation soapAction="http://tempuri.org/IService1/excluirFornecedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisaFornecedor">
+      <soap:operation soapAction="http://tempuri.org/IService1/pesquisaFornecedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaFornecedor">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListaFornecedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastraCat">
+      <soap:operation soapAction="http://tempuri.org/IService1/cadastraCat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisaCategoria">
+      <soap:operation soapAction="http://tempuri.org/IService1/pesquisaCategoria" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

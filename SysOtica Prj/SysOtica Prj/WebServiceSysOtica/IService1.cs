@@ -111,10 +111,10 @@ namespace WebServiceSysOtica
         #region Categoria
 
         [OperationContract]
-        public void cadastraCat(Categoria categoria);
+        void cadastraCat(Categoria categoria);
 
         [OperationContract]
-        public List<Categoria> pesquisaCategoria();
+        List<Categoria> pesquisaCategoria();
         #endregion
 
 
