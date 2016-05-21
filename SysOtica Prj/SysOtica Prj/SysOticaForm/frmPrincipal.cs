@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WcfSysOticaClient;
+
 
 namespace SysOticaForm
 {
@@ -141,9 +141,6 @@ namespace SysOticaForm
 
         private void iniciarWebServiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 wcf = new Form1();
-            wcf.MdiParent = this;
-            wcf.Show();
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
@@ -151,10 +148,6 @@ namespace SysOticaForm
             Socket_Server___DSD_MELO socketserver = new Socket_Server___DSD_MELO();
             socketserver.MdiParent = this;
             socketserver.Show();
-
-            WcfSysOtica.CompositeType wcfServer = new WcfSysOtica.CompositeType();
-            
-            
 
         }
 

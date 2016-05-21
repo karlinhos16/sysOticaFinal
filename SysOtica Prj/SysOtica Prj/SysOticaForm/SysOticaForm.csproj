@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -163,6 +165,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="formCategoria.resx">
       <DependentUpon>formCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,6 +241,9 @@
     <None Include="Properties\DataSources\SysOtica.cliente.datasource" />
     <None Include="Properties\DataSources\SysOtica.fornecedor.datasource" />
     <None Include="Properties\DataSources\SysOtica.ItemVenda.datasource" />
+    <None Include="Properties\DataSources\SysOtica.Negocio.Classes_Basicas.Cliente.datasource" />
+    <None Include="Properties\DataSources\SysOtica.Negocio.Classes_Basicas.Produto.datasource" />
+    <None Include="Properties\DataSources\SysOtica.Negocio.Classes_Basicas.Receita.datasource" />
     <None Include="Properties\DataSources\SysOtica.produto.datasource" />
     <None Include="Properties\DataSources\SysOtica.produtofornecedor.datasource" />
     <None Include="Properties\DataSources\SysOtica.produtovenda.datasource" />
@@ -248,6 +258,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\ServiceReference1\Service1.wsdl" />
+    <None Include="Service References\ServiceReference1\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\Service12.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -268,14 +288,24 @@
       <Project>{b0f43429-5dc9-4dc0-8ba1-6dd2b7363a8a}</Project>
       <Name>SysOtica</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WcfSysOticaClient\WcfSysOticaClient.csproj">
-      <Project>{d70d9f58-87fb-4f98-a97d-61eb8209bbec}</Project>
-      <Name>WcfSysOticaClient</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WcfSysOtica\WcfSysOtica.csproj">
-      <Project>{5c4cce13-3fff-4283-bffc-813af1767752}</Project>
-      <Name>WcfSysOtica</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\Service1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

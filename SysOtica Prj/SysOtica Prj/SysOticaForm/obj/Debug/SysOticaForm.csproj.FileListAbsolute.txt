@@ -289,19 +289,6 @@ C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\SysOt
 C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\WcfSysOticaClient.pdb
 C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\WcfSysOtica.pdb
 C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.exe
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.exe.config
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.exe
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.pdb
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SocketSysOtica.exe
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SocketSysOticaClient.exe
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOtica.dll
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\WcfSysOtica.dll
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\WcfSysOticaClient.exe
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SocketSysOticaClient.pdb
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SocketSysOtica.pdb
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOtica.pdb
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\WcfSysOticaClient.pdb
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\WcfSysOtica.pdb
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.csprojResolveAssemblyReference.cache
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.formCategoria.resources
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.formClienteAlterar.resources
@@ -326,5 +313,14 @@ C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOtic
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.csproj.GenerateResource.Cache
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\RdlCompile.cache
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\RdlCompile.compiled
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.exe.config
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.exe
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.pdb
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SocketSysOtica.exe
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SocketSysOticaClient.exe
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOtica.dll
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SocketSysOticaClient.pdb
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SocketSysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOtica.pdb
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.exe
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.pdb

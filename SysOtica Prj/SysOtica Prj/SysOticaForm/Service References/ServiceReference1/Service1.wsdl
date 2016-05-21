@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2827/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2827/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2827/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SysOtica.Negocio.Classes_Basicas" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_InserirProduto_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirProduto" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirProduto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirProdutoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarProduto_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarProduto" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarProduto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarProdutoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_excluirProduto_InputMessage">
+    <wsdl:part name="parameters" element="tns:excluirProduto" />
+  </wsdl:message>
+  <wsdl:message name="IService1_excluirProduto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:excluirProdutoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_pesquisaProduto_InputMessage">
+    <wsdl:part name="parameters" element="tns:pesquisaProduto" />
+  </wsdl:message>
+  <wsdl:message name="IService1_pesquisaProduto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:pesquisaProdutoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listarProduto_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarProduto" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listarProduto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarProdutoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_inserir_InputMessage">
+    <wsdl:part name="parameters" element="tns:inserir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_inserir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:inserirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_alterarCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:alterarCliente" />
+  </wsdl:message>
+  <wsdl:message name="IService1_alterarCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:alterarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_inserirCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:inserirCliente" />
+  </wsdl:message>
+  <wsdl:message name="IService1_inserirCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:inserirClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_excluirCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:excluirCliente" />
+  </wsdl:message>
+  <wsdl:message name="IService1_excluirCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:excluirClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_pesquisarCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:pesquisarCliente" />
+  </wsdl:message>
+  <wsdl:message name="IService1_pesquisarCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:pesquisarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listarCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarCliente" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listarCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCliente" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirReceita_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirReceita" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirReceita_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirReceitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarReceita_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarReceita" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarReceita_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarReceitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirReceita_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirReceita" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirReceita_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirReceitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PuxaReceita_InputMessage">
+    <wsdl:part name="parameters" element="tns:PuxaReceita" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PuxaReceita_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PuxaReceitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListaReceita_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaReceita" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListaReceita_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaReceitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_vendaReceita_InputMessage">
+    <wsdl:part name="parameters" element="tns:vendaReceita" />
+  </wsdl:message>
+  <wsdl:message name="IService1_vendaReceita_OutputMessage">
+    <wsdl:part name="parameters" element="tns:vendaReceitaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="InserirProduto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirProduto" message="tns:IService1_InserirProduto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirProdutoResponse" message="tns:IService1_InserirProduto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProduto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarProduto" message="tns:IService1_AlterarProduto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarProdutoResponse" message="tns:IService1_AlterarProduto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="excluirProduto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/excluirProduto" message="tns:IService1_excluirProduto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/excluirProdutoResponse" message="tns:IService1_excluirProduto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisaProduto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/pesquisaProduto" message="tns:IService1_pesquisaProduto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/pesquisaProdutoResponse" message="tns:IService1_pesquisaProduto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarProduto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/listarProduto" message="tns:IService1_listarProduto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/listarProdutoResponse" message="tns:IService1_listarProduto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="inserir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/inserir" message="tns:IService1_inserir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/inserirResponse" message="tns:IService1_inserir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/alterarCliente" message="tns:IService1_alterarCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/alterarClienteResponse" message="tns:IService1_alterarCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="inserirCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/inserirCliente" message="tns:IService1_inserirCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/inserirClienteResponse" message="tns:IService1_inserirCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="excluirCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/excluirCliente" message="tns:IService1_excluirCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/excluirClienteResponse" message="tns:IService1_excluirCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/pesquisarCliente" message="tns:IService1_pesquisarCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/pesquisarClienteResponse" message="tns:IService1_pesquisarCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/listarCliente" message="tns:IService1_listarCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/listarClienteResponse" message="tns:IService1_listarCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getCliente" message="tns:IService1_getCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getClienteResponse" message="tns:IService1_getCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirReceita">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirReceita" message="tns:IService1_InserirReceita_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirReceitaResponse" message="tns:IService1_InserirReceita_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarReceita">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarReceita" message="tns:IService1_AlterarReceita_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarReceitaResponse" message="tns:IService1_AlterarReceita_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirReceita">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExcluirReceita" message="tns:IService1_ExcluirReceita_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExcluirReceitaResponse" message="tns:IService1_ExcluirReceita_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PuxaReceita">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PuxaReceita" message="tns:IService1_PuxaReceita_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PuxaReceitaResponse" message="tns:IService1_PuxaReceita_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaReceita">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListaReceita" message="tns:IService1_ListaReceita_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListaReceitaResponse" message="tns:IService1_ListaReceita_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="vendaReceita">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/vendaReceita" message="tns:IService1_vendaReceita_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/vendaReceitaResponse" message="tns:IService1_vendaReceita_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InserirProduto">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirProduto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProduto">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarProduto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluirProduto">
+      <soap:operation soapAction="http://tempuri.org/IService1/excluirProduto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisaProduto">
+      <soap:operation soapAction="http://tempuri.org/IService1/pesquisaProduto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarProduto">
+      <soap:operation soapAction="http://tempuri.org/IService1/listarProduto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inserir">
+      <soap:operation soapAction="http://tempuri.org/IService1/inserir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarCliente">
+      <soap:operation soapAction="http://tempuri.org/IService1/alterarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inserirCliente">
+      <soap:operation soapAction="http://tempuri.org/IService1/inserirCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluirCliente">
+      <soap:operation soapAction="http://tempuri.org/IService1/excluirCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarCliente">
+      <soap:operation soapAction="http://tempuri.org/IService1/pesquisarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarCliente">
+      <soap:operation soapAction="http://tempuri.org/IService1/listarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCliente">
+      <soap:operation soapAction="http://tempuri.org/IService1/getCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirReceita">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirReceita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarReceita">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarReceita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirReceita">
+      <soap:operation soapAction="http://tempuri.org/IService1/ExcluirReceita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PuxaReceita">
+      <soap:operation soapAction="http://tempuri.org/IService1/PuxaReceita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaReceita">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListaReceita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vendaReceita">
+      <soap:operation soapAction="http://tempuri.org/IService1/vendaReceita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:2827/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

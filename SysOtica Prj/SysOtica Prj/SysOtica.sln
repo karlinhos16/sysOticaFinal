@@ -1,19 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysOtica", "SysOtica\SysOtica.csproj", "{B0F43429-5DC9-4DC0-8BA1-6DD2B7363A8A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysOticaForm", "SysOticaForm\SysOticaForm.csproj", "{5F41FA2C-5BB6-47A7-B4A5-AD651D2A6B62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfSysOtica", "WcfSysOtica\WcfSysOtica.csproj", "{5C4CCE13-3FFF-4283-BFFC-813AF1767752}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfSysOticaClient", "WcfSysOticaClient\WcfSysOticaClient.csproj", "{D70D9F58-87FB-4F98-A97D-61EB8209BBEC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketSysOtica", "SocketSysOtica\SocketSysOtica.csproj", "{7BB9A7FA-37F1-4905-8B05-C84733FA9D50}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketSysOticaClient", "SocketSysOticaClient\SocketSysOticaClient.csproj", "{830CAFB2-C9B1-4A99-8D40-E86C1460D758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceSysOtica", "WebServiceSysOtica\WebServiceSysOtica.csproj", "{67DFE39B-E2AC-4E02-9D55-008E4428A6A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +27,6 @@ Global
 		{5F41FA2C-5BB6-47A7-B4A5-AD651D2A6B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F41FA2C-5BB6-47A7-B4A5-AD651D2A6B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F41FA2C-5BB6-47A7-B4A5-AD651D2A6B62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C4CCE13-3FFF-4283-BFFC-813AF1767752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C4CCE13-3FFF-4283-BFFC-813AF1767752}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C4CCE13-3FFF-4283-BFFC-813AF1767752}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C4CCE13-3FFF-4283-BFFC-813AF1767752}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D70D9F58-87FB-4F98-A97D-61EB8209BBEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D70D9F58-87FB-4F98-A97D-61EB8209BBEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D70D9F58-87FB-4F98-A97D-61EB8209BBEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D70D9F58-87FB-4F98-A97D-61EB8209BBEC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7BB9A7FA-37F1-4905-8B05-C84733FA9D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7BB9A7FA-37F1-4905-8B05-C84733FA9D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BB9A7FA-37F1-4905-8B05-C84733FA9D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +35,10 @@ Global
 		{830CAFB2-C9B1-4A99-8D40-E86C1460D758}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{830CAFB2-C9B1-4A99-8D40-E86C1460D758}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{830CAFB2-C9B1-4A99-8D40-E86C1460D758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67DFE39B-E2AC-4E02-9D55-008E4428A6A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67DFE39B-E2AC-4E02-9D55-008E4428A6A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67DFE39B-E2AC-4E02-9D55-008E4428A6A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67DFE39B-E2AC-4E02-9D55-008E4428A6A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
