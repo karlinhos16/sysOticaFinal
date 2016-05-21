@@ -115,11 +115,80 @@ namespace WebServiceSysOtica
         }
         #endregion
 
+        #region Usuario
+
+        public void InserirUsuario(Usuario usu)
+        {
+            fachada.InserirUsuario(usu);
+
+        }
+        public void AlterarUsuario(Usuario usu)
+        {
+
+            fachada.AlterarUsuario(usu);
+        }
+        public void ExcluirUsuario(Usuario usu)
+        {
+            fachada.ExcluirUsuario(usu);
+
+        }
+        public List<Usuario> PesquisaUsuario(string us_nome)
+        {
+            return fachada.PesquisaUsuario(us_nome);
+
+        }
+        public List<Usuario> ListaUsuario()
+        {
+            return fachada.ListaUsuario();
+
+        }
 
 
+        #endregion
 
+        #region Fornecedor
 
+        public void InserirFornecedor(Fornecedor fr)
+        {
+            fachada.InserirFornecedor(fr);
 
+        }
+        public void AlterarFornecedor(Fornecedor fr)
+        {
+
+            fachada.AlterarFornecedor(fr);
+        }
+        public void excluirFornecedor(Fornecedor fr)
+        {
+            fachada.excluirFornecedor(fr);
+
+        }
+        public List<Fornecedor> pesquisaFornecedor(string fr_razaosocial)
+        {
+            return fachada.pesquisaFornecedor(fr_razaosocial);
+
+        }
+        public List<Fornecedor> ListaFornecedor()
+        {
+            return fachada.ListaFornecedor();
+
+        }
+        #endregion
+
+        #region Categoria
+
+        public void cadastraCat(Categoria categoria)
+        {
+
+            fachada.cadastraCat(categoria);
+
+        }
+        public List<Categoria> pesquisaCategoria()
+        {
+
+            return fachada.pesquisaCategoria();
+        }
+        #endregion
 
     }
 }

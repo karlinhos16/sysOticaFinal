@@ -15,7 +15,7 @@ namespace WebServiceSysOtica
     public interface IService1
     {
 
-    
+
         #region Produto
         [OperationContract]
         void InserirProduto(Produto p);
@@ -74,10 +74,48 @@ namespace WebServiceSysOtica
 
         #endregion
 
+        #region Usuario
+
+        [OperationContract]
+        void InserirUsuario(Usuario usu);
+
+        [OperationContract]
+        void AlterarUsuario(Usuario usu);
+
+        [OperationContract]
+        void ExcluirUsuario(Usuario usu);
+
+        [OperationContract]
+        List<Usuario> PesquisaUsuario(string us_nome);
+
+        [OperationContract]
+        List<Usuario> ListaUsuario();
 
 
+        #endregion
 
+        #region Fornecedor
 
+        [OperationContract]
+        void InserirFornecedor(Fornecedor fr);
+        [OperationContract]
+        void AlterarFornecedor(Fornecedor fr);
+        [OperationContract]
+        void excluirFornecedor(Fornecedor fr);
+        [OperationContract]
+        List<Fornecedor> pesquisaFornecedor(string fr_razaosocial);
+        [OperationContract]
+        List<Fornecedor> ListaFornecedor();
+        #endregion
+
+        #region Categoria
+
+        [OperationContract]
+        public void cadastraCat(Categoria categoria);
+
+        [OperationContract]
+        public List<Categoria> pesquisaCategoria();
+        #endregion
 
 
     }
