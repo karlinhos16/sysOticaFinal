@@ -12,3 +12,17 @@ C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\WebServiceS
 C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\obj\Debug\WebServiceSysOtica.csprojResolveAssemblyReference.cache
 C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\obj\Debug\WebServiceSysOtica.dll
 C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\obj\Debug\WebServiceSysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\bin\WebServiceSysOtica.dll.config
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\bin\WebServiceSysOtica.dll
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\bin\WebServiceSysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\bin\SysOtica.dll
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\bin\SysOticaForm.exe
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\bin\SocketSysOticaClient.exe
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\bin\SocketSysOtica.exe
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\bin\SysOticaForm.pdb
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\bin\SysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\bin\SocketSysOticaClient.pdb
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\bin\SocketSysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\obj\Debug\WebServiceSysOtica.csprojResolveAssemblyReference.cache
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\obj\Debug\WebServiceSysOtica.dll
+C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\WebServiceSysOtica\obj\Debug\WebServiceSysOtica.pdb
