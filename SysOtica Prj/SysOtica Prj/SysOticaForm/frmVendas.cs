@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace SysOticaForm
 {
@@ -220,6 +221,223 @@ namespace SysOticaForm
             catch
             {
                 MessageBox.Show("Continue a selecionar os produtos da venda do Cliente!", "Venda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            #region GerandoXml
+
+            int tamanhoDg = dataGridViewItens.Rows.Count;
+
+
+
+
+            XmlDocument doc = new XmlDocument();
+
+            XmlNode raiz = doc.CreateElement("VendaNFe");
+
+            doc.AppendChild(raiz);
+
+            XmlNode linha = doc.CreateElement("NotaFiscal");
+
+            //dEmpresa
+            XmlNode dEmpresa = doc.CreateElement("dEmpresa");
+            XmlNode razaoSocial = doc.CreateElement("razaoSocial");
+            XmlNode cnpj = doc.CreateElement("cnpj");
+            XmlNode logradouro = doc.CreateElement("logradouro");
+
+            //Produtos
+            XmlNode idproNF = doc.CreateElement("idproNF");
+            XmlNode descproNF = doc.CreateElement("descproNF");
+            XmlNode vlrproNF = doc.CreateElement("vlrproNF");
+
+            //Cliente
+            XmlNode cliNF = doc.CreateElement("cliente");
+
+
+            //Receita
+            XmlNode rcID = doc.CreateElement("rcID");
+
+            //Financeiro
+            XmlNode vlrUnitario = doc.CreateElement("vlrUnitario");
+            XmlNode desconto = doc.CreateElement("desconto");
+            XmlNode vlrNota = doc.CreateElement("vlrNota");
+            XmlNode formaPagamento = doc.CreateElement("formaPagamento");
+            XmlNode dtaNota = doc.CreateElement("dtaNota");
+
+            for (int i = 0; i < tamanhoDg; i++)
+            {
+
+
+                idproNF.InnerText = dataGridViewItens.Rows[i].Cells[0].Value.ToString();
+                descproNF.InnerText = dataGridViewItens.Rows[i].Cells[1].Value.ToString();
+                vlrproNF.InnerText = dataGridViewItens.Rows[i].Cells[2].Value.ToString();
+
+
+            }
+
+            razaoSocial.InnerText = "SysOtica LTDA.";
+            cnpj.InnerText = "61.835.886/0001-88";
+            logradouro.InnerText = "Avenida Imbiribeira, 900 - Recife - PE - CEP 55820-000";
+
+            cliNF.InnerText = (cliente.Cl_nome);
+
+
+
+            rcID.InnerText = txtIdReceita.Text;
+
+            vlrUnitario.InnerText = ("R$" + textBox4.Text);
+            desconto.InnerText = textBoxDes.Text;
+            vlrNota.InnerText = ("R$" + textBoxValorPago.Text);
+            formaPagamento.InnerText = comboBoxFP.SelectedText.ToString();
+            dtaNota.InnerText = dateTimePickerAtual.Text;
+
+
+
+            linha.AppendChild(dEmpresa);
+            linha.AppendChild(razaoSocial);
+            linha.AppendChild(cnpj);
+            linha.AppendChild(logradouro);
+
+            linha.AppendChild(cliNF);
+
+            linha.AppendChild(idproNF);
+            linha.AppendChild(descproNF);
+            linha.AppendChild(vlrproNF);
+
+            linha.AppendChild(rcID);
+
+            linha.AppendChild(vlrUnitario);
+            linha.AppendChild(desconto);
+            linha.AppendChild(vlrNota);
+            linha.AppendChild(formaPagamento);
+            linha.AppendChild(dtaNota);
+
+            doc.SelectSingleNode("/VendaNFe").AppendChild(linha);
+
+            doc.Save(@"C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\VendasNFe.xml");
+            //Caminho Leo : C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\VendasNFe.xml
+            MessageBox.Show("XML gerado com sucesso!");
+
+
+
+            #endregion
+            #region Finalizar a Venda
+            Venda entVenda = new WebService.Venda();
+            Cliente c = new WebService.Cliente();
+
+            entVenda.Vn_desconto = Convert.ToDecimal(textBoxDes.Text);
+            entVenda.Vn_valortotal = Convert.ToDecimal(textBoxValorPago.Text);
+            entVenda.Vn_formapagamento = comboBoxFP.Text;
+            entVenda.Vn_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text);
+            entVenda.Cliente = cliente;
+            entVenda.Receita.Rc_id = Convert.ToInt32(txtIdReceita.Text);
+            entVenda.Listaitens = listaDeItens.ToArray<ProdutoVenda>();
+
+            webservice.inserir(entVenda);
+
+            MessageBox.Show("Venda realizada com sucesso!");
+            #endregion
+            #region Limpando os Campos
+            dataGridViewItens.Rows.Clear();
+            dataGridViewItens.Refresh();
+            textBoxQtd.Clear();
+            textBoxDes.Clear();
+            textBoxProdID.Clear();
+            textBoxValor.Clear();
+            textBox4.Clear();
+            textBoxValorPago.Clear();
+
+            comboBoxCliente.Enabled = true;
+            comboBoxProduto.Enabled = true;
+            buttonNovoItem.Enabled = true;
+            textBoxQtd.Enabled = true;
+            buttonExcluir.Enabled = true;
+            dataGridViewItens.Rows.Clear();
+            #endregion
+        }
+
+        private void buttonExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Deseja realmente apagar este item da venda?", "Apagar Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, 0, false) == DialogResult.Yes)
+                {
+                    dataGridViewItens.Rows.Remove(dataGridViewItens.CurrentRow);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Selecione o produto que deseja excluir!", "Excluir item!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void textBoxQtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Números [0,9], Backspace, e decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBoxDes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Números [0,9], Backspace, e decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente cancelar a compra?", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, 0, false) == DialogResult.Yes)
+            {
+                Dispose();
+            }
+        }
+
+        private void dataGridRec_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+                DataGridViewRow linhaAtual = dataGridRec.CurrentRow;
+                if (linhaAtual.Index >= -1)
+                {
+                    if (linhaAtual != null)
+                    {
+
+                        string coluna = dataGridRec.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+                        if (Convert.ToDateTime(coluna) > DateTime.Today)
+                        {
+
+                            MessageBox.Show("Esta receita não se encontra na data de validade", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+
+                        }
+                        else if (dataGridRec.CurrentCell.RowIndex >= -1)
+                        {
+
+                            txtIdReceita.Text = dataGridRec.Rows[e.RowIndex].Cells[0].Value.ToString();
+                            MessageBox.Show("Receita selecionada com sucesso!");
+
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+
+            {
+                //throw new Exception();
+                MessageBox.Show("Erro ao selecionar receita" + ex.Message);
             }
         }
     }

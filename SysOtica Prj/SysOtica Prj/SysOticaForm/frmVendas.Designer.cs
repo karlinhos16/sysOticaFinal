@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -39,8 +40,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxDes = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtIdReceita = new System.Windows.Forms.TextBox();
@@ -74,7 +75,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBoxCliente = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRec)).BeginInit();
@@ -104,6 +104,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Venda";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(20, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 73);
+            this.button1.TabIndex = 73;
+            this.button1.Text = "OK";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(803, 85);
@@ -112,6 +122,7 @@
             this.button4.TabIndex = 72;
             this.button4.Text = "Cancelar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -130,6 +141,7 @@
             this.button2.TabIndex = 70;
             this.button2.Text = "Finalizar Venda";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dateTimePickerAtual
             // 
@@ -197,14 +209,7 @@
             this.textBoxDes.Size = new System.Drawing.Size(63, 20);
             this.textBoxDes.TabIndex = 63;
             this.textBoxDes.Text = "0";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(741, 255);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(141, 20);
-            this.textBox4.TabIndex = 62;
+            this.textBoxDes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDes_KeyPress);
             // 
             // label7
             // 
@@ -214,6 +219,14 @@
             this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 61;
             this.label7.Text = "Desconto:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(741, 255);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(141, 20);
+            this.textBox4.TabIndex = 62;
             // 
             // label6
             // 
@@ -273,6 +286,7 @@
             this.dataGridRec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridRec.Size = new System.Drawing.Size(888, 69);
             this.dataGridRec.TabIndex = 42;
+            this.dataGridRec.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRec_CellClick);
             // 
             // id_receita
             // 
@@ -341,6 +355,7 @@
             this.buttonExcluir.TabIndex = 49;
             this.buttonExcluir.Text = "Excluir Item";
             this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
             // textBoxQtdMult
             // 
@@ -446,6 +461,7 @@
             this.textBoxQtd.Size = new System.Drawing.Size(63, 20);
             this.textBoxQtd.TabIndex = 43;
             this.textBoxQtd.Text = "1";
+            this.textBoxQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxQtd_KeyPress);
             // 
             // comboBoxProduto
             // 
@@ -530,16 +546,6 @@
             this.label12.Size = new System.Drawing.Size(42, 13);
             this.label12.TabIndex = 9;
             this.label12.Text = "Cliente:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(20, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 73);
-            this.button1.TabIndex = 73;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmVendas
             // 
