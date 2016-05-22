@@ -14,8 +14,8 @@ namespace SysOticaForm
     public partial class frmListarCliente : Form
     {
 
-        private Service1Client webservice = new Service1Client();
-        private List<Cliente> listarCliente = new List<Cliente>();
+        private Service1Client webservice = new WebService.Service1Client();
+        private List<WebService.Cliente> listarCliente = new List<WebService.Cliente>();
 
         public frmListarCliente()
         {
@@ -49,7 +49,7 @@ namespace SysOticaForm
         public void atualizaGrid()
         {
             dataGridViewCliente.DataSource = null;
-            listarCliente = webservice.listarCliente().ToList<Cliente>();
+            listarCliente = webservice.listarCliente().ToList<WebService.Cliente>();
             dataGridViewCliente.DataSource = listarCliente;
             dataGridViewCliente.Update();
         }
@@ -88,7 +88,7 @@ namespace SysOticaForm
         }
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
-            Cliente c = new Cliente();
+            WebService.Cliente c = new WebService.Cliente();
 
             try
             {

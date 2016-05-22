@@ -14,10 +14,11 @@ namespace SysOticaForm
 {
     public partial class formClienteAlterar : Form
     {
-        private Service1Client webservice = new Service1Client();
-        private Cliente alteraCliente = new Cliente();
+        private Service1Client webservice = new WebService.Service1Client();
+        private WebService.Cliente alteraCliente = new WebService.Cliente();
 
-        public formClienteAlterar(Cliente c)
+
+        public formClienteAlterar(WebService.Cliente c)
         {
             InitializeComponent();
 
@@ -57,7 +58,7 @@ namespace SysOticaForm
         {
             try
             {
-                Cliente c = new Cliente();
+                WebService.Cliente c = new WebService.Cliente();
 
                 {
                     c.Cl_id = Convert.ToInt32(textBoxID.Text);

@@ -15,40 +15,47 @@ namespace SysOticaForm
 {
     public partial class frmCliente : Form
     {
-        private Service1Client webservice = new Service1Client();
-        private WebService.Cliente c = new Cliente();
+        private WebService.Service1Client webservice = new WebService.Service1Client();
+        private WebService.Cliente cliente = new WebService.Cliente();
+        
         
         public frmCliente()
         {
             InitializeComponent();
+          
+        }
+        public frmCliente(WebService.Cliente cl)
+        {
+            InitializeComponent();
+            cliente = cl;
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            c.Cl_nome = textBoxNome.Text;
-            c.Cl_datanascimento = Convert.ToDateTime(dateTimePicker1.Text);
-            c.Cl_cpf = textBoxCidade.Text;
-            c.Cl_rg = textBoxCidade.Text;
-            c.Cl_telefone = textBoxUF.Text;
-            c.Cl_celular = textBoxCidade.Text;
-            c.Cl_telefone2 = textBoxPais.Text;
-            c.Cl_cep = maskedTextBoxCep.Text;
-            c.Cl_endereco = textBoxEndereco.Text;
-            c.Cl_numero = textBoxNumero.Text;
-            c.Cl_bairro = textBoxBairro.Text;
-            c.Cl_cidade = textBoxCidade.Text;
-            c.Cl_uf = textBoxUF.Text;
-            c.Cl_email = textBoxEmail.Text;
-            c.Cl_nomepai = textBoxNomepai.Text;
-            c.Cl_nomemae = textBoxNomemae.Text;
-            c.Cl_profissao = textBoxProfissao.Text;
-            c.Cl_observacoes = richTextBoxObservacoes.Text;
+            cliente.Cl_nome = textBoxNome.Text;
+            cliente.Cl_datanascimento = Convert.ToDateTime(dateTimePicker1.Text);
+            cliente.Cl_cpf = textBoxCidade.Text;
+            cliente.Cl_rg = textBoxCidade.Text;
+            cliente.Cl_telefone = textBoxUF.Text;
+            cliente.Cl_celular = textBoxCidade.Text;
+            cliente.Cl_telefone2 = textBoxPais.Text;
+            cliente.Cl_cep = maskedTextBoxCep.Text;
+            cliente.Cl_endereco = textBoxEndereco.Text;
+            cliente.Cl_numero = textBoxNumero.Text;
+            cliente.Cl_bairro = textBoxBairro.Text;
+            cliente.Cl_cidade = textBoxCidade.Text;
+            cliente.Cl_uf = textBoxUF.Text;
+            cliente.Cl_email = textBoxEmail.Text;
+            cliente.Cl_nomepai = textBoxNomepai.Text;
+            cliente.Cl_nomemae = textBoxNomemae.Text;
+            cliente.Cl_profissao = textBoxProfissao.Text;
+            cliente.Cl_observacoes = richTextBoxObservacoes.Text;
 
 
 
             try
             {
-                webservice.inserirCliente(c);
+                webservice.inserirCliente(cliente);
                 textBoxNome.Clear();
                 textBoxCPF.Clear();
                 textBoxRg.Clear();
