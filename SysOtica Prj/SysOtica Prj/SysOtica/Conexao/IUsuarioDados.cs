@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SysOtica.Conexao
 {
-    interface IUsuarioDados
+    public interface IUsuarioDados
     {
         void inserirUsuario(Usuario usu);
         void alteraUsuario(Usuario usu);

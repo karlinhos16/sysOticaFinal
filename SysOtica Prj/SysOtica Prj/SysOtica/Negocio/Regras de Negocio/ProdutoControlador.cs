@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SysOtica.Negocio.Regras_de_Negocio
 {
@@ -20,31 +21,31 @@ namespace SysOtica.Negocio.Regras_de_Negocio
 
             if (String.IsNullOrEmpty(p.Pr_descricao))
             {
-                throw new CampoVazioException("Campo vazio!");
+                MessageBox.Show("Campo vazio!");
             }
             if (p.Pr_qtd.Equals(""))
             {
-                throw new CampoVazioException("Campo quantidade vazio!");
+                MessageBox.Show("Campo quantidade vazio!");
             }
 
             if (p.Pr_unidade.Equals(""))
             {
 
-                throw new CampoVazioException("Campo unidade não selecionado!");
+                MessageBox.Show("Campo unidade não selecionado!");
             }
 
             if (p.Pr_grife.Equals(""))
             {
-                throw new CampoVazioException("Campo grife não selecionado!");
+                MessageBox.Show("Campo grife não selecionado!");
             }
 
             if (p.Pr_valor.Equals(""))
             {
-                throw new CampoVazioException("Campo Valor vazio!");
+                MessageBox.Show("Campo Valor vazio!");
             }
             if (p.Pr_estoqueminimo.Equals(""))
             {
-                throw new CampoVazioException("Campo  Estoque vazio!");
+                MessageBox.Show("Campo  Estoque vazio!");
             }
 
         }
@@ -53,7 +54,7 @@ namespace SysOtica.Negocio.Regras_de_Negocio
         {
             if (p == null)
             {
-                throw new GuidVazioException("Int vazio ou inválido");
+                MessageBox.Show("Int vazio ou inválido");
             }
 
         }

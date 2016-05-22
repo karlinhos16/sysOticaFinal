@@ -8,6 +8,7 @@ using System.Text;
 using SysOtica.Negocio.Classes_Basicas;
 using SysOtica.Negocio;
 using SysOtica.Negocio.Fachada;
+using SysOtica.Conexao;
 
 namespace WebServiceSysOtica
 {
@@ -15,36 +16,46 @@ namespace WebServiceSysOtica
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-
-        private Fachada fachada;
-
+        private IProdutoDados produto;
+        private IVendaDados venda;
+        private IClienteDados cliente;
+        private IReceitaDados receita;
+        private IUsuarioDados usuario;
+        private IFornecedorDados fornecedor;
+        private ICategoriaDados categoria;
 
         public Service1()
         {
-            fachada = new Fachada();
+            produto = new ProdutoDados();
+            venda = new VendaDados();
+            cliente = new ClienteDados();
+            receita = new ReceitaDados();
+            usuario = new UsuarioDados();
+            fornecedor = new FornecedoresDados();
+            categoria = new CategoriaDados();
         }
 
         #region Produto
 
-        public void InserirProduto(Produto p)                       
+        public void InserirProduto(Produto p)
         {
-            fachada.InserirProduto(p);
+            produto.inserirProduto(p);
         }
-        public void AlterarProduto(Produto p)                       
+        public void AlterarProduto(Produto p)
         {
-            fachada.AlterarProduto(p);
+            produto.alterarProduto(p);
         }
-        public void excluirProduto(Produto p)                       
+        public void excluirProduto(Produto p)
         {
-            fachada.excluirProduto(p);
+            produto.excluirProduto(p);
         }
-        public List<Produto> pesquisaProduto(string pr_descricao)   
+        public List<Produto> pesquisaProduto(string pr_descricao)
         {
-            return fachada.pesquisaProduto(pr_descricao);
+            return produto.pesquisarProduto(pr_descricao);
         }
-        public List<Produto> listarProduto()                        
+        public List<Produto> listarProduto()
         {
-            return fachada.listarProduto();
+            return produto.listarProduto();
         }
 
         #endregion
@@ -53,65 +64,65 @@ namespace WebServiceSysOtica
 
         public void inserir(Venda v)
         {
-            fachada.inserir(v);
+            venda.inserir(v);
         }
 
         #endregion
 
         #region Cliente
 
-        public void alterarCliente(Cliente c)                
+        public void alterarCliente(Cliente c)
         {
-            fachada.alterarCliente(c);
+            cliente.alterarCliente(c);
         }
-        public void inserirCliente(Cliente c)                
+        public void inserirCliente(Cliente c)
         {
-            fachada.inserirCliente(c);
+            cliente.inserirCliente(c);
         }
-        public void excluirCliente(Cliente c)                
+        public void excluirCliente(Cliente c)
         {
-            fachada.excluirCliente(c);
+            cliente.excluirCliente(c);
         }
         public List<Cliente> pesquisarCliente(string cl_nome)
         {
-            return fachada.pesquisarCliente(cl_nome);
+            return cliente.pesquisarCliente(cl_nome);
         }
-        public List<Cliente> listarCliente()                  
+        public List<Cliente> listarCliente()
         {
-            return fachada.listarCliente();
+            return cliente.listarCliente();
         }
-        public List<Cliente> getCliente(int cl_id)                
+        public List<Cliente> getCliente(int cl_id)
         {
-            return fachada.getCliente(cl_id);
+            return cliente.getCliente(cl_id);
         }
 
         #endregion
 
         #region Receita
 
-        public void InserirReceita(Receita receita)     
+        public void InserirReceita(Receita r)
         {
-            fachada.InserirReceita(receita);
+            receita.inserirReceita(r);
         }
-        public void AlterarReceita(Receita receita)     
+        public void AlterarReceita(Receita r)
         {
-            fachada.AlterarReceita(receita);
+            receita.alterarReceita(r);
         }
-        public void ExcluirReceita(Receita receita)     
+        public void ExcluirReceita(Receita r)
         {
-            fachada.ExcluirReceita(receita);
+            receita.excluirreceita(r);
         }
         public List<Receita> PuxaReceita(string cl_nome)
         {
-            return fachada.PuxaReceita(cl_nome);
+            return receita.puxaReceita(cl_nome);
         }
-        public List<Receita> ListaReceita()             
+        public List<Receita> ListaReceita()
         {
-            return fachada.ListaReceita();
+            return receita.listaReceita();
         }
-        public List<Receita> vendaReceita()             
+        public List<Receita> vendaReceita()
         {
-            return fachada.vendaReceita();
+            return receita.vendaReceita();
         }
         #endregion
 
@@ -119,27 +130,27 @@ namespace WebServiceSysOtica
 
         public void InserirUsuario(Usuario usu)
         {
-            fachada.InserirUsuario(usu);
+            usuario.inserirUsuario(usu);
 
         }
         public void AlterarUsuario(Usuario usu)
         {
 
-            fachada.AlterarUsuario(usu);
+            usuario.alteraUsuario(usu);
         }
         public void ExcluirUsuario(Usuario usu)
         {
-            fachada.ExcluirUsuario(usu);
+            usuario.deleteUsuario(usu);
 
         }
         public List<Usuario> PesquisaUsuario(string us_nome)
         {
-            return fachada.PesquisaUsuario(us_nome);
+            return usuario.pesquisaUsuario(us_nome);
 
         }
         public List<Usuario> ListaUsuario()
         {
-            return fachada.ListaUsuario();
+            return usuario.listaUsuario();
 
         }
 
@@ -150,43 +161,43 @@ namespace WebServiceSysOtica
 
         public void InserirFornecedor(Fornecedor fr)
         {
-            fachada.InserirFornecedor(fr);
+            fornecedor.inserirFornecedor(fr);
 
         }
         public void AlterarFornecedor(Fornecedor fr)
         {
 
-            fachada.AlterarFornecedor(fr);
+            fornecedor.alteraFornecedor(fr);
         }
         public void excluirFornecedor(Fornecedor fr)
         {
-            fachada.excluirFornecedor(fr);
+            fornecedor.excluiFornecedor(fr);
 
         }
         public List<Fornecedor> pesquisaFornecedor(string fr_razaosocial)
         {
-            return fachada.pesquisaFornecedor(fr_razaosocial);
+            return fornecedor.pesquisarFornecedor(fr_razaosocial);
 
         }
         public List<Fornecedor> ListaFornecedor()
         {
-            return fachada.ListaFornecedor();
+            return fornecedor.listaFornecedor();
 
         }
         #endregion
 
         #region Categoria
 
-        public void cadastraCat(Categoria categoria)
+        public void cadastraCat(Categoria cat)
         {
 
-            fachada.cadastraCat(categoria);
+            categoria.inserirCategoria(cat);
 
         }
         public List<Categoria> pesquisaCategoria()
         {
 
-            return fachada.pesquisaCategoria();
+            return categoria.pesquisaCategoria();
         }
         #endregion
 

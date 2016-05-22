@@ -1,8 +1,4 @@
-﻿using SysOtica.Negocio;
-using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Excecoes;
-using SysOtica.Negocio.Fachada;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SysOticaForm.WebService;
+
 
 namespace SysOticaForm
 {
     public partial class frmCliente : Form
     {
-        Fachada fachada = new Fachada();
-
+        private Service1Client webservice = new Service1Client();
+        private WebService.Cliente c = new Cliente();
+        
         public frmCliente()
         {
             InitializeComponent();
@@ -26,7 +25,6 @@ namespace SysOticaForm
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            Cliente c = new Cliente();
             c.Cl_nome = textBoxNome.Text;
             c.Cl_datanascimento = Convert.ToDateTime(dateTimePicker1.Text);
             c.Cl_cpf = textBoxCidade.Text;
@@ -50,7 +48,7 @@ namespace SysOticaForm
 
             try
             {
-                fachada.inserirCliente(c);
+                webservice.inserirCliente(c);
                 textBoxNome.Clear();
                 textBoxCPF.Clear();
                 textBoxRg.Clear();
@@ -73,7 +71,7 @@ namespace SysOticaForm
             }
             catch (SqlException ex)
             {
-                throw new ConexaoException("Falha na comunicação com o banco de dados. \n" + ex.Message);
+                MessageBox.Show("Falha na comunicação com o banco de dados. \n" + ex.Message);
             }
         }
 

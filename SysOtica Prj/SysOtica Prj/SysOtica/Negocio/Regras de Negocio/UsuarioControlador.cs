@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SysOtica.Negocio.Regras_de_Negocio
 {
@@ -16,12 +17,12 @@ namespace SysOtica.Negocio.Regras_de_Negocio
 
            public void VerificaPreenchimento(Usuario usuario)
            {
-                if (String.IsNullOrEmpty(usuario.Us_usuario)) { throw new CampoVazioException("Campo Usuario Vazio"); }
-                if (String.IsNullOrEmpty(usuario.Us_senha)) { throw new CampoVazioException("Campo Senha Vazio"); }
-                if (String.IsNullOrEmpty(usuario.Us_endereco)) { throw new CampoVazioException("Campo Endereço Vazio"); }
-               if (String.IsNullOrEmpty(usuario.Us_nome)) { throw new CampoVazioException("Campo Nome Vazio"); }
-               if (String.IsNullOrEmpty(usuario.Us_telefone)) { throw new CampoVazioException("Campo Telefone Vazio"); }
-               if (String.IsNullOrEmpty(usuario.Us_tipo)) { throw new CampoVazioException("Campo Tipo Vazio"); }
+                if (String.IsNullOrEmpty(usuario.Us_usuario)) { MessageBox.Show("Campo Usuario Vazio"); }
+                if (String.IsNullOrEmpty(usuario.Us_senha)) { MessageBox.Show("Campo Senha Vazio"); }
+                if (String.IsNullOrEmpty(usuario.Us_endereco)) { MessageBox.Show("Campo Endereço Vazio"); }
+               if (String.IsNullOrEmpty(usuario.Us_nome)) { MessageBox.Show("Campo Nome Vazio"); }
+               if (String.IsNullOrEmpty(usuario.Us_telefone)) { MessageBox.Show("Campo Telefone Vazio"); }
+               if (String.IsNullOrEmpty(usuario.Us_tipo)) { MessageBox.Show("Campo Tipo Vazio"); }
 
             }
 
@@ -30,7 +31,7 @@ namespace SysOtica.Negocio.Regras_de_Negocio
 
                         if (usuario == null)
                         {
-                            throw new GuidVazioException("Int vazio ou inválido");
+                            MessageBox.Show("Int vazio ou inválido");
                         }
 
                     }

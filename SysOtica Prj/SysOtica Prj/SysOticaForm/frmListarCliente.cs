@@ -1,6 +1,4 @@
-﻿using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Excecoes;
-using SysOtica.Negocio.Fachada;
+﻿using SysOticaForm.WebService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +13,9 @@ namespace SysOticaForm
 {
     public partial class frmListarCliente : Form
     {
-        public List<Cliente> listarCliente;
-        Fachada fachada = new Fachada();
+
+        private Service1Client webservice = new Service1Client();
+        private List<Cliente> listarCliente = new List<Cliente>();
 
         public frmListarCliente()
         {
@@ -25,7 +24,7 @@ namespace SysOticaForm
 
         private void frmListarCliente_Load(object sender, EventArgs e)
         {
-            dataGridViewCliente.DataSource = fachada.listarCliente();
+            dataGridViewCliente.DataSource = webservice.listarCliente();
         }
         private void buttonListar_Click(object sender, EventArgs e)
         {
@@ -34,7 +33,7 @@ namespace SysOticaForm
         public void atualizaGrid()
         {
             dataGridViewCliente.DataSource = null;
-            listarCliente = fachada.listarCliente();
+            listarCliente = webservice.listarCliente().ToList<Cliente>();
             dataGridViewCliente.DataSource = listarCliente;
             dataGridViewCliente.Update();
         }
@@ -68,7 +67,7 @@ namespace SysOticaForm
             }
             catch (Exception ex)
             {
-                throw new GuidVazioException("Falha na comunicação com o banco de dados. \n" + ex.Message);
+                MessageBox.Show("Falha na comunicação com o banco de dados. \n" + ex.Message);
             }
         }
         private void buttonExcluir_Click(object sender, EventArgs e)
@@ -91,14 +90,14 @@ namespace SysOticaForm
                 }
                 else
                 {
-                    fachada.excluirCliente(listarCliente.ElementAt(dataGridViewCliente.SelectedRows[0].Index));
+                    webservice.excluirCliente(listarCliente.ElementAt(dataGridViewCliente.SelectedRows[0].Index));
                     MessageBox.Show("Funcionário excluído com sucesso!");
                     atualizaGrid();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show ("Falha na comunicação com o banco de dados. \n" + ex.Message);
+                MessageBox.Show("Falha na comunicação com o banco de dados. \n" + ex.Message);
             }
         }
         private void dataGridViewCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -115,7 +114,7 @@ namespace SysOticaForm
         }
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            dataGridViewCliente.DataSource = fachada.pesquisarCliente(buttonPesquisar.Text);
+            dataGridViewCliente.DataSource = webservice.pesquisarCliente(buttonPesquisar.Text);
         }
     }
 }

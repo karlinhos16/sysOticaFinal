@@ -1,7 +1,4 @@
-﻿using SysOtica;
-using SysOtica.Negocio;
-using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Fachada;
+﻿using SysOticaForm.WebService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,8 +14,8 @@ namespace SysOticaForm
 {
     public partial class frmFornecedor : Form
     {
-        Fachada fachadaFornecedor = new Fachada();
-
+        private Service1Client webservice = new Service1Client();
+        private Fornecedor fornecedor = new Fornecedor();
 
         public frmFornecedor()
         {
@@ -71,28 +68,27 @@ namespace SysOticaForm
         {
             try
             {
-                Fornecedor fr = new Fornecedor();
                 {
-                    fr.Fr_razaosocial = textBoxRazaosocial.Text;
-                    fr.Fr_cnpj = maskedTextBoxCNPJ.Text;
-                    fr.Fr_inscricaoestadual = textBoxInscEstadual.Text;
-                    fr.Fr_fantasia = textBoxFantasia.Text;
-                    fr.Fr_endereco = textBoxEndereco.Text;
-                    fr.Fr_cidade = textBoxCidade.Text;
-                    fr.Fr_uf = textBoxUF.Text;
-                    fr.Fr_bairro = textBoxBairro.Text;
-                    fr.Fr_cep = maskedTextBoxCEP.Text;
-                    fr.Fr_contato = textBoxContato.Text;
-                    fr.Fr_telefone = maskedTextBoxTelefone.Text;
-                    fr.Fr_fax = textBoxFax.Text;
-                    fr.Fr_email = textBoxEmail.Text;
-                    fr.Fr_nomerepresentante = textBoxNomeRep.Text;
-                    fr.Fr_telefonerepresentante = maskedTextBoxTelRep.Text;
-                    fr.Fr_celularrepresentante = maskedTextBoxCelRep.Text;
-                    fr.Fr_observacoes = richTextBoxObservacoes.Text;
+                    fornecedor.Fr_razaosocial = textBoxRazaosocial.Text;
+                    fornecedor.Fr_cnpj = maskedTextBoxCNPJ.Text;
+                    fornecedor.Fr_inscricaoestadual = textBoxInscEstadual.Text;
+                    fornecedor.Fr_fantasia = textBoxFantasia.Text;
+                    fornecedor.Fr_endereco = textBoxEndereco.Text;
+                    fornecedor.Fr_cidade = textBoxCidade.Text;
+                    fornecedor.Fr_uf = textBoxUF.Text;
+                    fornecedor.Fr_bairro = textBoxBairro.Text;
+                    fornecedor.Fr_cep = maskedTextBoxCEP.Text;
+                    fornecedor.Fr_contato = textBoxContato.Text;
+                    fornecedor.Fr_telefone = maskedTextBoxTelefone.Text;
+                    fornecedor.Fr_fax = textBoxFax.Text;
+                    fornecedor.Fr_email = textBoxEmail.Text;
+                    fornecedor.Fr_nomerepresentante = textBoxNomeRep.Text;
+                    fornecedor.Fr_telefonerepresentante = maskedTextBoxTelRep.Text;
+                    fornecedor.Fr_celularrepresentante = maskedTextBoxCelRep.Text;
+                    fornecedor.Fr_observacoes = richTextBoxObservacoes.Text;
                 }
 
-                fachadaFornecedor.InserirFornecedor(fr);
+                webservice.InserirFornecedor(fornecedor);
                 MessageBox.Show("Fornecedor cadastrado com sucesso!");
                 LimparCampos();
 

@@ -1,5 +1,5 @@
-﻿using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Fachada;
+﻿
+using SysOticaForm.WebService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +14,8 @@ namespace SysOticaForm
 {
     public partial class formClienteAlterar : Form
     {
-        Cliente alteraCliente;
-        Fachada fachada = new Fachada();
+        private Service1Client webservice = new Service1Client();
+        private Cliente alteraCliente = new Cliente();
 
         public formClienteAlterar(Cliente c)
         {
@@ -83,7 +83,7 @@ namespace SysOticaForm
                 }
                 if (alteraCliente == null)
                 {
-                    fachada.alterarCliente(c);
+                    webservice.alterarCliente(c);
                     MessageBox.Show("Cliente alterado com sucesso!");
                     limparCampos();
                 }
@@ -109,7 +109,7 @@ namespace SysOticaForm
                     alteraCliente.Cl_profissao = textBoxProfissao.Text;
                     alteraCliente.Cl_observacoes = richTextBoxObservacoes.Text;
 
-                    fachada.alterarCliente(alteraCliente);
+                    webservice.alterarCliente(alteraCliente);
                     MessageBox.Show("Cliente alterado com sucesso!");
                     this.DialogResult = DialogResult.Yes;
                     limparCampos();

@@ -7,17 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SysOtica;
-using SysOtica.Negocio;
-using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Conexao;
 using System.Collections;
-using SysOtica.Negocio.Fachada;
+using SysOticaForm.WebService;
+
 
 namespace SysOticaForm
 {
     public partial class formProduto : Form
     {
+
+        private Service1Client webservice = new Service1Client();
+        private Produto produto = new Produto();
+        private List<Fornecedor> listfornecedor = new List<Fornecedor>();
+        private List<Categoria> listcategoria = new List<Categoria>();
+        
+
+
         string[] oculos = {"Arnette","Blue Bay","Christian Dior", "D&G",
                            "Diesel","Armani","mormaii","Oakley","Ray-Ban","Ralph Lauren","HB","Tommy Hilfiger",
                            "Turma da Mônica","Lacoste","Adidas","Playboy","Ray-Ban","Pierre Cardin","Hugo Boss"};
@@ -45,9 +50,8 @@ namespace SysOticaForm
 
         void carregaFornecedor()
         {
-            FornecedoresDados dadosforn = new FornecedoresDados();
-            List<Fornecedor> lista;
-            lista = dadosforn.listaFornecedor();
+            
+            listfornecedor = webservice.ListaFornecedor().ToList<Fornecedor>();
 
             DataTable data = new DataTable();
 
@@ -55,7 +59,7 @@ namespace SysOticaForm
             data.Columns.Add("fr_fantasia");
 
 
-          foreach (Fornecedor fornecedor in lista)
+            foreach (Fornecedor fornecedor in listfornecedor)
                 {
                         DataRow row = data.NewRow();
                         row["fr_id"] = fornecedor.Fr_id;
@@ -74,9 +78,8 @@ namespace SysOticaForm
 
         void carregaCategoria()
         {
-            CategoriaDados dadoscat = new CategoriaDados();
-            List<Categoria> lista;
-            lista = dadoscat.pesquisaCategoria();
+           
+            listcategoria = webservice.pesquisaCategoria().ToList<Categoria>();
 
             DataTable data = new DataTable();
 
@@ -84,7 +87,7 @@ namespace SysOticaForm
             data.Columns.Add("ct_nome");
 
 
-            foreach (Categoria cat in lista)
+            foreach (Categoria cat in listcategoria)
             {
                 DataRow row = data.NewRow();
                 row["ct_id"] = cat.Ct_id;
@@ -104,12 +107,6 @@ namespace SysOticaForm
 
             try
             {
-                Fachada fachada = new Fachada();
-                Produto produto = new Produto();
-
-
-                // string forn = cbFornecedor.SelectedItem.ToString();
-                //          int fornecedorID = Convert.ToInt32(forn.Substring(0, 1));//pega somente o ID do fornecedor
 
                 produto.Fornecedor.Fr_id = Convert.ToInt32(cmbFornecedor.SelectedValue.ToString());
                 produto.Categoria.Ct_id = Convert.ToInt32(cmbCategoria.SelectedValue.ToString());
@@ -129,7 +126,7 @@ namespace SysOticaForm
                 }
 
 
-                fachada.InserirProduto(produto);
+                webservice.InserirProduto(produto);
                 MessageBox.Show("Produto Cadastrado com Sucesso!");
                 LimparCampos();
             }

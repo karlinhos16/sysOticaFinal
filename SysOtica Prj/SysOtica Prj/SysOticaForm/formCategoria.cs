@@ -1,5 +1,4 @@
-﻿using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Fachada;
+﻿using SysOticaForm.WebService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,10 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SysOticaForm
 {
     public partial class formCategoria : Form
     {
+
+        private Service1Client webservice = new Service1Client();
+        private WebService.Categoria categoria = new WebService.Categoria();
+        
         public formCategoria()
         {
             InitializeComponent();
@@ -34,13 +38,9 @@ namespace SysOticaForm
 
             try
             {
-
-                Categoria cat = new Categoria();
-
-                cat.Ct_nome = Convert.ToString(comboCat.SelectedItem.ToString());
-
-                Fachada fac = new Fachada();
-                fac.cadastraCat(cat);
+                categoria.Ct_nome = Convert.ToString(comboCat.SelectedItem.ToString());
+                               
+                webservice.cadastraCat(categoria);
                 MessageBox.Show("Categoria cadastra com sucesso!");
 
             }

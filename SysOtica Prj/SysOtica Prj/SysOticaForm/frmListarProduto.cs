@@ -1,6 +1,4 @@
-﻿using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Excecoes;
-using SysOtica.Negocio.Fachada;
+﻿using SysOticaForm.WebService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +13,9 @@ namespace SysOticaForm
 {
     public partial class frmListarProduto : Form
     {
-        public List<Produto> listarProduto;
-        Fachada fachada = new Fachada();
+
+        private Service1Client webservice = new Service1Client();
+        private List<Produto> listarProduto = new List<Produto>();
 
 
         public frmListarProduto()
@@ -26,12 +25,9 @@ namespace SysOticaForm
 
         private void produtoBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-         
 
         }
 
-      
-  
         private void btnListar_Click(object sender, EventArgs e)
         {
             atualizaGrid();
@@ -41,14 +37,14 @@ namespace SysOticaForm
         {
             dataGridProduto.AutoGenerateColumns = false;
             dataGridProduto.DataSource = null;
-            listarProduto = fachada.listarProduto();
+            listarProduto = webservice.listarProduto().ToList<Produto>();
             dataGridProduto.DataSource = listarProduto;
             dataGridProduto.Update();
 
 
         }
 
-   
+
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
@@ -70,7 +66,7 @@ namespace SysOticaForm
                     pSelecionado = (dataGridProduto.SelectedRows[0].DataBoundItem as Produto);
 
                     formProdutoAlterar formAp = new formProdutoAlterar(pSelecionado);
-                    DialogResult dialog = formAp.ShowDialog(); 
+                    DialogResult dialog = formAp.ShowDialog();
 
                     if (dialog == DialogResult.Yes)
                     {
@@ -80,10 +76,10 @@ namespace SysOticaForm
             }
             catch (Exception ex)
             {
-                throw new GuidVazioException("Falha na comunicação com o banco de dados. \n" + ex.Message);
+                MessageBox.Show("Falha na comunicação com o banco de dados. \n" + ex.Message);
             }
-        
-            }
+
+        }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -105,7 +101,7 @@ namespace SysOticaForm
                 }
                 else
                 {
-                    fachada.excluirProduto(listarProduto.ElementAt(dataGridProduto.SelectedRows[0].Index));
+                    webservice.excluirProduto(listarProduto.ElementAt(dataGridProduto.SelectedRows[0].Index));
                     MessageBox.Show("Produto excluído com sucesso!");
                     atualizaGrid();
                 }
@@ -120,7 +116,7 @@ namespace SysOticaForm
 
         private void button4_Click(object sender, EventArgs e)
         {
-            dataGridProduto.DataSource = fachada.pesquisaProduto(btnPesquisar.Text);
+            dataGridProduto.DataSource = webservice.pesquisaProduto(btnPesquisar.Text);
         }
 
         private void dataGridProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -142,6 +138,6 @@ namespace SysOticaForm
         }
     }
 
- }
+}
 
-    
+

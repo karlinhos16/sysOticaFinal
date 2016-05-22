@@ -1,5 +1,4 @@
-﻿using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Fachada;
+﻿using SysOticaForm.WebService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +13,9 @@ namespace SysOticaForm
 {
     public partial class frmReceitaAlterar : Form
     {
-        Receita alteraReceita;
-        Fachada fachada = new Fachada();
+        
+        private Service1Client webservice = new Service1Client();
+        private Receita alteraReceita = new Receita();
 
 
 
@@ -97,7 +97,7 @@ namespace SysOticaForm
                 }
                 if (alteraReceita == null)
                 {
-                    fachada.AlterarReceita(receita);
+                    webservice.AlterarReceita(receita);
                     MessageBox.Show("Receita alterado com sucesso!");
                     LimparCampos();
                 }
@@ -147,7 +147,7 @@ namespace SysOticaForm
                     }
 
 
-                    fachada.AlterarReceita(alteraReceita);
+                    webservice.AlterarReceita(alteraReceita);
                     MessageBox.Show("Receita alterada com sucesso! ");
                     this.DialogResult = DialogResult.Yes;
                     LimparCampos();

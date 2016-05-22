@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SysOtica.Conexao
 {
-    interface IReceitaDados
+    public interface IReceitaDados
     {
         void inserirReceita(Receita receita);
         void alterarReceita(Receita receita);

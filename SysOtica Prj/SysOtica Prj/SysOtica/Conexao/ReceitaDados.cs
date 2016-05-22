@@ -145,7 +145,6 @@ namespace SysOtica.Conexao
 
         }
 
-
         public void alterarReceita(Receita receita)
         {
             try
@@ -340,8 +339,6 @@ namespace SysOtica.Conexao
 
 
         }
-
-
 
         public List<Receita> puxaReceita(string cl_nome)
         {

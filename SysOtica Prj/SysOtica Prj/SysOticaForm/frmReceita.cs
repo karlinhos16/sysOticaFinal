@@ -1,9 +1,4 @@
-﻿using SysOtica;
-using SysOtica.Conexao;
-using SysOtica.Negocio;
-using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Excecoes;
-using SysOtica.Negocio.Fachada;
+﻿using SysOticaForm.WebService;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,25 +16,26 @@ namespace SysOticaForm
     public partial class frmReceita : Form
     {
 
-       public List<Cliente> listaCli;
-       ReceitaDados dadosreceita = new ReceitaDados();
-    
+        private Service1Client webservice = new Service1Client();
+        private List<Cliente> listaCli = new List<Cliente>();
+        private Cliente cliente = new Cliente();
+        private Receita dadosreceita = new Receita();
 
         public frmReceita()
         {
             InitializeComponent();
-           
+
             carregaCliente();
 
         }
 
-        
+
 
         public void LimparCampos()
         {
-           
+
             txtLongeODesferico.Text = "";
-            maskedTextData.Text = null;           
+            maskedTextData.Text = null;
             txtLongeOEesferico.Text = "";
             txtPertoODesferico.Text = "";
             txtPertoOEesferico.Text = "";
@@ -58,10 +54,10 @@ namespace SysOticaForm
             txtLongeODdnp.Text = "";
             txtLongeOEdnp.Text = "";
             txtPertoODdnp.Text = "";
-            txtPertoOEdnp.Text = "";          
+            txtPertoOEdnp.Text = "";
             textNomeMedico.Text = "";
             textObs.Text = "";
-            
+
         }
 
         private void btnSalvar_Click_1(object sender, EventArgs e)
@@ -96,7 +92,7 @@ namespace SysOticaForm
                     receita.Rc_loddnp = Convert.ToDecimal(txtLongeODdnp.Text);
                     receita.Rc_loednp = Convert.ToDecimal(txtLongeOEdnp.Text);
                     receita.Rc_poddnp = Convert.ToDecimal(txtPertoODdnp.Text);
-                    receita.Rc_poednp = Convert.ToDecimal(txtPertoOEdnp.Text);            
+                    receita.Rc_poednp = Convert.ToDecimal(txtPertoOEdnp.Text);
                     receita.Rc_nomemedico = textNomeMedico.Text.Trim();
                     receita.Rc_observacoes = textObs.Text.Trim();
                     string data_validade = dateTimePickerValidade.Value.ToShortDateString();
@@ -118,28 +114,11 @@ namespace SysOticaForm
                     }
 
                     else if (DateTime.Parse(maskedTextData.Text) == Convert.ToDateTime(data_validade))
-
                     {
                         MessageBox.Show("Data de entrada e validade não podem ser as mesmas", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
 
                     }
-
-
-
-                    //Cliente cli 
-                    //cli.Cl_id = Convert.ToInt32(cmbCliente.SelectedValue.ToString());
-                    //receita.Cliente = cli;
-                    //listareceita.Add(receita);
-                    //cli.Listareceita = listareceita;
-
-                    //Cliente c = (Cliente)cmbCliente.SelectedItem;
-                    //cliente = c;
-                    //c.Cl_id = Convert.ToInt32(cmbCliente.SelectedValue.ToString());
-                    //receita.Cliente = cliente;
-                    //listareceita.Add(receita);
-                    //c.Listareceita = listareceita;
-
 
                     if (cmbCliente.SelectedIndex == -1)
                     {
@@ -148,44 +127,33 @@ namespace SysOticaForm
                     else
                     {
                         receita.Cliente.Cl_id = Convert.ToInt32(cmbCliente.SelectedValue.ToString());
-                        Fachada fachada = new Fachada();
-                        fachada.InserirReceita(receita);
+                        webservice.InserirReceita(receita);
                         MessageBox.Show("Receita cadastra com sucesso.");
                         LimparCampos();
 
                     }
                 }
 
-
-
-
-
-
-
-
             }
             catch (SqlException ex)
             {
                 MessageBox.Show("Erro ao conectar com o banco " + ex.Message);
             }
-            catch (CampoVazioException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Erro. " + ex.Message);
             }
 
-    }
+        }
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             Dispose();
         }
 
-
-
         void carregaCliente()
         {
-            ClienteDados dados = new ClienteDados();
-            listaCli = dados.listarCliente();
+            listaCli = webservice.listarCliente().ToList<Cliente>();
 
             DataTable dt = new DataTable();
 
@@ -204,13 +172,10 @@ namespace SysOticaForm
 
             cmbCliente.DataSource = dt;
             cmbCliente.DisplayMember = "cl_nome";
-            cmbCliente.ValueMember = "cl_id"; 
+            cmbCliente.ValueMember = "cl_id";
 
         }
 
-
-
-     
         private void frmReceita_Load(object sender, EventArgs e)
         {
             maskedTextData.Text = DateTime.Now.ToShortDateString();

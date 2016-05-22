@@ -37,7 +37,6 @@ C:\Users\daaysesantos\Desktop\sysOticaFinalizado\SysOtica Prj\SysOtica Prj\Socke
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SocketSysOtica\bin\Debug\SocketSysOtica.exe.config
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SocketSysOtica\bin\Debug\SocketSysOtica.exe
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SocketSysOtica\bin\Debug\SocketSysOtica.pdb
-C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.csprojResolveAssemblyReference.cache
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.Properties.Resources.resources
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.Socket_Server___DSD_MELO.resources
 C:\Users\Leonardo Marques\Desktop\Apresentacao\SysOtica Prj\SysOtica Prj\SocketSysOtica\obj\Debug\SocketSysOtica.csproj.GenerateResource.Cache

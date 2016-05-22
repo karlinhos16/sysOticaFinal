@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SysOticaForm.WebService;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,15 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SysOtica;
-using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio;
-using SysOtica.Negocio.Fachada;
+
 
 namespace SysOticaForm
 {
     public partial class frmUsuario : Form
     {
+
+        private Service1Client webservice = new Service1Client();
+        private Usuario usuario = new Usuario();
 
         public frmUsuario()
         {
@@ -40,23 +41,19 @@ namespace SysOticaForm
             maskedTextBoxTelefone.Text = "";
 
         }
-
-
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             try
             {
-                Usuario usu = new Usuario();
                 {
-                    usu.Us_usuario = tbUsuario.Text;
-                    usu.Us_senha = tbSenha.Text;
-                    usu.Us_tipo = cmbTipo.SelectedItem.ToString();
-                    usu.Us_nome = tbNome.Text;
-                    usu.Us_endereco = tbEndereco.Text;
-                    usu.Us_telefone = maskedTextBoxTelefone.Text;
+                    usuario.Us_usuario = tbUsuario.Text;
+                    usuario.Us_senha = tbSenha.Text;
+                    usuario.Us_tipo = cmbTipo.SelectedItem.ToString();
+                    usuario.Us_nome = tbNome.Text;
+                    usuario.Us_endereco = tbEndereco.Text;
+                    usuario.Us_telefone = maskedTextBoxTelefone.Text;
                 };
-                Fachada fachada = new Fachada();
-                fachada.InserirUsuario(usu);
+                webservice.InserirUsuario(usuario);
                 MessageBox.Show("Cadastro feito com Sucesso !");
                 LimpaCampos();
             }
@@ -65,13 +62,7 @@ namespace SysOticaForm
 
                 MessageBox.Show("Erro ao conectar com o Banco de Dados! " + ex.Message);
             }
-
-
-
         }
-
-
-
         private void buttonSair_Click(object sender, EventArgs e)
         {
             Dispose();

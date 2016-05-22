@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SysOtica.Conexao
 {
-    interface IProdutoDados
+    public interface IProdutoDados
     {
         void inserirProduto(Produto p);
         void alterarProduto(Produto p);

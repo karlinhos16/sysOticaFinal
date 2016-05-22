@@ -7,22 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SysOtica;
-using SysOtica.Conexao;
-using SysOtica.Negocio.Fachada;
-using SysOtica.Negocio.Classes_Basicas;
 using System.Data.SqlClient;
 using System.Xml;
+using SysOticaForm.WebService;
 
 namespace SysOticaForm
 {
     public partial class frmVenda : Form
     {
-        Venda venda;
-        Cliente cliente;
-        List<ProdutoVenda> listaDeItens = new List<ProdutoVenda>();
-        List<Receita> receitavenda = new List<Receita>();
-        Fachada fc = new Fachada();
+
+        private Service1Client webservice = new Service1Client();
+        private Cliente cliente = new Cliente();
+        private Venda venda = new Venda();
+        private List<ProdutoVenda> listaDeItens = new List<ProdutoVenda>();
+        private List<Receita> receitavenda = new List<Receita>();
+
+
 
         public frmVenda()
         {
@@ -31,11 +31,11 @@ namespace SysOticaForm
 
         private void frmVenda_Load(object sender, EventArgs e)
         {
-            CboCliente.DataSource = fc.listarCliente();
+            CboCliente.DataSource = webservice.listarCliente();
             CboCliente.ValueMember = "cl_id";
             CboCliente.DisplayMember = "cl_nome";
 
-            comboBoxProduto.DataSource = fc.listarProduto();
+            comboBoxProduto.DataSource = webservice.listarProduto();
             comboBoxProduto.ValueMember = "pr_id";
             comboBoxProduto.DisplayMember = "pr_descricao";
 
@@ -49,7 +49,7 @@ namespace SysOticaForm
 
             if (CboCliente.SelectedItem.ToString() != null)
             {
-                receitavenda = fc.vendaReceita();
+                receitavenda = webservice.vendaReceita().ToList<Receita>();
                 dataGridRec.DataSource = null;
                 dataGridRec.AutoGenerateColumns = false;
 
@@ -257,9 +257,9 @@ namespace SysOticaForm
             entVenda.Vn_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text);
             entVenda.Cliente = cliente;
             entVenda.Receita.Rc_id = Convert.ToInt32(txtIdReceita.Text);
-            entVenda.Listaitens = listaDeItens;
+            entVenda.Listaitens = listaDeItens.ToArray<ProdutoVenda>();
 
-            fc.inserir(entVenda);
+            webservice.inserir(entVenda);
 
             MessageBox.Show("Venda realizada com sucesso!");
             #endregion

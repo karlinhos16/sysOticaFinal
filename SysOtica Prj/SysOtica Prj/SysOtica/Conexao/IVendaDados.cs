@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SysOtica.Conexao
 {
-    interface IVendaDados
+    public interface IVendaDados
     {
         void inserir(Venda v);
         //List<Venda> listarVenda();

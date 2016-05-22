@@ -1,5 +1,4 @@
-﻿using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Fachada;
+﻿using SysOticaForm.WebService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,35 +13,30 @@ namespace SysOticaForm
 {
     public partial class frmListarUsuario : Form
     {
-        public List<Usuario> listarUsuario;
-        Fachada fachada = new Fachada();
-
-
+        private Service1Client webservice = new Service1Client();
+        private List<Usuario> listarUsuario = new List<Usuario>();
 
         public frmListarUsuario()
         {
             InitializeComponent();
         }
 
-     
+
 
         private void frmListarUsuario_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         void atualizaGrid()
         {
             dataGridUsuario.AutoGenerateColumns = false;
             dataGridUsuario.DataSource = null;
-            listarUsuario = fachada.ListaUsuario();
+            listarUsuario = webservice.ListaUsuario().ToList<Usuario>();
             dataGridUsuario.DataSource = listarUsuario;
             dataGridUsuario.Update();
 
-
         }
-
-
 
         private void dataGridUsuario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -120,7 +114,7 @@ namespace SysOticaForm
                 }
                 else
                 {
-                    fachada.ExcluirUsuario(listarUsuario.ElementAt(dataGridUsuario.SelectedRows[0].Index));
+                    webservice.ExcluirUsuario(listarUsuario.ElementAt(dataGridUsuario.SelectedRows[0].Index));
                     MessageBox.Show("Usuario excluído com sucesso!");
                     atualizaGrid();
                 }
@@ -135,7 +129,7 @@ namespace SysOticaForm
 
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
-            dataGridUsuario.DataSource = fachada.PesquisaUsuario(btnPesquisa.Text);
+            dataGridUsuario.DataSource = webservice.PesquisaUsuario(btnPesquisa.Text);
         }
 
         private void btnSair_Click(object sender, EventArgs e)

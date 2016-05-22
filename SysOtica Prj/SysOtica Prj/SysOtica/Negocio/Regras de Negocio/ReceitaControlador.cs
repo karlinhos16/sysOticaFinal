@@ -22,11 +22,11 @@ namespace SysOtica.Negocio.Regras_de_Negocio
 
             if (String.IsNullOrEmpty(receita.Rc_nomemedico))
             {
-                throw new CampoVazioException("campo medico vazio");
+                MessageBox.Show("campo medico vazio");
             }
             if (String.IsNullOrEmpty(receita.Rc_observacoes))
             {
-                throw new CampoVazioException("campo observacoes vazio");
+                MessageBox.Show("campo observacoes vazio");
             }
             
         }
@@ -35,11 +35,11 @@ namespace SysOtica.Negocio.Regras_de_Negocio
         {
             if (receita.Rc_nomemedico.Length < 5 || (!Regex.IsMatch(receita.Rc_nomemedico, caracteres)))
             {
-                throw new CampoVazioException("O campo nome do médico não pode conter números e não poder ter menos que 5 caracteres");
+                MessageBox.Show("O campo nome do médico não pode conter números e não poder ter menos que 5 caracteres");
             }
             if (receita.Rc_observacoes.Length < 10 || (!Regex.IsMatch(receita.Rc_observacoes, caracteres)))
             {
-                throw new CampoVazioException("O campo observações não pode conter números e não pode ter menos que 10 caracteres");
+                MessageBox.Show("O campo observações não pode conter números e não pode ter menos que 10 caracteres");
             }
 
         }
@@ -52,7 +52,7 @@ namespace SysOtica.Negocio.Regras_de_Negocio
 
                 if (receita == null)
                 {
-                    throw new GuidVazioException("Int vazio ou inválido");
+                   MessageBox.Show("Int vazio ou inválido");
                 }
 
             }

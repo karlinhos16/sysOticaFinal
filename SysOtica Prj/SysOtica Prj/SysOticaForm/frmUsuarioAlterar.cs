@@ -1,5 +1,4 @@
-﻿using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Fachada;
+﻿using SysOticaForm.WebService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,18 +13,17 @@ namespace SysOticaForm
 {
     public partial class frmUsuarioAlterar : Form
     {
-        Usuario alteraUsuario;
-        Fachada fachada = new Fachada();
+        private Service1Client webservice = new Service1Client();
+        private Usuario alteraUsuario = new Usuario();
 
 
-        public frmUsuarioAlterar(Usuario usu) 
+        public frmUsuarioAlterar(Usuario usu)
         {
             InitializeComponent();
 
             this.alteraUsuario = usu;
 
             if (alteraUsuario != null)
-
             {
 
                 textIDusuario.Text = Convert.ToString(alteraUsuario.Us_id);
@@ -36,7 +34,7 @@ namespace SysOticaForm
                 tbEndereco.Text = alteraUsuario.Us_endereco;
                 maskedTextBoxTelefone.Text = alteraUsuario.Us_telefone;
 
-            
+
             }
 
 
@@ -73,7 +71,7 @@ namespace SysOticaForm
                 }
                 if (alteraUsuario == null)
                 {
-                    fachada.AlterarUsuario(usu);
+                    webservice.AlterarUsuario(usu);
                     MessageBox.Show("Usuario alterado com sucesso!");
                     LimpaCampos();
                 }
@@ -86,7 +84,7 @@ namespace SysOticaForm
                     alteraUsuario.Us_endereco = tbEndereco.Text;
                     alteraUsuario.Us_telefone = maskedTextBoxTelefone.Text;
 
-                    fachada.AlterarUsuario(alteraUsuario);
+                    webservice.AlterarUsuario(alteraUsuario);
                     MessageBox.Show("Usuario alterado com sucesso!");
                     this.DialogResult = DialogResult.Yes;
                     LimpaCampos();

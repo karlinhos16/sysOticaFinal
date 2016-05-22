@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SysOtica.Negocio.Regras_de_Negocio
 {
@@ -15,23 +16,23 @@ namespace SysOtica.Negocio.Regras_de_Negocio
 
         public void VerificaPreenchimento(Fornecedor fr)
         {
-            if (String.IsNullOrEmpty(fr.Fr_bairro)) { throw new CampoVazioException("Campo Bairro Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_celularrepresentante)) { throw new CampoVazioException("Campo Celular Representante Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_cep)) { throw new CampoVazioException("Campo CEP Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_cidade)) { throw new CampoVazioException("Campo Cidade Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_cnpj)) { throw new CampoVazioException("Campo CNPJ Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_contato)) { throw new CampoVazioException("Campo Contato Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_email)) { throw new CampoVazioException("Campo E-mail Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_endereco)) { throw new CampoVazioException("Campo Endereço Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_fantasia)) { throw new CampoVazioException("Campo Nome Fantasia Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_fax)) { throw new CampoVazioException("Campo Fax Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_inscricaoestadual)) { throw new CampoVazioException("Campo Inscrição Estadual Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_nomerepresentante)) { throw new CampoVazioException("Campo Nome Representante Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_observacoes)) { throw new CampoVazioException("Campo Observações Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_razaosocial)) { throw new CampoVazioException("Campo Razão Social Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_telefone)) { throw new CampoVazioException("Campo Telefone Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_telefonerepresentante)) { throw new CampoVazioException("Campo Telefone Representante Vazio"); }
-            if (String.IsNullOrEmpty(fr.Fr_uf)) { throw new CampoVazioException("Campo UF Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_bairro)) { MessageBox.Show("Campo Bairro Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_celularrepresentante)) { MessageBox.Show("Campo Celular Representante Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_cep)) { MessageBox.Show("Campo CEP Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_cidade)) { MessageBox.Show("Campo Cidade Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_cnpj)) { MessageBox.Show("Campo CNPJ Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_contato)) { MessageBox.Show("Campo Contato Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_email)) { MessageBox.Show("Campo E-mail Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_endereco)) { MessageBox.Show("Campo Endereço Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_fantasia)) { MessageBox.Show("Campo Nome Fantasia Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_fax)) { MessageBox.Show("Campo Fax Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_inscricaoestadual)) { MessageBox.Show("Campo Inscrição Estadual Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_nomerepresentante)) { MessageBox.Show("Campo Nome Representante Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_observacoes)) { MessageBox.Show("Campo Observações Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_razaosocial)) { MessageBox.Show("Campo Razão Social Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_telefone)) { MessageBox.Show("Campo Telefone Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_telefonerepresentante)) { MessageBox.Show("Campo Telefone Representante Vazio"); }
+            if (String.IsNullOrEmpty(fr.Fr_uf)) { MessageBox.Show("Campo UF Vazio"); }
 
         }
 
@@ -40,7 +41,7 @@ namespace SysOtica.Negocio.Regras_de_Negocio
         {
             if (fr == null)
             {
-                throw new GuidVazioException("Int vazio ou inválido");
+                MessageBox.Show("Int vazio ou inválido");
             }
 
         }

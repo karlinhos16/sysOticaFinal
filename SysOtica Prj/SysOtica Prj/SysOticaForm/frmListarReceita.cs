@@ -1,6 +1,4 @@
-﻿using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Excecoes;
-using SysOtica.Negocio.Fachada;
+﻿using SysOticaForm.WebService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +14,8 @@ namespace SysOticaForm
 {
     public partial class frmListarReceita : Form
     {
-        public List<Receita> listarReceita;
-        Fachada fachada = new Fachada();
+        private Service1Client webservice = new Service1Client();
+        private List<Receita> listarReceita = new List<Receita>();
 
         public frmListarReceita()
         {
@@ -46,7 +44,7 @@ namespace SysOticaForm
         {
             DataGridreceita.AutoGenerateColumns = false;
             DataGridreceita.DataSource = null;
-            listarReceita = fachada.ListaReceita();
+            listarReceita = webservice.ListaReceita().ToList<Receita>();
             DataGridreceita.DataSource = listarReceita;
             vencimentoReceita();
 
@@ -144,7 +142,7 @@ namespace SysOticaForm
             }
             catch (Exception ex)
             {
-                throw new GuidVazioException("Falha na comunicação com o banco de dados. \n" + ex.Message);
+                MessageBox.Show("Falha na comunicação com o banco de dados. \n" + ex.Message);
             }
 
         }
@@ -169,7 +167,7 @@ namespace SysOticaForm
                 }
                 else
                 {
-                    fachada.ExcluirReceita(listarReceita.ElementAt(DataGridreceita.SelectedRows[0].Index));
+                    webservice.ExcluirReceita(listarReceita.ElementAt(DataGridreceita.SelectedRows[0].Index));
                     MessageBox.Show("Receita excluído com sucesso!");
                     atualizaGrid();
                 }
@@ -206,7 +204,7 @@ namespace SysOticaForm
                     DataGridreceita.DataSource = null;
                     DataGridreceita.AutoGenerateColumns = false;
                  
-                    DataGridreceita.DataSource = fachada.PuxaReceita(txtPesquisa.Text.Trim());
+                    DataGridreceita.DataSource = webservice.PuxaReceita(txtPesquisa.Text.Trim());
                     vencimentoReceita();
 
                 }
@@ -229,7 +227,3 @@ namespace SysOticaForm
 
 
 }
-
-
-
-

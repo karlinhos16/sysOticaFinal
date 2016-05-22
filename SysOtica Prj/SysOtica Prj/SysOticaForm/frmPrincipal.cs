@@ -64,9 +64,9 @@ namespace SysOticaForm
         {
             Dispose();
         }
-        
+
         private void receitaToolStripMenuItem_Click(object sender, EventArgs e)
-        {   
+        {
 
 
             frmReceita receita = new frmReceita();
@@ -114,7 +114,7 @@ namespace SysOticaForm
 
         private void testeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)

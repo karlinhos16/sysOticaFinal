@@ -1,5 +1,4 @@
-﻿using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Fachada;
+﻿using SysOticaForm.WebService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +13,8 @@ namespace SysOticaForm
 {
     public partial class formProdutoAlterar : Form
     {
-        Produto alteraProduto;
-        Fachada fachada = new Fachada();
+        private Service1Client webservice = new Service1Client();
+        private Produto produto = new Produto();
 
         string[] oculossol = {"Arnette","Blue Bay","Christian Dior", "D&G",
                                "Diesel","Armani","mormaii","Oakley","Ray-Ban","Ralph Lauren","HB" };
@@ -30,48 +29,28 @@ namespace SysOticaForm
 
         string[] categoria = { "Oculos de Grau", "Oculos de Sol", "Lente Bifocais ou Multifocais", "Lentes de Contato" };
 
-
-
-
-
         public formProdutoAlterar(Produto p)
         {
             InitializeComponent();
 
-            this.alteraProduto = p;
+            this.produto = p;
 
-            if (alteraProduto != null)
-
+            if (produto != null)
             {
-
-                 
-
-                textID.Text = Convert.ToString(alteraProduto.Pr_id);
-                tbDescricao.Text = alteraProduto.Pr_descricao;
-                cmbUnidade.Text = alteraProduto.Pr_unidade;               
-                cbGrife.Text = alteraProduto.Pr_grife;
-                tbValor.Text = Convert.ToString(alteraProduto.Pr_valor);
-                tbQuantidade.Text = Convert.ToString(alteraProduto.Pr_qtd);
-                tbEstoqueMinimo.Text = Convert.ToString(alteraProduto.Pr_estoqueminimo);
+                textID.Text = Convert.ToString(produto.Pr_id);
+                tbDescricao.Text = produto.Pr_descricao;
+                cmbUnidade.Text = produto.Pr_unidade;
+                cbGrife.Text = produto.Pr_grife;
+                tbValor.Text = Convert.ToString(produto.Pr_valor);
+                tbQuantidade.Text = Convert.ToString(produto.Pr_qtd);
+                tbEstoqueMinimo.Text = Convert.ToString(produto.Pr_estoqueminimo);
 
             }
-
-
         }
-
-
-      
-    
-
- 
-
-
-
         private void buttonSair_Click(object sender, EventArgs e)
         {
             Dispose();
         }
-
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             try
@@ -86,24 +65,24 @@ namespace SysOticaForm
                     p.Pr_valor = Convert.ToDecimal(tbValor.Text);
                     p.Pr_qtd = Convert.ToInt32(tbQuantidade.Text);
                     p.Pr_estoqueminimo = Convert.ToInt32(tbEstoqueMinimo.Text);
-              
+
                 }
-                if (alteraProduto == null)
+                if (produto == null)
                 {
-                    fachada.AlterarProduto(p);
+                    webservice.AlterarProduto(p);
                     MessageBox.Show("Produto alterado com sucesso!");
                     LimparCampos();
                 }
                 else
                 {
-                    alteraProduto.Pr_id = Convert.ToInt32(textID.Text);
-                    alteraProduto.Pr_descricao = tbDescricao.Text;
-                    alteraProduto.Pr_grife = cbGrife.SelectedItem.ToString();
-                    alteraProduto.Pr_valor = Convert.ToDecimal(tbValor.Text);
-                    alteraProduto.Pr_qtd = Convert.ToInt32(tbQuantidade.Text);
-                    alteraProduto.Pr_estoqueminimo = Convert.ToInt32(tbEstoqueMinimo.Text);
+                    produto.Pr_id = Convert.ToInt32(textID.Text);
+                    produto.Pr_descricao = tbDescricao.Text;
+                    produto.Pr_grife = cbGrife.SelectedItem.ToString();
+                    produto.Pr_valor = Convert.ToDecimal(tbValor.Text);
+                    produto.Pr_qtd = Convert.ToInt32(tbQuantidade.Text);
+                    produto.Pr_estoqueminimo = Convert.ToInt32(tbEstoqueMinimo.Text);
 
-                    fachada.AlterarProduto(alteraProduto);
+                    webservice.AlterarProduto(produto);
                     MessageBox.Show("Produto alterado com sucesso!");
                     this.DialogResult = DialogResult.Yes;
                     LimparCampos();
@@ -114,8 +93,6 @@ namespace SysOticaForm
                 MessageBox.Show("Falha na comunicação com o banco de dados. \n" + ex.Message);
             }
 
-
-
         }
 
         private void buttonLimpar_Click(object sender, EventArgs e)
@@ -125,7 +102,7 @@ namespace SysOticaForm
         public void LimparCampos()
         {
             tbDescricao.Text = "";
-            cmbUnidade.Text = "";                
+            cmbUnidade.Text = "";
             cbGrupo.Text = "";
             cbGrife.Text = "";
             tbValor.Text = "";
@@ -180,7 +157,8 @@ namespace SysOticaForm
                 }
 
             }
-            else {
+            else
+            {
                 MessageBox.Show("Selecione o uma categoria!");
             }
         }

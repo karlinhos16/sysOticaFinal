@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SysOtica.Conexao
 {
-    class UsuarioDados : IUsuarioDados
+    public class UsuarioDados : IUsuarioDados
     {
         ConexaoBD conn = new ConexaoBD();
 

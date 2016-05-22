@@ -1,6 +1,4 @@
-﻿using SysOtica.Negocio.Classes_Basicas;
-using SysOtica.Negocio.Excecoes;
-using SysOtica.Negocio.Fachada;
+﻿using SysOticaForm.WebService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +14,8 @@ namespace SysOticaForm
 {
     public partial class frmListaFornecedor : Form
     {
-       public List<Fornecedor> listaFornecedor;
-        Fachada fachada = new Fachada();
+        private Service1Client webservice = new Service1Client();
+        private List<Fornecedor> listaFornecedor = new List<Fornecedor>();
 
         public frmListaFornecedor()
         {
@@ -27,7 +25,7 @@ namespace SysOticaForm
         public void atualizaGrid()
         {
             dataGridFornecedor.DataSource = null;
-            listaFornecedor = fachada.ListaFornecedor();
+            listaFornecedor = webservice.ListaFornecedor().ToList<Fornecedor>();
             dataGridFornecedor.DataSource = listaFornecedor;
             dataGridFornecedor.Update();
         }
@@ -37,7 +35,7 @@ namespace SysOticaForm
 
         private void frmListaFornecedor_Load(object sender, EventArgs e)
         {
-         
+
 
         }
 
@@ -66,7 +64,7 @@ namespace SysOticaForm
                     frSelecionado = (dataGridFornecedor.SelectedRows[0].DataBoundItem as Fornecedor);
 
                     frmFornecedorAlterar frmForn = new frmFornecedorAlterar(frSelecionado);
-                    DialogResult dialog =  frmForn.ShowDialog();
+                    DialogResult dialog = frmForn.ShowDialog();
 
                     if (dialog == DialogResult.Yes)
                     {
@@ -76,7 +74,7 @@ namespace SysOticaForm
             }
             catch (Exception ex)
             {
-                 MessageBox.Show("Falha na comunicação com o banco de dados do Fornecedor \n" + ex.Message);
+                MessageBox.Show("Falha na comunicação com o banco de dados do Fornecedor \n" + ex.Message);
             }
         }
 
@@ -100,14 +98,14 @@ namespace SysOticaForm
                 }
                 else
                 {
-                    fachada.excluirFornecedor(listaFornecedor.ElementAt(dataGridFornecedor.SelectedRows[0].Index));
+                    webservice.excluirFornecedor(listaFornecedor.ElementAt(dataGridFornecedor.SelectedRows[0].Index));
                     MessageBox.Show("Fornecedor excluído com sucesso!");
                     atualizaGrid();
                 }
             }
             catch (SqlException ex)
             {
-                throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + ex.Message);
+                MessageBox.Show("Falha na comunicação com o banco de dados. \n" + ex.Message);
             }
         }
 
@@ -124,9 +122,9 @@ namespace SysOticaForm
             }
         }
 
-        private void btnPesquisar_Click(object sender, EventArgs e)              
+        private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            dataGridFornecedor.DataSource = fachada.pesquisarCliente(btnPesquisar.Text);
+            dataGridFornecedor.DataSource = webservice.pesquisarCliente(btnPesquisar.Text);
         }
 
         private void btnSair_Click(object sender, EventArgs e)
