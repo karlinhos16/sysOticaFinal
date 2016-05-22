@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxPesquisar = new System.Windows.Forms.TextBox();
             this.buttonPesquisar = new System.Windows.Forms.Button();
             this.buttonListar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewCliente = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,6 @@
             this.Observações = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonAlterar = new System.Windows.Forms.Button();
             this.buttonExcluir = new System.Windows.Forms.Button();
-            this.textBoxPesquisar = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCliente)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +63,6 @@
             this.groupBox1.Controls.Add(this.textBoxPesquisar);
             this.groupBox1.Controls.Add(this.buttonPesquisar);
             this.groupBox1.Controls.Add(this.buttonListar);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.dataGridViewCliente);
             this.groupBox1.Location = new System.Drawing.Point(-2, -1);
             this.groupBox1.Name = "groupBox1";
@@ -72,6 +70,13 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // textBoxPesquisar
+            // 
+            this.textBoxPesquisar.Location = new System.Drawing.Point(15, 15);
+            this.textBoxPesquisar.Name = "textBoxPesquisar";
+            this.textBoxPesquisar.Size = new System.Drawing.Size(218, 20);
+            this.textBoxPesquisar.TabIndex = 4;
             // 
             // buttonPesquisar
             // 
@@ -92,15 +97,6 @@
             this.buttonListar.Text = "Listar";
             this.buttonListar.UseVisualStyleBackColor = true;
             this.buttonListar.Click += new System.EventHandler(this.buttonListar_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(463, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Novo";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridViewCliente
             // 
@@ -287,13 +283,6 @@
             this.buttonExcluir.UseVisualStyleBackColor = true;
             this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
-            // textBoxPesquisar
-            // 
-            this.textBoxPesquisar.Location = new System.Drawing.Point(15, 15);
-            this.textBoxPesquisar.Name = "textBoxPesquisar";
-            this.textBoxPesquisar.Size = new System.Drawing.Size(218, 20);
-            this.textBoxPesquisar.TabIndex = 4;
-            // 
             // frmListarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,7 +306,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonPesquisar;
         private System.Windows.Forms.Button buttonListar;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridViewCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;

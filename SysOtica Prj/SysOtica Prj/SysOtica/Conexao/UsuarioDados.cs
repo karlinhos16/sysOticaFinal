@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SysOtica.Conexao
 {
@@ -135,6 +136,7 @@ namespace SysOtica.Conexao
 
 
         public List<Usuario> listaUsuario()
+
         {
             string sql = "SELECT  us_id, us_usuario, us_senha, us_nome,  us_tipo, us_endereco , us_telefone FROM Usuario";
             List<Usuario> lista = new List<Usuario>();

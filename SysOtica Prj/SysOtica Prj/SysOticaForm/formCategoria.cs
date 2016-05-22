@@ -16,8 +16,8 @@ namespace SysOticaForm
     {
 
         private Service1Client webservice = new Service1Client();
-        private WebService.Categoria categoria = new WebService.Categoria();
-        
+        private Categoria categoria = new Categoria();
+
         public formCategoria()
         {
             InitializeComponent();
@@ -29,17 +29,19 @@ namespace SysOticaForm
         private void btnSalvar_Click(object sender, EventArgs e)
         {
 
-            string categoria;
+            Categoria categoria = new Categoria();
 
-            categoria = comboCat.SelectedItem.ToString();
+            string ct;
 
-            MessageBox.Show("a opção escolhida foi:  " + categoria);
+            ct = comboCat.SelectedItem.ToString();
+
+            MessageBox.Show("a opção escolhida foi:  " + ct);
 
 
             try
             {
                 categoria.Ct_nome = Convert.ToString(comboCat.SelectedItem.ToString());
-                               
+
                 webservice.cadastraCat(categoria);
                 MessageBox.Show("Categoria cadastra com sucesso!");
 

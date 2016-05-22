@@ -24,11 +24,27 @@ namespace SysOticaForm
 
         private void frmListarCliente_Load(object sender, EventArgs e)
         {
-            dataGridViewCliente.DataSource = webservice.listarCliente();
+            try
+            {
+                dataGridViewCliente.DataSource = webservice.listarCliente();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
         private void buttonListar_Click(object sender, EventArgs e)
         {
-            atualizaGrid();
+            try
+            {
+                atualizaGrid();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
         public void atualizaGrid()
         {
@@ -114,7 +130,15 @@ namespace SysOticaForm
         }
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            dataGridViewCliente.DataSource = webservice.pesquisarCliente(buttonPesquisar.Text);
+            try
+            {
+                dataGridViewCliente.DataSource = webservice.pesquisarCliente(buttonPesquisar.Text);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace SysOticaForm
         private Produto produto = new Produto();
         private List<Fornecedor> listfornecedor = new List<Fornecedor>();
         private List<Categoria> listcategoria = new List<Categoria>();
-        
+
 
 
         string[] oculos = {"Arnette","Blue Bay","Christian Dior", "D&G",
@@ -50,7 +50,7 @@ namespace SysOticaForm
 
         void carregaFornecedor()
         {
-            
+
             listfornecedor = webservice.ListaFornecedor().ToList<Fornecedor>();
 
             DataTable data = new DataTable();
@@ -60,25 +60,25 @@ namespace SysOticaForm
 
 
             foreach (Fornecedor fornecedor in listfornecedor)
-                {
-                        DataRow row = data.NewRow();
-                        row["fr_id"] = fornecedor.Fr_id;
-                        row["fr_fantasia"] = fornecedor.Fr_fantasia;
-                        data.Rows.Add(row);
+            {
+                DataRow row = data.NewRow();
+                row["fr_id"] = fornecedor.Fr_id;
+                row["fr_fantasia"] = fornecedor.Fr_fantasia;
+                data.Rows.Add(row);
 
-                }
+            }
 
             cmbFornecedor.DataSource = data;
             cmbFornecedor.DisplayMember = "fr_fantasia";
             cmbFornecedor.ValueMember = "fr_id";
 
 
-            }
+        }
 
 
         void carregaCategoria()
         {
-           
+
             listcategoria = webservice.pesquisaCategoria().ToList<Categoria>();
 
             DataTable data = new DataTable();
@@ -104,12 +104,12 @@ namespace SysOticaForm
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-
             try
             {
 
-                produto.Fornecedor.Fr_id = Convert.ToInt32(cmbFornecedor.SelectedValue.ToString());
-                produto.Categoria.Ct_id = Convert.ToInt32(cmbCategoria.SelectedValue.ToString());
+                produto.Fornecedor = new Fornecedor();
+                produto.Categoria = new Categoria();
+
                 produto.Pr_descricao = tbDescricao.Text;
                 produto.Pr_unidade = cmbUnidade.SelectedItem.ToString();
                 produto.Pr_grife = cbGrife.SelectedItem.ToString();
@@ -118,6 +118,15 @@ namespace SysOticaForm
                 produto.Pr_valor = Convert.ToDecimal(tbValor.Text);
                 produto.Pr_qtd = int.Parse(tbQuantidade.Text);
                 produto.Pr_estoqueminimo = int.Parse(tbEstoqueMinimo.Text);
+
+                int aux = 0;
+                int.TryParse(cmbFornecedor.SelectedValue.ToString(), out aux);
+                produto.Fornecedor.Fr_id = aux;
+                int.TryParse(cmbCategoria.SelectedValue.ToString(), out aux);
+                produto.Categoria.Ct_id = aux;
+
+
+
 
                 if (DateTime.Parse(data_entrada) < DateTime.Today)
                 {
@@ -129,12 +138,15 @@ namespace SysOticaForm
                 webservice.InserirProduto(produto);
                 MessageBox.Show("Produto Cadastrado com Sucesso!");
                 LimparCampos();
+
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show("Erro no Cadastro do produto" + ex.Message);
+                MessageBox.Show("Erro no Cadastro do produto " + ex.Message);
             }
+
+
 
         }
 
@@ -168,7 +180,6 @@ namespace SysOticaForm
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbCategoria.SelectedIndex == 0)// seleciona o primeiro index do combobox
-
             {
                 cbGrife.Items.Clear();
                 for (int i = 0; i < oculos.Count(); i++)
@@ -203,4 +214,4 @@ namespace SysOticaForm
 
 
 }
-    
+
