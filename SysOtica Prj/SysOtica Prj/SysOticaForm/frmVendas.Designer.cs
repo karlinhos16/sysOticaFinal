@@ -256,6 +256,7 @@
             this.txtIdReceita.Name = "txtIdReceita";
             this.txtIdReceita.Size = new System.Drawing.Size(80, 20);
             this.txtIdReceita.TabIndex = 43;
+            this.txtIdReceita.Text = "0";
             // 
             // label11
             // 
