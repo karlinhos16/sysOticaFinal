@@ -14,8 +14,8 @@ namespace SysOticaForm
     public partial class frmListarProduto : Form
     {
 
-        private Service1Client webservice = new Service1Client();
-        private List<Produto> listarProduto = new List<Produto>();
+        private Service1Client webservice = new WebService.Service1Client();
+        private List<WebService.Produto> listarProduto = new List<WebService.Produto>();
 
 
         public frmListarProduto()
@@ -37,7 +37,7 @@ namespace SysOticaForm
         {
             dataGridProduto.AutoGenerateColumns = false;
             dataGridProduto.DataSource = null;
-            listarProduto = webservice.listarProduto().ToList<Produto>();
+            listarProduto = webservice.listarProduto().ToList<WebService.Produto>();
             dataGridProduto.DataSource = listarProduto;
             dataGridProduto.Update();
 
@@ -62,8 +62,8 @@ namespace SysOticaForm
                 }
                 else
                 {
-                    Produto pSelecionado;
-                    pSelecionado = (dataGridProduto.SelectedRows[0].DataBoundItem as Produto);
+                    WebService.Produto pSelecionado;
+                    pSelecionado = (dataGridProduto.SelectedRows[0].DataBoundItem as WebService.Produto);
 
                     formProdutoAlterar formAp = new formProdutoAlterar(pSelecionado);
                     DialogResult dialog = formAp.ShowDialog();
@@ -83,7 +83,7 @@ namespace SysOticaForm
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Produto c = new Produto();
+            Produto c = new WebService.Produto();
 
             try
             {
