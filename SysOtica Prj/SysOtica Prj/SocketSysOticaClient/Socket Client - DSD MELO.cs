@@ -92,7 +92,7 @@ namespace SocketSysOticaClient
                 }
                 else
                 {
-                    rtbConversa.Text = "Eu: " + mensagem + "\n";
+                    rtbConversa.Text = "Eu: " + mensagem + " \n";
                 }
             }
             catch (Exception ex)
@@ -113,7 +113,7 @@ namespace SocketSysOticaClient
                 }
                 else
                 {
-                    rtbConversa.Text = "Server: " + mensagem + "\n";
+                    rtbConversa.Text = "Server: " + mensagem + " \n";
                 }
             }
             catch (Exception ex)

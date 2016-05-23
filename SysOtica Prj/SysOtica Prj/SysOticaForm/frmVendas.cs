@@ -39,8 +39,7 @@ namespace SysOticaForm
             comboBoxProduto.ValueMember = "pr_id";
             comboBoxProduto.DisplayMember = "pr_descricao";
 
-            preencheReceita();
-            vencimentoReceita();
+           
         }
 
        public void vencimentoReceita()
@@ -176,6 +175,7 @@ namespace SysOticaForm
                     buttonNovoItem.Enabled = false;
                     textBoxQtd.Enabled = false;
                     buttonExcluir.Enabled = false;
+                    groupBoxVenda.Visible = true;
                 }
             }
             catch
@@ -294,7 +294,7 @@ namespace SysOticaForm
 
                     doc.SelectSingleNode("/VendaNFe").AppendChild(linha);
 
-                    doc.Save(@"C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\VendasNFe.xml");
+                    doc.Save(@"C:\Users\Leonardo Marques\Desktop\SysOtica\SysOtica Prj\SysOtica Prj\VendasNFe.xml");
                     //Caminho Leo : C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\VendasNFe.xml
                     MessageBox.Show("Nota Fiscal XML gerado com sucesso!");
 
@@ -483,22 +483,23 @@ namespace SysOticaForm
                             }
 
                         }
+
                         if (dataGridRec.RowCount == 0)
                         {
                             MessageBox.Show("O cliente selecionado não possui receitas cadastradas");
 
                             DialogResult resultado = MessageBox.Show("Deseja realmente continuar com essa Compra? ", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (resultado == DialogResult.Yes) 
+                            if (resultado == DialogResult.Yes)
                             {
                                 comboBoxCliente.Enabled = false;
                                 return;
                             }
-                            else if(resultado == DialogResult.No)
+                            else if (resultado == DialogResult.No)
                             {
                                 comboBoxCliente.Enabled = true;
                                 return;
                             }
-                         
+
 
 
 

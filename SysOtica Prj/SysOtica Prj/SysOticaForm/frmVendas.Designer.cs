@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVendas));
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBoxVenda = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -44,7 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxReceita = new System.Windows.Forms.GroupBox();
             this.txtIdReceita = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dataGridRec = new System.Windows.Forms.DataGridView();
@@ -53,7 +53,7 @@
             this.Obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dt_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.validade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxItens = new System.Windows.Forms.GroupBox();
             this.buttonExcluir = new System.Windows.Forms.Button();
             this.textBoxQtdMult = new System.Windows.Forms.TextBox();
             this.textBoxPegarProduto = new System.Windows.Forms.TextBox();
@@ -77,39 +77,39 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBoxCliente = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxSelec = new System.Windows.Forms.GroupBox();
+            this.groupBoxVenda.SuspendLayout();
+            this.groupBoxReceita.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRec)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxItens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBoxSelec.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox4
+            // groupBoxVenda
             // 
-            this.groupBox4.Controls.Add(this.button1);
-            this.groupBox4.Controls.Add(this.button4);
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.dateTimePickerAtual);
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.comboBoxFP);
-            this.groupBox4.Controls.Add(this.textBoxValorPago);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.textBoxDes);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Location = new System.Drawing.Point(9, 466);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(922, 111);
-            this.groupBox4.TabIndex = 7;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Venda";
+            this.groupBoxVenda.Controls.Add(this.button4);
+            this.groupBoxVenda.Controls.Add(this.button3);
+            this.groupBoxVenda.Controls.Add(this.button2);
+            this.groupBoxVenda.Controls.Add(this.dateTimePickerAtual);
+            this.groupBoxVenda.Controls.Add(this.label10);
+            this.groupBoxVenda.Controls.Add(this.comboBoxFP);
+            this.groupBoxVenda.Controls.Add(this.textBoxValorPago);
+            this.groupBoxVenda.Controls.Add(this.label9);
+            this.groupBoxVenda.Controls.Add(this.label8);
+            this.groupBoxVenda.Location = new System.Drawing.Point(335, 466);
+            this.groupBoxVenda.Name = "groupBoxVenda";
+            this.groupBoxVenda.Size = new System.Drawing.Size(596, 111);
+            this.groupBoxVenda.TabIndex = 7;
+            this.groupBoxVenda.TabStop = false;
+            this.groupBoxVenda.Text = "Venda";
+            this.groupBoxVenda.Visible = false;
             // 
             // button1
             // 
             this.button1.Image = global::SysOticaForm.Properties.Resources.carrinho;
-            this.button1.Location = new System.Drawing.Point(20, 26);
+            this.button1.Location = new System.Drawing.Point(20, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 73);
             this.button1.TabIndex = 73;
@@ -118,7 +118,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(803, 85);
+            this.button4.Location = new System.Drawing.Point(426, 74);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(119, 23);
             this.button4.TabIndex = 72;
@@ -128,7 +128,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(803, 56);
+            this.button3.Location = new System.Drawing.Point(426, 45);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(120, 23);
             this.button3.TabIndex = 71;
@@ -138,7 +138,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(802, 26);
+            this.button2.Location = new System.Drawing.Point(425, 15);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 23);
             this.button2.TabIndex = 70;
@@ -151,7 +151,7 @@
             this.dateTimePickerAtual.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dateTimePickerAtual.Enabled = false;
             this.dateTimePickerAtual.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerAtual.Location = new System.Drawing.Point(607, 43);
+            this.dateTimePickerAtual.Location = new System.Drawing.Point(239, 69);
             this.dateTimePickerAtual.Name = "dateTimePickerAtual";
             this.dateTimePickerAtual.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dateTimePickerAtual.Size = new System.Drawing.Size(92, 20);
@@ -160,7 +160,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(575, 43);
+            this.label10.Location = new System.Drawing.Point(200, 76);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 13);
             this.label10.TabIndex = 68;
@@ -174,14 +174,14 @@
             "À Vista",
             "Débito",
             "Crédito"});
-            this.comboBoxFP.Location = new System.Drawing.Point(421, 39);
+            this.comboBoxFP.Location = new System.Drawing.Point(239, 19);
             this.comboBoxFP.Name = "comboBoxFP";
             this.comboBoxFP.Size = new System.Drawing.Size(117, 21);
             this.comboBoxFP.TabIndex = 67;
             // 
             // textBoxValorPago
             // 
-            this.textBoxValorPago.Location = new System.Drawing.Point(185, 74);
+            this.textBoxValorPago.Location = new System.Drawing.Point(6, 36);
             this.textBoxValorPago.Name = "textBoxValorPago";
             this.textBoxValorPago.ReadOnly = true;
             this.textBoxValorPago.Size = new System.Drawing.Size(97, 20);
@@ -190,7 +190,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(304, 43);
+            this.label9.Location = new System.Drawing.Point(122, 20);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 13);
             this.label9.TabIndex = 65;
@@ -199,7 +199,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(112, 77);
+            this.label8.Location = new System.Drawing.Point(6, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 13);
             this.label8.TabIndex = 64;
@@ -207,7 +207,7 @@
             // 
             // textBoxDes
             // 
-            this.textBoxDes.Location = new System.Drawing.Point(185, 40);
+            this.textBoxDes.Location = new System.Drawing.Point(192, 31);
             this.textBoxDes.Name = "textBoxDes";
             this.textBoxDes.Size = new System.Drawing.Size(63, 20);
             this.textBoxDes.TabIndex = 63;
@@ -217,7 +217,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(118, 43);
+            this.label7.Location = new System.Drawing.Point(125, 34);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 61;
@@ -240,17 +240,17 @@
             this.label6.TabIndex = 60;
             this.label6.Text = "Valor Total:";
             // 
-            // groupBox3
+            // groupBoxReceita
             // 
-            this.groupBox3.Controls.Add(this.txtIdReceita);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.dataGridRec);
-            this.groupBox3.Location = new System.Drawing.Point(9, 340);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(922, 120);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Receita";
+            this.groupBoxReceita.Controls.Add(this.txtIdReceita);
+            this.groupBoxReceita.Controls.Add(this.label11);
+            this.groupBoxReceita.Controls.Add(this.dataGridRec);
+            this.groupBoxReceita.Location = new System.Drawing.Point(9, 340);
+            this.groupBoxReceita.Name = "groupBoxReceita";
+            this.groupBoxReceita.Size = new System.Drawing.Size(922, 120);
+            this.groupBoxReceita.TabIndex = 6;
+            this.groupBoxReceita.TabStop = false;
+            this.groupBoxReceita.Text = "Receita";
             // 
             // txtIdReceita
             // 
@@ -327,29 +327,29 @@
             this.validade.Name = "validade";
             this.validade.ReadOnly = true;
             // 
-            // groupBox2
+            // groupBoxItens
             // 
-            this.groupBox2.Controls.Add(this.buttonExcluir);
-            this.groupBox2.Controls.Add(this.textBoxQtdMult);
-            this.groupBox2.Controls.Add(this.textBoxPegarProduto);
-            this.groupBox2.Controls.Add(this.textBoxProdID);
-            this.groupBox2.Controls.Add(this.dataGridViewItens);
-            this.groupBox2.Controls.Add(this.buttonNovoItem);
-            this.groupBox2.Controls.Add(this.textBoxValor);
-            this.groupBox2.Controls.Add(this.textBoxQtd);
-            this.groupBox2.Controls.Add(this.comboBoxProduto);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(9, 57);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(922, 277);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Itens da Venda";
+            this.groupBoxItens.Controls.Add(this.buttonExcluir);
+            this.groupBoxItens.Controls.Add(this.textBoxQtdMult);
+            this.groupBoxItens.Controls.Add(this.textBoxPegarProduto);
+            this.groupBoxItens.Controls.Add(this.textBoxProdID);
+            this.groupBoxItens.Controls.Add(this.dataGridViewItens);
+            this.groupBoxItens.Controls.Add(this.buttonNovoItem);
+            this.groupBoxItens.Controls.Add(this.textBoxValor);
+            this.groupBoxItens.Controls.Add(this.textBoxQtd);
+            this.groupBoxItens.Controls.Add(this.comboBoxProduto);
+            this.groupBoxItens.Controls.Add(this.label5);
+            this.groupBoxItens.Controls.Add(this.label4);
+            this.groupBoxItens.Controls.Add(this.textBox4);
+            this.groupBoxItens.Controls.Add(this.label3);
+            this.groupBoxItens.Controls.Add(this.label2);
+            this.groupBoxItens.Controls.Add(this.label6);
+            this.groupBoxItens.Location = new System.Drawing.Point(9, 57);
+            this.groupBoxItens.Name = "groupBoxItens";
+            this.groupBoxItens.Size = new System.Drawing.Size(922, 277);
+            this.groupBoxItens.TabIndex = 5;
+            this.groupBoxItens.TabStop = false;
+            this.groupBoxItens.Text = "Itens da Venda";
             // 
             // buttonExcluir
             // 
@@ -563,37 +563,52 @@
             this.label12.TabIndex = 9;
             this.label12.Text = "Cliente:";
             // 
+            // groupBoxSelec
+            // 
+            this.groupBoxSelec.Controls.Add(this.button1);
+            this.groupBoxSelec.Controls.Add(this.label7);
+            this.groupBoxSelec.Controls.Add(this.textBoxDes);
+            this.groupBoxSelec.Location = new System.Drawing.Point(9, 467);
+            this.groupBoxSelec.Name = "groupBoxSelec";
+            this.groupBoxSelec.Size = new System.Drawing.Size(320, 110);
+            this.groupBoxSelec.TabIndex = 8;
+            this.groupBoxSelec.TabStop = false;
+            this.groupBoxSelec.Text = "Selecionar Produtos";
+            // 
             // frmVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 587);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBoxSelec);
+            this.Controls.Add(this.groupBoxVenda);
+            this.Controls.Add(this.groupBoxReceita);
+            this.Controls.Add(this.groupBoxItens);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmVendas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VENDAS";
             this.Load += new System.EventHandler(this.frmVendas_Load);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxVenda.ResumeLayout(false);
+            this.groupBoxVenda.PerformLayout();
+            this.groupBoxReceita.ResumeLayout(false);
+            this.groupBoxReceita.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRec)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxItens.ResumeLayout(false);
+            this.groupBoxItens.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItens)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBoxSelec.ResumeLayout(false);
+            this.groupBoxSelec.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBoxVenda;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
@@ -607,7 +622,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxReceita;
         private System.Windows.Forms.TextBox txtIdReceita;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dataGridRec;
@@ -616,7 +631,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Obs;
         private System.Windows.Forms.DataGridViewTextBoxColumn dt_entrada;
         private System.Windows.Forms.DataGridViewTextBoxColumn validade;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxItens;
         private System.Windows.Forms.Button buttonExcluir;
         private System.Windows.Forms.TextBox textBoxQtdMult;
         private System.Windows.Forms.TextBox textBoxPegarProduto;
@@ -641,5 +656,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonIncluir;
+        private System.Windows.Forms.GroupBox groupBoxSelec;
     }
 }

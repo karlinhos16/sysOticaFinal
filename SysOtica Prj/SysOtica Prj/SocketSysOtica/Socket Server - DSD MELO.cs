@@ -134,7 +134,7 @@ namespace SocketSysOtica
                 {
                     if (burlar == true || podeEscrever() == true)
                     {
-                        rtbConversa.Text += "Eu: " + mensagem + "\n";
+                        rtbConversa.Text += "Eu: " + mensagem + " \n";
                     }
                 }
             }
