@@ -179,7 +179,14 @@ namespace SysOticaForm
 
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbCategoria.SelectedIndex == 0)// seleciona o primeiro index do combobox
+            if (cmbCategoria.SelectedIndex == -1)
+            {
+
+                MessageBox.Show("Selecione uma categoria, por favor");
+                return;
+            }
+
+            else if (cmbCategoria.SelectedIndex == 0)// seleciona o primeiro index do combobox
             {
                 cbGrife.Items.Clear();
                 for (int i = 0; i < oculos.Count(); i++)

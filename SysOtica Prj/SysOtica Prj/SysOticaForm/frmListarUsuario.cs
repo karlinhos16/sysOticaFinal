@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -41,7 +42,7 @@ namespace SysOticaForm
         private void dataGridUsuario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (dataGridUsuario.SelectedRows[0].Index >= 0)
+            if (dataGridUsuario.SelectedRows[0].Index >= -1)
             {
                 MessageBox.Show("Campo Selecionado!");
                 Usuario usuSelecionado = listarUsuario.ElementAt(dataGridUsuario.SelectedRows[0].Index);
@@ -78,10 +79,12 @@ namespace SysOticaForm
                     usuSelecionado = (dataGridUsuario.SelectedRows[0].DataBoundItem as Usuario);
 
                     frmUsuarioAlterar formUs = new frmUsuarioAlterar(usuSelecionado);
+                    this.WindowState = FormWindowState.Minimized;
                     DialogResult dialog = formUs.ShowDialog();
 
                     if (dialog == DialogResult.Yes)
                     {
+                        this.WindowState = FormWindowState.Normal;
                         atualizaGrid();
                     }
                 }
@@ -129,7 +132,37 @@ namespace SysOticaForm
 
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
-            dataGridUsuario.DataSource = webservice.PesquisaUsuario(btnPesquisa.Text);
+            try
+            {
+                string caracteres = "^[ a-zA-Z]+$";
+                if (textPesquisa.Text.Length < 3)
+                {
+
+                    MessageBox.Show("Por Favor, digite um nome com no mínimo 3 caracteres");
+                    return;
+                }
+                if (!Regex.IsMatch(textPesquisa.Text, caracteres))
+                {
+                    MessageBox.Show("Este campo só aceita letras");
+                    return;
+                }
+
+                if (textPesquisa.Text != "")
+                {
+
+                    dataGridUsuario.DataSource = null;
+                    dataGridUsuario.AutoGenerateColumns = false;
+                    dataGridUsuario.DataSource = webservice.PesquisaUsuario(textPesquisa.Text.Trim());
+
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Erro listar Usuario");
+
+            }
+
         }
 
         private void btnSair_Click(object sender, EventArgs e)

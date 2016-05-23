@@ -31,17 +31,9 @@ namespace SysOticaForm
 
             Categoria categoria = new Categoria();
 
-            string ct;
-
-            ct = comboCat.SelectedItem.ToString();
-
-            MessageBox.Show("a opção escolhida foi:  " + ct);
-
-
             try
             {
-                categoria.Ct_nome = Convert.ToString(comboCat.SelectedItem.ToString());
-
+                categoria.Ct_nome = textcat.Text;
                 webservice.cadastraCat(categoria);
                 MessageBox.Show("Categoria cadastra com sucesso!");
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReceitaAlterar));
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -100,7 +101,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(499, 439);
+            this.btnImprimir.Location = new System.Drawing.Point(454, 426);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(103, 33);
             this.btnImprimir.TabIndex = 9;
@@ -109,7 +110,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(386, 439);
+            this.btnCancelar.Location = new System.Drawing.Point(337, 426);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(110, 33);
             this.btnCancelar.TabIndex = 8;
@@ -119,7 +120,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(608, 439);
+            this.btnSalvar.Location = new System.Drawing.Point(563, 426);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(105, 33);
             this.btnSalvar.TabIndex = 7;
@@ -170,9 +171,9 @@
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(69, 3);
+            this.groupBox2.Location = new System.Drawing.Point(28, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(644, 430);
+            this.groupBox2.Size = new System.Drawing.Size(644, 401);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados de Lançamento";
@@ -356,7 +357,7 @@
             // 
             // textObs
             // 
-            this.textObs.Location = new System.Drawing.Point(34, 344);
+            this.textObs.Location = new System.Drawing.Point(34, 311);
             this.textObs.Multiline = true;
             this.textObs.Name = "textObs";
             this.textObs.Size = new System.Drawing.Size(527, 68);
@@ -365,7 +366,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(34, 327);
+            this.label16.Location = new System.Drawing.Point(34, 294);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(73, 13);
             this.label16.TabIndex = 20;
@@ -373,7 +374,7 @@
             // 
             // textNomeMedico
             // 
-            this.textNomeMedico.Location = new System.Drawing.Point(34, 300);
+            this.textNomeMedico.Location = new System.Drawing.Point(34, 267);
             this.textNomeMedico.Name = "textNomeMedico";
             this.textNomeMedico.Size = new System.Drawing.Size(527, 20);
             this.textNomeMedico.TabIndex = 19;
@@ -381,7 +382,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(31, 282);
+            this.label15.Location = new System.Drawing.Point(31, 249);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(225, 13);
             this.label15.TabIndex = 18;
@@ -629,15 +630,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 484);
+            this.ClientSize = new System.Drawing.Size(693, 484);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmReceitaAlterar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmReceitaAlterar";
+            this.Text = "ALTERA RECEITA";
             this.Load += new System.EventHandler(this.frmReceitaAlterar_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

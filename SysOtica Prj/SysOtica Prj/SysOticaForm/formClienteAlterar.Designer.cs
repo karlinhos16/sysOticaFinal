@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formClienteAlterar));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
@@ -118,7 +119,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(13, -4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(857, 444);
+            this.groupBox1.Size = new System.Drawing.Size(810, 430);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -152,7 +153,7 @@
             // 
             this.textBoxPais.Location = new System.Drawing.Point(696, 194);
             this.textBoxPais.Name = "textBoxPais";
-            this.textBoxPais.Size = new System.Drawing.Size(73, 20);
+            this.textBoxPais.Size = new System.Drawing.Size(87, 20);
             this.textBoxPais.TabIndex = 58;
             // 
             // dateTimePicker1
@@ -160,7 +161,7 @@
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(601, 66);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(168, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(182, 20);
             this.dateTimePicker1.TabIndex = 57;
             // 
             // textBoxCPF
@@ -455,7 +456,7 @@
             // 
             // buttonSair
             // 
-            this.buttonSair.Location = new System.Drawing.Point(799, 473);
+            this.buttonSair.Location = new System.Drawing.Point(711, 432);
             this.buttonSair.Name = "buttonSair";
             this.buttonSair.Size = new System.Drawing.Size(75, 23);
             this.buttonSair.TabIndex = 1;
@@ -465,7 +466,7 @@
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(686, 473);
+            this.buttonSalvar.Location = new System.Drawing.Point(628, 432);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
             this.buttonSalvar.TabIndex = 2;
@@ -477,12 +478,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 512);
+            this.ClientSize = new System.Drawing.Size(838, 458);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.buttonSair);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "formClienteAlterar";
-            this.Text = "formClienteAlterar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ALTERA CLIENTE";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

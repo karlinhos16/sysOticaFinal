@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SysOtica.Conexao
 {
@@ -99,7 +100,7 @@ namespace SysOtica.Conexao
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "UPDATE funcionario SET  fr_razaosocial = @fr_razaosocial, fr_inscricaoestadual =@fr_inscricaoestadual, fr_fantasia = @fr_fantasia, fr_endereco =@fr_endereco, fr_cidade = @fr_cidade, fr_uf = @fr_uf, fr_bairro = @fr_bairro, fr_cep = @fr_cep, fr_contato = @fr_contato, fr_telefone = @fr_telefone, fr_fax = @fr_fax, fr_email =@fr_email, fr_nomerepresentante = @fr_nomerepresentante, fr_telefonerepresentante = @fr_telefonerepresentante, fr_celularrepresentante = @fr_celularrepresentante, fr_observacoes = @fr_observacoes, fr_cnpj = @fr_cnpj WHERE fr_id = @fr_id";
+                string sql = "UPDATE fornecedor SET  fr_razaosocial = @fr_razaosocial, fr_inscricaoestadual =@fr_inscricaoestadual, fr_fantasia = @fr_fantasia, fr_endereco =@fr_endereco, fr_cidade = @fr_cidade, fr_uf = @fr_uf, fr_bairro = @fr_bairro, fr_cep = @fr_cep, fr_contato = @fr_contato, fr_telefone = @fr_telefone, fr_fax = @fr_fax, fr_email =@fr_email, fr_nomerepresentante = @fr_nomerepresentante, fr_telefonerepresentante = @fr_telefonerepresentante, fr_celularrepresentante = @fr_celularrepresentante, fr_observacoes = @fr_observacoes, fr_cnpj = @fr_cnpj WHERE fr_id = @fr_id";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
@@ -200,7 +201,7 @@ namespace SysOtica.Conexao
          }
 
         public List<Fornecedor> listaFornecedor()
-       {
+        {
             string sql = "SELECT fr_id, fr_razaosocial, fr_inscricaoestadual, fr_fantasia, fr_endereco, fr_cidade, fr_uf, fr_bairro, fr_cep, fr_contato, fr_telefone, fr_fax, fr_email, fr_nomerepresentante, fr_celularrepresentante, fr_telefonerepresentante, fr_observacoes, fr_cnpj  FROM Fornecedor Order by fr_id";
             List<Fornecedor> lista = new List<Fornecedor>();
             Fornecedor fr;
@@ -211,7 +212,7 @@ namespace SysOtica.Conexao
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
                 SqlDataReader retorno = cmd.ExecuteReader();
 
-                
+
 
                 while (retorno.Read())
                 {
@@ -234,7 +235,7 @@ namespace SysOtica.Conexao
                     fr.Fr_telefonerepresentante = retorno.GetString(retorno.GetOrdinal("fr_telefonerepresentante"));
                     fr.Fr_observacoes = retorno.GetString(retorno.GetOrdinal("fr_observacoes"));
                     fr.Fr_cnpj = retorno.GetString(retorno.GetOrdinal("fr_cnpj"));
-                    
+
                     lista.Add(fr);
                 }
                 conn.FecharConexao();
@@ -245,60 +246,66 @@ namespace SysOtica.Conexao
             {
                 throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
             }
-        
-       }
+
+        }
 
         public List<Fornecedor> pesquisarFornecedor(string fr_fantasia)
         {
-            string sql = "fr_id, fr_razaosocial, fr_inscricaoestadual, fr_fantasia, fr_endereco, fr_cidade, fr_uf, fr_bairro, fr_cep, fr_contato, fr_telefone, fr_fax, fr_email, fr_nomepresentante, fr_celularrepresentante, fr_telefonerepresentante, fr_observacoes, fr_cnpj FROM Fornecedor ";
+            string sql = " SELECT fr_id, fr_razaosocial, fr_inscricaoestadual, fr_fantasia, fr_endereco, fr_cidade, fr_uf, fr_bairro, fr_cep, fr_contato, fr_telefone, fr_fax, fr_email, fr_nomerepresentante, fr_celularrepresentante, fr_telefonerepresentante, fr_observacoes, fr_cnpj FROM Fornecedor where fr_fantasia LIKE @fr_fantasia + '%'";
+            List<Fornecedor> lista = new List<Fornecedor>();
+            Fornecedor fr;
             if (fr_fantasia != "")
             {
-                sql += "WHERE fr_fantasia LIKE @fr_fantasia";
-            }
-            List<Fornecedor> lista = new List<Fornecedor>();
-            Fornecedor fr = new Fornecedor();
 
-            try
-            {
-                conn.AbrirConexao();
-                SqlCommand cmd = new SqlCommand(sql, conn.cone);
-                if (fr_fantasia != "")
+                try
                 {
-                    cmd.Parameters.AddWithValue("@fr_fantasia", "%" + fr_fantasia + "%");
+                    conn.AbrirConexao();
+                    SqlCommand cmd = new SqlCommand(sql, this.conn.cone);
+                    cmd.Parameters.Add("@fr_fantasia", SqlDbType.VarChar, 50).Value = fr_fantasia;
+
+                    SqlDataReader retorno = cmd.ExecuteReader();
+
+                    if (retorno.HasRows == false)
+                    {
+
+                        MessageBox.Show("Nome Fantasia não cadastrado!");
+
+                    }
+                    while (retorno.Read())
+                    {
+                        fr = new Fornecedor();
+                        fr.Fr_id = retorno.GetInt32(retorno.GetOrdinal("fr_id"));
+                        fr.Fr_razaosocial = retorno.GetString(retorno.GetOrdinal("fr_razaosocial"));
+                        fr.Fr_inscricaoestadual = retorno.GetString(retorno.GetOrdinal("fr_inscricaoestadual"));
+                        fr.Fr_fantasia = retorno.GetString(retorno.GetOrdinal("fr_fantasia"));
+                        fr.Fr_endereco = retorno.GetString(retorno.GetOrdinal("fr_endereco"));
+                        fr.Fr_cidade = retorno.GetString(retorno.GetOrdinal("fr_cidade"));
+                        fr.Fr_uf = retorno.GetString(retorno.GetOrdinal("fr_uf"));
+                        fr.Fr_bairro = retorno.GetString(retorno.GetOrdinal("fr_bairro"));
+                        fr.Fr_cep = retorno.GetString(retorno.GetOrdinal("fr_cep"));
+                        fr.Fr_contato = retorno.GetString(retorno.GetOrdinal("fr_contato"));
+                        fr.Fr_telefone = retorno.GetString(retorno.GetOrdinal("fr_telefone"));
+                        fr.Fr_fax = retorno.GetString(retorno.GetOrdinal("fr_fax"));
+                        fr.Fr_email = retorno.GetString(retorno.GetOrdinal("fr_email"));
+                        fr.Fr_nomerepresentante = retorno.GetString(retorno.GetOrdinal("fr_nomerepresentante"));
+                        fr.Fr_celularrepresentante = retorno.GetString(retorno.GetOrdinal("fr_celularrepresentante"));
+                        fr.Fr_telefonerepresentante = retorno.GetString(retorno.GetOrdinal("fr_telefonerepresentante"));
+                        fr.Fr_observacoes = retorno.GetString(retorno.GetOrdinal("fr_observacoes"));
+                        fr.Fr_cnpj = retorno.GetString(retorno.GetOrdinal("fr_cnpj"));
+
+                        lista.Add(fr);
+                    }
+
                 }
-                SqlDataReader retorno = cmd.ExecuteReader();
-                while (retorno.Read())
+
+                catch (SqlException e)
                 {
-                    fr = new Fornecedor();
-                    fr.Fr_id = retorno.GetInt32(retorno.GetOrdinal("fr_id"));
-                    fr.Fr_razaosocial = retorno.GetString(retorno.GetOrdinal("fr_razaosocial"));
-                    fr.Fr_inscricaoestadual = retorno.GetString(retorno.GetOrdinal("fr_inscricaoestadual"));
-                    fr.Fr_fantasia = retorno.GetString(retorno.GetOrdinal("fr_fantasia"));
-                    fr.Fr_endereco = retorno.GetString(retorno.GetOrdinal("fr_endereco"));
-                    fr.Fr_cidade = retorno.GetString(retorno.GetOrdinal("fr_cidade"));
-                    fr.Fr_uf = retorno.GetString(retorno.GetOrdinal("fr_uf"));
-                    fr.Fr_bairro = retorno.GetString(retorno.GetOrdinal("fr_bairro"));
-                    fr.Fr_cep = retorno.GetString(retorno.GetOrdinal("fr_cep"));
-                    fr.Fr_contato = retorno.GetString(retorno.GetOrdinal("fr_contato"));
-                    fr.Fr_telefone = retorno.GetString(retorno.GetOrdinal("fr_telefone"));
-                    fr.Fr_fax = retorno.GetString(retorno.GetOrdinal("fr_fax"));
-                    fr.Fr_email = retorno.GetString(retorno.GetOrdinal("fr_email"));
-                    fr.Fr_nomerepresentante = retorno.GetString(retorno.GetOrdinal("fr_nomepresentante"));
-                    fr.Fr_celularrepresentante = retorno.GetString(retorno.GetOrdinal("fr_celularrepresentante"));
-                    fr.Fr_telefonerepresentante = retorno.GetString(retorno.GetOrdinal("fr_telefonerepresentante"));
-                    fr.Fr_observacoes = retorno.GetString(retorno.GetOrdinal("fr_observacoes"));
-                    fr.Fr_cnpj = retorno.GetString(retorno.GetOrdinal("fr_cnpj"));
-
-                    lista.Add(fr);
+                    throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
                 }
-                conn.FecharConexao();
-                return lista;
-            }
 
-            catch (SqlException e)
-            {
-                throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
             }
+            conn.FecharConexao();
+            return lista;
 
         }
 

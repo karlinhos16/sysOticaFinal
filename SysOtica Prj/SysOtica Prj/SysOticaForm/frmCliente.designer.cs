@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxPais = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBoxCPF = new System.Windows.Forms.TextBox();
             this.textBoxUF = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,9 +72,6 @@
             this.buttonSair = new System.Windows.Forms.Button();
             this.buttonLimpar = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBoxPais = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,6 +121,30 @@
             this.groupBox1.Size = new System.Drawing.Size(721, 375);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(627, 134);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "País";
+            // 
+            // textBoxPais
+            // 
+            this.textBoxPais.Location = new System.Drawing.Point(628, 150);
+            this.textBoxPais.Name = "textBoxPais";
+            this.textBoxPais.Size = new System.Drawing.Size(87, 20);
+            this.textBoxPais.TabIndex = 20;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(533, 22);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(182, 20);
+            this.dateTimePicker1.TabIndex = 19;
             // 
             // textBoxCPF
             // 
@@ -441,30 +466,6 @@
             this.buttonLimpar.UseVisualStyleBackColor = true;
             this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(533, 22);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(168, 20);
-            this.dateTimePicker1.TabIndex = 19;
-            // 
-            // textBoxPais
-            // 
-            this.textBoxPais.Location = new System.Drawing.Point(628, 150);
-            this.textBoxPais.Name = "textBoxPais";
-            this.textBoxPais.Size = new System.Drawing.Size(73, 20);
-            this.textBoxPais.TabIndex = 20;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(627, 134);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "País";
-            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,11 +476,12 @@
             this.Controls.Add(this.buttonLimpar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSalvar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "frmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de Cliente";
+            this.Text = "CADASTRO DE CLIENTES";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

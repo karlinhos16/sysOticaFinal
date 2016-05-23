@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFornecedor));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.maskedTextBoxTelRep = new System.Windows.Forms.MaskedTextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -440,11 +441,12 @@
             this.Controls.Add(this.buttonLimpar);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "frmFornecedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de Fornecedor";
+            this.Text = "CADASTRO DE FORNECEDORES";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

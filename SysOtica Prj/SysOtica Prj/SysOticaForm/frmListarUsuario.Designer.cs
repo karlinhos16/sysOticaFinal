@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarUsuario));
             this.dataGridUsuario = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -204,10 +205,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 336);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmListarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmListarUsuario";
+            this.Text = "LISTAR / ALTERAR USUARIO";
             this.Load += new System.EventHandler(this.frmListarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUsuario)).EndInit();
             this.groupBox1.ResumeLayout(false);

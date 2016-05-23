@@ -380,7 +380,7 @@ namespace SysOticaForm
 
                         string coluna = dataGridRec.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-                        if (Convert.ToDateTime(coluna) > DateTime.Today)
+                        if (Convert.ToDateTime(coluna) < DateTime.Today)
                         {
 
                             MessageBox.Show("Esta receita não se encontra na data de validade", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -481,6 +481,26 @@ namespace SysOticaForm
                                 dataGridRec.Rows.Clear();
 
                             }
+
+                        }
+                        if (dataGridRec.RowCount == 0)
+                        {
+                            MessageBox.Show("O cliente selecionado não possui receitas cadastradas");
+
+                            DialogResult resultado = MessageBox.Show("Deseja realmente continuar com essa Compra? ", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (resultado == DialogResult.Yes) 
+                            {
+                                comboBoxCliente.Enabled = false;
+                                return;
+                            }
+                            else if(resultado == DialogResult.No)
+                            {
+                                comboBoxCliente.Enabled = true;
+                                return;
+                            }
+                         
+
+
 
                         }
 

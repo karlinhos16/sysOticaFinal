@@ -60,7 +60,7 @@ namespace SysOticaForm
                 {
                     string coluna = DataGridreceita.Rows[i].Cells[24].Value.ToString();
 
-                    if (Convert.ToString(coluna) == DateTime.Today.ToString() && Convert.ToDateTime(coluna) != null)
+                    if (Convert.ToDateTime(coluna) < DateTime.Today && Convert.ToDateTime(coluna) != null)
                     {
 
                         DataGridreceita.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
@@ -87,7 +87,7 @@ namespace SysOticaForm
 
         private void receitaDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DataGridreceita.SelectedRows[0].Index >= 0)
+            if (DataGridreceita.SelectedRows[0].Index >= -1)
             {
 
                 try
@@ -125,7 +125,7 @@ namespace SysOticaForm
                 else
                 {
                     Receita receitaSelecionada;
-                    receitaSelecionada = (DataGridreceita.SelectedRows[0].DataBoundItem as Receita);
+                    receitaSelecionada = (DataGridreceita.SelectedRows[0].DataBoundItem as WebService.Receita);
 
                     frmReceitaAlterar formAR = new frmReceitaAlterar(receitaSelecionada);
                     this.WindowState = FormWindowState.Minimized;

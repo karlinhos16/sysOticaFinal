@@ -115,6 +115,12 @@
     <Compile Include="frmListarUsuario.Designer.cs">
       <DependentUpon>frmListarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListarVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarVendas.Designer.cs">
+      <DependentUpon>frmListarVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListarUsuario.resx">
       <DependentUpon>frmListarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListarVendas.resx">
+      <DependentUpon>frmListarVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
@@ -297,6 +306,10 @@
       <Project>{7bb9a7fa-37f1-4905-8b05-c84733fa9d50}</Project>
       <Name>SocketSysOtica</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SysOtica\SysOtica.csproj">
+      <Project>{B0F43429-5DC9-4DC0-8BA1-6DD2B7363A8A}</Project>
+      <Name>SysOtica</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\WebService\" />
@@ -330,6 +343,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\47_184_logo-otica-six-matcon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

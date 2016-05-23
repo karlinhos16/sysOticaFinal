@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVendas));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -53,6 +54,7 @@
             this.dt_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.validade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonExcluir = new System.Windows.Forms.Button();
             this.textBoxQtdMult = new System.Windows.Forms.TextBox();
             this.textBoxPegarProduto = new System.Windows.Forms.TextBox();
             this.textBoxProdID = new System.Windows.Forms.TextBox();
@@ -62,6 +64,7 @@
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonNovoItem = new System.Windows.Forms.Button();
             this.textBoxValor = new System.Windows.Forms.TextBox();
             this.textBoxQtd = new System.Windows.Forms.TextBox();
             this.comboBoxProduto = new System.Windows.Forms.ComboBox();
@@ -70,13 +73,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonIncluir = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBoxCliente = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.buttonExcluir = new System.Windows.Forms.Button();
-            this.buttonNovoItem = new System.Windows.Forms.Button();
-            this.buttonIncluir = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRec)).BeginInit();
@@ -99,12 +99,22 @@
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.textBoxDes);
             this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Location = new System.Drawing.Point(9, 463);
+            this.groupBox4.Location = new System.Drawing.Point(9, 466);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(922, 114);
+            this.groupBox4.Size = new System.Drawing.Size(922, 111);
             this.groupBox4.TabIndex = 7;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Venda";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::SysOticaForm.Properties.Resources.carrinho;
+            this.button1.Location = new System.Drawing.Point(20, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 73);
+            this.button1.TabIndex = 73;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button4
             // 
@@ -215,7 +225,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(741, 255);
+            this.textBox4.Location = new System.Drawing.Point(755, 247);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(141, 20);
@@ -224,7 +234,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(650, 258);
+            this.label6.Location = new System.Drawing.Point(664, 250);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 60;
@@ -235,9 +245,9 @@
             this.groupBox3.Controls.Add(this.txtIdReceita);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.dataGridRec);
-            this.groupBox3.Location = new System.Drawing.Point(9, 350);
+            this.groupBox3.Location = new System.Drawing.Point(9, 340);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(922, 118);
+            this.groupBox3.Size = new System.Drawing.Size(922, 120);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Receita";
@@ -245,7 +255,7 @@
             // txtIdReceita
             // 
             this.txtIdReceita.Enabled = false;
-            this.txtIdReceita.Location = new System.Drawing.Point(132, 16);
+            this.txtIdReceita.Location = new System.Drawing.Point(127, 12);
             this.txtIdReceita.Name = "txtIdReceita";
             this.txtIdReceita.Size = new System.Drawing.Size(80, 20);
             this.txtIdReceita.TabIndex = 43;
@@ -278,7 +288,7 @@
             this.dataGridRec.ReadOnly = true;
             this.dataGridRec.RowHeadersVisible = false;
             this.dataGridRec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridRec.Size = new System.Drawing.Size(888, 69);
+            this.dataGridRec.Size = new System.Drawing.Size(888, 76);
             this.dataGridRec.TabIndex = 42;
             this.dataGridRec.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRec_CellClick);
             // 
@@ -336,10 +346,20 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(9, 57);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(922, 287);
+            this.groupBox2.Size = new System.Drawing.Size(922, 277);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Itens da Venda";
+            // 
+            // buttonExcluir
+            // 
+            this.buttonExcluir.Image = global::SysOticaForm.Properties.Resources.retirar;
+            this.buttonExcluir.Location = new System.Drawing.Point(837, 75);
+            this.buttonExcluir.Name = "buttonExcluir";
+            this.buttonExcluir.Size = new System.Drawing.Size(45, 47);
+            this.buttonExcluir.TabIndex = 49;
+            this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
             // textBoxQtdMult
             // 
@@ -377,7 +397,7 @@
             this.Valor,
             this.ValorTotal});
             this.dataGridViewItens.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
-            this.dataGridViewItens.Location = new System.Drawing.Point(26, 134);
+            this.dataGridViewItens.Location = new System.Drawing.Point(23, 128);
             this.dataGridViewItens.MultiSelect = false;
             this.dataGridViewItens.Name = "dataGridViewItens";
             this.dataGridViewItens.ReadOnly = true;
@@ -419,6 +439,16 @@
             this.ValorTotal.Name = "ValorTotal";
             this.ValorTotal.ReadOnly = true;
             this.ValorTotal.Width = 200;
+            // 
+            // buttonNovoItem
+            // 
+            this.buttonNovoItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonNovoItem.Image")));
+            this.buttonNovoItem.Location = new System.Drawing.Point(768, 75);
+            this.buttonNovoItem.Name = "buttonNovoItem";
+            this.buttonNovoItem.Size = new System.Drawing.Size(48, 47);
+            this.buttonNovoItem.TabIndex = 45;
+            this.buttonNovoItem.UseVisualStyleBackColor = true;
+            this.buttonNovoItem.Click += new System.EventHandler(this.buttonNovoItem_Click);
             // 
             // textBoxValor
             // 
@@ -496,6 +526,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cliente";
             // 
+            // buttonIncluir
+            // 
+            this.buttonIncluir.Image = global::SysOticaForm.Properties.Resources.save;
+            this.buttonIncluir.Location = new System.Drawing.Point(616, 7);
+            this.buttonIncluir.Name = "buttonIncluir";
+            this.buttonIncluir.Size = new System.Drawing.Size(52, 40);
+            this.buttonIncluir.TabIndex = 12;
+            this.buttonIncluir.UseVisualStyleBackColor = true;
+            this.buttonIncluir.Click += new System.EventHandler(this.buttonIncluir_Click);
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(42, 20);
@@ -523,46 +563,6 @@
             this.label12.TabIndex = 9;
             this.label12.Text = "Cliente:";
             // 
-            // button1
-            // 
-            this.button1.Image = global::SysOticaForm.Properties.Resources.carrinho;
-            this.button1.Location = new System.Drawing.Point(20, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 73);
-            this.button1.TabIndex = 73;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // buttonExcluir
-            // 
-            this.buttonExcluir.Image = global::SysOticaForm.Properties.Resources.retirar;
-            this.buttonExcluir.Location = new System.Drawing.Point(837, 75);
-            this.buttonExcluir.Name = "buttonExcluir";
-            this.buttonExcluir.Size = new System.Drawing.Size(45, 47);
-            this.buttonExcluir.TabIndex = 49;
-            this.buttonExcluir.UseVisualStyleBackColor = true;
-            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
-            // 
-            // buttonNovoItem
-            // 
-            this.buttonNovoItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonNovoItem.Image")));
-            this.buttonNovoItem.Location = new System.Drawing.Point(768, 75);
-            this.buttonNovoItem.Name = "buttonNovoItem";
-            this.buttonNovoItem.Size = new System.Drawing.Size(48, 47);
-            this.buttonNovoItem.TabIndex = 45;
-            this.buttonNovoItem.UseVisualStyleBackColor = true;
-            this.buttonNovoItem.Click += new System.EventHandler(this.buttonNovoItem_Click);
-            // 
-            // buttonIncluir
-            // 
-            this.buttonIncluir.Image = global::SysOticaForm.Properties.Resources.save;
-            this.buttonIncluir.Location = new System.Drawing.Point(616, 7);
-            this.buttonIncluir.Name = "buttonIncluir";
-            this.buttonIncluir.Size = new System.Drawing.Size(52, 40);
-            this.buttonIncluir.TabIndex = 12;
-            this.buttonIncluir.UseVisualStyleBackColor = true;
-            this.buttonIncluir.Click += new System.EventHandler(this.buttonIncluir_Click);
-            // 
             // frmVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -572,8 +572,10 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmVendas";
-            this.Text = "frmVendas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "VENDAS";
             this.Load += new System.EventHandler(this.frmVendas_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -66,10 +67,12 @@ namespace SysOticaForm
                     pSelecionado = (dataGridProduto.SelectedRows[0].DataBoundItem as WebService.Produto);
 
                     formProdutoAlterar formAp = new formProdutoAlterar(pSelecionado);
+                    this.WindowState = FormWindowState.Minimized;
                     DialogResult dialog = formAp.ShowDialog();
 
                     if (dialog == DialogResult.Yes)
                     {
+                        this.WindowState = FormWindowState.Normal;
                         atualizaGrid();
                     }
                 }
@@ -114,14 +117,11 @@ namespace SysOticaForm
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            dataGridProduto.DataSource = webservice.pesquisaProduto(btnPesquisar.Text);
-        }
+       
 
         private void dataGridProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridProduto.SelectedRows[0].Index >= 0)
+            if (dataGridProduto.SelectedRows[0].Index >= -1)
             {
                 MessageBox.Show("Campo Selecionado!");
                 Produto pSelecionado = listarProduto.ElementAt(dataGridProduto.SelectedRows[0].Index);
@@ -136,6 +136,47 @@ namespace SysOticaForm
         {
             Dispose();
         }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            dataGridProduto.DataSource = null;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string caracteres = "^[ a-zA-Z]+$";
+                if (textPesquisa.Text.Length < 3)
+                {
+
+                    MessageBox.Show("Por Favor, digite um produto com no mínimo 3 caracteres");
+                    return;
+                }
+                if (!Regex.IsMatch(textPesquisa.Text, caracteres))
+                {
+                    MessageBox.Show("Este campo só aceita letras");
+                    return;
+                }
+
+                if (textPesquisa.Text != "")
+                {
+
+                    dataGridProduto.DataSource = null;
+                    dataGridProduto.AutoGenerateColumns = false;
+                    dataGridProduto.DataSource = webservice.pesquisaProduto(textPesquisa.Text.Trim());
+
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Erro listar receita");
+
+            }
+
+        }
+
     }
 
 }
