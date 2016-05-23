@@ -771,9 +771,6 @@ namespace SysOticaForm.WebService {
         private object ProdutoVendaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SysOticaForm.WebService.Receita ReceitaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal Vn_descontoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -789,12 +786,14 @@ namespace SysOticaForm.WebService {
         private int Vn_qtdsaidaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Vn_receitaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal Vn_valorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal Vn_valortotalField;
-        internal int Vn_Receita;
-
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -840,19 +839,6 @@ namespace SysOticaForm.WebService {
                 if ((object.ReferenceEquals(this.ProdutoVendaField, value) != true)) {
                     this.ProdutoVendaField = value;
                     this.RaisePropertyChanged("ProdutoVenda");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SysOticaForm.WebService.Receita Receita {
-            get {
-                return this.ReceitaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ReceitaField, value) != true)) {
-                    this.ReceitaField = value;
-                    this.RaisePropertyChanged("Receita");
                 }
             }
         }
@@ -918,6 +904,19 @@ namespace SysOticaForm.WebService {
                 if ((this.Vn_qtdsaidaField.Equals(value) != true)) {
                     this.Vn_qtdsaidaField = value;
                     this.RaisePropertyChanged("Vn_qtdsaida");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Vn_receita {
+            get {
+                return this.Vn_receitaField;
+            }
+            set {
+                if ((this.Vn_receitaField.Equals(value) != true)) {
+                    this.Vn_receitaField = value;
+                    this.RaisePropertyChanged("Vn_receita");
                 }
             }
         }

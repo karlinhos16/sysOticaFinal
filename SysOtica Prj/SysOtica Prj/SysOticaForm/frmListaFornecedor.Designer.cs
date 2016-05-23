@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridFornecedor = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnListar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.razaosocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inscricaoestadual = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,12 +47,22 @@
             this.telefonerepresentante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observacoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFornecedor)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridFornecedor
             // 
+            this.dataGridFornecedor.AllowUserToAddRows = false;
+            this.dataGridFornecedor.AllowUserToDeleteRows = false;
             this.dataGridFornecedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridFornecedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -84,10 +86,137 @@
             this.dataGridFornecedor.Location = new System.Drawing.Point(16, 49);
             this.dataGridFornecedor.MultiSelect = false;
             this.dataGridFornecedor.Name = "dataGridFornecedor";
+            this.dataGridFornecedor.ReadOnly = true;
             this.dataGridFornecedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridFornecedor.Size = new System.Drawing.Size(918, 256);
             this.dataGridFornecedor.TabIndex = 0;
             this.dataGridFornecedor.DoubleClick += new System.EventHandler(this.dataGridFornecedor_DoubleClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "fr_id";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // razaosocial
+            // 
+            this.razaosocial.DataPropertyName = "fr_razaosocial";
+            this.razaosocial.HeaderText = "Razão Social";
+            this.razaosocial.Name = "razaosocial";
+            this.razaosocial.ReadOnly = true;
+            // 
+            // inscricaoestadual
+            // 
+            this.inscricaoestadual.DataPropertyName = "fr_inscricaoestadual";
+            this.inscricaoestadual.HeaderText = "Insc.  Estadual";
+            this.inscricaoestadual.Name = "inscricaoestadual";
+            this.inscricaoestadual.ReadOnly = true;
+            // 
+            // fantasia
+            // 
+            this.fantasia.DataPropertyName = "fr_fantasia";
+            this.fantasia.HeaderText = "Nome fantasia";
+            this.fantasia.Name = "fantasia";
+            this.fantasia.ReadOnly = true;
+            // 
+            // endereço
+            // 
+            this.endereço.DataPropertyName = " fr_endereco";
+            this.endereço.HeaderText = "Endereço";
+            this.endereço.Name = "endereço";
+            this.endereço.ReadOnly = true;
+            // 
+            // cidade
+            // 
+            this.cidade.DataPropertyName = "fr_cidade";
+            this.cidade.HeaderText = "Cidade";
+            this.cidade.Name = "cidade";
+            this.cidade.ReadOnly = true;
+            // 
+            // uf
+            // 
+            this.uf.DataPropertyName = "fr_uf";
+            this.uf.HeaderText = "UF";
+            this.uf.Name = "uf";
+            this.uf.ReadOnly = true;
+            // 
+            // bairro
+            // 
+            this.bairro.DataPropertyName = "fr_bairro";
+            this.bairro.HeaderText = "Bairro";
+            this.bairro.Name = "bairro";
+            this.bairro.ReadOnly = true;
+            // 
+            // cep
+            // 
+            this.cep.DataPropertyName = "fr_cep";
+            this.cep.HeaderText = "CEP";
+            this.cep.Name = "cep";
+            this.cep.ReadOnly = true;
+            // 
+            // contato
+            // 
+            this.contato.DataPropertyName = "fr_contato";
+            this.contato.HeaderText = "Contato";
+            this.contato.Name = "contato";
+            this.contato.ReadOnly = true;
+            // 
+            // telefone
+            // 
+            this.telefone.DataPropertyName = "fr_telefone";
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.ReadOnly = true;
+            // 
+            // fax
+            // 
+            this.fax.DataPropertyName = "fr_fax";
+            this.fax.HeaderText = "Fax";
+            this.fax.Name = "fax";
+            this.fax.ReadOnly = true;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "fr_email";
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // nomerepresentante
+            // 
+            this.nomerepresentante.DataPropertyName = "fr_nomerepresentante";
+            this.nomerepresentante.HeaderText = "Representante";
+            this.nomerepresentante.Name = "nomerepresentante";
+            this.nomerepresentante.ReadOnly = true;
+            // 
+            // celularrerepresentante
+            // 
+            this.celularrerepresentante.DataPropertyName = "fr_celularrepresentante";
+            this.celularrerepresentante.HeaderText = "Cel. Representante";
+            this.celularrerepresentante.Name = "celularrerepresentante";
+            this.celularrerepresentante.ReadOnly = true;
+            // 
+            // telefonerepresentante
+            // 
+            this.telefonerepresentante.DataPropertyName = "fr_telefonerepresentante";
+            this.telefonerepresentante.HeaderText = "Tel. Representante";
+            this.telefonerepresentante.Name = "telefonerepresentante";
+            this.telefonerepresentante.ReadOnly = true;
+            // 
+            // observacoes
+            // 
+            this.observacoes.DataPropertyName = "fr_observacoes";
+            this.observacoes.HeaderText = "Observacões";
+            this.observacoes.Name = "observacoes";
+            this.observacoes.ReadOnly = true;
+            // 
+            // cnpj
+            // 
+            this.cnpj.DataPropertyName = "fr_cnpj";
+            this.cnpj.HeaderText = "CNPJ";
+            this.cnpj.Name = "cnpj";
+            this.cnpj.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -104,7 +233,6 @@
             this.groupBox1.Size = new System.Drawing.Size(940, 354);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // btnListar
             // 
@@ -171,114 +299,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(241, 20);
             this.textBox1.TabIndex = 1;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "fr_id";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            // 
-            // razaosocial
-            // 
-            this.razaosocial.DataPropertyName = "fr_razaosocial";
-            this.razaosocial.HeaderText = "Razão Social";
-            this.razaosocial.Name = "razaosocial";
-            // 
-            // inscricaoestadual
-            // 
-            this.inscricaoestadual.DataPropertyName = "fr_inscricaoestadual";
-            this.inscricaoestadual.HeaderText = "Insc.  Estadual";
-            this.inscricaoestadual.Name = "inscricaoestadual";
-            // 
-            // fantasia
-            // 
-            this.fantasia.DataPropertyName = "fr_fantasia";
-            this.fantasia.HeaderText = "Nome fantasia";
-            this.fantasia.Name = "fantasia";
-            // 
-            // endereço
-            // 
-            this.endereço.DataPropertyName = " fr_endereco";
-            this.endereço.HeaderText = "Endereço";
-            this.endereço.Name = "endereço";
-            // 
-            // cidade
-            // 
-            this.cidade.DataPropertyName = "fr_cidade";
-            this.cidade.HeaderText = "Cidade";
-            this.cidade.Name = "cidade";
-            // 
-            // uf
-            // 
-            this.uf.DataPropertyName = "fr_uf";
-            this.uf.HeaderText = "UF";
-            this.uf.Name = "uf";
-            // 
-            // bairro
-            // 
-            this.bairro.DataPropertyName = "fr_bairro";
-            this.bairro.HeaderText = "Bairro";
-            this.bairro.Name = "bairro";
-            // 
-            // cep
-            // 
-            this.cep.DataPropertyName = "fr_cep";
-            this.cep.HeaderText = "CEP";
-            this.cep.Name = "cep";
-            // 
-            // contato
-            // 
-            this.contato.DataPropertyName = "fr_contato";
-            this.contato.HeaderText = "Contato";
-            this.contato.Name = "contato";
-            // 
-            // telefone
-            // 
-            this.telefone.DataPropertyName = "fr_telefone";
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            // 
-            // fax
-            // 
-            this.fax.DataPropertyName = "fr_fax";
-            this.fax.HeaderText = "Fax";
-            this.fax.Name = "fax";
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "fr_email";
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            // 
-            // nomerepresentante
-            // 
-            this.nomerepresentante.DataPropertyName = "fr_nomerepresentante";
-            this.nomerepresentante.HeaderText = "Representante";
-            this.nomerepresentante.Name = "nomerepresentante";
-            // 
-            // celularrerepresentante
-            // 
-            this.celularrerepresentante.DataPropertyName = "fr_celularrepresentante";
-            this.celularrerepresentante.HeaderText = "Cel. Representante";
-            this.celularrerepresentante.Name = "celularrerepresentante";
-            // 
-            // telefonerepresentante
-            // 
-            this.telefonerepresentante.DataPropertyName = "fr_telefonerepresentante";
-            this.telefonerepresentante.HeaderText = "Tel. Representante";
-            this.telefonerepresentante.Name = "telefonerepresentante";
-            // 
-            // observacoes
-            // 
-            this.observacoes.DataPropertyName = "fr_observacoes";
-            this.observacoes.HeaderText = "Observacões";
-            this.observacoes.Name = "observacoes";
-            // 
-            // cnpj
-            // 
-            this.cnpj.DataPropertyName = "fr_cnpj";
-            this.cnpj.HeaderText = "CNPJ";
-            this.cnpj.Name = "cnpj";
             // 
             // frmListaFornecedor
             // 

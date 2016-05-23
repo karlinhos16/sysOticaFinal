@@ -47,7 +47,6 @@
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarChatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iniciarWebServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,8 +61,8 @@
             this.cadastroToolStripMenuItem,
             this.financeiroToolStripMenuItem,
             this.relatóriosToolStripMenuItem,
-            this.sairToolStripMenuItem,
-            this.chatToolStripMenuItem});
+            this.chatToolStripMenuItem,
+            this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
@@ -182,8 +181,7 @@
             // chatToolStripMenuItem
             // 
             this.chatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.iniciarChatToolStripMenuItem,
-            this.iniciarWebServiceToolStripMenuItem});
+            this.iniciarChatToolStripMenuItem});
             this.chatToolStripMenuItem.Name = "chatToolStripMenuItem";
             this.chatToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.chatToolStripMenuItem.Text = "Utilitários";
@@ -191,16 +189,9 @@
             // iniciarChatToolStripMenuItem
             // 
             this.iniciarChatToolStripMenuItem.Name = "iniciarChatToolStripMenuItem";
-            this.iniciarChatToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.iniciarChatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.iniciarChatToolStripMenuItem.Text = "Chat";
             this.iniciarChatToolStripMenuItem.Click += new System.EventHandler(this.iniciarChatToolStripMenuItem_Click);
-            // 
-            // iniciarWebServiceToolStripMenuItem
-            // 
-            this.iniciarWebServiceToolStripMenuItem.Name = "iniciarWebServiceToolStripMenuItem";
-            this.iniciarWebServiceToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.iniciarWebServiceToolStripMenuItem.Text = "WebService";
-            this.iniciarWebServiceToolStripMenuItem.Click += new System.EventHandler(this.iniciarWebServiceToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -243,6 +234,5 @@
         private System.Windows.Forms.ToolStripMenuItem vendaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iniciarChatToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem iniciarWebServiceToolStripMenuItem;
     }
 }

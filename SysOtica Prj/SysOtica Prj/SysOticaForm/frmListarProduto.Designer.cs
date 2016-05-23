@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridProduto = new System.Windows.Forms.DataGridView();
-            this.textPesquisa = new System.Windows.Forms.TextBox();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnListar = new System.Windows.Forms.Button();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSair = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grife = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,11 +36,20 @@
             this.estoqueminimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textPesquisa = new System.Windows.Forms.TextBox();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSair = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProduto)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridProduto
             // 
+            this.dataGridProduto.AllowUserToAddRows = false;
+            this.dataGridProduto.AllowUserToDeleteRows = false;
             this.dataGridProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -60,10 +62,60 @@
             this.dataGridProduto.Location = new System.Drawing.Point(12, 53);
             this.dataGridProduto.MultiSelect = false;
             this.dataGridProduto.Name = "dataGridProduto";
+            this.dataGridProduto.ReadOnly = true;
             this.dataGridProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridProduto.Size = new System.Drawing.Size(744, 202);
             this.dataGridProduto.TabIndex = 0;
             this.dataGridProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduto_CellDoubleClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "pr_id";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // descricao
+            // 
+            this.descricao.DataPropertyName = "pr_descricao";
+            this.descricao.HeaderText = "Descrição";
+            this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            // 
+            // grife
+            // 
+            this.grife.DataPropertyName = "pr_grife";
+            this.grife.HeaderText = "Grife";
+            this.grife.Name = "grife";
+            this.grife.ReadOnly = true;
+            // 
+            // valor
+            // 
+            this.valor.DataPropertyName = "pr_valor";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            // 
+            // estoqueminimo
+            // 
+            this.estoqueminimo.DataPropertyName = "pr_estoqueminimo";
+            this.estoqueminimo.HeaderText = "Estoque Minimo";
+            this.estoqueminimo.Name = "estoqueminimo";
+            this.estoqueminimo.ReadOnly = true;
+            // 
+            // categoria
+            // 
+            this.categoria.DataPropertyName = "pr_categoria";
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.Name = "categoria";
+            this.categoria.ReadOnly = true;
+            // 
+            // qtd
+            // 
+            this.qtd.DataPropertyName = "pr_qtd";
+            this.qtd.HeaderText = "Quantidade";
+            this.qtd.Name = "qtd";
+            this.qtd.ReadOnly = true;
             // 
             // textPesquisa
             // 
@@ -118,7 +170,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(36, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Digite um Produto :";
             // 
@@ -131,48 +183,6 @@
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "pr_id";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            // 
-            // descricao
-            // 
-            this.descricao.DataPropertyName = "pr_descricao";
-            this.descricao.HeaderText = "Descrição";
-            this.descricao.Name = "descricao";
-            // 
-            // grife
-            // 
-            this.grife.DataPropertyName = "pr_grife";
-            this.grife.HeaderText = "Grife";
-            this.grife.Name = "grife";
-            // 
-            // valor
-            // 
-            this.valor.DataPropertyName = "pr_valor";
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            // 
-            // estoqueminimo
-            // 
-            this.estoqueminimo.DataPropertyName = "pr_estoqueminimo";
-            this.estoqueminimo.HeaderText = "Estoque Minimo";
-            this.estoqueminimo.Name = "estoqueminimo";
-            // 
-            // categoria
-            // 
-            this.categoria.DataPropertyName = "pr_categoria";
-            this.categoria.HeaderText = "Categoria";
-            this.categoria.Name = "categoria";
-            // 
-            // qtd
-            // 
-            this.qtd.DataPropertyName = "pr_qtd";
-            this.qtd.HeaderText = "Quantidade";
-            this.qtd.Name = "qtd";
             // 
             // frmListarProduto
             // 

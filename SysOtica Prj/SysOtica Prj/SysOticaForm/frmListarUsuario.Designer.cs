@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridUsuario = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPesquisa = new System.Windows.Forms.Button();
@@ -37,19 +44,14 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.textPesquisa = new System.Windows.Forms.TextBox();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUsuario)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridUsuario
             // 
+            this.dataGridUsuario.AllowUserToAddRows = false;
+            this.dataGridUsuario.AllowUserToDeleteRows = false;
             this.dataGridUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -61,8 +63,58 @@
             this.telefone});
             this.dataGridUsuario.Location = new System.Drawing.Point(20, 48);
             this.dataGridUsuario.Name = "dataGridUsuario";
+            this.dataGridUsuario.ReadOnly = true;
             this.dataGridUsuario.Size = new System.Drawing.Size(743, 195);
             this.dataGridUsuario.TabIndex = 0;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "us_id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // usuario
+            // 
+            this.usuario.DataPropertyName = "us_usuario";
+            this.usuario.HeaderText = "Usuario";
+            this.usuario.Name = "usuario";
+            this.usuario.ReadOnly = true;
+            // 
+            // senha
+            // 
+            this.senha.DataPropertyName = "us_senha";
+            this.senha.HeaderText = "Senha";
+            this.senha.Name = "senha";
+            this.senha.ReadOnly = true;
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "us_nome";
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            // 
+            // tipo
+            // 
+            this.tipo.DataPropertyName = "us_tipo";
+            this.tipo.HeaderText = "Tipo";
+            this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
+            // 
+            // endereco
+            // 
+            this.endereco.DataPropertyName = "us_endereco";
+            this.endereco.HeaderText = "Endereço";
+            this.endereco.Name = "endereco";
+            this.endereco.ReadOnly = true;
+            // 
+            // telefone
+            // 
+            this.telefone.DataPropertyName = "us_telefone";
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -145,48 +197,6 @@
             this.textPesquisa.Name = "textPesquisa";
             this.textPesquisa.Size = new System.Drawing.Size(249, 20);
             this.textPesquisa.TabIndex = 1;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "us_id";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            // 
-            // usuario
-            // 
-            this.usuario.DataPropertyName = "us_usuario";
-            this.usuario.HeaderText = "Usuario";
-            this.usuario.Name = "usuario";
-            // 
-            // senha
-            // 
-            this.senha.DataPropertyName = "us_senha";
-            this.senha.HeaderText = "Senha";
-            this.senha.Name = "senha";
-            // 
-            // nome
-            // 
-            this.nome.DataPropertyName = "us_nome";
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            // 
-            // tipo
-            // 
-            this.tipo.DataPropertyName = "us_tipo";
-            this.tipo.HeaderText = "Tipo";
-            this.tipo.Name = "tipo";
-            // 
-            // endereco
-            // 
-            this.endereco.DataPropertyName = "us_endereco";
-            this.endereco.HeaderText = "Endereço";
-            this.endereco.Name = "endereco";
-            // 
-            // telefone
-            // 
-            this.telefone.DataPropertyName = "us_telefone";
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
             // 
             // frmListarUsuario
             // 
