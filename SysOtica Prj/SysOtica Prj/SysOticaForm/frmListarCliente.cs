@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -70,13 +71,15 @@ namespace SysOticaForm
                 else
                 {
                     Cliente cliSelecionado;
-                    cliSelecionado = (dataGridViewCliente.SelectedRows[0].DataBoundItem as Cliente);
+                    cliSelecionado = (dataGridViewCliente.SelectedRows[0].DataBoundItem as WebService.Cliente);
 
                     formClienteAlterar formal = new formClienteAlterar(cliSelecionado);
+                    this.WindowState = FormWindowState.Minimized;
                     DialogResult dialog = formal.ShowDialog();
 
                     if (dialog == DialogResult.Yes)
                     {
+                        this.WindowState = FormWindowState.Normal;
                         atualizaGrid();
                     }
                 }
@@ -118,7 +121,7 @@ namespace SysOticaForm
         }
         private void dataGridViewCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewCliente.SelectedRows[0].Index >= 0)
+            if (dataGridViewCliente.SelectedRows[0].Index >= -1)
             {
                 MessageBox.Show("Campo Selecionado!");
                 Cliente cliSelecionado = listarCliente.ElementAt(dataGridViewCliente.SelectedRows[0].Index);
@@ -132,13 +135,44 @@ namespace SysOticaForm
         {
             try
             {
-                dataGridViewCliente.DataSource = webservice.pesquisarCliente(buttonPesquisar.Text);
-            }
-            catch (Exception ex)
-            {
+                string caracteres = "^[ a-zA-Z]+$";
+                if (textBoxPesquisar.Text.Length < 3)
+                {
 
-                MessageBox.Show(ex.Message);
+                    MessageBox.Show("Por Favor, digite um nome com no mínimo 3 caracteres");
+                    return;
+                }
+                if (!Regex.IsMatch(textBoxPesquisar.Text, caracteres))
+                {
+                    MessageBox.Show("Este campo só aceita letras");
+                    return;
+                }
+
+                if (textBoxPesquisar.Text != "")
+                {
+
+                    dataGridViewCliente.DataSource = null;
+                    dataGridViewCliente.AutoGenerateColumns = false;
+                    dataGridViewCliente.DataSource = webservice.pesquisarCliente(textBoxPesquisar.Text.Trim());
+
+
+                }
             }
+            catch
+            {
+                MessageBox.Show("Erro ao listar Receitas");
+
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            dataGridViewCliente.DataSource = null;
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Dispose();
         }
     }
 }

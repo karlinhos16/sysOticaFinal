@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReceita));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
@@ -141,7 +142,7 @@
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(95, 13);
+            this.groupBox2.Location = new System.Drawing.Point(36, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(631, 452);
             this.groupBox2.TabIndex = 1;
@@ -615,7 +616,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(639, 471);
+            this.btnSalvar.Location = new System.Drawing.Point(557, 471);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(105, 33);
             this.btnSalvar.TabIndex = 26;
@@ -625,7 +626,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(411, 471);
+            this.btnCancelar.Location = new System.Drawing.Point(329, 471);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(110, 33);
             this.btnCancelar.TabIndex = 27;
@@ -635,7 +636,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(527, 471);
+            this.btnImprimir.Location = new System.Drawing.Point(445, 471);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(103, 33);
             this.btnImprimir.TabIndex = 28;
@@ -646,15 +647,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 516);
+            this.ClientSize = new System.Drawing.Size(694, 516);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmReceita";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmReceita";
+            this.Text = "CADASTRO DE RECEITAS";
             this.Load += new System.EventHandler(this.frmReceita_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

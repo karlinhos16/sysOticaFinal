@@ -185,47 +185,51 @@ namespace SysOtica.Conexao
 
         public List<Usuario> pesquisaUsuario(string us_nome)
         {
-            string sql = "SELECT  us_id, us_usuario, us_senha, us_nome,  us_tipo, us_endereco , us_telefone FROM Usuario";
+            string sql = "SELECT  us_id, us_usuario, us_senha, us_nome,  us_tipo, us_endereco , us_telefone FROM Usuario Where us_nome LIKE @us_nome + '%'";
+            List<Usuario> lista = new List<Usuario>();
+
             if (us_nome != "")
             {
-                sql += "WHERE us_nome LIKE @us_nome";
-            }
-            List<Usuario> lista = new List<Usuario>();
-            Usuario usu = new Usuario();
 
-            try
-            {
-                conn.AbrirConexao();
-                SqlCommand cmd = new SqlCommand(sql, conn.cone);
-                if (us_nome != "")
+                try
                 {
-                    cmd.Parameters.AddWithValue("@us_nome", "%" + us_nome + "%");
+                    conn.AbrirConexao();
+                    SqlCommand cmd = new SqlCommand(sql, this.conn.cone);
+                    cmd.Parameters.Add("@us_nome", SqlDbType.VarChar, 50).Value = us_nome;
+
+                    SqlDataReader retorno = cmd.ExecuteReader();
+
+                    if (retorno.HasRows == false)
+                    {
+
+                        MessageBox.Show("Usuário não cadastrado!");
+
+                    }
+                    while (retorno.Read())
+                    {
+                        Usuario usu = new Usuario();
+
+                        usu.Us_id = retorno.GetInt32(retorno.GetOrdinal("us_id"));
+                        usu.Us_usuario = retorno.GetString(retorno.GetOrdinal("us_usuario"));
+                        usu.Us_senha = retorno.GetString(retorno.GetOrdinal("us_senha"));
+                        usu.Us_nome = retorno.GetString(retorno.GetOrdinal("us_nome"));
+                        usu.Us_tipo = retorno.GetString(retorno.GetOrdinal("us_tipo"));
+                        usu.Us_endereco = retorno.GetString(retorno.GetOrdinal("us_endereco"));
+                        usu.Us_telefone = retorno.GetString(retorno.GetOrdinal("us_telefone"));
+
+
+                        lista.Add(usu);
+                    }
+
                 }
-                SqlDataReader retorno = cmd.ExecuteReader();
-                while (retorno.Read())
+
+                catch (SqlException e)
                 {
-                    usu = new Usuario();
-
-                    usu.Us_id = retorno.GetInt32(retorno.GetOrdinal("us_id"));
-                    usu.Us_usuario = retorno.GetString(retorno.GetOrdinal("us_usuario"));
-                    usu.Us_senha = retorno.GetString(retorno.GetOrdinal("us_senha"));
-                    usu.Us_nome = retorno.GetString(retorno.GetOrdinal("us_nome"));
-                    usu.Us_tipo = retorno.GetString(retorno.GetOrdinal("us_tipo"));
-                    usu.Us_endereco = retorno.GetString(retorno.GetOrdinal("us_endereco"));
-                    usu.Us_telefone = retorno.GetString(retorno.GetOrdinal("us_telefone"));
-
-
-                    lista.Add(usu);
+                    throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
                 }
-
-                conn.FecharConexao();
-                return lista;
-
             }
-            catch (SqlException e)
-            {
-                throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
-            }
+            conn.FecharConexao();
+            return lista;
 
         }
 

@@ -282,7 +282,7 @@ namespace SysOtica.Conexao
 
             List<Receita> lista = new List<Receita>();
             Receita receita;
-            Cliente cliente;
+
 
             try
             {
@@ -293,7 +293,7 @@ namespace SysOtica.Conexao
                 while (retorno.Read())
                 {
                     receita = new Receita();
-                    cliente = new Cliente();
+
 
 
                     receita.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
@@ -363,18 +363,16 @@ namespace SysOtica.Conexao
                     if (retorno.HasRows == false)
                     {
 
-                        throw new Exception("Cliente não cadastrado!");
+                        MessageBox.Show("Cliente não cadastrado!");
 
                     }
 
                     while (retorno.Read())
                     {
                         Receita receita = new Receita();
-                        Cliente cliente = new Cliente();
 
-
-                       receita.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
-                       receita.Rc_lodesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_lodesferico"));
+                        receita.Rc_id = retorno.GetInt32(retorno.GetOrdinal("rc_id"));
+                        receita.Rc_lodesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_lodesferico"));
                         receita.Rc_loeesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_loeesferico"));
                         receita.Rc_podesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_podesferico"));
                         receita.Rc_poeesferico = retorno.GetDecimal(retorno.GetOrdinal("rc_poeesferico"));

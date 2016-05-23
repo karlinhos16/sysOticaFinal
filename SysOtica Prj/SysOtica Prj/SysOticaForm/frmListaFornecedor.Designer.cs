@@ -28,7 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaFornecedor));
             this.dataGridFornecedor = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textPesquisa = new System.Windows.Forms.TextBox();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.razaosocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inscricaoestadual = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,14 +57,6 @@
             this.telefonerepresentante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observacoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnListar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFornecedor)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +94,99 @@
             this.dataGridFornecedor.TabIndex = 0;
             this.dataGridFornecedor.DoubleClick += new System.EventHandler(this.dataGridFornecedor_DoubleClick);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnLimpar);
+            this.groupBox1.Controls.Add(this.btnListar);
+            this.groupBox1.Controls.Add(this.btnExcluir);
+            this.groupBox1.Controls.Add(this.btnAlterar);
+            this.groupBox1.Controls.Add(this.btnSair);
+            this.groupBox1.Controls.Add(this.btnPesquisar);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.textPesquisa);
+            this.groupBox1.Controls.Add(this.dataGridFornecedor);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(940, 354);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(824, 14);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(110, 23);
+            this.btnListar.TabIndex = 7;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(717, 325);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(101, 23);
+            this.btnExcluir.TabIndex = 6;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Location = new System.Drawing.Point(824, 325);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(110, 23);
+            this.btnAlterar.TabIndex = 5;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(607, 325);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(104, 23);
+            this.btnSair.TabIndex = 4;
+            this.btnSair.Text = "Sair ";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(480, 12);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(103, 23);
+            this.btnPesquisar.TabIndex = 3;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Digite o nome Fantasia :";
+            // 
+            // textPesquisa
+            // 
+            this.textPesquisa.Location = new System.Drawing.Point(217, 16);
+            this.textPesquisa.Name = "textPesquisa";
+            this.textPesquisa.Size = new System.Drawing.Size(241, 20);
+            this.textPesquisa.TabIndex = 1;
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(16, 325);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(102, 23);
+            this.btnLimpar.TabIndex = 9;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
             // ID
             // 
             this.ID.DataPropertyName = "fr_id";
@@ -122,7 +217,7 @@
             // 
             // endereço
             // 
-            this.endereço.DataPropertyName = " fr_endereco";
+            this.endereço.DataPropertyName = "fr_endereco";
             this.endereço.HeaderText = "Endereço";
             this.endereço.Name = "endereço";
             this.endereço.ReadOnly = true;
@@ -218,98 +313,17 @@
             this.cnpj.Name = "cnpj";
             this.cnpj.ReadOnly = true;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnListar);
-            this.groupBox1.Controls.Add(this.btnExcluir);
-            this.groupBox1.Controls.Add(this.btnAlterar);
-            this.groupBox1.Controls.Add(this.btnSair);
-            this.groupBox1.Controls.Add(this.btnPesquisar);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.dataGridFornecedor);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(940, 354);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            // 
-            // btnListar
-            // 
-            this.btnListar.Location = new System.Drawing.Point(824, 14);
-            this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(110, 23);
-            this.btnListar.TabIndex = 7;
-            this.btnListar.Text = "Listar";
-            this.btnListar.UseVisualStyleBackColor = true;
-            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Location = new System.Drawing.Point(717, 325);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(101, 23);
-            this.btnExcluir.TabIndex = 6;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Location = new System.Drawing.Point(824, 325);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(110, 23);
-            this.btnAlterar.TabIndex = 5;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
-            // btnSair
-            // 
-            this.btnSair.Location = new System.Drawing.Point(16, 325);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(104, 23);
-            this.btnSair.TabIndex = 4;
-            this.btnSair.Text = "Sair ";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.Location = new System.Drawing.Point(480, 12);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(103, 23);
-            this.btnPesquisar.TabIndex = 3;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Digite a Razão Social para pesquisar: ";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(217, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(241, 20);
-            this.textBox1.TabIndex = 1;
-            // 
             // frmListaFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 378);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmListaFornecedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Listar/Alterar Fornecedores";
+            this.Text = "LISTAR / ALTERAR FORNECEDOR";
             this.Load += new System.EventHandler(this.frmListaFornecedor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFornecedor)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -323,12 +337,13 @@
         private System.Windows.Forms.DataGridView dataGridFornecedor;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textPesquisa;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn razaosocial;
         private System.Windows.Forms.DataGridViewTextBoxColumn inscricaoestadual;

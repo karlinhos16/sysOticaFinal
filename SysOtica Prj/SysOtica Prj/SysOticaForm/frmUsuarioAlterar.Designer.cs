@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuarioAlterar));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textIDusuario = new System.Windows.Forms.TextBox();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.tbUsuario = new System.Windows.Forms.TextBox();
             this.maskedTextBoxTelefone = new System.Windows.Forms.MaskedTextBox();
@@ -44,8 +47,6 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            this.textIDusuario = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +71,23 @@
             this.groupBox1.Size = new System.Drawing.Size(591, 266);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(18, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "ID";
+            // 
+            // textIDusuario
+            // 
+            this.textIDusuario.Enabled = false;
+            this.textIDusuario.Location = new System.Drawing.Point(5, 26);
+            this.textIDusuario.Name = "textIDusuario";
+            this.textIDusuario.Size = new System.Drawing.Size(92, 20);
+            this.textIDusuario.TabIndex = 7;
             // 
             // cmbTipo
             // 
@@ -204,23 +222,6 @@
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // textIDusuario
-            // 
-            this.textIDusuario.Enabled = false;
-            this.textIDusuario.Location = new System.Drawing.Point(5, 26);
-            this.textIDusuario.Name = "textIDusuario";
-            this.textIDusuario.Size = new System.Drawing.Size(92, 20);
-            this.textIDusuario.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 7);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(18, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "ID";
-            // 
             // frmUsuarioAlterar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,7 +231,9 @@
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmUsuarioAlterar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUsuarioAlterar";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -63,6 +63,16 @@ namespace SysOticaForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _47_184_logo_otica_six_matcon {
+            get {
+                object obj = ResourceManager.GetObject("47_184_logo-otica-six-matcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button__ {
             get {
                 object obj = ResourceManager.GetObject("button -", resourceCulture);

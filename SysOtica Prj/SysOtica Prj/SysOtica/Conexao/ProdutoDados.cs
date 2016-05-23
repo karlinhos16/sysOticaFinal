@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SysOtica.Conexao
 {
@@ -72,11 +73,11 @@ namespace SysOtica.Conexao
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "UPDATE Produto SET  pr_descricao = @pr_descricao, pr_grupo = @pr_grupo,pr_grife = @pr_grife, pr_valor = @pr_valor,pr_qtd = @pr_qtd,pr_estoqueminimo = @pr_estoqueminimo, pr_unidade= @pr_unidade WHERE pr_id = @pr_id";
+                string sql = "UPDATE Produto SET  pr_descricao = @pr_descricao, pr_grife = @pr_grife, pr_valor = @pr_valor,pr_qtd = @pr_qtd,pr_estoqueminimo = @pr_estoqueminimo, pr_unidade= @pr_unidade WHERE pr_id = @pr_id";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
-                cmd.Parameters.Add("pr_id", SqlDbType.Int);
+                cmd.Parameters.Add("@pr_id", SqlDbType.Int);
                 cmd.Parameters["@pr_id"].Value = p.Pr_id;
 
                 cmd.Parameters.Add("@pr_descricao", SqlDbType.VarChar);
@@ -120,6 +121,11 @@ namespace SysOtica.Conexao
                 //abrir a conexão
                 conn.AbrirConexao();
                 string sql = "DELETE FROM Produto WHERE pr_id = @pr_id";
+
+               // string sql = "Delete FROM produto Where pr_id = @pr_id in" +
+               //    "(Select produto_fornecedor_fk FROM Produto) and (Select categoria_produto_fk FROM Produto)";
+
+
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
                 cmd.Parameters.Add("@pr_id", SqlDbType.Int);
@@ -172,54 +178,58 @@ namespace SysOtica.Conexao
         }
         public List<Produto> pesquisarProduto(string pr_descricao)
         {
-            string sql = "SELECT p.pr_id, p.pr_descricao, p.pr_grife, p.pr_valor, p.pr_estoqueminimo, p.pr_qtd, f.fr_fantasia, cat.cl_nome " +
-                          "FROM Produto as p Inner Join Fornecedor as f on p.fr_id = f.fr_id Inner join Categoria as cat on p.ct_id = cat.ct_id" + 
-                          "where p.pr_descricao LIKE @pr_descricao + '%'";
+            string sql = "SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_qtd " +
+                         "FROM Produto where pr_descricao LIKE @pr_descricao + '%'";
 
-      
-         
+
+
             List<Produto> lista = new List<Produto>();
-            Produto p = new Produto();
+            Produto p;
 
-            try
+            if (pr_descricao != "")
             {
-                conn.AbrirConexao();
-                SqlCommand cmd = new SqlCommand(sql, conn.cone);
-                if (pr_descricao != "")
+
+                try
                 {
-                    cmd.Parameters.AddWithValue("@pr_descricao", "%" + pr_descricao + "%");
+                    conn.AbrirConexao();
+                    SqlCommand cmd = new SqlCommand(sql, this.conn.cone);
+                    cmd.Parameters.Add("@pr_descricao", SqlDbType.VarChar, 50).Value = pr_descricao;
+
+                    SqlDataReader retorno = cmd.ExecuteReader();
+
+                    if (retorno.HasRows == false)
+                    {
+
+                       MessageBox.Show("Produto não cadastrado!");
+                     
+                    }
+
+
+
+                    while (retorno.Read())
+                    {
+
+                        p = new Produto();
+                        p.Pr_id = retorno.GetInt32(retorno.GetOrdinal("pr_id"));
+                        p.Pr_descricao = retorno.GetString(retorno.GetOrdinal("pr_descricao"));
+                        p.Pr_grife = retorno.GetString(retorno.GetOrdinal("pr_grife"));
+                        p.Pr_valor = retorno.GetDecimal(retorno.GetOrdinal("pr_valor"));
+                        p.Pr_estoqueminimo = retorno.GetInt32(retorno.GetOrdinal("pr_estoqueminimo"));
+                        p.Pr_qtd = retorno.GetInt32(retorno.GetOrdinal("pr_qtd"));
+
+                        lista.Add(p);
+                    }
+
+
                 }
-                SqlDataReader retorno = cmd.ExecuteReader();
-                if (retorno.HasRows == false)
+                catch (SqlException e)
                 {
-
-                    throw new Exception("Produto não cadastrado!");
-
+                    throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
                 }
-
-                while (retorno.Read())
-                {
-
-                    p = new Produto();
-                    p.Pr_id = retorno.GetInt32(retorno.GetOrdinal("pr_id"));
-                    p.Pr_descricao = retorno.GetString(retorno.GetOrdinal("pr_descricao"));
-                    p.Pr_grife = retorno.GetString(retorno.GetOrdinal("pr_grife"));
-                    p.Pr_valor = retorno.GetDecimal(retorno.GetOrdinal("pr_valor"));
-                    p.Pr_estoqueminimo = retorno.GetInt32(retorno.GetOrdinal("pr_estoqueminimo"));
-                    p.Pr_qtd = retorno.GetInt32(retorno.GetOrdinal("pr_qtd"));
-
-                    lista.Add(p);
-                }
-                conn.FecharConexao();
-                return lista;
-
             }
-            catch (SqlException e)
-            {
-                throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
-            }
+            conn.FecharConexao();
+            return lista;
         }
-        
 
     }
 }

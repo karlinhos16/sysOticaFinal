@@ -15,19 +15,16 @@ namespace SysOticaForm
     {
         private Service1Client webservice = new Service1Client();
         private Produto produto = new Produto();
+        private List<Fornecedor> listfornecedor = new List<Fornecedor>();
+        private List<Categoria> listcategoria = new List<Categoria>();
 
-        string[] oculossol = {"Arnette","Blue Bay","Christian Dior", "D&G",
-                               "Diesel","Armani","mormaii","Oakley","Ray-Ban","Ralph Lauren","HB" };
-
-        string[] oculosgrau = {"Pirre Cardin","Hugo Boss","Tommy Hilfiger", "D&G",
-                              "Turma da Mônica","Lacoste","Adidas","Playboy","Ray-Ban","Ralph Lauren","Evoke" };
+        string[] oculos = {"Arnette","Blue Bay","Christian Dior", "D&G",
+                           "Diesel","Armani","mormaii","Oakley","Ray-Ban","Ralph Lauren","HB","Tommy Hilfiger",
+                           "Turma da Mônica","Lacoste","Adidas","Playboy","Ray-Ban","Pierre Cardin","Hugo Boss"};
 
         string[] lentes = { "Transitions", "Hoya", "ZEISS", "Varilux" };
 
         string[] lentesContato = { "Acuvue", "Alcon", "CooperVision", "Solótica", "ZEISS" };
-
-
-        string[] categoria = { "Oculos de Grau", "Oculos de Sol", "Lente Bifocais ou Multifocais", "Lentes de Contato" };
 
         public formProdutoAlterar(Produto p)
         {
@@ -38,49 +35,192 @@ namespace SysOticaForm
             if (produto != null)
             {
                 textID.Text = Convert.ToString(produto.Pr_id);
-                tbDescricao.Text = produto.Pr_descricao;
-                cmbUnidade.Text = produto.Pr_unidade;
+                tbDescricao.Text = produto.Pr_descricao.ToString();
+                cmbUnidade.Text = produto.Pr_unidade.ToString();
                 cbGrife.Text = produto.Pr_grife;
                 tbValor.Text = Convert.ToString(produto.Pr_valor);
                 tbQuantidade.Text = Convert.ToString(produto.Pr_qtd);
                 tbEstoqueMinimo.Text = Convert.ToString(produto.Pr_estoqueminimo);
+                cmbCategoria.Text = produto.Categoria.Ct_nome;
+                cmbFornecedor.Text = produto.Fornecedor.Fr_fantasia;
+                     
 
             }
         }
-        private void buttonSair_Click(object sender, EventArgs e)
+  
+
+      
+
+      
+
+
+        public void LimparCampos()
         {
-            Dispose();
+            tbDescricao.Text = "";
+            cmbUnidade.Text = "";
+            cbGrife.Text = "";
+            tbValor.Text = "";
+            tbQuantidade.Text = "";
+            tbEstoqueMinimo.Text = "";
         }
-        private void buttonSalvar_Click(object sender, EventArgs e)
+
+        private void formProdutoAlterar_Load(object sender, EventArgs e)
+        {
+            carregaFornecedor();
+
+            carregaCategoria();
+
+
+        }
+
+        void carregaFornecedor()
+        {
+
+            listfornecedor = webservice.ListaFornecedor().ToList<Fornecedor>();
+
+            DataTable data = new DataTable();
+
+            data.Columns.Add("fr_id");
+            data.Columns.Add("fr_fantasia");
+
+
+            foreach (Fornecedor fornecedor in listfornecedor)
+            {
+                DataRow row = data.NewRow();
+                row["fr_id"] = fornecedor.Fr_id;
+                row["fr_fantasia"] = fornecedor.Fr_fantasia;
+                data.Rows.Add(row);
+
+            }
+
+            cmbFornecedor.DataSource = data;
+            cmbFornecedor.DisplayMember = "fr_fantasia";
+            cmbFornecedor.ValueMember = "fr_id";
+
+
+        }
+
+
+        void carregaCategoria()
+        {
+
+            listcategoria = webservice.pesquisaCategoria().ToList<Categoria>();
+
+            DataTable data = new DataTable();
+
+            data.Columns.Add("ct_id");
+            data.Columns.Add("ct_nome");
+
+
+            foreach (Categoria cat in listcategoria)
+            {
+                DataRow row = data.NewRow();
+                row["ct_id"] = cat.Ct_id;
+                row["ct_nome"] = cat.Ct_nome;
+                data.Rows.Add(row);
+
+            }
+
+            cmbCategoria.DataSource = data;
+            cmbCategoria.DisplayMember = "ct_nome";
+            cmbCategoria.ValueMember = "ct_id";
+
+        }
+
+
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCategoria.SelectedIndex == -1)
+            {
+
+                MessageBox.Show("Selecione uma categoria, por favor");
+                return;
+            }
+
+            else if (cmbCategoria.SelectedIndex == 0)// seleciona o primeiro index do combobox
+            {
+                cbGrife.Items.Clear();
+                for (int i = 0; i < oculos.Count(); i++)
+                {
+                    cbGrife.Items.Add(oculos[i]);// carrega combobox caso o index selecionado seja = 0
+                }
+
+
+            }
+            else if (cmbCategoria.SelectedIndex == 1)
+            {
+
+                cbGrife.Items.Clear();
+                for (int i = 0; i < lentes.Count(); i++)
+                {
+                    cbGrife.Items.Add(lentes[i]);
+                }
+
+
+            }
+            else if (cmbCategoria.SelectedIndex == 2)
+            {
+                cbGrife.Items.Clear();
+                for (int i = 0; i < lentesContato.Count(); i++)
+                {
+                    cbGrife.Items.Add(lentesContato[i]);
+                }
+
+            }
+        }
+
+        private void buttonSalvar_Click_1(object sender, EventArgs e)
         {
             try
             {
-                Produto p = new Produto();
+
 
                 {
-                    p.Pr_id = Convert.ToInt32(textID.Text);
-                    p.Pr_descricao = tbDescricao.Text;
-                    p.Pr_unidade = cmbUnidade.SelectedItem.ToString();
-                    p.Pr_grife = cbGrife.SelectedItem.ToString();
-                    p.Pr_valor = Convert.ToDecimal(tbValor.Text);
-                    p.Pr_qtd = Convert.ToInt32(tbQuantidade.Text);
-                    p.Pr_estoqueminimo = Convert.ToInt32(tbEstoqueMinimo.Text);
+                    produto.Fornecedor = new Fornecedor();
+                    produto.Categoria = new Categoria();
 
+                    produto.Pr_descricao = tbDescricao.Text;
+                    produto.Pr_unidade = cmbUnidade.Text.ToString();
+                    produto.Pr_grife = cbGrife.Text.ToString();
+                    string data_entrada = dataPicker.Value.ToShortDateString();
+                    produto.Pr_dtentrada = Convert.ToDateTime(data_entrada);
+                    produto.Pr_valor = Convert.ToDecimal(tbValor.Text);
+                    produto.Pr_qtd = int.Parse(tbQuantidade.Text);
+                    produto.Pr_estoqueminimo = int.Parse(tbEstoqueMinimo.Text);
+
+                   // int aux = 0;
+                    //int.TryParse(cmbFornecedor.SelectedValue.ToString(), out aux);
+                    produto.Fornecedor.Fr_id = Convert.ToInt32(cmbFornecedor.SelectedValue.ToString());
+                    //int.TryParse(cmbCategoria.SelectedValue.ToString(), out aux);
+                    produto.Categoria.Ct_id = Convert.ToInt32(cmbCategoria.SelectedValue.ToString());
                 }
                 if (produto == null)
                 {
-                    webservice.AlterarProduto(p);
+                    webservice.AlterarProduto(produto);
                     MessageBox.Show("Produto alterado com sucesso!");
                     LimparCampos();
                 }
                 else
                 {
-                    produto.Pr_id = Convert.ToInt32(textID.Text);
+                    produto.Fornecedor = new Fornecedor();
+                    produto.Categoria = new Categoria();
+
                     produto.Pr_descricao = tbDescricao.Text;
-                    produto.Pr_grife = cbGrife.SelectedItem.ToString();
+                    produto.Pr_unidade = cmbUnidade.Text.ToString();
+                    produto.Pr_grife = cbGrife.Text.ToString();
+                    string data_entrada = dataPicker.Value.ToShortDateString();
+                    produto.Pr_dtentrada = Convert.ToDateTime(data_entrada);
                     produto.Pr_valor = Convert.ToDecimal(tbValor.Text);
-                    produto.Pr_qtd = Convert.ToInt32(tbQuantidade.Text);
-                    produto.Pr_estoqueminimo = Convert.ToInt32(tbEstoqueMinimo.Text);
+                    produto.Pr_qtd = int.Parse(tbQuantidade.Text);
+                    produto.Pr_estoqueminimo = int.Parse(tbEstoqueMinimo.Text);
+
+                    // int aux = 0;
+                    //int.TryParse(cmbFornecedor.SelectedValue.ToString(), out aux);
+                    produto.Fornecedor.Fr_id = Convert.ToInt32(cmbFornecedor.SelectedValue.ToString());
+                    //int.TryParse(cmbCategoria.SelectedValue.ToString(), out aux);
+                    produto.Categoria.Ct_id = Convert.ToInt32(cmbCategoria.SelectedValue.ToString());
+
 
                     webservice.AlterarProduto(produto);
                     MessageBox.Show("Produto alterado com sucesso!");
@@ -92,75 +232,16 @@ namespace SysOticaForm
             {
                 MessageBox.Show("Falha na comunicação com o banco de dados. \n" + ex.Message);
             }
-
         }
 
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
             LimparCampos();
         }
-        public void LimparCampos()
+
+        private void buttonSair_Click(object sender, EventArgs e)
         {
-            tbDescricao.Text = "";
-            cmbUnidade.Text = "";
-            cbGrupo.Text = "";
-            cbGrife.Text = "";
-            tbValor.Text = "";
-            tbQuantidade.Text = "";
-            tbEstoqueMinimo.Text = "";
-        }
-
-        private void formProdutoAlterar_Load(object sender, EventArgs e)
-        {
-            for (int i = 0; i < categoria.Count(); i++)
-            {
-                cbGrupo.Items.Add(categoria[i]);
-            }
-        }
-
-        private void cbGrupo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbGrupo.SelectedIndex == 0)// seleciona o primeiro index do combobox
-            {
-
-                for (int i = 0; i < oculosgrau.Count(); i++) // carrega combobox caso o index selecionado seja = 0
-                {
-                    cbGrife.Items.Add(oculosgrau[i]);
-                }
-
-            }
-
-            else if (cbGrupo.SelectedIndex == 1)
-            {
-                cbGrife.Items.Clear();
-                for (int j = 0; j < oculossol.Count(); j++)
-                {
-                    cbGrife.Items.Add(oculossol[j]);
-                }
-
-            }
-            else if (cbGrupo.SelectedIndex == 2)
-            {
-                cbGrife.Items.Clear();
-                for (int j = 0; j < lentes.Count(); j++)
-                {
-                    cbGrife.Items.Add(lentes[j]);
-                }
-
-            }
-            else if (cbGrupo.SelectedIndex == 3)
-            {
-                cbGrife.Items.Clear();
-                for (int j = 0; j < lentesContato.Count(); j++)
-                {
-                    cbGrife.Items.Add(lentesContato[j]);
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Selecione o uma categoria!");
-            }
+            Dispose();
         }
     }
 }

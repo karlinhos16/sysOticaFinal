@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarCliente));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBoxPesquisar = new System.Windows.Forms.TextBox();
             this.buttonPesquisar = new System.Windows.Forms.Button();
@@ -54,33 +55,37 @@
             this.Observações = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonAlterar = new System.Windows.Forms.Button();
             this.buttonExcluir = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBoxPesquisar);
             this.groupBox1.Controls.Add(this.buttonPesquisar);
             this.groupBox1.Controls.Add(this.buttonListar);
             this.groupBox1.Controls.Add(this.dataGridViewCliente);
             this.groupBox1.Location = new System.Drawing.Point(-2, -1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(666, 365);
+            this.groupBox1.Size = new System.Drawing.Size(950, 365);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
             // textBoxPesquisar
             // 
-            this.textBoxPesquisar.Location = new System.Drawing.Point(15, 15);
+            this.textBoxPesquisar.Location = new System.Drawing.Point(163, 21);
             this.textBoxPesquisar.Name = "textBoxPesquisar";
             this.textBoxPesquisar.Size = new System.Drawing.Size(218, 20);
             this.textBoxPesquisar.TabIndex = 4;
             // 
             // buttonPesquisar
             // 
-            this.buttonPesquisar.Location = new System.Drawing.Point(239, 15);
+            this.buttonPesquisar.Location = new System.Drawing.Point(400, 19);
             this.buttonPesquisar.Name = "buttonPesquisar";
             this.buttonPesquisar.Size = new System.Drawing.Size(75, 23);
             this.buttonPesquisar.TabIndex = 3;
@@ -90,7 +95,7 @@
             // 
             // buttonListar
             // 
-            this.buttonListar.Location = new System.Drawing.Point(556, 13);
+            this.buttonListar.Location = new System.Drawing.Point(859, 19);
             this.buttonListar.Name = "buttonListar";
             this.buttonListar.Size = new System.Drawing.Size(75, 23);
             this.buttonListar.TabIndex = 2;
@@ -128,7 +133,7 @@
             this.dataGridViewCliente.Name = "dataGridViewCliente";
             this.dataGridViewCliente.ReadOnly = true;
             this.dataGridViewCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCliente.Size = new System.Drawing.Size(626, 300);
+            this.dataGridViewCliente.Size = new System.Drawing.Size(920, 284);
             this.dataGridViewCliente.TabIndex = 0;
             this.dataGridViewCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCliente_CellDoubleClick);
             // 
@@ -267,7 +272,7 @@
             // 
             // buttonAlterar
             // 
-            this.buttonAlterar.Location = new System.Drawing.Point(437, 388);
+            this.buttonAlterar.Location = new System.Drawing.Point(857, 388);
             this.buttonAlterar.Name = "buttonAlterar";
             this.buttonAlterar.Size = new System.Drawing.Size(75, 23);
             this.buttonAlterar.TabIndex = 2;
@@ -277,7 +282,7 @@
             // 
             // buttonExcluir
             // 
-            this.buttonExcluir.Location = new System.Drawing.Point(554, 388);
+            this.buttonExcluir.Location = new System.Drawing.Point(776, 388);
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(75, 23);
             this.buttonExcluir.TabIndex = 3;
@@ -285,16 +290,49 @@
             this.buttonExcluir.UseVisualStyleBackColor = true;
             this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(127, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Digite o nome do cliente: ";
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(12, 388);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpar.TabIndex = 4;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(695, 388);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.TabIndex = 5;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // frmListarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 423);
+            this.ClientSize = new System.Drawing.Size(960, 423);
+            this.Controls.Add(this.btnSair);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.buttonExcluir);
             this.Controls.Add(this.buttonAlterar);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmListarCliente";
-            this.Text = "frmListarCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "LISTAR / ALTERAR CLIENTE";
             this.Load += new System.EventHandler(this.frmListarCliente_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -331,5 +369,8 @@
         private System.Windows.Forms.Button buttonAlterar;
         private System.Windows.Forms.Button buttonExcluir;
         private System.Windows.Forms.TextBox textBoxPesquisar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnSair;
     }
 }

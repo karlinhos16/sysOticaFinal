@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarReceita));
             this.DataGridreceita = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lodesferico = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -342,9 +343,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(45, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 13);
+            this.label1.Size = new System.Drawing.Size(125, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Digite o nome do médico :";
+            this.label1.Text = "Digite o nome do Cliente:";
             // 
             // btnLimpar
             // 
@@ -370,10 +371,11 @@
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.txtPesquisa);
             this.Controls.Add(this.DataGridreceita);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmListarReceita";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Listar/Alterar Receita";
+            this.Text = "LISTAR / ALTERAR RECEITA";
             this.Load += new System.EventHandler(this.frmListarReceita_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridreceita)).EndInit();
             this.ResumeLayout(false);

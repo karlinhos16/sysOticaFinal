@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -64,10 +65,12 @@ namespace SysOticaForm
                     frSelecionado = (dataGridFornecedor.SelectedRows[0].DataBoundItem as Fornecedor);
 
                     frmFornecedorAlterar frmForn = new frmFornecedorAlterar(frSelecionado);
+                    this.WindowState = FormWindowState.Minimized;
                     DialogResult dialog = frmForn.ShowDialog();
 
                     if (dialog == DialogResult.Yes)
                     {
+                        this.WindowState = FormWindowState.Normal;
                         atualizaGrid();
                     }
                 }
@@ -124,12 +127,46 @@ namespace SysOticaForm
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            dataGridFornecedor.DataSource = webservice.pesquisarCliente(btnPesquisar.Text);
+            try
+            {
+                string caracteres = "^[ a-zA-Z]+$";
+                if (textPesquisa.Text.Length < 3)
+                {
+
+                    MessageBox.Show("Por Favor, digite um nome com no mínimo 3 caracteres");
+                    return;
+                }
+                if (!Regex.IsMatch(textPesquisa.Text, caracteres))
+                {
+                    MessageBox.Show("Este campo só aceita letras");
+                    return;
+                }
+
+                if (textPesquisa.Text != "")
+                {
+
+                    dataGridFornecedor.DataSource = null;
+                    dataGridFornecedor.AutoGenerateColumns = false;
+                    dataGridFornecedor.DataSource = webservice.pesquisaFornecedor(textPesquisa.Text.Trim());
+
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Erro listar Fornecedor");
+
+            }
         }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            dataGridFornecedor.DataSource = null;
         }
     }
 

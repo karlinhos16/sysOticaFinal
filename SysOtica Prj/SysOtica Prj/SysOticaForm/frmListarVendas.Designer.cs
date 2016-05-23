@@ -28,18 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarVendas));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pr_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pr_descrição = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pv_preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pv_qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rc_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,11 +38,21 @@
             this.vn_valortotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vn_formapagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vn_dtsaida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.pr_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pr_descrição = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pv_preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pv_qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -63,28 +64,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vendas";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Location = new System.Drawing.Point(0, 246);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(798, 175);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Produtos";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(798, 77);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "NF";
             // 
             // dataGridView1
             // 
@@ -104,76 +83,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(792, 145);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pr_id,
-            this.pr_descrição,
-            this.pv_preco,
-            this.pv_qtd});
-            this.dataGridView2.Location = new System.Drawing.Point(115, 10);
-            this.dataGridView2.MultiSelect = false;
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(534, 150);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(282, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(94, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(403, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(121, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Digite o número da Nota Fiscal:";
-            // 
-            // pr_id
-            // 
-            this.pr_id.DataPropertyName = "pr_id";
-            this.pr_id.HeaderText = "ID Produto";
-            this.pr_id.Name = "pr_id";
-            this.pr_id.ReadOnly = true;
-            // 
-            // pr_descrição
-            // 
-            this.pr_descrição.DataPropertyName = "pr_descrição";
-            this.pr_descrição.HeaderText = "Produto";
-            this.pr_descrição.Name = "pr_descrição";
-            this.pr_descrição.ReadOnly = true;
-            this.pr_descrição.Width = 200;
-            // 
-            // pv_preco
-            // 
-            this.pv_preco.DataPropertyName = "pv_preco";
-            this.pv_preco.HeaderText = "Preço";
-            this.pv_preco.Name = "pv_preco";
-            this.pv_preco.ReadOnly = true;
-            // 
-            // pv_qtd
-            // 
-            this.pv_qtd.DataPropertyName = "pv_qtd";
-            this.pv_qtd.HeaderText = "Quantidade";
-            this.pv_qtd.Name = "pv_qtd";
-            this.pv_qtd.ReadOnly = true;
             // 
             // vn_id
             // 
@@ -225,6 +134,98 @@
             this.vn_dtsaida.Name = "vn_dtsaida";
             this.vn_dtsaida.ReadOnly = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Location = new System.Drawing.Point(0, 246);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(798, 175);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Produtos";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pr_id,
+            this.pr_descrição,
+            this.pv_preco,
+            this.pv_qtd});
+            this.dataGridView2.Location = new System.Drawing.Point(115, 10);
+            this.dataGridView2.MultiSelect = false;
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(541, 150);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // pr_id
+            // 
+            this.pr_id.DataPropertyName = "pr_id";
+            this.pr_id.HeaderText = "ID Produto";
+            this.pr_id.Name = "pr_id";
+            this.pr_id.ReadOnly = true;
+            // 
+            // pr_descrição
+            // 
+            this.pr_descrição.DataPropertyName = "pr_descrição";
+            this.pr_descrição.HeaderText = "Produto";
+            this.pr_descrição.Name = "pr_descrição";
+            this.pr_descrição.ReadOnly = true;
+            this.pr_descrição.Width = 200;
+            // 
+            // pv_preco
+            // 
+            this.pv_preco.DataPropertyName = "pv_preco";
+            this.pv_preco.HeaderText = "Preço";
+            this.pv_preco.Name = "pv_preco";
+            this.pv_preco.ReadOnly = true;
+            // 
+            // pv_qtd
+            // 
+            this.pv_qtd.DataPropertyName = "pv_qtd";
+            this.pv_qtd.HeaderText = "Quantidade";
+            this.pv_qtd.Name = "pv_qtd";
+            this.pv_qtd.ReadOnly = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(798, 77);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "NF";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(121, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Digite o número da Nota Fiscal:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(394, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(282, 33);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(94, 20);
+            this.textBox1.TabIndex = 0;
+            // 
             // frmListarVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,14 +234,16 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmListarVendas";
-            this.Text = "frmListarVendas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "LISTA DE VENDAS";
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }

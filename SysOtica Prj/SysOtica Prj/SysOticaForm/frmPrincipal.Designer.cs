@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,14 +45,11 @@
             this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.receitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarChatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-<<<<<<< HEAD
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarWebServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-=======
->>>>>>> 538aa50a61535ee8c42e460cd4913489fca0dc38
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,7 +131,7 @@
             // vendaToolStripMenuItem
             // 
             this.vendaToolStripMenuItem.Name = "vendaToolStripMenuItem";
-            this.vendaToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.vendaToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.vendaToolStripMenuItem.Text = "Venda";
             this.vendaToolStripMenuItem.Click += new System.EventHandler(this.vendaToolStripMenuItem_Click);
             // 
@@ -152,37 +150,37 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // fornecedoresToolStripMenuItem
             // 
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
             this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.produtosToolStripMenuItem.Text = "Produtos";
             this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
             // 
             // receitasToolStripMenuItem
             // 
             this.receitasToolStripMenuItem.Name = "receitasToolStripMenuItem";
-            this.receitasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.receitasToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.receitasToolStripMenuItem.Text = "Receitas";
             this.receitasToolStripMenuItem.Click += new System.EventHandler(this.receitasToolStripMenuItem_Click);
             // 
-            // sairToolStripMenuItem
+            // vendasToolStripMenuItem
             // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.vendasToolStripMenuItem.Text = "Vendas";
+            this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
             // 
             // chatToolStripMenuItem
             // 
@@ -195,11 +193,17 @@
             // iniciarChatToolStripMenuItem
             // 
             this.iniciarChatToolStripMenuItem.Name = "iniciarChatToolStripMenuItem";
-            this.iniciarChatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.iniciarChatToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.iniciarChatToolStripMenuItem.Text = "Chat";
             this.iniciarChatToolStripMenuItem.Click += new System.EventHandler(this.iniciarChatToolStripMenuItem_Click);
             // 
-<<<<<<< HEAD
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
             // iniciarWebServiceToolStripMenuItem
             // 
             this.iniciarWebServiceToolStripMenuItem.Name = "iniciarWebServiceToolStripMenuItem";
@@ -207,21 +211,14 @@
             this.iniciarWebServiceToolStripMenuItem.Text = "WebService";
             this.iniciarWebServiceToolStripMenuItem.Click += new System.EventHandler(this.iniciarWebServiceToolStripMenuItem_Click);
             // 
-            // vendasToolStripMenuItem
-            // 
-            this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.vendasToolStripMenuItem.Text = "Vendas";
-            this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
-            // 
-=======
->>>>>>> 538aa50a61535ee8c42e460cd4913489fca0dc38
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1008, 692);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "frmPrincipal";
@@ -257,10 +254,9 @@
         private System.Windows.Forms.ToolStripMenuItem vendaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iniciarChatToolStripMenuItem;
-<<<<<<< HEAD
+
         private System.Windows.Forms.ToolStripMenuItem iniciarWebServiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
-=======
->>>>>>> 538aa50a61535ee8c42e460cd4913489fca0dc38
+
     }
 }
