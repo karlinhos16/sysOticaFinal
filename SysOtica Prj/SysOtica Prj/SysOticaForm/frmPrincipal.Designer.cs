@@ -47,8 +47,11 @@
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarChatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+<<<<<<< HEAD
             this.iniciarWebServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+=======
+>>>>>>> 538aa50a61535ee8c42e460cd4913489fca0dc38
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -184,8 +187,7 @@
             // chatToolStripMenuItem
             // 
             this.chatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.iniciarChatToolStripMenuItem,
-            this.iniciarWebServiceToolStripMenuItem});
+            this.iniciarChatToolStripMenuItem});
             this.chatToolStripMenuItem.Name = "chatToolStripMenuItem";
             this.chatToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.chatToolStripMenuItem.Text = "Utilitários";
@@ -197,6 +199,7 @@
             this.iniciarChatToolStripMenuItem.Text = "Chat";
             this.iniciarChatToolStripMenuItem.Click += new System.EventHandler(this.iniciarChatToolStripMenuItem_Click);
             // 
+<<<<<<< HEAD
             // iniciarWebServiceToolStripMenuItem
             // 
             this.iniciarWebServiceToolStripMenuItem.Name = "iniciarWebServiceToolStripMenuItem";
@@ -211,6 +214,8 @@
             this.vendasToolStripMenuItem.Text = "Vendas";
             this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
             // 
+=======
+>>>>>>> 538aa50a61535ee8c42e460cd4913489fca0dc38
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,7 +257,10 @@
         private System.Windows.Forms.ToolStripMenuItem vendaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iniciarChatToolStripMenuItem;
+<<<<<<< HEAD
         private System.Windows.Forms.ToolStripMenuItem iniciarWebServiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
+=======
+>>>>>>> 538aa50a61535ee8c42e460cd4913489fca0dc38
     }
 }

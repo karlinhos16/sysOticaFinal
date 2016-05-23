@@ -69,12 +69,12 @@
       <xs:element minOccurs="0" name="Cliente" nillable="true" type="tns:Cliente" />
       <xs:element minOccurs="0" name="Listaitens" nillable="true" type="tns:ArrayOfProdutoVenda" />
       <xs:element minOccurs="0" name="ProdutoVenda" nillable="true" type="xs:anyType" />
-      <xs:element minOccurs="0" name="Receita" nillable="true" type="tns:Receita" />
       <xs:element minOccurs="0" name="Vn_desconto" type="xs:decimal" />
       <xs:element minOccurs="0" name="Vn_dtsaida" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Vn_formapagamento" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Vn_id" type="xs:int" />
       <xs:element minOccurs="0" name="Vn_qtdsaida" type="xs:int" />
+      <xs:element minOccurs="0" name="Vn_receita" type="xs:int" />
       <xs:element minOccurs="0" name="Vn_valor" type="xs:decimal" />
       <xs:element minOccurs="0" name="Vn_valortotal" type="xs:decimal" />
     </xs:sequence>

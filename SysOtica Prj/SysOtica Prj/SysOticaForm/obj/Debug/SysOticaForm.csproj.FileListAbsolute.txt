@@ -420,4 +420,37 @@ C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\SysOtic
 C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.csproj.GenerateResource.Cache
 C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.exe
 C:\Users\Leonardo Marques\Desktop\FinalMELODSD\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.pdb
+<<<<<<< HEAD
 C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmListarVendas.resources
+=======
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.exe.config
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.exe
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.pdb
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SocketSysOtica.exe
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SocketSysOticaClient.exe
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SocketSysOticaClient.pdb
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SocketSysOtica.pdb
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.csprojResolveAssemblyReference.cache
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.formCategoria.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.formClienteAlterar.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.formProduto.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.formProdutoAlterar.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmCliente.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmFornecedor.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmListaFornecedor.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmListarCliente.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmListarProduto.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmListarReceita.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmListarUsuario.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmPrincipal.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmFornecedorAlterar.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmReceita.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmReceitaAlterar.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmUsuario.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmUsuarioAlterar.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmVendas.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.Properties.Resources.resources
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.csproj.GenerateResource.Cache
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.exe
+C:\Users\Leonardo Marques\Desktop\ApresentarAmanha\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.pdb
+>>>>>>> 538aa50a61535ee8c42e460cd4913489fca0dc38
