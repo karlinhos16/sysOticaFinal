@@ -162,5 +162,12 @@ namespace SysOticaForm
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void vendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListarVendas lv = new frmListarVendas();
+            lv.MdiParent = this;
+            lv.Show();
+        }
     }
 }
