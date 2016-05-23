@@ -384,7 +384,6 @@ C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOticaFor
 C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmReceitaAlterar.resources
 C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmUsuario.resources
 C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmUsuarioAlterar.resources
-C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.frmVenda.resources
 C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.Properties.Resources.resources
 C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.csproj.GenerateResource.Cache
 C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.exe

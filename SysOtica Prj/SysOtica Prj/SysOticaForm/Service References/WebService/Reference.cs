@@ -793,7 +793,8 @@ namespace SysOticaForm.WebService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal Vn_valortotalField;
-        
+        internal int Vn_Receita;
+
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {

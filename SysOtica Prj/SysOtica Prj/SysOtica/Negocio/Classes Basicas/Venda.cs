@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SysOtica.Negocio.Classes_Basicas
 {
-    public class Venda
+   public class Venda
     {
         private int vn_id;
         private Cliente cliente;
-        private Receita receita;
+        private int vn_receita;
         private decimal vn_valor;
         private decimal vn_valortotal;
         private decimal vn_desconto;
@@ -19,14 +19,6 @@ namespace SysOtica.Negocio.Classes_Basicas
         private int vn_qtdsaida;
         private List<ProdutoVenda> listaitens;
         private object produtoVenda;
-
-        public Venda()
-        {
-
-            Receita = new Receita();
-
-        }
-
 
         public int Vn_id
         {
@@ -54,16 +46,16 @@ namespace SysOtica.Negocio.Classes_Basicas
             }
         }
 
-        public Receita Receita
+        public int Vn_receita
         {
             get
             {
-                return receita;
+                return vn_receita;
             }
 
             set
             {
-                receita = value;
+                vn_receita = value;
             }
         }
 

@@ -29,7 +29,7 @@ namespace SysOtica.Conexao
                 cmd.Parameters["@cl_id"].Value = v.Cliente.Cl_id;
 
                 cmd.Parameters.Add("@rc_id", SqlDbType.Int);
-                cmd.Parameters["@rc_id"].Value = v.Receita.Rc_id;
+                cmd.Parameters["@rc_id"].Value = v.Vn_receita;
 
                 cmd.Parameters.Add("@vn_valortotal", SqlDbType.Decimal);
                 cmd.Parameters["@vn_valortotal"].Value = v.Vn_valortotal;

@@ -1,0 +1,19 @@
+<VendaNFe>
+  <NotaFiscal>
+    <dEmpresa />
+    <razaoSocial>SysOtica LTDA.</razaoSocial>
+    <cnpj>61.835.886/0001-88</cnpj>
+    <logradouro>Avenida Imbiribeira, 900 - Recife - PE - CEP 55820-000</logradouro>
+    <cliente>Mainha</cliente>
+    <idproNF>4</idproNF>
+    <descproNF>relógio-derivados</descproNF>
+    <vlrproNF>10</vlrproNF>
+    <rcID>4</rcID>
+    <vlrUnitario>R$3715,89</vlrUnitario>
+    <desconto>3</desconto>
+    <vlrNota>R$3712,89</vlrNota>
+    <formaPagamento>
+    </formaPagamento>
+    <dtaNota>22/05/2016</dtaNota>
+  </NotaFiscal>
+</VendaNFe>

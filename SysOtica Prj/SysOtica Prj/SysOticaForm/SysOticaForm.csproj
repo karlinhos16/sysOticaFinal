@@ -151,12 +151,6 @@
     <Compile Include="frmUsuarioAlterar.Designer.cs">
       <DependentUpon>frmUsuarioAlterar.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVenda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVenda.Designer.cs">
-      <DependentUpon>frmVenda.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmVendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,9 +215,6 @@
     <EmbeddedResource Include="frmUsuarioAlterar.resx">
       <DependentUpon>frmUsuarioAlterar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVenda.resx">
-      <DependentUpon>frmVenda.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmVendas.resx">
       <DependentUpon>frmVendas.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +226,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report\Report1.rdlc" />
     <None Include="Properties\DataSources\SysOtica.categoria.datasource" />
@@ -323,6 +315,21 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button +3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button -2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carrinho1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\retirar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

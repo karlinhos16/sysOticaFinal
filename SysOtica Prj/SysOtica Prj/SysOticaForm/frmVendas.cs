@@ -39,47 +39,8 @@ namespace SysOticaForm
             comboBoxProduto.ValueMember = "pr_id";
             comboBoxProduto.DisplayMember = "pr_descricao";
 
-            try
-            {
-                if (comboBoxCliente.SelectedItem.ToString() != null)
-                {
-                    receitavenda = webservice.vendaReceita().ToList<WebService.Receita>();
-                    dataGridRec.DataSource = null;
-                    dataGridRec.AutoGenerateColumns = false;
-
-                    foreach (var receitas in receitavenda)
-                    {
-
-                        if (receitas.Rc_id.ToString() != null && receitas.Cliente.Cl_id.ToString() == (textBox1.Text.Trim().ToString()))
-                        {
-
-                            if (dataGridRec.RowCount >= -1)
-                            {
-
-
-                                dataGridRec.Rows.Add((receitas.Rc_id).ToString(),
-                                receitas.Rc_nomemedico.ToString(),
-                                receitas.Rc_observacoes.ToString(),
-                                receitas.Rc_data.ToShortDateString(),
-                                receitas.Rc_dtavencimento.ToShortDateString());
-                               
-
-                            }
-                            else
-                            {
-                                dataGridRec.Rows.Clear();
-
-                            }
-                        }
-
-                    }
-                     vencimentoReceita();
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Não existe receita cadastrada para esse cliente", "Receita", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            preencheReceita();
+            vencimentoReceita();
         }
 
        public void vencimentoReceita()
@@ -209,7 +170,6 @@ namespace SysOticaForm
             {
                 if (MessageBox.Show("Deseja realmente concluir a selação de produtos?", "Venda", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, 0, false) == DialogResult.Yes)
                 {
-                    
                     textBoxValorPago.Text = (Convert.ToDecimal(textBox4.Text) - Convert.ToDecimal(textBoxDes.Text)).ToString();
                     comboBoxCliente.Enabled = false;
                     comboBoxProduto.Enabled = false;
@@ -217,8 +177,6 @@ namespace SysOticaForm
                     textBoxQtd.Enabled = false;
                     buttonExcluir.Enabled = false;
                 }
-
-
             }
             catch
             {
@@ -230,248 +188,140 @@ namespace SysOticaForm
         {
 
             #region Finalizar a Venda
-            if (MessageBox.Show("Sua venda possui receita?", "Concluir Venda", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, 0, false) == DialogResult.Yes)
+
+            if (MessageBox.Show("Deseja realizar a venda?", "Venda", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, 0, false) == DialogResult.Yes)
             {
                 Venda entVenda = new WebService.Venda();
-                Cliente c = new WebService.Cliente();
 
                 entVenda.Vn_desconto = Convert.ToDecimal(textBoxDes.Text);
                 entVenda.Vn_valortotal = Convert.ToDecimal(textBoxValorPago.Text);
                 entVenda.Vn_formapagamento = comboBoxFP.Text;
                 entVenda.Vn_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text);
+                entVenda.Vn_Receita = Convert.ToInt32(txtIdReceita.Text);
                 entVenda.Cliente = cliente;
-                entVenda.Receita.Rc_id = Convert.ToInt32(txtIdReceita.Text);
                 entVenda.Listaitens = listaDeItens.ToArray<ProdutoVenda>();
 
-                webservice.inserir(entVenda);
+                    webservice.inserir(entVenda);
+                    MessageBox.Show("Venda realizada com sucesso!");
 
-                MessageBox.Show("Venda realizada com sucesso!");
-                #region GerandoXml
+                    #region GerandoXml
 
-                int tamanhoDg = dataGridViewItens.Rows.Count;
-
-
-
-
-                XmlDocument doc = new XmlDocument();
-
-                XmlNode raiz = doc.CreateElement("VendaNFe");
-
-                doc.AppendChild(raiz);
-
-                XmlNode linha = doc.CreateElement("NotaFiscal");
-
-                //dEmpresa
-                XmlNode dEmpresa = doc.CreateElement("dEmpresa");
-                XmlNode razaoSocial = doc.CreateElement("razaoSocial");
-                XmlNode cnpj = doc.CreateElement("cnpj");
-                XmlNode logradouro = doc.CreateElement("logradouro");
-
-                //Produtos
-                XmlNode idproNF = doc.CreateElement("idproNF");
-                XmlNode descproNF = doc.CreateElement("descproNF");
-                XmlNode vlrproNF = doc.CreateElement("vlrproNF");
-
-                //Cliente
-                XmlNode cliNF = doc.CreateElement("cliente");
-
-
-                //Receita
-                XmlNode rcID = doc.CreateElement("rcID");
-
-                //Financeiro
-                XmlNode vlrUnitario = doc.CreateElement("vlrUnitario");
-                XmlNode desconto = doc.CreateElement("desconto");
-                XmlNode vlrNota = doc.CreateElement("vlrNota");
-                XmlNode formaPagamento = doc.CreateElement("formaPagamento");
-                XmlNode dtaNota = doc.CreateElement("dtaNota");
-
-                for (int i = 0; i < tamanhoDg; i++)
-                {
-
-
-                    idproNF.InnerText = dataGridViewItens.Rows[i].Cells[0].Value.ToString();
-                    descproNF.InnerText = dataGridViewItens.Rows[i].Cells[1].Value.ToString();
-                    vlrproNF.InnerText = dataGridViewItens.Rows[i].Cells[2].Value.ToString();
-
-
-                }
-
-                razaoSocial.InnerText = "SysOtica LTDA.";
-                cnpj.InnerText = "61.835.886/0001-88";
-                logradouro.InnerText = "Avenida Imbiribeira, 900 - Recife - PE - CEP 55820-000";
-
-                cliNF.InnerText = (cliente.Cl_nome);
+                    int tamanhoDg = dataGridViewItens.Rows.Count;
 
 
 
-                rcID.InnerText = txtIdReceita.Text;
 
-                vlrUnitario.InnerText = ("R$" + textBox4.Text);
-                desconto.InnerText = textBoxDes.Text;
-                vlrNota.InnerText = ("R$" + textBoxValorPago.Text);
-                formaPagamento.InnerText = comboBoxFP.SelectedText.ToString();
-                dtaNota.InnerText = dateTimePickerAtual.Text;
+                    XmlDocument doc = new XmlDocument();
 
+                    XmlNode raiz = doc.CreateElement("VendaNFe");
 
+                    doc.AppendChild(raiz);
 
-                linha.AppendChild(dEmpresa);
-                linha.AppendChild(razaoSocial);
-                linha.AppendChild(cnpj);
-                linha.AppendChild(logradouro);
+                    XmlNode linha = doc.CreateElement("NotaFiscal");
 
-                linha.AppendChild(cliNF);
+                    //dEmpresa
+                    XmlNode dEmpresa = doc.CreateElement("dEmpresa");
+                    XmlNode razaoSocial = doc.CreateElement("razaoSocial");
+                    XmlNode cnpj = doc.CreateElement("cnpj");
+                    XmlNode logradouro = doc.CreateElement("logradouro");
 
-                linha.AppendChild(idproNF);
-                linha.AppendChild(descproNF);
-                linha.AppendChild(vlrproNF);
+                    //Produtos
+                    XmlNode idproNF = doc.CreateElement("idproNF");
+                    XmlNode descproNF = doc.CreateElement("descproNF");
+                    XmlNode vlrproNF = doc.CreateElement("vlrproNF");
 
-                linha.AppendChild(rcID);
-
-                linha.AppendChild(vlrUnitario);
-                linha.AppendChild(desconto);
-                linha.AppendChild(vlrNota);
-                linha.AppendChild(formaPagamento);
-                linha.AppendChild(dtaNota);
-
-                doc.SelectSingleNode("/VendaNFe").AppendChild(linha);
-
-                doc.Save(@"C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\VendasNFe.xml");
-                //Caminho Leo : C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\VendasNFe.xml
-                MessageBox.Show("XML gerado com sucesso!");
+                    //Cliente
+                    XmlNode cliNF = doc.CreateElement("cliente");
 
 
+                    //Receita
+                    XmlNode rcID = doc.CreateElement("rcID");
 
-                #endregion
+                    //Financeiro
+                    XmlNode vlrUnitario = doc.CreateElement("vlrUnitario");
+                    XmlNode desconto = doc.CreateElement("desconto");
+                    XmlNode vlrNota = doc.CreateElement("vlrNota");
+                    XmlNode formaPagamento = doc.CreateElement("formaPagamento");
+                    XmlNode dtaNota = doc.CreateElement("dtaNota");
+
+                    for (int i = 0; i < tamanhoDg; i++)
+                    {
+
+
+                        idproNF.InnerText = dataGridViewItens.Rows[i].Cells[0].Value.ToString();
+                        descproNF.InnerText = dataGridViewItens.Rows[i].Cells[1].Value.ToString();
+                        vlrproNF.InnerText = dataGridViewItens.Rows[i].Cells[2].Value.ToString();
+
+
+                    }
+
+                    razaoSocial.InnerText = "SysOtica LTDA.";
+                    cnpj.InnerText = "61.835.886/0001-88";
+                    logradouro.InnerText = "Avenida Imbiribeira, 900 - Recife - PE - CEP 55820-000";
+
+                    cliNF.InnerText = (cliente.Cl_nome);
+
+
+
+                    rcID.InnerText = txtIdReceita.Text;
+
+                    vlrUnitario.InnerText = ("R$" + textBox4.Text);
+                    desconto.InnerText = textBoxDes.Text;
+                    vlrNota.InnerText = ("R$" + textBoxValorPago.Text);
+                    formaPagamento.InnerText = comboBoxFP.SelectedText.ToString();
+                    dtaNota.InnerText = dateTimePickerAtual.Text;
+
+
+
+                    linha.AppendChild(dEmpresa);
+                    linha.AppendChild(razaoSocial);
+                    linha.AppendChild(cnpj);
+                    linha.AppendChild(logradouro);
+
+                    linha.AppendChild(cliNF);
+
+                    linha.AppendChild(idproNF);
+                    linha.AppendChild(descproNF);
+                    linha.AppendChild(vlrproNF);
+
+                    linha.AppendChild(rcID);
+
+                    linha.AppendChild(vlrUnitario);
+                    linha.AppendChild(desconto);
+                    linha.AppendChild(vlrNota);
+                    linha.AppendChild(formaPagamento);
+                    linha.AppendChild(dtaNota);
+
+                    doc.SelectSingleNode("/VendaNFe").AppendChild(linha);
+
+                    doc.Save(@"C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\VendasNFe.xml");
+                    //Caminho Leo : C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\VendasNFe.xml
+                    MessageBox.Show("Nota Fiscal XML gerado com sucesso!");
+
+                    #endregion
+                    #region Limpando os Campos
+                    dataGridViewItens.Rows.Clear();
+                    dataGridViewItens.Refresh();
+                    textBoxQtd.Clear();
+                    textBoxDes.Clear();
+                    textBoxProdID.Clear();
+                    textBoxValor.Clear();
+                    textBox4.Clear();
+                    textBoxValorPago.Clear();
+
+                    comboBoxCliente.Enabled = true;
+                    comboBoxProduto.Enabled = true;
+                    buttonNovoItem.Enabled = true;
+                    textBoxQtd.Enabled = true;
+                    buttonExcluir.Enabled = true;
+                    comboBoxCliente.Enabled = true;
+                    dataGridViewItens.Rows.Clear();
+                    #endregion
+              
             }
-            else
-            {
-                Venda entVenda = new WebService.Venda();
-                Cliente c = new WebService.Cliente();
 
-                entVenda.Vn_desconto = Convert.ToDecimal(textBoxDes.Text);
-                entVenda.Vn_valortotal = Convert.ToDecimal(textBoxValorPago.Text);
-                entVenda.Vn_formapagamento = comboBoxFP.Text;
-                entVenda.Vn_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text);
-                entVenda.Cliente = cliente;
-                entVenda.Receita.Rc_id = Convert.ToInt32(txtIdReceita.Text);
-                entVenda.Listaitens = listaDeItens.ToArray<ProdutoVenda>();
-
-                webservice.inserir(entVenda);
-
-                MessageBox.Show("Venda realizada com sucesso!");
-                #region GerandoXml
-
-                int tamanhoDg = dataGridViewItens.Rows.Count;
-
-
-
-
-                XmlDocument doc = new XmlDocument();
-
-                XmlNode raiz = doc.CreateElement("VendaNFe");
-
-                doc.AppendChild(raiz);
-
-                XmlNode linha = doc.CreateElement("NotaFiscal");
-
-                //dEmpresa
-                XmlNode dEmpresa = doc.CreateElement("dEmpresa");
-                XmlNode razaoSocial = doc.CreateElement("razaoSocial");
-                XmlNode cnpj = doc.CreateElement("cnpj");
-                XmlNode logradouro = doc.CreateElement("logradouro");
-
-                //Produtos
-                XmlNode idproNF = doc.CreateElement("idproNF");
-                XmlNode descproNF = doc.CreateElement("descproNF");
-                XmlNode vlrproNF = doc.CreateElement("vlrproNF");
-
-                //Cliente
-                XmlNode cliNF = doc.CreateElement("cliente");
-
-
-                //Receita
-                XmlNode rcID = doc.CreateElement("rcID");
-
-                //Financeiro
-                XmlNode vlrUnitario = doc.CreateElement("vlrUnitario");
-                XmlNode desconto = doc.CreateElement("desconto");
-                XmlNode vlrNota = doc.CreateElement("vlrNota");
-                XmlNode formaPagamento = doc.CreateElement("formaPagamento");
-                XmlNode dtaNota = doc.CreateElement("dtaNota");
-
-                for (int i = 0; i < tamanhoDg; i++)
-                {
-
-
-                    idproNF.InnerText = dataGridViewItens.Rows[i].Cells[0].Value.ToString();
-                    descproNF.InnerText = dataGridViewItens.Rows[i].Cells[1].Value.ToString();
-                    vlrproNF.InnerText = dataGridViewItens.Rows[i].Cells[2].Value.ToString();
-
-
-                }
-
-                razaoSocial.InnerText = "SysOtica LTDA.";
-                cnpj.InnerText = "61.835.886/0001-88";
-                logradouro.InnerText = "Avenida Imbiribeira, 900 - Recife - PE - CEP 55820-000";
-
-                cliNF.InnerText = (cliente.Cl_nome);
-
-                vlrUnitario.InnerText = ("R$" + textBox4.Text);
-                desconto.InnerText = textBoxDes.Text;
-                vlrNota.InnerText = ("R$" + textBoxValorPago.Text);
-                formaPagamento.InnerText = comboBoxFP.SelectedText.ToString();
-                dtaNota.InnerText = dateTimePickerAtual.Text;
-
-
-
-                linha.AppendChild(dEmpresa);
-                linha.AppendChild(razaoSocial);
-                linha.AppendChild(cnpj);
-                linha.AppendChild(logradouro);
-
-                linha.AppendChild(cliNF);
-
-                linha.AppendChild(idproNF);
-                linha.AppendChild(descproNF);
-                linha.AppendChild(vlrproNF);
-
-                linha.AppendChild(rcID);
-
-                linha.AppendChild(vlrUnitario);
-                linha.AppendChild(desconto);
-                linha.AppendChild(vlrNota);
-                linha.AppendChild(formaPagamento);
-                linha.AppendChild(dtaNota);
-
-                doc.SelectSingleNode("/VendaNFe").AppendChild(linha);
-
-                doc.Save(@"C:\Users\Dayse\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\VendasNFe.xml");
-                //Caminho Leo : C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\VendasNFe.xml
-                MessageBox.Show("XML gerado com sucesso!");
-
-
-
-                #endregion
-            }
             #endregion
-            #region Limpando os Campos
-            dataGridViewItens.Rows.Clear();
-            dataGridViewItens.Refresh();
-            textBoxQtd.Clear();
-            textBoxDes.Clear();
-            textBoxProdID.Clear();
-            textBoxValor.Clear();
-            textBox4.Clear();
-            textBoxValorPago.Clear();
-
-            comboBoxCliente.Enabled = true;
-            comboBoxProduto.Enabled = true;
-            buttonNovoItem.Enabled = true;
-            textBoxQtd.Enabled = true;
-            buttonExcluir.Enabled = true;
-            dataGridViewItens.Rows.Clear();
-            #endregion
+ 
         }
 
         private void buttonExcluir_Click(object sender, EventArgs e)
@@ -554,6 +404,93 @@ namespace SysOticaForm
             {
                 //throw new Exception();
                 MessageBox.Show("Erro ao selecionar receita" + ex.Message);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            #region Limpando os Campos
+            dataGridViewItens.Rows.Clear();
+            dataGridViewItens.Refresh();
+            textBoxQtd.Clear();
+            textBoxDes.Clear();
+            textBoxProdID.Clear();
+            textBoxValor.Clear();
+            textBox4.Clear();
+            textBoxValorPago.Clear();
+
+            comboBoxCliente.Enabled = true;
+            comboBoxProduto.Enabled = true;
+            buttonNovoItem.Enabled = true;
+            textBoxQtd.Enabled = true;
+            buttonExcluir.Enabled = true;
+            comboBoxCliente.Enabled = true;
+            dataGridViewItens.Rows.Clear();
+            #endregion
+        }
+
+        private void buttonIncluir_Click(object sender, EventArgs e)
+        {
+            comboBoxCliente.Enabled = false;
+            try
+            {
+                int val;
+                if (Int32.TryParse(comboBoxCliente.SelectedValue.ToString(), out val) && (comboBoxCliente.SelectedItem.ToString() != null))
+                {
+                    dataGridRec.Rows.Clear();
+                    preencheReceita();
+                    vencimentoReceita();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Selecione o cliente!");
+            }
+        }
+
+        public void preencheReceita()
+        {
+            try
+            {
+                if (comboBoxCliente.SelectedItem.ToString() != null)
+                {
+                    receitavenda = webservice.vendaReceita().ToList<WebService.Receita>();
+                    dataGridRec.DataSource = null;
+                    dataGridRec.AutoGenerateColumns = false;
+
+                    foreach (var receitas in receitavenda)
+                    {
+
+                        if (receitas.Rc_id.ToString() != null && receitas.Cliente.Cl_id.ToString() == (textBox1.Text.Trim().ToString()))
+                        {
+
+                            if (dataGridRec.RowCount >= -1)
+                            {
+
+                                dataGridRec.Rows.Add((receitas.Rc_id).ToString(),
+                                receitas.Rc_nomemedico.ToString(),
+                                receitas.Rc_observacoes.ToString(),
+                                receitas.Rc_data.ToShortDateString(),
+                                receitas.Rc_dtavencimento.ToShortDateString());
+
+
+                            }
+                            else
+                            {
+
+                                dataGridRec.Rows.Clear();
+
+                            }
+
+                        }
+
+                    }
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Não existe receita cadastrada para esse cliente", "Receita", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

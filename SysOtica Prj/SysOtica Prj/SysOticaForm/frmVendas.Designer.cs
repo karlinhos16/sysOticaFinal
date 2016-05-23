@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVendas));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -53,7 +53,6 @@
             this.dt_entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.validade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.buttonExcluir = new System.Windows.Forms.Button();
             this.textBoxQtdMult = new System.Windows.Forms.TextBox();
             this.textBoxPegarProduto = new System.Windows.Forms.TextBox();
             this.textBoxProdID = new System.Windows.Forms.TextBox();
@@ -63,7 +62,6 @@
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonNovoItem = new System.Windows.Forms.Button();
             this.textBoxValor = new System.Windows.Forms.TextBox();
             this.textBoxQtd = new System.Windows.Forms.TextBox();
             this.comboBoxProduto = new System.Windows.Forms.ComboBox();
@@ -75,6 +73,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBoxCliente = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonExcluir = new System.Windows.Forms.Button();
+            this.buttonNovoItem = new System.Windows.Forms.Button();
+            this.buttonIncluir = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRec)).BeginInit();
@@ -104,16 +106,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Venda";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(20, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 73);
-            this.button1.TabIndex = 73;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(803, 85);
@@ -132,6 +124,7 @@
             this.button3.TabIndex = 71;
             this.button3.Text = "Nova Venda";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -279,7 +272,7 @@
             this.Obs,
             this.dt_entrada,
             this.validade});
-            this.dataGridRec.Location = new System.Drawing.Point(20, 38);
+            this.dataGridRec.Location = new System.Drawing.Point(11, 38);
             this.dataGridRec.MultiSelect = false;
             this.dataGridRec.Name = "dataGridRec";
             this.dataGridRec.ReadOnly = true;
@@ -347,16 +340,6 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Itens da Venda";
-            // 
-            // buttonExcluir
-            // 
-            this.buttonExcluir.Location = new System.Drawing.Point(771, 91);
-            this.buttonExcluir.Name = "buttonExcluir";
-            this.buttonExcluir.Size = new System.Drawing.Size(138, 31);
-            this.buttonExcluir.TabIndex = 49;
-            this.buttonExcluir.Text = "Excluir Item";
-            this.buttonExcluir.UseVisualStyleBackColor = true;
-            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
             // textBoxQtdMult
             // 
@@ -437,16 +420,6 @@
             this.ValorTotal.ReadOnly = true;
             this.ValorTotal.Width = 200;
             // 
-            // buttonNovoItem
-            // 
-            this.buttonNovoItem.Location = new System.Drawing.Point(617, 92);
-            this.buttonNovoItem.Name = "buttonNovoItem";
-            this.buttonNovoItem.Size = new System.Drawing.Size(150, 30);
-            this.buttonNovoItem.TabIndex = 45;
-            this.buttonNovoItem.Text = "Adicionar Item";
-            this.buttonNovoItem.UseVisualStyleBackColor = true;
-            this.buttonNovoItem.Click += new System.EventHandler(this.buttonNovoItem_Click);
-            // 
             // textBoxValor
             // 
             this.textBoxValor.Location = new System.Drawing.Point(132, 71);
@@ -512,6 +485,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonIncluir);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.comboBoxCliente);
             this.groupBox1.Controls.Add(this.label12);
@@ -524,10 +498,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(636, 19);
+            this.textBox1.Location = new System.Drawing.Point(42, 20);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(53, 20);
             this.textBox1.TabIndex = 11;
+            this.textBox1.Visible = false;
             // 
             // comboBoxCliente
             // 
@@ -547,6 +522,46 @@
             this.label12.Size = new System.Drawing.Size(42, 13);
             this.label12.TabIndex = 9;
             this.label12.Text = "Cliente:";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::SysOticaForm.Properties.Resources.carrinho;
+            this.button1.Location = new System.Drawing.Point(20, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 73);
+            this.button1.TabIndex = 73;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonExcluir
+            // 
+            this.buttonExcluir.Image = global::SysOticaForm.Properties.Resources.retirar;
+            this.buttonExcluir.Location = new System.Drawing.Point(837, 75);
+            this.buttonExcluir.Name = "buttonExcluir";
+            this.buttonExcluir.Size = new System.Drawing.Size(45, 47);
+            this.buttonExcluir.TabIndex = 49;
+            this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
+            // 
+            // buttonNovoItem
+            // 
+            this.buttonNovoItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonNovoItem.Image")));
+            this.buttonNovoItem.Location = new System.Drawing.Point(768, 75);
+            this.buttonNovoItem.Name = "buttonNovoItem";
+            this.buttonNovoItem.Size = new System.Drawing.Size(48, 47);
+            this.buttonNovoItem.TabIndex = 45;
+            this.buttonNovoItem.UseVisualStyleBackColor = true;
+            this.buttonNovoItem.Click += new System.EventHandler(this.buttonNovoItem_Click);
+            // 
+            // buttonIncluir
+            // 
+            this.buttonIncluir.Image = global::SysOticaForm.Properties.Resources.save;
+            this.buttonIncluir.Location = new System.Drawing.Point(616, 7);
+            this.buttonIncluir.Name = "buttonIncluir";
+            this.buttonIncluir.Size = new System.Drawing.Size(52, 40);
+            this.buttonIncluir.TabIndex = 12;
+            this.buttonIncluir.UseVisualStyleBackColor = true;
+            this.buttonIncluir.Click += new System.EventHandler(this.buttonIncluir_Click);
             // 
             // frmVendas
             // 
@@ -623,5 +638,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonIncluir;
     }
 }
