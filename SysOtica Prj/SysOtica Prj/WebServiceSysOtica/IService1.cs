@@ -34,6 +34,8 @@ namespace WebServiceSysOtica
         [OperationContract]
         void inserir(Venda v);
 
+
+
         #endregion
 
         #region Cliente

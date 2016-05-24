@@ -11,5 +11,6 @@ namespace SysOtica.Conexao
     {
         void inserir(Venda v);
         //List<Venda> listarVenda();
+
     }
 }

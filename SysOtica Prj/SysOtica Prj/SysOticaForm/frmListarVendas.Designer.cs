@@ -238,6 +238,7 @@
             this.Name = "frmListarVendas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LISTA DE VENDAS";
+            this.Load += new System.EventHandler(this.frmListarVendas_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -258,6 +259,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pr_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pr_descrição;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pv_preco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pv_qtd;
         private System.Windows.Forms.DataGridViewTextBoxColumn vn_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn rc_id;
@@ -265,9 +270,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vn_valortotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn vn_formapagamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn vn_dtsaida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pr_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pr_descrição;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pv_preco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pv_qtd;
     }
 }

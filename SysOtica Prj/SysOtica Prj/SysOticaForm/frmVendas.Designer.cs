@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVendas));
             this.groupBoxVenda = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -40,6 +39,7 @@
             this.textBoxValorPago = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBoxDes = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -105,16 +105,6 @@
             this.groupBoxVenda.TabStop = false;
             this.groupBoxVenda.Text = "Venda";
             this.groupBoxVenda.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Image = global::SysOticaForm.Properties.Resources.carrinho;
-            this.button1.Location = new System.Drawing.Point(20, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 73);
-            this.button1.TabIndex = 73;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button4
             // 
@@ -204,6 +194,16 @@
             this.label8.Size = new System.Drawing.Size(62, 13);
             this.label8.TabIndex = 64;
             this.label8.Text = "Valor Pago:";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::SysOticaForm.Properties.Resources.carrinho;
+            this.button1.Location = new System.Drawing.Point(20, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 73);
+            this.button1.TabIndex = 73;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBoxDes
             // 

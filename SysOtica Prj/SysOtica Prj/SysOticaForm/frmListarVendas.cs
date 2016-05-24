@@ -16,5 +16,10 @@ namespace SysOticaForm
         {
             InitializeComponent();
         }
+
+        private void frmListarVendas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

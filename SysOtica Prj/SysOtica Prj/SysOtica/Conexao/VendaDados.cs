@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 
 namespace SysOtica.Conexao
 {
@@ -95,8 +95,6 @@ namespace SysOtica.Conexao
                 throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
             }
         }
-
-       
 
     }
 }
