@@ -40,6 +40,7 @@
             this.categoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relatórioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,6 +51,7 @@
             this.iniciarChatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarWebServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.teAmoMeloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,17 +125,25 @@
             // financeiroToolStripMenuItem
             // 
             this.financeiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vendaToolStripMenuItem});
+            this.vendaToolStripMenuItem,
+            this.relatórioToolStripMenuItem,
+            this.teAmoMeloToolStripMenuItem});
             this.financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
-            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.financeiroToolStripMenuItem.Text = "Financeiro";
+            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.financeiroToolStripMenuItem.Text = "Venda";
             // 
             // vendaToolStripMenuItem
             // 
             this.vendaToolStripMenuItem.Name = "vendaToolStripMenuItem";
-            this.vendaToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.vendaToolStripMenuItem.Text = "Venda";
+            this.vendaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vendaToolStripMenuItem.Text = "Nova Venda";
             this.vendaToolStripMenuItem.Click += new System.EventHandler(this.vendaToolStripMenuItem_Click);
+            // 
+            // relatórioToolStripMenuItem
+            // 
+            this.relatórioToolStripMenuItem.Name = "relatórioToolStripMenuItem";
+            this.relatórioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.relatórioToolStripMenuItem.Text = "Relatório";
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -150,35 +160,35 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // fornecedoresToolStripMenuItem
             // 
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
             this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.produtosToolStripMenuItem.Text = "Produtos";
             this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
             // 
             // receitasToolStripMenuItem
             // 
             this.receitasToolStripMenuItem.Name = "receitasToolStripMenuItem";
-            this.receitasToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.receitasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.receitasToolStripMenuItem.Text = "Receitas";
             this.receitasToolStripMenuItem.Click += new System.EventHandler(this.receitasToolStripMenuItem_Click);
             // 
             // vendasToolStripMenuItem
             // 
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.vendasToolStripMenuItem.Text = "Vendas";
             this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
             // 
@@ -210,6 +220,12 @@
             this.iniciarWebServiceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.iniciarWebServiceToolStripMenuItem.Text = "WebService";
             this.iniciarWebServiceToolStripMenuItem.Click += new System.EventHandler(this.iniciarWebServiceToolStripMenuItem_Click);
+            // 
+            // teAmoMeloToolStripMenuItem
+            // 
+            this.teAmoMeloToolStripMenuItem.Name = "teAmoMeloToolStripMenuItem";
+            this.teAmoMeloToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.teAmoMeloToolStripMenuItem.Text = "Te Amo Melo !";
             // 
             // frmPrincipal
             // 
@@ -257,6 +273,7 @@
 
         private System.Windows.Forms.ToolStripMenuItem iniciarWebServiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
-
+        private System.Windows.Forms.ToolStripMenuItem relatórioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem teAmoMeloToolStripMenuItem;
     }
 }

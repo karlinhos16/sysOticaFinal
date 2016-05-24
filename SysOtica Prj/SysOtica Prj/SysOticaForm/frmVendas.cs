@@ -431,6 +431,7 @@ namespace SysOticaForm
 
         private void buttonIncluir_Click(object sender, EventArgs e)
         {
+            //receitavenda.Count < 0
             comboBoxCliente.Enabled = false;
             try
             {
@@ -450,6 +451,7 @@ namespace SysOticaForm
 
         public void preencheReceita()
         {
+            // professor mecheu aqui 
             try
             {
                 if (comboBoxCliente.SelectedItem.ToString() != null)
@@ -457,32 +459,35 @@ namespace SysOticaForm
                     receitavenda = webservice.vendaReceita().ToList<WebService.Receita>();
                     dataGridRec.DataSource = null;
                     dataGridRec.AutoGenerateColumns = false;
-
-                    foreach (var receitas in receitavenda)
+                    if (receitavenda.Count > 0)
                     {
-
-                        if (receitas.Rc_id.ToString() != null && receitas.Cliente.Cl_id.ToString() == (textBox1.Text.Trim().ToString()))
+                        foreach (var receitas in receitavenda)
                         {
 
-                            if (dataGridRec.RowCount >= -1)
+                            if (receitas.Rc_id.ToString() != null && receitas.Cliente.Cl_id.ToString() == (textBox1.Text.Trim().ToString()))
                             {
 
-                                dataGridRec.Rows.Add((receitas.Rc_id).ToString(),
-                                receitas.Rc_nomemedico.ToString(),
-                                receitas.Rc_observacoes.ToString(),
-                                receitas.Rc_data.ToShortDateString(),
-                                receitas.Rc_dtavencimento.ToShortDateString());
+                                if (dataGridRec.RowCount >= -1)
+                                {
 
+                                    dataGridRec.Rows.Add((receitas.Rc_id).ToString(),
+                                    receitas.Rc_nomemedico.ToString(),
+                                    receitas.Rc_observacoes.ToString(),
+                                    receitas.Rc_data.ToShortDateString(),
+                                    receitas.Rc_dtavencimento.ToShortDateString());
+
+
+                                }
+                                else
+                                {
+
+                                    dataGridRec.Rows.Clear();
+
+                                }
 
                             }
-                            else
-                            {
-
-                                dataGridRec.Rows.Clear();
-
-                            }
-
                         }
+                    
 
                         if (dataGridRec.RowCount == 0)
                         {
@@ -505,6 +510,9 @@ namespace SysOticaForm
 
                         }
 
+                    }else
+                    {
+                        //
                     }
 
                 }
