@@ -199,12 +199,8 @@ namespace SysOtica.Conexao
 
                     SqlDataReader retorno = cmd.ExecuteReader();
 
-                    if (retorno.HasRows == false)
-                    {
+               
 
-                        MessageBox.Show("Usuário não cadastrado!");
-
-                    }
                     while (retorno.Read())
                     {
                         Usuario usu = new Usuario();

@@ -149,12 +149,16 @@ namespace SysOticaForm
                     dataGridFornecedor.AutoGenerateColumns = false;
                     dataGridFornecedor.DataSource = webservice.pesquisaFornecedor(textPesquisa.Text.Trim());
 
+                    if (dataGridFornecedor.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Fornecedor não cadastrado");
+                    }
 
                 }
             }
-            catch
+            catch 
             {
-                MessageBox.Show("Erro listar Fornecedor");
+                MessageBox.Show("Erro ao listar fornecedor!");
 
             }
         }

@@ -166,12 +166,17 @@ namespace SysOticaForm
                     dataGridProduto.AutoGenerateColumns = false;
                     dataGridProduto.DataSource = webservice.pesquisaProduto(textPesquisa.Text.Trim());
 
+                    if (dataGridProduto.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Produto não cadastrado");
+                    }
+
 
                 }
             }
-            catch
+            catch 
             {
-                MessageBox.Show("Erro listar receita");
+                MessageBox.Show("Erro ao listar protuso!");
 
             }
 

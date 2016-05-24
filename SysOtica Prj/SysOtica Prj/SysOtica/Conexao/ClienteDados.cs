@@ -265,39 +265,32 @@ namespace SysOtica.Conexao
                     SqlDataReader retorno = cmd.ExecuteReader();
 
 
-                    if (retorno.HasRows == false)
-                    {
 
-                        MessageBox.Show("Cliente não cadastrado!");
-
-                    }
-
-
-                    while (retorno.Read())
-                    {
-                        Cliente c = new Cliente();
-                        c.Cl_id = retorno.GetInt32(retorno.GetOrdinal("cl_id"));
-                        c.Cl_nome = retorno.GetString(retorno.GetOrdinal("cl_nome"));
-                        c.Cl_datanascimento = retorno.GetDateTime(retorno.GetOrdinal("cl_datanascimento"));
-                        c.Cl_cpf = retorno.GetString(retorno.GetOrdinal("cl_cpf"));
-                        c.Cl_rg = retorno.GetString(retorno.GetOrdinal("cl_rg"));
-                        c.Cl_telefone = retorno.GetString(retorno.GetOrdinal("cl_telefone"));
-                        c.Cl_celular = retorno.GetString(retorno.GetOrdinal("cl_celular"));
-                        c.Cl_telefone2 = retorno.GetString(retorno.GetOrdinal("cl_telefone2"));
-                        c.Cl_cep = retorno.GetString(retorno.GetOrdinal("cl_cep"));
-                        c.Cl_endereco = retorno.GetString(retorno.GetOrdinal("cl_endereco"));
-                        c.Cl_numero = retorno.GetString(retorno.GetOrdinal("cl_numero"));
-                        c.Cl_bairro = retorno.GetString(retorno.GetOrdinal("cl_bairro"));
-                        c.Cl_cidade = retorno.GetString(retorno.GetOrdinal("cl_cidade"));
-                        c.Cl_uf = retorno.GetString(retorno.GetOrdinal("cl_uf"));
-                        c.Cl_email = retorno.GetString(retorno.GetOrdinal("cl_email"));
-                        c.Cl_nomepai = retorno.GetString(retorno.GetOrdinal("cl_nomepai"));
-                        c.Cl_nomemae = retorno.GetString(retorno.GetOrdinal("cl_nomemae"));
-                        c.Cl_profissao = retorno.GetString(retorno.GetOrdinal("cl_profissao"));
-                        c.Cl_observacoes = retorno.GetString(retorno.GetOrdinal("cl_observacoes"));
-                        lista.Add(c);
-                    }
-
+                        while (retorno.Read())
+                        {
+                            Cliente c = new Cliente();
+                            c.Cl_id = retorno.GetInt32(retorno.GetOrdinal("cl_id"));
+                            c.Cl_nome = retorno.GetString(retorno.GetOrdinal("cl_nome"));
+                            c.Cl_datanascimento = retorno.GetDateTime(retorno.GetOrdinal("cl_datanascimento"));
+                            c.Cl_cpf = retorno.GetString(retorno.GetOrdinal("cl_cpf"));
+                            c.Cl_rg = retorno.GetString(retorno.GetOrdinal("cl_rg"));
+                            c.Cl_telefone = retorno.GetString(retorno.GetOrdinal("cl_telefone"));
+                            c.Cl_celular = retorno.GetString(retorno.GetOrdinal("cl_celular"));
+                            c.Cl_telefone2 = retorno.GetString(retorno.GetOrdinal("cl_telefone2"));
+                            c.Cl_cep = retorno.GetString(retorno.GetOrdinal("cl_cep"));
+                            c.Cl_endereco = retorno.GetString(retorno.GetOrdinal("cl_endereco"));
+                            c.Cl_numero = retorno.GetString(retorno.GetOrdinal("cl_numero"));
+                            c.Cl_bairro = retorno.GetString(retorno.GetOrdinal("cl_bairro"));
+                            c.Cl_cidade = retorno.GetString(retorno.GetOrdinal("cl_cidade"));
+                            c.Cl_uf = retorno.GetString(retorno.GetOrdinal("cl_uf"));
+                            c.Cl_email = retorno.GetString(retorno.GetOrdinal("cl_email"));
+                            c.Cl_nomepai = retorno.GetString(retorno.GetOrdinal("cl_nomepai"));
+                            c.Cl_nomemae = retorno.GetString(retorno.GetOrdinal("cl_nomemae"));
+                            c.Cl_profissao = retorno.GetString(retorno.GetOrdinal("cl_profissao"));
+                            c.Cl_observacoes = retorno.GetString(retorno.GetOrdinal("cl_observacoes"));
+                            lista.Add(c);
+                        }
+                    
 
                 }
 
@@ -328,6 +321,7 @@ namespace SysOtica.Conexao
 
 
                 SqlDataReader retorno = cmd.ExecuteReader();
+
                 while (retorno.Read())
                 {
                     c = new Cliente();

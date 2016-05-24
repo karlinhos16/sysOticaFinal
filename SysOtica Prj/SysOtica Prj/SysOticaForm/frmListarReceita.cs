@@ -203,15 +203,20 @@ namespace SysOticaForm
 
                     DataGridreceita.DataSource = null;
                     DataGridreceita.AutoGenerateColumns = false;
-                 
                     DataGridreceita.DataSource = webservice.PuxaReceita(txtPesquisa.Text.Trim());
                     vencimentoReceita();
+                    if (DataGridreceita.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Este Cliente não possui receita cadastrada");
+                    }
 
                 }
+             
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("" + ex.Message);
+                MessageBox.Show("Erro ao listar receitas");
 
             }
 

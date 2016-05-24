@@ -9,10 +9,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SysOtica.Negocio.Excecoes;
 
 namespace SysOticaForm
 {
-    public partial class frmListarCliente : Form
+    public partial class frmListarCliente : Form 
     {
 
         private Service1Client webservice = new WebService.Service1Client();
@@ -25,7 +26,7 @@ namespace SysOticaForm
 
         private void frmListarCliente_Load(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 dataGridViewCliente.DataSource = webservice.listarCliente();
             }
@@ -33,7 +34,7 @@ namespace SysOticaForm
             {
 
                 MessageBox.Show(ex.Message);
-            }
+            }*/
         }
         private void buttonListar_Click(object sender, EventArgs e)
         {
@@ -49,6 +50,7 @@ namespace SysOticaForm
         }
         public void atualizaGrid()
         {
+            dataGridViewCliente.AutoGenerateColumns = false;
             dataGridViewCliente.DataSource = null;
             listarCliente = webservice.listarCliente().ToList<WebService.Cliente>();
             dataGridViewCliente.DataSource = listarCliente;
@@ -155,12 +157,17 @@ namespace SysOticaForm
                     dataGridViewCliente.AutoGenerateColumns = false;
                     dataGridViewCliente.DataSource = webservice.pesquisarCliente(textBoxPesquisar.Text.Trim());
 
+                    if (dataGridViewCliente.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Este Cliente não possui receita cadastrada");
+                    }
 
                 }
+               
             }
-            catch
+            catch 
             {
-                MessageBox.Show("Erro ao listar Receitas");
+                MessageBox.Show("Erro ao listar cliente");
 
             }
         }

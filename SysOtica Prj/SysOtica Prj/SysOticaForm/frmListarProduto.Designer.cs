@@ -37,13 +37,15 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grife = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estoqueminimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnLimpar = new System.Windows.Forms.Button();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProduto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,13 +60,15 @@
             this.grife,
             this.valor,
             this.estoqueminimo,
-            this.qtd});
+            this.qtd,
+            this.categoria,
+            this.fornecedor});
             this.dataGridProduto.Location = new System.Drawing.Point(12, 53);
             this.dataGridProduto.MultiSelect = false;
             this.dataGridProduto.Name = "dataGridProduto";
             this.dataGridProduto.ReadOnly = true;
             this.dataGridProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridProduto.Size = new System.Drawing.Size(643, 202);
+            this.dataGridProduto.Size = new System.Drawing.Size(843, 202);
             this.dataGridProduto.TabIndex = 0;
             this.dataGridProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduto_CellDoubleClick);
             // 
@@ -77,7 +81,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(580, 283);
+            this.btnAlterar.Location = new System.Drawing.Point(780, 261);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 2;
@@ -87,7 +91,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(499, 283);
+            this.btnExcluir.Location = new System.Drawing.Point(699, 261);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 3;
@@ -97,7 +101,7 @@
             // 
             // btnListar
             // 
-            this.btnListar.Location = new System.Drawing.Point(580, 17);
+            this.btnListar.Location = new System.Drawing.Point(780, 17);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(75, 23);
             this.btnListar.TabIndex = 4;
@@ -127,13 +131,23 @@
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(418, 283);
+            this.btnSair.Location = new System.Drawing.Point(618, 261);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 23);
             this.btnSair.TabIndex = 7;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(12, 272);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpar.TabIndex = 8;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // ID
             // 
@@ -177,21 +191,25 @@
             this.qtd.Name = "qtd";
             this.qtd.ReadOnly = true;
             // 
-            // btnLimpar
+            // categoria
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(12, 283);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 8;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            this.categoria.DataPropertyName = "ct_id";
+            this.categoria.HeaderText = "ID categoria";
+            this.categoria.Name = "categoria";
+            this.categoria.ReadOnly = true;
+            // 
+            // fornecedor
+            // 
+            this.fornecedor.DataPropertyName = "fr_id";
+            this.fornecedor.HeaderText = "ID fornecedor";
+            this.fornecedor.Name = "fornecedor";
+            this.fornecedor.ReadOnly = true;
             // 
             // frmListarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 318);
+            this.ClientSize = new System.Drawing.Size(867, 318);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.label1);
@@ -222,12 +240,14 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn grife;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn estoqueminimo;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtd;
-        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fornecedor;
     }
 }

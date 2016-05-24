@@ -265,12 +265,7 @@ namespace SysOtica.Conexao
 
                     SqlDataReader retorno = cmd.ExecuteReader();
 
-                    if (retorno.HasRows == false)
-                    {
-
-                        MessageBox.Show("Nome Fantasia não cadastrado!");
-
-                    }
+                 
                     while (retorno.Read())
                     {
                         fr = new Fornecedor();

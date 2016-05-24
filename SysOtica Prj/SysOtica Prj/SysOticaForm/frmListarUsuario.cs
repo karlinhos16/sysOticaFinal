@@ -154,12 +154,18 @@ namespace SysOticaForm
                     dataGridUsuario.AutoGenerateColumns = false;
                     dataGridUsuario.DataSource = webservice.PesquisaUsuario(textPesquisa.Text.Trim());
 
+                    if (dataGridUsuario.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Usuário não cadastrado");
+                    }
+
 
                 }
+               
             }
-            catch
+            catch 
             {
-                MessageBox.Show("Erro listar Usuario");
+                MessageBox.Show("Erro ao listar usuário!");
 
             }
 

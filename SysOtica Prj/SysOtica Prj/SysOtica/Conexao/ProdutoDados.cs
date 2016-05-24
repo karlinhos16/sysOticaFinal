@@ -120,7 +120,8 @@ namespace SysOtica.Conexao
             {
                 //abrir a conexão
                 conn.AbrirConexao();
-                string sql = "DELETE FROM Produto WHERE pr_id = @pr_id";
+                string sql = "DELETE Produto FROM Produto as p Inner Join Categoria as cat on cat.ct_id = p.ct_id Inner Join Fornecedor as f on f.fr_id = p.fr_id where p.pr_id = p.pr_id";
+      
 
                // string sql = "Delete FROM produto Where pr_id = @pr_id in" +
                //    "(Select produto_fornecedor_fk FROM Produto) and (Select categoria_produto_fk FROM Produto)";
@@ -144,7 +145,7 @@ namespace SysOtica.Conexao
         }
         public List<Produto> listarProduto()
         {
-            string sql = "SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_qtd FROM Produto";
+            string sql = "SELECT p.pr_id, p.pr_descricao, p.pr_grife, p.pr_valor, p.pr_estoqueminimo, p.pr_qtd, cat.ct_id, f.fr_id FROM Produto as p Inner Join Categoria as cat on cat.ct_id = p.ct_id Inner Join Fornecedor as f on f.fr_id = p.fr_id";
             List<Produto> lista = new List<Produto>();
             Produto p;
 
@@ -164,6 +165,8 @@ namespace SysOtica.Conexao
                     p.Pr_valor = retorno.GetDecimal(retorno.GetOrdinal("pr_valor"));
                     p.Pr_estoqueminimo = retorno.GetInt32(retorno.GetOrdinal("pr_estoqueminimo"));
                     p.Pr_qtd = retorno.GetInt32(retorno.GetOrdinal("pr_qtd"));
+                    p.Categoria.Ct_id = retorno.GetInt32(retorno.GetOrdinal("ct_id"));
+                    p.Fornecedor.Fr_id = retorno.GetInt32(retorno.GetOrdinal("fr_id"));
 
                     lista.Add(p);
                 }
@@ -171,15 +174,17 @@ namespace SysOtica.Conexao
                 return lista;
 
             }
-            catch (SqlException e)
+           catch (SqlException e)
             {
                 throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
             }
         }
         public List<Produto> pesquisarProduto(string pr_descricao)
         {
-            string sql = "SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_qtd " +
-                         "FROM Produto where pr_descricao LIKE @pr_descricao + '%'";
+            string sql = "SELECT p.pr_id, p.pr_descricao, p.pr_grife, p.pr_valor, p.pr_estoqueminimo, p.pr_qtd, cat.ct_id, f.fr_id FROM Produto as p Inner Join Categoria as cat on cat.ct_id = p.ct_id Inner Join Fornecedor as f on f.fr_id = p.fr_id where pr_descricao LIKE @pr_descricao + '%'";
+
+            //"SELECT pr_id, pr_descricao, pr_grife, pr_valor, pr_estoqueminimo, pr_qtd " +
+              //           "FROM Produto where pr_descricao LIKE @pr_descricao + '%'";
 
 
 
@@ -197,18 +202,8 @@ namespace SysOtica.Conexao
 
                     SqlDataReader retorno = cmd.ExecuteReader();
 
-                    if (retorno.HasRows == false)
-                    {
-
-                       MessageBox.Show("Produto não cadastrado!");
-                     
-                    }
-
-
-
                     while (retorno.Read())
                     {
-
                         p = new Produto();
                         p.Pr_id = retorno.GetInt32(retorno.GetOrdinal("pr_id"));
                         p.Pr_descricao = retorno.GetString(retorno.GetOrdinal("pr_descricao"));
@@ -216,6 +211,8 @@ namespace SysOtica.Conexao
                         p.Pr_valor = retorno.GetDecimal(retorno.GetOrdinal("pr_valor"));
                         p.Pr_estoqueminimo = retorno.GetInt32(retorno.GetOrdinal("pr_estoqueminimo"));
                         p.Pr_qtd = retorno.GetInt32(retorno.GetOrdinal("pr_qtd"));
+                        p.Categoria.Ct_id = retorno.GetInt32(retorno.GetOrdinal("ct_id"));
+                        p.Fornecedor.Fr_id = retorno.GetInt32(retorno.GetOrdinal("fr_id"));
 
                         lista.Add(p);
                     }
