@@ -294,7 +294,7 @@ namespace SysOticaForm
 
                     doc.SelectSingleNode("/VendaNFe").AppendChild(linha);
 
-                    doc.Save(@"C:\Users\Leonardo Marques\Desktop\SysOtica\SysOtica Prj\SysOtica Prj\VendasNFe.xml");
+                    doc.Save(@"C:\Users\daaysesantos\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\VendasNFe.xml");
                     //Caminho Leo : C:\Users\Leonardo Marques\Desktop\Projeto Final DSD Melo\sysOticaFinal\SysOtica Prj\SysOtica Prj\VendasNFe.xml
                     MessageBox.Show("Nota Fiscal XML gerado com sucesso!");
 

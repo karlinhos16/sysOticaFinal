@@ -21,7 +21,7 @@ namespace SysOtica.Conexao
             try
             {
                 conn.AbrirConexao();
-                string sql = "INSERT INTO Venda (cl_id, vn_receita, vn_valortotal, vn_desconto, vn_formapagamento, vn_dtsaida ) VALUES ( @cl_id, @rc_id, @vn_valortotal, @vn_desconto, @vn_formapagamento, @vn_dtsaida) SELECT SCOPE_IDENTITY()";
+                string sql = "INSERT INTO Venda (cl_id, vn_receita, vn_valortotal, vn_desconto, vn_formapagamento, vn_dtsaida ) VALUES ( @cl_id, @vn_receita, @vn_valortotal, @vn_desconto, @vn_formapagamento, @vn_dtsaida) SELECT SCOPE_IDENTITY()";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
@@ -45,7 +45,10 @@ namespace SysOtica.Conexao
 
 
                 Int32 vnId = Convert.ToInt32(cmd.ExecuteScalar());
+                //executando a instrucao 
+                //cmd.ExecuteNonQuery();
 
+                //int vnId = (int) cmd.ExecuteScalar();
 
 
 

@@ -4,16 +4,16 @@
     <razaoSocial>SysOtica LTDA.</razaoSocial>
     <cnpj>61.835.886/0001-88</cnpj>
     <logradouro>Avenida Imbiribeira, 900 - Recife - PE - CEP 55820-000</logradouro>
-    <cliente>Dayse</cliente>
-    <idproNF>3</idproNF>
-    <descproNF>armação</descproNF>
-    <vlrproNF>1</vlrproNF>
+    <cliente>Mainha</cliente>
+    <idproNF>2</idproNF>
+    <descproNF>óculos de grau</descproNF>
+    <vlrproNF>2</vlrproNF>
     <rcID>0</rcID>
-    <vlrUnitario>R$156,89</vlrUnitario>
+    <vlrUnitario>R$513,78</vlrUnitario>
     <desconto>0</desconto>
-    <vlrNota>R$156,89</vlrNota>
+    <vlrNota>R$513,78</vlrNota>
     <formaPagamento>
     </formaPagamento>
-    <dtaNota>23/05/2016</dtaNota>
+    <dtaNota>25/05/2016</dtaNota>
   </NotaFiscal>
 </VendaNFe>

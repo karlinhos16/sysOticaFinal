@@ -100,3 +100,9 @@ C:\Users\karli\Desktop\PROJETO\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\
 C:\Users\karli\Desktop\PROJETO\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.csprojResolveAssemblyReference.cache
 C:\Users\karli\Desktop\PROJETO\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.dll
 C:\Users\karli\Desktop\PROJETO\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll.config
+C:\Users\daaysesantos\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.dll
+C:\Users\daaysesantos\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOtica\bin\Debug\SysOtica.pdb
+C:\Users\daaysesantos\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.csprojResolveAssemblyReference.cache
+C:\Users\daaysesantos\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.dll
+C:\Users\daaysesantos\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOtica\obj\Debug\SysOtica.pdb
