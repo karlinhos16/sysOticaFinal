@@ -45,6 +45,7 @@
             this.pv_preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pv_qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonListar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -191,6 +192,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.buttonListar);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.textBox1);
@@ -200,6 +202,16 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "NF";
+            // 
+            // buttonListar
+            // 
+            this.buttonListar.Location = new System.Drawing.Point(699, 19);
+            this.buttonListar.Name = "buttonListar";
+            this.buttonListar.Size = new System.Drawing.Size(75, 45);
+            this.buttonListar.TabIndex = 3;
+            this.buttonListar.Text = "Listar";
+            this.buttonListar.UseVisualStyleBackColor = true;
+            this.buttonListar.Click += new System.EventHandler(this.buttonListar_Click);
             // 
             // label1
             // 
@@ -218,6 +230,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -270,5 +283,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vn_valortotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn vn_formapagamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn vn_dtsaida;
+        private System.Windows.Forms.Button buttonListar;
     }
 }
