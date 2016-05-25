@@ -21,15 +21,15 @@ namespace SysOtica.Conexao
             try
             {
                 conn.AbrirConexao();
-                string sql = "INSERT INTO Venda (cl_id, rc_id, vn_valortotal, vn_desconto, vn_formapagamento, vn_dtsaida ) VALUES ( @cl_id, @rc_id, @vn_valortotal, @vn_desconto, @vn_formapagamento, @vn_dtsaida) SELECT SCOPE_IDENTITY()";
+                string sql = "INSERT INTO Venda (cl_id, vn_receita, vn_valortotal, vn_desconto, vn_formapagamento, vn_dtsaida ) VALUES ( @cl_id, @rc_id, @vn_valortotal, @vn_desconto, @vn_formapagamento, @vn_dtsaida) SELECT SCOPE_IDENTITY()";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, conn.cone);
 
                 cmd.Parameters.Add("@cl_id", SqlDbType.Int);
                 cmd.Parameters["@cl_id"].Value = v.Cliente.Cl_id;
 
-                cmd.Parameters.Add("@rc_id", SqlDbType.Int);
-                cmd.Parameters["@rc_id"].Value = v.Vn_receita;
+                cmd.Parameters.Add("@vn_receita", SqlDbType.Int);
+                cmd.Parameters["@vn_receita"].Value = v.Vn_receita;
 
                 cmd.Parameters.Add("@vn_valortotal", SqlDbType.Decimal);
                 cmd.Parameters["@vn_valortotal"].Value = v.Vn_valortotal;
@@ -45,10 +45,7 @@ namespace SysOtica.Conexao
 
 
                 Int32 vnId = Convert.ToInt32(cmd.ExecuteScalar());
-                //executando a instrucao 
-                //cmd.ExecuteNonQuery();
 
-                //int vnId = (int) cmd.ExecuteScalar();
 
 
 

@@ -197,7 +197,7 @@ namespace SysOticaForm
                 entVenda.Vn_valortotal = Convert.ToDecimal(textBoxValorPago.Text);
                 entVenda.Vn_formapagamento = comboBoxFP.Text;
                 entVenda.Vn_dtsaida = Convert.ToDateTime(dateTimePickerAtual.Text);
-              //  entVenda.Vn_Receita = Convert.ToInt32(txtIdReceita.Text);
+                entVenda.Vn_receita = Convert.ToInt32(txtIdReceita.Text);
                 entVenda.Cliente = cliente;
                 entVenda.Listaitens = listaDeItens.ToArray<ProdutoVenda>();
 

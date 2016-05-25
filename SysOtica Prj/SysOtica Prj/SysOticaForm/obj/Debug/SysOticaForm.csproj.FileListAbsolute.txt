@@ -555,3 +555,5 @@ C:\Users\karli\Desktop\PROJETO\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaF
 C:\Users\karli\Desktop\PROJETO\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.Properties.Resources.resources
 C:\Users\karli\Desktop\PROJETO\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.csproj.GenerateResource.Cache
 C:\Users\karli\Desktop\PROJETO\sysOticaFinal\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.exe
+C:\Users\daaysesantos\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOticaForm\bin\Debug\SysOticaForm.exe.config
+C:\Users\daaysesantos\Desktop\sysOticaFinalizando\SysOtica Prj\SysOtica Prj\SysOticaForm\obj\Debug\SysOticaForm.pdb
