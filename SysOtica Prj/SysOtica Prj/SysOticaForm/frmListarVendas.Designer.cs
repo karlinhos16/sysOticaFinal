@@ -206,13 +206,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(121, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 13);
+            this.label1.Size = new System.Drawing.Size(125, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Digite o número da Nota Fiscal:";
+            this.label1.Text = "Digite o nome do Cliente:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(394, 31);
+            this.button1.Location = new System.Drawing.Point(563, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -221,9 +221,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(282, 33);
+            this.textBox1.Location = new System.Drawing.Point(252, 32);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(94, 20);
+            this.textBox1.Size = new System.Drawing.Size(284, 20);
             this.textBox1.TabIndex = 0;
             // 
             // frmListarVendas

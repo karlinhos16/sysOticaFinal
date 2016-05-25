@@ -66,7 +66,14 @@ namespace WebServiceSysOtica
         {
             venda.inserir(v);
         }
-
+        public List<Venda> ListaVenda()
+        {
+            return venda.listaVenda();
+        }
+        public List<Venda> PuxaVenda(string cl_nome)
+        {
+            return venda.puxaVenda(cl_nome);
+        }
 
         #endregion
 

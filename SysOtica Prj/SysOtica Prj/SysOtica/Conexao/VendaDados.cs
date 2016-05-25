@@ -96,5 +96,95 @@ namespace SysOtica.Conexao
             }
         }
 
+
+        public List<Venda> listaVenda()
+        {
+            string sql = "SELECT c.cl_id,v.vn_id, v.vn_receita, v.vn_desconto, v.vn_formapagamento,v.vn_valortotal, v.vn_dtsaida FROM venda v INNER JOIN cliente c ON v.cl_id = c.cl_id";
+
+            List<Venda> lista = new List<Venda>();
+            Venda v;
+
+
+            try
+            {
+                conn.AbrirConexao();
+                SqlCommand cmd = new SqlCommand(sql, conn.cone);
+                SqlDataReader retorno = cmd.ExecuteReader();
+
+                while (retorno.Read())
+                {
+                     v = new Venda();
+
+
+
+                    v.Vn_id = retorno.GetInt32(retorno.GetOrdinal("vn_id"));
+                    v.Vn_receita = retorno.GetInt32(retorno.GetOrdinal("vn_receita"));
+                    v.Vn_desconto = retorno.GetDecimal(retorno.GetOrdinal("vn_desconto"));
+                    v.Vn_formapagamento = retorno.GetString(retorno.GetOrdinal("vn_formapagamento"));
+                    v.Vn_valortotal = retorno.GetDecimal(retorno.GetOrdinal("vn_valortotal"));
+                    v.Vn_dtsaida = retorno.GetDateTime(retorno.GetOrdinal("vn_dtsaida"));
+                
+
+
+                    lista.Add(v);
+                }
+                conn.FecharConexao();
+                return lista;
+
+            }
+            catch (SqlException e)
+            {
+                throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + e.Message);
+            }
+        }
+
+
+        public List<Venda> puxaVenda(string cl_nome)
+        {
+            string sql = "SELECT c.cl_id,v.vn_id, v.vn_receita, v.vn_desconto, v.vn_formapagamento,v.vn_valortotal, v.vn_dtsaida FROM venda v INNER JOIN cliente c ON v.cl_id = c.cl_id where cl_nome LIKE @cl_nome + '%'";
+
+
+            List<Venda> lista = new List<Venda>();
+
+            if (cl_nome != "")
+            {
+
+                try
+                {
+
+                    conn.AbrirConexao();
+                    SqlCommand cmd = new SqlCommand(sql, this.conn.cone);
+                    cmd.Parameters.Add("@cl_nome", SqlDbType.VarChar, 100).Value = cl_nome;
+
+                    SqlDataReader retorno = cmd.ExecuteReader();
+
+
+
+                    while (retorno.Read())
+                    {
+                        Venda v = new Venda();
+
+                        v.Vn_id = retorno.GetInt32(retorno.GetOrdinal("vn_id"));
+                        v.Vn_receita = retorno.GetInt32(retorno.GetOrdinal("vn_receita"));
+                        v.Vn_desconto = retorno.GetDecimal(retorno.GetOrdinal("vn_desconto"));
+                        v.Vn_formapagamento = retorno.GetString(retorno.GetOrdinal("vn_formapagamento"));
+                        v.Vn_valortotal = retorno.GetDecimal(retorno.GetOrdinal("vn_valortotal"));
+                        v.Vn_dtsaida = retorno.GetDateTime(retorno.GetOrdinal("vn_dtsaida"));
+
+                        lista.Add(v);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    throw new BancoDeDadosException("Falha na comunicação com o banco de dados. \n" + ex.Message);
+
+                }
+
+
+            }
+            conn.FecharConexao();
+            return lista;
+
+        }
     }
 }

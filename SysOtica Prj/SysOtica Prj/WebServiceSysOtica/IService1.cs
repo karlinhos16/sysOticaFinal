@@ -34,8 +34,11 @@ namespace WebServiceSysOtica
         [OperationContract]
         void inserir(Venda v);
 
+        [OperationContract]
+        List<Venda> ListaVenda();
 
-
+        [OperationContract]
+        List<Venda> PuxaVenda(string cl_nome);
         #endregion
 
         #region Cliente

@@ -10,7 +10,8 @@ namespace SysOtica.Conexao
     public interface IVendaDados
     {
         void inserir(Venda v);
-        //List<Venda> listarVenda();
+        List<Venda> listaVenda();
+        List<Venda> puxaVenda(string cl_nome);
 
     }
 }
